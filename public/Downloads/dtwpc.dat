@@ -1,0 +1,6 @@
+[SystemRecord]
+DirectList2=.163.com|.1688.com|.17ok.com|.alibaba.com|.alipay.com|.aliyun.com|.arxiv.org|.babytree.com|.baidu.com|.bdstatic.com|.bilibili.com|.cbc.ca|.cbsnews.com|.cnblogs.com|.cn|.csdn.net|.eastday.com|.fminutes.com|.gnu.org|.gooooal.com|.hao123.com|.hp.com|.huanqiu.com|.ibm.com|.ihg.com|.intel.com|.iqiyi.com|.jd.com|.live.com|.microsoft.com.edgesuite.net|.microsoft.com|.msn.com|.myspace.com|.nba.com|.netease.com|.nike.com|.nokia.com|.nyu.edu|.office.com|.office365.com|.opera.com|.panda.tv|.qq.com|.redhat.com|.renren.com|.samsung.com|.sciencemag.org|.sina.com|.so.com|.sogou.com|.sohu.com|.soso.com|.starbucks.com|.symantec.com|.taobao.com|.techtarget.com|.tmall.com|.tudou.com|.wallcoo.com|.weibo.com|.windowsupdate.com|.xinhuanet.com|.youku.com|.yy.com|.zhanqi.tv|.zhihu.com|
+ExceptList2=.google.cn|.googleadsserving.cn|.360.cn|
+WhiteList2=.ablwang.com|.aboluowang.com|.dajiyuan.com|.djyimg.com|.dongtaiwang.com|.dongtaiwang.net|.epochtimes.com|.falundafa.org|.fawanghuihui.org|.fgmtv.org|.gongyiluntan.org|.infogram.com|.jifo.co|.mhradio.org|.minghui.org|.ntdtv.com|.renminbao.com|.secretchina.com|.shenyun.com|.shenyunperformingarts.org|.soundofhope.org|.tiandixing.org|.wiki-tiandixing.org|.wujieliulan.com|.xinsheng.net|.youmaker.com|.mozilla.org|.mozilla.net|.google.com|.zhengjian.org|
+UseDPList=1
+SkipProxyCtrl=1
