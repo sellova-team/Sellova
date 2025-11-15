@@ -17,7 +17,7 @@ export default function IranPlansPage() {
     },
     {
       title: 'پلن ماهانه',
-      credits: '۳۰۰ کردیت',
+      credits: '۴۰۰ کردیت',
       price: '۸۹۰٬۰۰۰ تومان',
       description: '',
       route: '/payment/monthly',
@@ -25,7 +25,7 @@ export default function IranPlansPage() {
     },
     {
       title: 'VIP ماهانه',
-      credits: '۵۰۰ کردیت',
+      credits: '۰۰۵ کردیت',
       price: '۱٬۲۸۰٬۰۰۰ تومان',
       description: '',
       route: '/payment/vip-monthly',
