@@ -1,3 +1,4 @@
+import "./globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { LangProvider } from "../lib/lang";
@@ -17,9 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* فقط این خط برای زبان اضافه شده */}
         <LangProvider>
-          {children}
+          <div className="app-shell">
+            {children}
+          </div>
         </LangProvider>
       </body>
     </html>
