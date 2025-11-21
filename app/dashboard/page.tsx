@@ -64,11 +64,7 @@ const styles: { [k: string]: CSSProperties } = {
     placeItems: "center",
     overflow: "visible",
   },
-  icon: {
-    width: 42,
-    height: 42,
-    objectFit: "contain",
-  },
+  icon: { width: 42, height: 42, objectFit: "contain" },
   cardTitle: {
     color: "#0b1e3d",
     fontWeight: 700,
@@ -92,23 +88,17 @@ const styles: { [k: string]: CSSProperties } = {
   },
 };
 
-function Tile({
-  href,
-  title,
-  iconSrc,
-}: {
-  href: string;
-  title: string;
-  iconSrc: string;
-}) {
+function Tile({ href, title, iconSrc }: { href: string; title: string; iconSrc: string }) {
   return (
     <Link href={href} style={{ textDecoration: "none" }}>
-      <div style={styles.card}>
-        <div style={styles.cardInner}>
+      <div style={styles.card} className="dash-card">
+        <div style={styles.cardInner} className="dash-card-inner">
           <div style={styles.iconWrap}>
-            <img src={iconSrc} alt={title} style={styles.icon} />
+            <img src={iconSrc} alt={title} style={styles.icon} className="dash-icon" />
           </div>
-          <div style={styles.cardTitle}>{title}</div>
+          <div style={styles.cardTitle} className="dash-card-title">
+            {title}
+          </div>
         </div>
       </div>
     </Link>
@@ -128,19 +118,31 @@ export default function DashboardPage() {
     { href: "/generate-video", title: messages.dashboard.cards.generateVideo, iconSrc: ICONS.video },
     { href: "/avatar", title: messages.dashboard.cards.createAvatar, iconSrc: ICONS.avatar },
     { href: "/hashtags", title: messages.dashboard.cards.captionsHashtags, iconSrc: ICONS.captions },
-    { href: "/advisory-consultation", title: messages.dashboard.cards.advisoryAnalysis, iconSrc: ICONS.advisory },
+    {
+      href: "/advisory-consultation",
+      title: messages.dashboard.cards.advisoryAnalysis,
+      iconSrc: ICONS.advisory,
+    },
     { href: "/upgrade-plan", title: messages.dashboard.cards.upgradePlan, iconSrc: ICONS.upgrade },
     { href: "/settings", title: messages.dashboard.cards.settings, iconSrc: ICONS.settings },
-    { href: "/brand-overlay", title: messages.dashboard.cards.brandOverlay, iconSrc: ICONS.brandOverlay },
+    {
+      href: "/brand-overlay",
+      title: messages.dashboard.cards.brandOverlay,
+      iconSrc: ICONS.brandOverlay,
+    },
     { href: "/promo-slides", title: messages.dashboard.cards.promoSlides, iconSrc: ICONS.slides },
     { href: "/guide-center", title: messages.dashboard.cards.sellovaGuide, iconSrc: ICONS.guideCenter },
-    { href: "/academy-insight", title: messages.dashboard.cards.academyInsight, iconSrc: ICONS.academyInsight },
+    {
+      href: "/academy-insight",
+      title: messages.dashboard.cards.academyInsight,
+      iconSrc: ICONS.academyInsight,
+    },
   ];
 
   return (
     <main style={styles.page} dir={locale === "fa" ? "rtl" : "ltr"}>
-      {/* زبان */}
-      <div style={styles.langBar}>
+      {/* دکمه تغییر زبان */}
+      <div style={styles.langBar} className="lang-bar">
         <button style={styles.langButton} onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
         </button>
@@ -154,7 +156,7 @@ export default function DashboardPage() {
       {/* متن خوش‌آمدگویی */}
       <div style={styles.title}>{messages.dashboard.welcome}</div>
 
-      {/* گرید کارت‌ها */}
+      {/* شبکه کارت‌ها */}
       <section className="dash-grid">
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
@@ -162,27 +164,55 @@ export default function DashboardPage() {
       </section>
 
       <style jsx>{`
+        /* سه ستونه روی همهٔ سایزها */
         .dash-grid {
           display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 16px;
-          grid-template-columns: repeat(3, 1fr); /* دسکتاپ: مثل لپ‌تاپ */
           width: min(920px, 92vw);
-          transform: translateY(-10px);
         }
 
-        /* موبایل: دوتا دوتا کنار هم */
+        /* فقط ریز و جمع‌وجورتر برای موبایل، هنوز سه ستونه است */
         @media (max-width: 768px) {
           .dash-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            width: 96vw;
+            gap: 10px;
+          }
+
+          .dash-card {
+            padding: 8px;
+          }
+
+          .dash-card-inner {
+            grid-template-columns: 1fr; /* آیکون بالا، متن پایین؛ ولی هنوز سه ستون کارت داریم */
+            row-gap: 6px;
+            justify-items: center;
+            text-align: center;
+            min-height: 68px;
+          }
+
+          .dash-icon {
+            width: 30px;
+            height: 30px;
+          }
+
+          .dash-card-title {
+            font-size: 13px;
+            line-height: 1.3;
+          }
+
+          .lang-bar {
+            top: 16px;
+            right: 16px;
           }
         }
 
-        /* موبایل خیلی کوچک: اگر لازم شد تک ستون */
-        @media (max-width: 400px) {
+        @media (max-width: 480px) {
           .dash-grid {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
+            width: 100%;
+          }
+
+          .dash-card-inner {
+            min-height: 60px;
           }
         }
       `}</style>
