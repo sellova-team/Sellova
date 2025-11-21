@@ -11,6 +11,7 @@ export default function SellovaGuidePage() {
   const n = slides.length;
   const next = () => setIdx((i) => (i + 1) % n);
   const prev = () => setIdx((i) => (i - 1 + n) % n);
+
   const slide = slides[idx];
 
   return (
@@ -52,6 +53,7 @@ export default function SellovaGuidePage() {
           padding: 40px 16px 80px;
           text-align: center;
         }
+
         .hdr {
           text-align: center;
           margin-bottom: 20px;
@@ -62,12 +64,13 @@ export default function SellovaGuidePage() {
           filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
         }
         .slogan {
-          font-size: 14px;
+          font-size: 18px;
           margin-top: 8px;
           color: #dbe7ff;
           opacity: 0.9;
           font-weight: 600;
         }
+
         .slide {
           max-width: 720px;
           background: rgba(255, 255, 255, 0.08);
@@ -76,11 +79,11 @@ export default function SellovaGuidePage() {
           box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
           border: 1px solid rgba(255, 255, 255, 0.15);
         }
+
         .title {
-          font-size: 26px;
+          font-size: 28px;
           font-weight: 800;
           margin-bottom: 8px;
-          color: #fff;
         }
         .subtitle {
           font-size: 18px;
@@ -91,9 +94,9 @@ export default function SellovaGuidePage() {
         .text {
           font-size: 16px;
           line-height: 1.7;
-          color: #eaf0ff;
           margin-bottom: 24px;
         }
+
         .controls {
           display: flex;
           justify-content: center;
@@ -110,17 +113,60 @@ export default function SellovaGuidePage() {
           cursor: pointer;
           transition: all 0.15s ease;
         }
-        .btn:hover {
-          transform: scale(1.05);
-          background: #eaf0ff;
-        }
         .btn.primary {
           background: #1483ff;
           color: #fff;
         }
         .count {
           font-size: 13px;
-          color: #d0d8ff;
+          opacity: .9;
+        }
+
+        /* ---------------------
+           📱 موبایل کوچک‌تر
+        --------------------- */
+        @media (max-width: 600px) {
+          .logo {
+            width: 150px;
+          }
+
+          .slogan {
+            font-size: 11px;
+          }
+
+          .slide {
+            padding: 22px 16px;
+            border-radius: 14px;
+          }
+
+          .title {
+            font-size: 20px;
+          }
+
+          .subtitle {
+            font-size: 15px;
+            margin-bottom: 14px;
+          }
+
+          .text {
+            font-size: 13px;
+            line-height: 1.55;
+            margin-bottom: 20px;
+          }
+
+          .btn {
+            padding: 8px 14px;
+            font-size: 13px;
+            border-radius: 8px;
+          }
+
+          .controls {
+            gap: 12px;
+          }
+
+          .count {
+            font-size: 11px;
+          }
         }
       `}</style>
     </main>

@@ -162,7 +162,7 @@ function applyCultureGrading(
 /* =========================================
    Component
 ========================================= */
-export default function AvatarPage(): JSX.Element {
+export default function AvatarPage() {
   // ---------- STATE ----------
   const [selectedCategory, setSelectedCategory] = useState<Category>("women");
   const [faces, setFaces] = useState<string[]>([]);
@@ -550,6 +550,80 @@ export default function AvatarPage(): JSX.Element {
         .small-muted { font-size:13px; color: var(--muted); }
         select, input[type="number"], input[type="file"], textarea { padding:8px 10px; border-radius:10px; border:1px solid var(--line); background:#fff; }
         @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .aside { order: -1; margin-bottom: 12px; } .preview-box { height:300px; } }
+      @media (max-width: 640px) {
+      .page-root {
+        margin: 12px auto 16px;
+        padding: 8px 10px;
+      }
+
+      .header {
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .logo {
+        height: 80px; /* لوگو خیلی کوچک‌تر می‌شود */
+      }
+
+      h1.title {
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .small-muted {
+        font-size: 11px;
+      }
+
+      .panel {
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .aside {
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .preview-box {
+        height: 230px; /* باکس پیش‌نمایش کوچک‌تر */
+      }
+
+      .faces-grid {
+        grid-template-columns: repeat(3, 1fr); /* آواتارها ریزتر و جمع‌تر */
+        gap: 6px;
+        max-height: 260px;
+      }
+
+      .face-img {
+        height: 70px;
+      }
+
+      .btn,
+      .btn-primary {
+        padding: 7px 10px;
+        font-size: 13px;
+        border-radius: 8px;
+      }
+
+      select,
+      input[type="number"],
+      input[type="file"],
+      textarea {
+        padding: 6px 8px;
+        font-size: 13px;
+        border-radius: 8px;
+      }
+
+      .output-card {
+        width: calc(50% - 8px); /* دو کارت در یک ردیف روی موبایل */
+        padding: 6px;
+      }
+
+      .output-img {
+        height: 110px;
+      }
+    }
+
       `}</style>
 
       <header className="header">

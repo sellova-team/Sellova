@@ -89,7 +89,7 @@ export default function HashtagsPage() {
 
         .title {
           color: white;
-          font-size: 22px;
+          font-size: 26px;
           margin-bottom: 30px;
           text-align: center;
         }
@@ -121,7 +121,7 @@ export default function HashtagsPage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 16px;
+          font-size: 18px;
           color: #666;
         }
 
@@ -141,7 +141,7 @@ export default function HashtagsPage() {
         }
 
         .label {
-          font-size: 16px;
+          font-size: 18px;
           font-weight: 500;
         }
 
@@ -149,7 +149,7 @@ export default function HashtagsPage() {
           border: 1px solid #ccc;
           border-radius: 6px;
           padding: 8px;
-          font-size: 14px;
+          font-size: 16px;
           width: 100%;
           box-sizing: border-box;
         }
@@ -163,15 +163,15 @@ export default function HashtagsPage() {
           border: 1px solid #ccc;
           border-radius: 6px;
           padding: 10px;
-          font-size: 14px;
-          min-height: 160px; /* بزرگ‌تر از قبل */
+          font-size: 16px;
+          min-height: 160px;
           resize: vertical;
         }
 
         .box {
           border: 1px dashed #bbb;
           padding: 10px;
-          font-size: 13px;
+          font-size: 14px;
           color: #666;
           min-height: 40px;
         }
@@ -183,7 +183,7 @@ export default function HashtagsPage() {
           padding: 8px 12px;
           border: none;
           border-radius: 6px;
-          font-size: 14px;
+          font-size: 16px;
           cursor: pointer;
         }
 
@@ -193,19 +193,61 @@ export default function HashtagsPage() {
           font-weight: bold;
         }
 
+        /* ===== فقط موبایل ===== */
         @media (max-width: 768px) {
+          .page {
+            padding: 16px 12px 24px;
+          }
+
+          .logo {
+            margin-bottom: 4px;
+            transform: scale(0.8); /* لوگو کمی کوچک‌تر */
+          }
+
           .title {
             font-size: 18px;
+            margin-bottom: 18px;
           }
 
           .container {
             flex-direction: column;
             align-items: center;
+            gap: 12px;
           }
 
           .card {
             width: 100%;
             max-width: 95%;
+            padding: 14px;
+            border-radius: 10px;
+            gap: 10px;
+          }
+
+          .preview {
+            height: 90px;
+            font-size: 14px;
+          }
+
+          .label {
+            font-size: 14px;
+          }
+
+          .input {
+            font-size: 13px;
+            padding: 7px 8px;
+          }
+
+          .textarea {
+            font-size: 13px;
+            min-height: 120px;
+            padding: 8px 9px;
+          }
+
+          .btnUpload,
+          .btn,
+          .btnPrimary {
+            font-size: 13px;
+            padding: 8px 10px;
           }
         }
       `}</style>

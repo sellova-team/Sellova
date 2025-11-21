@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 import { useLang } from "../../lib/lang";
 
 export default function BrandOverlayPage() {
@@ -15,11 +15,11 @@ export default function BrandOverlayPage() {
   const [opacity, setOpacity] = useState(90);
   const [padding, setPadding] = useState(10);
 
-  // --- NEW: سازنده و دانلود خروجی ---
+  // --- سازنده و دانلود خروجی ---
   const downloadComposed = async () => {
     const load = (src: string) =>
       new Promise<HTMLImageElement>((res, rej) => {
-        const img = new Image();
+        const img = document.createElement("img");
         img.crossOrigin = "anonymous";
         img.src = src;
         img.onload = () => res(img);
@@ -43,12 +43,14 @@ export default function BrandOverlayPage() {
       if (lg) {
         const w = Math.max(1, Math.round((size / 100) * cw));
         const h = Math.round(
-          (lg.naturalHeight || lg.height) * (w / (lg.naturalWidth || lg.width))
+          (lg.naturalHeight || lg.height) *
+            (w / (lg.naturalWidth || lg.width))
         );
 
         const pad = Math.max(0, padding);
         let x = pad;
         let y = pad;
+
         if (position === "top-right") {
           x = cw - w - pad;
           y = pad;
@@ -81,15 +83,22 @@ export default function BrandOverlayPage() {
         setTimeout(() => URL.revokeObjectURL(url), 1000);
       }, "image/png");
     } catch {
-      alert(t.downloadError || "Download failed. Please try again.");
+      alert("Download failed. Please try again.");
     }
   };
-  // --- END NEW ---
+  // --- END ---
 
   return (
     <main className="pg">
       <header className="hdr">
-        <Image src="/logo.png" alt="Sellova" width={300} height={150} />
+        <NextImage
+          src="/logo.png"
+          alt="Sellova"
+          width={300}
+          height={150}
+          className="logo"
+          priority
+        />
       </header>
 
       <h1 className="title">{t.title}</h1>
@@ -173,8 +182,11 @@ export default function BrandOverlayPage() {
             />
           </div>
 
-          {/* وصل به دانلود */}
-          <button className="btn btnPrimary btnBlock" onClick={downloadComposed}>
+          {/* دکمه دانلود */}
+          <button
+            className="btn btnPrimary btnBlock"
+            onClick={downloadComposed}
+          >
             {t.downloadButton}
           </button>
         </article>
@@ -183,7 +195,7 @@ export default function BrandOverlayPage() {
         <aside className="card previewCard">
           <div className="previewFrame">
             {/* محصول */}
-            <Image
+            <NextImage
               src={productSrc}
               width={350}
               height={350}
@@ -193,7 +205,7 @@ export default function BrandOverlayPage() {
 
             {/* لوگو روی محصول */}
             {logo && (
-              <Image
+              <NextImage
                 src={logo}
                 alt={t.logoAlt}
                 width={500}
@@ -209,7 +221,7 @@ export default function BrandOverlayPage() {
             )}
           </div>
 
-          {/* --- NEW: دکمه‌ی دانلود دوم زیر پیش‌نمایش --- */}
+          {/* دکمه‌ی دانلود دوم زیر پیش‌نمایش */}
           <button
             className="btn btnPrimary btnBlock"
             onClick={downloadComposed}
@@ -233,11 +245,16 @@ export default function BrandOverlayPage() {
         .hdr {
           margin-bottom: 5px;
         }
+        .logo {
+          width: 300px;
+          height: auto;
+        }
         .title {
           color: #fff;
           margin: 30px 0;
           font-size: 28px;
           font-weight: 700;
+          text-align: center;
         }
         .grid {
           width: 100%;
@@ -275,6 +292,7 @@ export default function BrandOverlayPage() {
           color: #fff;
           border: 1px solid #0b57d0;
           font-weight: 700;
+          cursor: pointer;
         }
         .btnBlock {
           width: 100%;
@@ -295,13 +313,38 @@ export default function BrandOverlayPage() {
         }
         .previewProduct {
           width: 70%;
+          height: auto;
         }
         .brandLogo {
           pointer-events: none;
         }
+
+        /* فقط موبایل – استایل دسکتاپ دست نمی‌خوره */
         @media (max-width: 900px) {
+          .pg {
+            padding: 12px 0 24px;
+          }
+          .logo {
+            width: 190px;
+          }
+          .title {
+            font-size: 22px;
+            margin: 18px 0 16px;
+          }
           .grid {
             grid-template-columns: 1fr;
+            gap: 18px;
+            padding: 0 10px;
+          }
+          .card {
+            max-width: 95%;
+            margin: 0 auto;
+          }
+          .previewFrame {
+            min-height: 300px;
+          }
+          .previewProduct {
+            width: 82%;
           }
         }
       `}</style>

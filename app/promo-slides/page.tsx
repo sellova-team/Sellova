@@ -83,7 +83,7 @@ export default function PromoSlidesPage() {
       </header>
 
       <section className="grid">
-        {/* ============ LEFT: FORM (bigger than image card) ============ */}
+        {/* ============ LEFT: FORM ============ */}
         <aside className="panel form">
           <h2 className="h">{t.projectInputs}</h2>
 
@@ -168,14 +168,13 @@ export default function PromoSlidesPage() {
           </div>
         </aside>
 
-        {/* ============ RIGHT: PREVIEW (image with tight frame) ============ */}
+        {/* ============ RIGHT: PREVIEW ============ */}
         <article className="panel preview">
           <div
             className="viewer"
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
-            {/* قاب دقیق دور تصویر: padding باریک + border ظریف */}
             <div className="frame" style={{ aspectRatio: aspect }}>
               <img
                 src={SLIDES[idx]}
@@ -203,7 +202,7 @@ export default function PromoSlidesPage() {
       </section>
 
       <style jsx>{`
-        /* ===== Base ===== */
+        /* ===== Base (دسکتاپ همون می‌مونه) ===== */
         .page {
           min-height: 100vh;
           background:
@@ -216,8 +215,14 @@ export default function PromoSlidesPage() {
           color: #fff;
           font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
         }
-        .top { margin: 6px 0 16px; }
-        .logo { width: 210px; height: auto; display: block; }
+        .top {
+          margin: 6px 0 16px;
+        }
+        .logo {
+          width: 210px;
+          height: auto;
+          display: block;
+        }
 
         .grid {
           width: min(98vw, 1280px);
@@ -225,40 +230,83 @@ export default function PromoSlidesPage() {
           grid-template-columns: 520px 1fr; /* فرم بزرگ‌تر از عکس */
           gap: 22px;
         }
-        @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+        @media (min-width: 1100px) {
+          .grid {
+            align-items: flex-start;
+          }
+        }
+        @media (max-width: 1100px) {
+          .grid {
+            grid-template-columns: 1fr;
+          }
+        }
 
         .panel {
           background: linear-gradient(180deg, #0f1534, #0b1226 60%);
-          border: 1px solid rgba(255,255,255,.14);
+          border: 1px solid rgba(255, 255, 255, 0.14);
           border-radius: 18px;
-          box-shadow: 0 18px 48px rgba(0,0,0,.35);
+          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
           padding: 18px;
         }
 
         /* ===== Form ===== */
-        .form .h { margin: 0 0 12px; font-weight: 800; font-size: 22px; }
-        .label { display: block; margin: 12px 2px 6px; font-size: 16px; opacity: .95; }
+        .form .h {
+          margin: 0 0 12px;
+          font-weight: 800;
+          font-size: 22px;
+        }
+        .label {
+          display: block;
+          margin: 12px 2px 6px;
+          font-size: 16px;
+          opacity: 0.95;
+        }
         .input {
           width: 100%;
           border-radius: 12px;
-          border: 1px solid rgba(0,0,0,.18);
+          border: 1px solid rgba(0, 0, 0, 0.18);
           padding: 12px 14px;
           font-size: 16px;
           outline: none;
         }
-        .white { background: #ffffff; color: #111; }
-        .big { font-size: 16px; }
+        .white {
+          background: #ffffff;
+          color: #111;
+        }
+        .big {
+          font-size: 16px;
+        }
         .input:focus {
           border-color: #1483ff;
-          box-shadow: 0 0 0 3px rgba(20,131,255,.22);
+          box-shadow: 0 0 0 3px rgba(20, 131, 255, 0.22);
         }
-        .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        @media (max-width: 560px) { .cols2 { grid-template-columns: 1fr; } }
-        .hint { margin-top: 12px; font-size: 13px; opacity: .9; }
-        .row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+        .cols2 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        @media (max-width: 560px) {
+          .cols2 {
+            grid-template-columns: 1fr;
+          }
+        }
+        .hint {
+          margin-top: 12px;
+          font-size: 13px;
+          opacity: 0.9;
+        }
+        .row {
+          display: flex;
+          gap: 10px;
+          margin-top: 14px;
+          flex-wrap: wrap;
+        }
 
         /* ===== Preview ===== */
-        .preview { display: grid; place-items: center; }
+        .preview {
+          display: grid;
+          place-items: center;
+        }
         .viewer {
           width: min(96%, 920px);
           display: grid;
@@ -269,9 +317,9 @@ export default function PromoSlidesPage() {
         .frame {
           display: inline-block;
           padding: 14px;
-          border: 2px solid rgba(255,255,255,.35);
+          border: 2px solid rgba(255, 255, 255, 0.35);
           border-radius: 16px;
-          background: rgba(0,0,0,.20);
+          background: rgba(0, 0, 0, 0.2);
           max-width: 420px;
           max-height: 78vh;
           aspect-ratio: auto;
@@ -304,10 +352,73 @@ export default function PromoSlidesPage() {
           border: 1px solid transparent;
           font-size: 15px;
         }
-        .primary { background: #1483ff; color: #fff; border-color: #0b57d0; }
-        .ghost { background: #ffffff; color: #0b57d0; border-color: #0b57d0; }
+        .primary {
+          background: #1483ff;
+          color: #fff;
+          border-color: #0b57d0;
+        }
+        .ghost {
+          background: #ffffff;
+          color: #0b57d0;
+          border-color: #0b57d0;
+        }
 
-        .counter { font-size: 13px; opacity: .9; }
+        .counter {
+          font-size: 13px;
+          opacity: 0.9;
+        }
+
+        /* ===== فقط برای موبایل: کوچیک و مرتب کردن ===== */
+        @media (max-width: 768px) {
+          .page {
+            padding: 12px 10px 28px;
+          }
+          .logo {
+            width: 170px;
+          }
+          .grid {
+            gap: 16px;
+          }
+          .panel {
+            padding: 14px 12px;
+            border-radius: 14px;
+          }
+          .form .h {
+            font-size: 18px;
+          }
+          .label {
+            margin: 8px 1px 4px;
+            font-size: 14px;
+          }
+          .input {
+            padding: 9px 10px;
+            font-size: 14px;
+            border-radius: 10px;
+          }
+          .hint {
+            font-size: 12px;
+          }
+          .btn {
+            height: 40px;
+            padding: 0 14px;
+            font-size: 14px;
+          }
+          .viewer {
+            width: 100%;
+            gap: 12px;
+          }
+          .frame {
+            max-width: 320px;
+            padding: 10px;
+            border-radius: 12px;
+          }
+          .controls {
+            max-width: 320px;
+          }
+          .counter {
+            font-size: 12px;
+          }
+        }
       `}</style>
     </main>
   );

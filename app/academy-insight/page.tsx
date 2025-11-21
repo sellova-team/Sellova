@@ -42,7 +42,10 @@ export default function AcademyInsightPage() {
   const count = slides.length;
 
   const next = useCallback(() => setIdx((i) => (i + 1) % count), [count]);
-  const prev = useCallback(() => setIdx((i) => (i - 1 + count) % count), [count]);
+  const prev = useCallback(
+    () => setIdx((i) => (i - 1 + count) % count),
+    [count]
+  );
   const cur = slides[idx];
 
   useKeyArrows(next, prev);
@@ -50,7 +53,13 @@ export default function AcademyInsightPage() {
   return (
     <main className="pg">
       <header className="hdr">
-        <img src={LOGO_SRC} alt="Sellova" width={300} height={150} className="logo" />
+        <img
+          src={LOGO_SRC}
+          alt="Sellova"
+          width={300}
+          height={150}
+          className="logo"
+        />
       </header>
 
       <h1 className="title">{t.title}</h1>
@@ -112,7 +121,8 @@ export default function AcademyInsightPage() {
           flex-direction: column;
           align-items: center;
           gap: 8px;
-          font-family: Inter, ui-sans-serif, system-ui, -apple-system, Roboto, Arial;
+          font-family: Inter, ui-sans-serif, system-ui, -apple-system, Roboto,
+            Arial;
         }
         .hdr {
           margin: 8px 0;
@@ -252,6 +262,63 @@ export default function AcademyInsightPage() {
           font-size: 12px;
           color: #333;
           text-align: center;
+        }
+
+        /* ---------- 📱 نسخه موبایل: همه چیز کوچیک‌تر و مرتب ---------- */
+        @media (max-width: 640px) {
+          .pg {
+            padding: 20px 10px 32px;
+          }
+          .logo {
+            width: 170px;
+          }
+          .title {
+            font-size: 20px;
+          }
+          .grid {
+            width: 100%;
+            transform: translateY(0);
+          }
+          .card {
+            padding: 14px 12px;
+            border-radius: 12px;
+          }
+          .chip {
+            font-size: 11px;
+            padding: 4px 8px;
+          }
+          .h {
+            font-size: 16px;
+          }
+          .content p {
+            font-size: 13px;
+            line-height: 1.55;
+          }
+          .content ul {
+            margin-left: 16px;
+          }
+          .content li {
+            font-size: 13px;
+          }
+          .tipsTitle {
+            font-size: 12px;
+          }
+          .btn {
+            height: 38px;
+            padding: 0 10px;
+            font-size: 13px;
+            border-radius: 10px;
+          }
+          .navRow {
+            gap: 8px;
+          }
+          .dot {
+            width: 8px;
+            height: 8px;
+          }
+          .meta {
+            font-size: 11px;
+          }
         }
       `}</style>
     </main>
@@ -638,7 +705,8 @@ function slidesFA(): Slide[] {
             </li>
             <li>
               <b>غذا:</b> نور گرم، رنگ‌های تازه، عمق میدان کم، ظرف و پس‌زمینهٔ تمیز؛ متن زیاد
-              روی عکس نگذار.</li>
+              روی عکس نگذار.
+            </li>
           </ul>
         </>
       ),

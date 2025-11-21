@@ -141,7 +141,7 @@ export default function GenerateVideoPage() {
         <Image
           src="/logo.png"
           alt="Sellova"
-          width={400}
+          width={300}
           height={200}
           priority
           className="logo"
@@ -665,7 +665,89 @@ export default function GenerateVideoPage() {
           direction: rtl;
           grid-template-columns: 1fr auto;
         }
-      `}</style>
+    @media (max-width: 640px) {
+          .pg {
+            padding: 10px 8px 20px;
+          }
+
+          .logo {
+            max-width: 180px; /* لوگو کوچیک‌تر */
+            height: auto;
+          }
+
+          .title {
+            font-size: 22px; /* تیتر ریزتر */
+            margin: 12px 0 24px;
+          }
+
+          .grid {
+            max-width: 100%;
+            gap: 12px;
+            transform: translateY(-6px);
+          }
+
+          .card {
+            padding: 10px; /* کارت‌ها جمع‌وجورتر */
+            border-radius: 10px;
+          }
+
+          .uploadBox {
+            padding: 12px 10px 10px;
+          }
+
+          .field {
+            margin-top: 10px;
+          }
+
+          .label {
+            font-size: 12px;
+            margin-bottom: 4px;
+          }
+
+          .select {
+            height: 36px;
+            font-size: 12px;
+            padding: 0 10px;
+          }
+
+          .segItem {
+            padding: 4px 8px;
+            font-size: 12px;
+          }
+
+          .textarea {
+            min-height: 80px;
+            font-size: 13px;
+          }
+
+          .btn {
+            height: 36px;
+            font-size: 12px;
+            padding: 0 10px;
+          }
+
+          .previewFrame {
+            min-height: 260px;
+            padding: 8px;
+          }
+
+          .previewImg {
+            width: 100%;
+            max-width: 260px; /* پیش‌نمایش کوچیک‌تر تو گوشی */
+          }
+
+          .previewCaption {
+            font-size: 12px;
+          }
+
+          .metaRow {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            font-size: 12px;
+          }
+        }
+    `}</style>
     </main>
   );
 }

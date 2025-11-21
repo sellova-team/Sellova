@@ -13,7 +13,7 @@ export default function IranPlansPage() {
       price: 'رایگان',
       description: 'تست برای شروع شامل فیلم نمی‌شود',
       route: '/payment/free',
-      color: '#6c757d'
+      color: '#6c757d',
     },
     {
       title: 'پلن ماهانه',
@@ -21,7 +21,7 @@ export default function IranPlansPage() {
       price: '۸۹۰٬۰۰۰ تومان',
       description: '',
       route: '/payment/monthly',
-      color: '#4a90e2'
+      color: '#4a90e2',
     },
     {
       title: 'VIP ماهانه',
@@ -29,7 +29,7 @@ export default function IranPlansPage() {
       price: '۱٬۲۸۰٬۰۰۰ تومان',
       description: '',
       route: '/payment/vip-monthly',
-      color: '#e74c3c'
+      color: '#e74c3c',
     },
     {
       title: 'پلن سالانه',
@@ -37,7 +37,7 @@ export default function IranPlansPage() {
       price: '۵٬۸۰۰٬۰۰۰ تومان',
       description: 'تخفیف ۴۰٪ به مدت محدود',
       route: '/payment/yearly',
-      color: '#27ae60'
+      color: '#27ae60',
     },
   ];
 
@@ -46,64 +46,91 @@ export default function IranPlansPage() {
     credits: '۲۰ کردیت',
     price: '۱۵۰٬۰۰۰ تومان',
     route: '/payment/flexible',
-    color: '#f39c12' // زرد
+    color: '#f39c12', // زرد
   };
 
-  const handleSelect = (route) => {
+  const handleSelect = (route: string) => {
     router.push(route);
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #0a1a2f, #00172f)',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '40px 20px'
-    }}>
+    <div
+      style={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #0a1a2f, #00172f)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '40px 20px',
+      }}
+    >
       {/* لوگو */}
       <div style={{ marginBottom: '50px' }}>
         <Image src="/logo.png" alt="Sellova Logo" width={300} height={190} />
       </div>
 
       {/* کارت‌های اصلی */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-        gap: '30px',
-        width: '100%',
-        maxWidth: '1400px'
-      }}>
+      <div className="plans-grid">
         {plans.map((plan, idx) => (
-          <div key={idx} style={{
-            backgroundColor: plan.color,
-            color: '#fff',
-            borderRadius: '20px',
-            padding: '35px 25px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '320px',
-            boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
-            transition: 'transform 0.3s, box-shadow 0.3s',
-            cursor: 'pointer',
-            textAlign: 'center'
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'translateY(-10px)';
-            e.currentTarget.style.boxShadow = '0 25px 60px rgba(0,0,0,0.6)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 15px 50px rgba(0,0,0,0.5)';
-          }}
+          <div
+            key={idx}
+            className="plan-card"
+            style={{
+              backgroundColor: plan.color,
+              color: '#fff',
+              borderRadius: '20px',
+              padding: '35px 25px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: '320px',
+              boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              cursor: 'pointer',
+              textAlign: 'center',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-10px)';
+              e.currentTarget.style.boxShadow = '0 25px 60px rgba(0,0,0,0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 15px 50px rgba(0,0,0,0.5)';
+            }}
           >
-            <h3 style={{ fontSize: '26px', fontWeight: '700', marginBottom: '15px' }}>{plan.title}</h3>
-            <p style={{ fontSize: '20px', marginBottom: '10px' }}>{plan.credits}</p>
-            <p style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '15px' }}>{plan.price}</p>
-            {plan.description && <p style={{ fontSize: '16px', color: '#f0f0f0', marginBottom: '15px' }}>{plan.description}</p>}
+            <h3
+              style={{
+                fontSize: '26px',
+                fontWeight: '700',
+                marginBottom: '15px',
+              }}
+            >
+              {plan.title}
+            </h3>
+            <p style={{ fontSize: '20px', marginBottom: '10px' }}>
+              {plan.credits}
+            </p>
+            <p
+              style={{
+                fontSize: '22px',
+                fontWeight: 'bold',
+                marginBottom: '15px',
+              }}
+            >
+              {plan.price}
+            </p>
+            {plan.description && (
+              <p
+                style={{
+                  fontSize: '16px',
+                  color: '#f0f0f0',
+                  marginBottom: '15px',
+                }}
+              >
+                {plan.description}
+              </p>
+            )}
 
             <button
               onClick={() => handleSelect(plan.route)}
@@ -117,12 +144,12 @@ export default function IranPlansPage() {
                 fontSize: '18px',
                 fontWeight: '600',
                 width: '60%',
-                transition: 'all 0.3s'
+                transition: 'all 0.3s',
               }}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#f0f0f0';
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = '#fff';
               }}
             >
@@ -133,36 +160,58 @@ export default function IranPlansPage() {
       </div>
 
       {/* کارت کردیت آزاد افقی کوچک و وسط‌چین */}
-      <div style={{
-        backgroundColor: freeCreditPlan.color,
-        color: '#fff',
-        borderRadius: '20px',
-        padding: '12px 20px',
-        display: 'flex',
-        justifyContent: 'center', // متن و دکمه وسط کارت
-        alignItems: 'center', // وسط عمودی
-        width: '25%',
-        minHeight: '60px',
-        marginTop: '40px',
-        boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
-        cursor: 'pointer',
-        transition: 'transform 0.3s, box-shadow 0.3s',
-        textAlign: 'center'
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.transform = 'translateY(-3px)';
-        e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.5)';
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.4)';
-      }}
+      <div
+        className="free-credit"
+        style={{
+          backgroundColor: freeCreditPlan.color,
+          color: '#fff',
+          borderRadius: '20px',
+          padding: '12px 20px',
+          display: 'flex',
+          justifyContent: 'center', // متن و دکمه وسط کارت
+          alignItems: 'center', // وسط عمودی
+          width: '25%', // دسکتاپ: مثل قبل
+          minHeight: '60px',
+          marginTop: '40px',
+          boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
+          cursor: 'pointer',
+          transition: 'transform 0.3s, box-shadow 0.3s',
+          textAlign: 'center',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-3px)';
+          e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.5)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.4)';
+        }}
       >
         {/* متن‌ها */}
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginRight: '15px' }}>
-          <p style={{ fontSize: '25px', fontWeight: '700', margin: '1px 0' }}>کردیت آزاد</p>
-          <p style={{ fontSize: '20px', margin: '1px 0' }}>۲۰ کردیت</p>
-          <p style={{ fontSize: '20px', margin: '1px 0' }}>۱۵۰٬۰۰۰ تومان</p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginRight: '15px',
+          }}
+        >
+          <p
+            style={{
+              fontSize: '25px',
+              fontWeight: '700',
+              margin: '1px 0',
+            }}
+          >
+            {freeCreditPlan.title}
+          </p>
+          <p style={{ fontSize: '20px', margin: '1px 0' }}>
+            {freeCreditPlan.credits}
+          </p>
+          <p style={{ fontSize: '20px', margin: '1px 0' }}>
+            {freeCreditPlan.price}
+          </p>
         </div>
 
         {/* دکمه */}
@@ -176,18 +225,64 @@ export default function IranPlansPage() {
             color: '#f39c12',
             fontSize: '20px',
             fontWeight: '700',
-            transition: 'all 0.3s'
+            transition: 'all 0.3s',
           }}
-          onMouseEnter={e => {
+          onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = '#f0f0f0';
           }}
-          onMouseLeave={e => {
+          onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = '#fff';
           }}
         >
           انتخاب
         </button>
       </div>
+
+      {/* استایل‌های ریسپانسیو فقط برای موبایل/تبلت */}
+      <style jsx>{`
+        /* دسکتاپ: مثل قبل */
+        .plans-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 30px;
+          width: 100%;
+          max-width: 1400px;
+        }
+
+        /* موبایل و تبلت */
+        @media (max-width: 768px) {
+          .plans-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+          }
+
+          .plan-card {
+            transform: scale(0.95);
+            transform-origin: top center;
+          }
+
+          .free-credit {
+            width: 90%;
+            margin-top: 24px;
+          }
+        }
+
+        /* موبایل خیلی کوچک */
+        @media (max-width: 480px) {
+          .plans-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+          }
+
+          .plan-card {
+            transform: scale(0.9);
+          }
+
+          .free-credit {
+            width: 95%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -138,7 +138,7 @@ function applyStyleGrading(
 }
 
 /* ===== Component ===== */
-export default function ProductStudio(): JSX.Element {
+export default function ProductStudio() {
   const { locale, messages } = useLang();
 
   const [platform, setPlatform] = useState<Platform>("instagram");
@@ -331,7 +331,7 @@ export default function ProductStudio(): JSX.Element {
           display:flex;
           flex-direction:column;
           align-items:center;
-          font-size:14px;
+          font-size:16px;
         }
         .top{
           display:flex;
@@ -379,11 +379,11 @@ export default function ProductStudio(): JSX.Element {
           padding:14px 14px 10px;
           color:var(--ink);
           overflow:auto;
-          font-size:14px;
+          font-size:16px;
         }
         .label{
           display:block;
-          font-size:15px;
+          font-size:18px;
           font-weight:800;
           margin-bottom:6px;
           color:#111827;
@@ -396,7 +396,7 @@ export default function ProductStudio(): JSX.Element {
           background:#fff;
           color:#111827;
           outline:none;
-          font-size:13px;
+          font-size:15px;
         }
         .control + .label{
           margin-top:9px;
@@ -416,7 +416,7 @@ export default function ProductStudio(): JSX.Element {
           color:#111827;
           cursor:pointer;
           font-weight:800;
-          font-size:11px;
+          font-size:16px;
         }
         .btnRow{
           display:flex;
@@ -429,9 +429,9 @@ export default function ProductStudio(): JSX.Element {
           border:none;
           border-radius:11px;
           cursor:pointer;
-          font-weight:800;
+          font-weight:5s00;
           letter-spacing:.2px;
-          font-size:13px;
+          font-size:16px;
         }
         .btnPrimary{
           background:var(--brand);
@@ -495,6 +495,65 @@ export default function ProductStudio(): JSX.Element {
           }
           .rightBox{
             min-height:360px;
+          }
+        }
+
+        /* 🟢 موبایل: همه‌چیز ریزتر و جمع‌وجورتر */
+        @media (max-width:640px){
+          .wrap{
+            padding: 10px 8px 18px;
+            font-size:13px;
+          }
+          .top{
+            gap:4px;
+            margin-bottom:6px;
+          }
+          .logo{
+            width:140px; /* لوگو کوچک‌تر */
+          }
+          .title{
+            font-size:22px; /* تیتر کوچک‌تر */
+          }
+          .grid{
+            width:100vw;
+            gap:10px;
+          }
+          .card{
+            border-radius:12px;
+            box-shadow:0 10px 30px rgba(3,8,20,.26);
+          }
+          .leftPanel{
+            padding:10px 10px 8px;
+            font-size:13px;
+          }
+          .label{
+            font-size:13px;
+            margin-bottom:4px;
+          }
+          .control{
+            padding:7px 9px;
+            font-size:12px;
+            border-radius:8px;
+          }
+          .btn{
+            padding:8px 11px;
+            font-size:12px;
+            border-radius:9px;
+          }
+          .hint{
+            font-size:10px;
+          }
+          .rightBox{
+            padding:8px;
+            min-height:260px;
+          }
+          .luxOuter{
+            padding:6px;
+            border-radius:14px;
+          }
+          .luxInner{
+            padding:6px;
+            border-radius:10px;
           }
         }
 

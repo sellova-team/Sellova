@@ -152,20 +152,8 @@ export default function DashboardPage() {
         .grid {
           display: grid;
           gap: 16px;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(3, 1fr); /* همیشه ۳ ستون */
           width: min(920px, 92vw);
-        }
-
-        @media (max-width: 980px) {
-          .grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .grid {
-            grid-template-columns: 1fr;
-          }
         }
       `}</style>
     </main>
