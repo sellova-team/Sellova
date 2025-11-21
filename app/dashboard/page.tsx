@@ -52,10 +52,10 @@ const styles: { [k: string]: CSSProperties } = {
   },
   cardInner: {
     display: "grid",
-    gridTemplateColumns: "80px 1fr",
+    gridTemplateColumns: "60px 1fr",
     alignItems: "center",
-    gap: 14,
-    minHeight: 80,
+    gap: 10,
+    minHeight: 72,
   },
   iconWrap: {
     height: "auto",
@@ -64,16 +64,16 @@ const styles: { [k: string]: CSSProperties } = {
     placeItems: "center",
     overflow: "visible",
   },
-  icon: { width: 42, height: 42, objectFit: "contain" },
+  icon: { width: 32, height: 32, objectFit: "contain" },
   cardTitle: {
     color: "#0b1e3d",
     fontWeight: 700,
-    fontSize: 20,
-    lineHeight: 1.18,
+    fontSize: 16,
+    lineHeight: 1.2,
   },
   langBar: {
     position: "absolute",
-    top: 24,
+    top: 20,
     right: 24,
   },
   langButton: {
@@ -81,8 +81,8 @@ const styles: { [k: string]: CSSProperties } = {
     border: "1px solid rgba(255,255,255,.6)",
     background: "rgba(255,255,255,.15)",
     color: "#fff",
-    fontSize: 16,
-    padding: "6px 16px",
+    fontSize: 14,
+    padding: "6px 14px",
     cursor: "pointer",
     backdropFilter: "blur(4px)",
   },
@@ -91,14 +91,12 @@ const styles: { [k: string]: CSSProperties } = {
 function Tile({ href, title, iconSrc }: { href: string; title: string; iconSrc: string }) {
   return (
     <Link href={href} style={{ textDecoration: "none" }}>
-      <div style={styles.card} className="dash-card">
-        <div style={styles.cardInner} className="dash-card-inner">
+      <div style={styles.card}>
+        <div style={styles.cardInner}>
           <div style={styles.iconWrap}>
-            <img src={iconSrc} alt={title} style={styles.icon} className="dash-icon" />
+            <img src={iconSrc} alt={title} style={styles.icon} />
           </div>
-          <div style={styles.cardTitle} className="dash-card-title">
-            {title}
-          </div>
+          <div style={styles.cardTitle}>{title}</div>
         </div>
       </div>
     </Link>
@@ -131,7 +129,11 @@ export default function DashboardPage() {
       iconSrc: ICONS.brandOverlay,
     },
     { href: "/promo-slides", title: messages.dashboard.cards.promoSlides, iconSrc: ICONS.slides },
-    { href: "/guide-center", title: messages.dashboard.cards.sellovaGuide, iconSrc: ICONS.guideCenter },
+    {
+      href: "/guide-center",
+      title: messages.dashboard.cards.sellovaGuide,
+      iconSrc: ICONS.guideCenter,
+    },
     {
       href: "/academy-insight",
       title: messages.dashboard.cards.academyInsight,
@@ -140,9 +142,9 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main style={styles.page} dir={locale === "fa" ? "rtl" : "ltr"}>
-      {/* دکمه تغییر زبان */}
-      <div style={styles.langBar} className="lang-bar">
+    <main style={{ ...styles.page }} dir={locale === "fa" ? "rtl" : "ltr"}>
+      {/* دکمه زبان */}
+      <div style={styles.langBar}>
         <button style={styles.langButton} onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
         </button>
@@ -150,13 +152,13 @@ export default function DashboardPage() {
 
       {/* لوگو */}
       <div style={styles.logoWrap}>
-        <img src="/logo.png" alt="Sellova" width={280} height={200} />
+        <img src="/logo.png" alt="Sellova" width={260} height={180} />
       </div>
 
-      {/* متن خوش‌آمدگویی */}
+      {/* متن خوش‌آمد */}
       <div style={styles.title}>{messages.dashboard.welcome}</div>
 
-      {/* شبکه کارت‌ها */}
+      {/* گرید دکمه‌ها */}
       <section className="dash-grid">
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
@@ -164,55 +166,26 @@ export default function DashboardPage() {
       </section>
 
       <style jsx>{`
-        /* سه ستونه روی همهٔ سایزها */
         .dash-grid {
           display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 16px;
-          width: min(920px, 92vw);
+          gap: 14px;
+          width: min(920px, 94vw);
+          margin-top: 8px;
+          grid-template-columns: repeat(3, minmax(0, 1fr)); /* لپ‌تاپ: ۳ ستونه */
         }
 
-        /* فقط ریز و جمع‌وجورتر برای موبایل، هنوز سه ستونه است */
-        @media (max-width: 768px) {
+        /* تبلت و موبایل افقی: دو ستونه */
+        @media (max-width: 900px) {
           .dash-grid {
-            gap: 10px;
-          }
-
-          .dash-card {
-            padding: 8px;
-          }
-
-          .dash-card-inner {
-            grid-template-columns: 1fr; /* آیکون بالا، متن پایین؛ ولی هنوز سه ستون کارت داریم */
-            row-gap: 6px;
-            justify-items: center;
-            text-align: center;
-            min-height: 68px;
-          }
-
-          .dash-icon {
-            width: 30px;
-            height: 30px;
-          }
-
-          .dash-card-title {
-            font-size: 13px;
-            line-height: 1.3;
-          }
-
-          .lang-bar {
-            top: 16px;
-            right: 16px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
           }
         }
 
+        /* موبایل کوچک هم دو ستونه می‌ماند، فقط کمی جمع و جورتر */
         @media (max-width: 480px) {
           .dash-grid {
-            width: 100%;
-          }
-
-          .dash-card-inner {
-            min-height: 60px;
+            grid-template-columns: repeat(2, minmax(140px, 1fr));
+            gap: 10px;
           }
         }
       `}</style>
