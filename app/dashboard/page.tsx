@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang"; // ✅ استفاده از سیستم زبان
+import { useLang } from "../../lib/lang";
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -27,19 +27,21 @@ const styles: { [k: string]: CSSProperties } = {
     flexDirection: "column",
     alignItems: "center",
     padding: "24px 16px 56px",
+    position: "relative",
   },
-
-  logoWrap: { marginTop: 36, marginBottom: 10, display: "flex", justifyContent: "center" },
-  title: { color: "#fff", fontSize: 22, fontWeight: 800, marginBottom: 22, textAlign: "center" },
-
-  grid: {
-    display: "grid",
-    gap: 16,
-    gridTemplateColumns: "repeat(3, 1fr)",
-    width: "min(920px, 92vw)",
-    transform: "translateY(-10px)",
+  logoWrap: {
+    marginTop: 36,
+    marginBottom: 10,
+    display: "flex",
+    justifyContent: "center",
   },
-
+  title: {
+    color: "#fff",
+    fontSize: 22,
+    fontWeight: 800,
+    marginBottom: 22,
+    textAlign: "center",
+  },
   card: {
     background: "#fff",
     borderRadius: 14,
@@ -48,7 +50,6 @@ const styles: { [k: string]: CSSProperties } = {
     border: "1px solid rgba(0,0,0,.9)",
     transition: "transform .08s ease",
   },
-
   cardInner: {
     display: "grid",
     gridTemplateColumns: "80px 1fr",
@@ -56,7 +57,6 @@ const styles: { [k: string]: CSSProperties } = {
     gap: 14,
     minHeight: 80,
   },
-
   iconWrap: {
     height: "auto",
     width: "auto",
@@ -64,30 +64,43 @@ const styles: { [k: string]: CSSProperties } = {
     placeItems: "center",
     overflow: "visible",
   },
-
-  icon: { width: 42, height: 42, objectFit: "contain" },
-
-  cardTitle: { color: "#0b1e3d", fontWeight: 700, fontSize: 20, lineHeight: 1.18 },
-
-  // ✅ استایل دکمه زبان
+  icon: {
+    width: 42,
+    height: 42,
+    objectFit: "contain",
+  },
+  cardTitle: {
+    color: "#0b1e3d",
+    fontWeight: 700,
+    fontSize: 20,
+    lineHeight: 1.18,
+  },
   langBar: {
     position: "absolute",
-    top: 50,
-    right: 60,
+    top: 24,
+    right: 24,
   },
   langButton: {
     borderRadius: 999,
     border: "1px solid rgba(255,255,255,.6)",
     background: "rgba(255,255,255,.15)",
     color: "#fff",
-    fontSize: 18,
+    fontSize: 16,
     padding: "6px 16px",
     cursor: "pointer",
     backdropFilter: "blur(4px)",
   },
 };
 
-function Tile({ href, title, iconSrc }: { href: string; title: string; iconSrc: string }) {
+function Tile({
+  href,
+  title,
+  iconSrc,
+}: {
+  href: string;
+  title: string;
+  iconSrc: string;
+}) {
   return (
     <Link href={href} style={{ textDecoration: "none" }}>
       <div style={styles.card}>
@@ -103,13 +116,12 @@ function Tile({ href, title, iconSrc }: { href: string; title: string; iconSrc: 
 }
 
 export default function DashboardPage() {
-  const { locale, setLocale, messages } = useLang(); // ✅ گرفتن زبان و ترجمه‌ها از Context
+  const { locale, setLocale, messages } = useLang();
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
   };
 
-  // ✅ درست کردن آیتم‌ها بر اساس زبان انتخابی
   const localizedItems = [
     { href: "/guide", title: messages.dashboard.cards.uploadGuide, iconSrc: ICONS.upload },
     { href: "/generate-image", title: messages.dashboard.cards.generateImage, iconSrc: ICONS.image },
@@ -126,34 +138,52 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main style={{ ...styles.page }} dir={locale === "fa" ? "rtl" : "ltr"}>
-      {/* ✅ دکمه تغییر زبان بالا */}
+    <main style={styles.page} dir={locale === "fa" ? "rtl" : "ltr"}>
+      {/* زبان */}
       <div style={styles.langBar}>
         <button style={styles.langButton} onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
         </button>
       </div>
 
+      {/* لوگو */}
       <div style={styles.logoWrap}>
         <img src="/logo.png" alt="Sellova" width={280} height={200} />
       </div>
 
-      {/* ✅ متن خوش‌آمدگویی از ترجمه‌ها */}
+      {/* متن خوش‌آمدگویی */}
       <div style={styles.title}>{messages.dashboard.welcome}</div>
 
-      {/* ✅ شبکه کارت‌ها با ترجمه داینامیک */}
-      <section className="grid">
+      {/* گرید کارت‌ها */}
+      <section className="dash-grid">
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
         ))}
       </section>
 
       <style jsx>{`
-        .grid {
+        .dash-grid {
           display: grid;
           gap: 16px;
-          grid-template-columns: repeat(3, 1fr); /* همیشه ۳ ستون */
+          grid-template-columns: repeat(3, 1fr); /* دسکتاپ: مثل لپ‌تاپ */
           width: min(920px, 92vw);
+          transform: translateY(-10px);
+        }
+
+        /* موبایل: دوتا دوتا کنار هم */
+        @media (max-width: 768px) {
+          .dash-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            width: 96vw;
+          }
+        }
+
+        /* موبایل خیلی کوچک: اگر لازم شد تک ستون */
+        @media (max-width: 400px) {
+          .dash-grid {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+          }
         }
       `}</style>
     </main>
