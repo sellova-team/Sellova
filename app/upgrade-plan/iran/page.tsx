@@ -261,16 +261,16 @@ export default function IranPlansPage() {
         /* موبایل و تبلت */
         @media (max-width: 768px) {
           .plans-page {
-            padding: 20px 10px;
+            padding: 8px 10px 20px; /* ✅ کل صفحه بالاتر آمد */
           }
 
           .plans-logo-wrap {
-            margin-top: 8px;
-            margin-bottom: 16px;
+            margin-top: 4px; /* ✅ لوگو کاملاً می‌چسبه به بالای صفحه */
+            margin-bottom: 8px; /* فاصله کم تا مستطیل‌ها */
           }
 
           .plans-logo-img {
-            transform: scale(0.7); /* لوگو کوچیک‌تر */
+            transform: scale(0.5); /* ✅ حدود دو سایز کوچک‌تر از قبل */
             transform-origin: top center;
           }
 
@@ -279,10 +279,10 @@ export default function IranPlansPage() {
             gap: 14px;
           }
 
-          /* مستطیل‌ها کوتاه‌تر و منظم‌تر */
+          /* مستطیل‌ها کوتاه و منظم */
           .plan-card {
-            padding: 20px 16px !important;
-            min-height: 230px !important; /* به جای ۳۲۰ */
+            padding: 18px 14px !important;
+            min-height: 220px !important;
           }
 
           .plan-title {
@@ -312,7 +312,7 @@ export default function IranPlansPage() {
 
           .free-credit {
             width: 90%;
-            margin-top: 24px;
+            margin-top: 20px;
             flex-direction: column;
             align-items: center;
           }
@@ -336,11 +336,11 @@ export default function IranPlansPage() {
         /* موبایل خیلی کوچک */
         @media (max-width: 480px) {
           .plans-grid {
-            gap: 12px;
+            gap: 10px;
           }
 
           .plan-card {
-            min-height: 210px !important;
+            min-height: 200px !important;
           }
 
           .free-credit {
