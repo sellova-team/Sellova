@@ -667,31 +667,35 @@ export default function GenerateVideoPage() {
         }
     @media (max-width: 640px) {
 
-  /* لوگو ۴ برابر کوچک‌تر */
+  /* لوگو — ۸ برابر کوچیک + چسبیده به بالای صفحه */
   .logo {
-    max-width: 80px !important;
-    margin-top: 4px !important;
+    max-width: 55px !important;
+    height: auto !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+    display: block !important;
   }
 
-  /* کل صفحه بیاد بالا */
+  /* صفحه کاملا چسبیده به بالا */
   .pg {
-    padding-top: 8px !important;
+    padding-top: 4px !important;
   }
 
-  /* تایتل خیلی بالاتر بیاد */
+  /* تایتل خیلی نزدیک به لوگو */
   .title {
-    margin-top: 6px !important;
-    margin-bottom: 14px !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
+    margin-top: 4px !important;
+    margin-bottom: 10px !important;
   }
 
-  /* کل فرم‌ها و کارت‌ها را بچسبانیم بالا */
+  /* کل کارت‌ها و فرم‌ها را شدید ببر بالا */
   .grid {
-    margin-top: -20px !important;
+    margin-top: -35px !important;
   }
 
+  /* اولین کارت (آپلود) هم بیشتر بیاد بالا */
   .card {
-    margin-top: -12px !important;
+    margin-top: -20px !important;
   }
 }
     `}</style>
