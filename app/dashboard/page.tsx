@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang"; // ✅ سیستم زبان
+import { useLang } from "../../lib/lang";
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -22,12 +22,13 @@ const ICONS = {
 const styles: { [k: string]: CSSProperties } = {
   page: {
     minHeight: "100vh",
-    width: "100%", // ✅ کل عرض صفحه سورمه‌ای
     background: "#0b1e3d",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     padding: "24px 16px 56px",
+    width: "100%", // ⭐ مهم: پس‌زمینه سورمه‌ای تا لبه‌ی موبایل
+    boxSizing: "border-box",
   },
 
   logoWrap: {
@@ -44,14 +45,6 @@ const styles: { [k: string]: CSSProperties } = {
     textAlign: "center",
   },
 
-  grid: {
-    display: "grid",
-    gap: 16,
-    gridTemplateColumns: "repeat(3, 1fr)",
-    width: "min(920px, 92vw)",
-    transform: "translateY(-10px)",
-  },
-
   card: {
     background: "#fff",
     borderRadius: 14,
@@ -63,10 +56,10 @@ const styles: { [k: string]: CSSProperties } = {
 
   cardInner: {
     display: "grid",
-    gridTemplateColumns: "80px 1fr",
+    gridTemplateColumns: "64px 1fr",
     alignItems: "center",
-    gap: 14,
-    minHeight: 80,
+    gap: 10,
+    minHeight: 70,
   },
 
   iconWrap: {
@@ -77,11 +70,15 @@ const styles: { [k: string]: CSSProperties } = {
     overflow: "visible",
   },
 
-  icon: { width: 42, height: 42, objectFit: "contain" },
+  icon: { width: 38, height: 38, objectFit: "contain" },
 
-  cardTitle: { color: "#0b1e3d", fontWeight: 700, fontSize: 18, lineHeight: 1.2 },
+  cardTitle: {
+    color: "#0b1e3d",
+    fontWeight: 700,
+    fontSize: 16,
+    lineHeight: 1.25,
+  },
 
-  // ✅ دکمه زبان
   langBar: {
     position: "absolute",
     top: 50,
@@ -140,11 +137,7 @@ export default function DashboardPage() {
       iconSrc: ICONS.brandOverlay,
     },
     { href: "/promo-slides", title: messages.dashboard.cards.promoSlides, iconSrc: ICONS.slides },
-    {
-      href: "/guide-center",
-      title: messages.dashboard.cards.sellovaGuide,
-      iconSrc: ICONS.guideCenter,
-    },
+    { href: "/guide-center", title: messages.dashboard.cards.sellovaGuide, iconSrc: ICONS.guideCenter },
     {
       href: "/academy-insight",
       title: messages.dashboard.cards.academyInsight,
@@ -153,12 +146,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main
-      className="dash-page"
-      style={{ ...styles.page }}
-      dir={locale === "fa" ? "rtl" : "ltr"}
-    >
-      {/* دکمه تغییر زبان */}
+    <main style={{ ...styles.page }} dir={locale === "fa" ? "rtl" : "ltr"}>
       <div style={styles.langBar}>
         <button style={styles.langButton} onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
@@ -169,37 +157,35 @@ export default function DashboardPage() {
         <img src="/logo.png" alt="Sellova" width={280} height={200} />
       </div>
 
-      <div className="dash-title" style={styles.title}>
-        {messages.dashboard.welcome}
-      </div>
+      <div style={styles.title}>{messages.dashboard.welcome}</div>
 
-      {/* گرید کارت‌ها */}
-      <section className="dash-grid" style={styles.grid}>
+      <section className="dash-grid">
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
         ))}
       </section>
 
       <style jsx>{`
-        /* دسکتاپ همون استایل قبلی (۳ ستونه) */
+        .dash-grid {
+          display: grid;
+          gap: 16px;
+          grid-template-columns: repeat(3, minmax(0, 1fr)); /* دسکتاپ: ۳ ستونه مثل قبل */
+          width: min(920px, 100%);
+          margin: 0 auto;
+        }
 
-        /* موبایل: دو ستونه، جمع‌وجورتر */
+        /* تبلت و موبایل: دو ستونه تمیز */
         @media (max-width: 900px) {
-          .dash-page {
-            padding: 24px 8px 40px;
-            align-items: center;
+          .dash-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
           }
+        }
 
-          .dash-title {
-            font-size: 19px;
-            margin-bottom: 18px;
-          }
-
+        /* موبایل خیلی باریک: دو ستونه با حداقل عرض هر کارت */
+        @media (max-width: 480px) {
           .dash-grid {
             grid-template-columns: repeat(2, minmax(140px, 1fr));
-            width: 100%;
-            max-width: 420px;
-            transform: translateY(0);
+            gap: 12px;
           }
         }
       `}</style>
