@@ -66,7 +66,7 @@ export default function IranPlansPage() {
       }}
     >
       {/* لوگو */}
-      <div className="plans-logo-wrap" style={{ marginBottom: '50px' }}>
+      <div className="plans-logo-wrap">
         <Image
           src="/logo.png"
           alt="Sellova Logo"
@@ -261,30 +261,30 @@ export default function IranPlansPage() {
         /* 📱 موبایل و تبلت */
         @media (max-width: 768px) {
           .plans-page {
-            padding: 12px 10px 24px; /* کمی بالاتر از قبل، بدون اغراق */
+            padding: 12px 10px 24px;
           }
 
-          /* لوگو کوچیک + نزدیک بالای صفحه */
+          /* لوگو – کوچیک و چسبیده‌تر به بالا */
           .plans-logo-wrap {
-            margin-top: 0;
-            margin-bottom: 8px; /* فاصله کم تا کارت‌ها */
+            margin-top: 4px;
+            margin-bottom: 8px; /* فاصله خیلی کم تا کارت‌ها */
             display: flex;
             justify-content: center;
           }
 
           .plans-logo-img {
-            width: 150px !important; /* ✔ کوچیک‌تر از قبل */
+            width: 170px !important; /* 👈 از قبل کوچیک‌تر شد */
             height: auto !important;
           }
 
-          /* دو ستون کارت‌ها، مرتب و بدون اعوجاج */
+          /* دو ستون کارت‌ها، نزدیک لوگو */
           .plans-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 14px;
-            margin-top: 4px; /* فقط یه کم فاصله از لوگو */
+            margin-top: 0; /* دیگه فاصله اضافی نیست */
           }
 
-          /* مستطیل‌ها کوتاه‌تر و جمع و جورتر */
+          /* کارت‌ها جمع‌وجور */
           .plan-card {
             padding: 18px 14px !important;
             min-height: 220px !important;
@@ -315,7 +315,7 @@ export default function IranPlansPage() {
             padding: 10px 0 !important;
           }
 
-          /* کارت زرد – وسط و تمیز */
+          /* کارت زرد */
           .free-credit {
             width: 90%;
             margin-top: 20px;
