@@ -182,72 +182,100 @@ export default function DashboardPage() {
         ))}
       </section>
 
-     <style jsx>{`
-  /* استایل دسکتاپ – بدون تغییر */
-  .dash-page {
-    background: #0b1e3d;
-    min-height: 100vh;
-    width: 100%;
-  }
+    <style jsx>{`
+        /* 💻 دسکتاپ – همون طرح لپ‌تاپ */
+        .dash-page {
+          background: #0b1e3d;
+          min-height: 100vh;
+          width: 100%;
+        }
 
-  .grid {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(3, 1fr);
-    width: min(920px, 92vw);
-    transform: translateY(-10px);
-  }
+        .grid {
+          display: grid;
+          gap: 16px;
+          grid-template-columns: repeat(3, 1fr);
+          width: min(920px, 92vw);
+          transform: translateY(-10px);
+        }
 
-  :global(html),
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    background: #0b1e3d;
-  }
+        :global(html),
+        :global(body) {
+          margin: 0;
+          padding: 0;
+          background: #0b1e3d;
+        }
 
-  /* 📱 موبایل */
-  @media (max-width: 768px) {
+        /* 📱 موبایل */
+        @media (max-width: 768px) {
+          .dash-page {
+            background: #0b1e3d !important;
+            width: 100% !important;
+            min-height: 100vh !important;
+            padding: 12px 0 28px !important;
+            margin: 0 !important;
+            overflow-x: hidden !important;
+          }
 
-  /* باریک کردن کارت‌ها */
-  .dash-card {
-    padding: 4px 8px !important;
-    border-radius: 8px !important;
-  }
+          /* لوگو و تایتل کمی نزدیک‌تر بالا */
+          .dash-logo-wrap {
+            margin-top: 14px !important;
+            margin-bottom: 4px !important;
+          }
 
-  .dash-card-inner {
-    grid-template-columns: 26px 1fr !important;
-    gap: 4px !important;
-    min-height: 40px !important; /* ارتفاع کمتر و باریک‌تر */
-    align-items: center;
-  }
+          .dash-logo {
+            width: 150px !important;
+            height: auto !important;
+          }
 
-  /* آیکون خیلی کوچیک‌تر */
-  .dash-icon {
-    width: 18px !important;
-    height: 18px !important;
-  }
+          .dash-title {
+            font-size: 16px !important;
+            margin-bottom: 10px !important;
+          }
 
-  /* متن داخل کارت ۲ سایز کوچیک‌تر */
-  .dash-card-title {
-    font-size: 9.5px !important; /* دقیقاً کوچک‌تر */
-    line-height: 1.2 !important;
-    font-weight: 600 !important;
-    word-break: break-word;
-  }
+          /* 🔵 دو ستون + نوار سورمه‌ای پهن‌تر دو طرف */
+          .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
 
-  /* کارت‌ها باریک‌تر با محدودیت عرض */
-  .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    width: 100%;
-    max-width: 340px !important; /* عرض باریک‌تر از قبل */
-    padding: 0 10px !important;
-    margin: 0 auto !important;
-    gap: 8px !important;
-    box-sizing: border-box;
-  }
-}
+            width: 100%;
+            max-width: 320px; /* کارت‌ها باریک‌تر */
+            padding: 0 20px; /* حدوداً ۱ سانت فاصله سورمه‌ای از چپ و راست */
+            margin: 0 auto;
+            box-sizing: border-box;
+          }
 
-`}</style>
+          /* خود کارت‌ها کمی باریک‌تر */
+          .dash-card {
+            padding: 4px 8px !important;
+            border-radius: 8px !important;
+          }
+
+          .dash-card-inner {
+            grid-template-columns: 28px 1fr !important;
+            gap: 4px !important;
+            min-height: 40px !important; /* ارتفاع کمتر → مستطیل باریک‌تر */
+            align-items: center !important;
+          }
+
+          .dash-icon {
+            width: 18px !important;
+            height: 18px !important;
+          }
+
+          /* ✂️ نوشته‌ی داخل کارت یک سایز دیگه هم کوچک‌تر شد */
+          .dash-card-title {
+            font-size: 9px !important;
+            line-height: 1.2 !important;
+            font-weight: 600 !important;
+            word-break: break-word;
+          }
+
+          .dash-lang-btn {
+            font-size: 12px !important;
+            padding: 4px 10px !important;
+          }
+        }
+      `}</style>
     </main>
   );
 }
