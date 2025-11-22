@@ -665,94 +665,63 @@ export default function GenerateVideoPage() {
           direction: rtl;
           grid-template-columns: 1fr auto;
         }
-     @media (max-width: 640px) {
-      .pg {
-        padding: 4px 8px 20px; /* کل صفحه بالاتر */
-      }
+    @media (max-width: 640px) {
+  .pg {
+    padding: 0px 6px 20px; /* کل صفحه از بالا جمع شد */
+  }
 
-      .hdr {
-        margin-top: 0; /* لوگو می‌چسبه بالا */
-        margin-bottom: 4px; /* فاصله خیلی کم تا تیتر */
-      }
+  .hdr {
+    margin-top: 0 !important; /* لوگو کامل چسبید بالا */
+    margin-bottom: 2px !important; 
+  }
 
-      .logo {
-        max-width: 120px; /* 👈 حدود ۳–۴ برابر کوچیک‌تر از دسکتاپ */
-        height: auto;
-      }
+  .logo {
+    max-width: 95px !important; /* 👈 دقیقاً ۴ برابر کوچیک‌تر از چیزی که الان هست */
+    height: auto;
+  }
 
-      .title {
-        font-size: 20px; /* تیتر کمی ریزتر */
-        margin: 8px 0 16px; /* فاصله تا فرم زیاد نیست */
-      }
+  .title {
+    font-size: 20px;
+    margin: 4px 0 10px !important; /* عنوان خیلی نزدیک لوگو */
+  }
 
-      .grid {
-        max-width: 100%;
-        gap: 12px;
-        margin-top: 0; /* دیگه الکی پایین نمی‌ره */
-        transform: translateY(0); 
-      }
+  .grid {
+    margin-top: 0 !important;
+    transform: translateY(-25px) !important; /* 👈 کل فرم/جدول‌ها کشیده شد بالا */
+    gap: 10px;
+  }
 
-      .card {
-        padding: 10px;
-        border-radius: 10px;
-      }
+  .card {
+    padding: 10px;
+    border-radius: 10px;
+  }
 
-      .uploadBox {
-        padding: 12px 10px 10px;
-      }
+  .uploadBox {
+    padding: 12px 10px 10px;
+  }
 
-      .field {
-        margin-top: 10px;
-      }
+  .label {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
 
-      .label {
-        font-size: 12px;
-        margin-bottom: 4px;
-      }
+  .select {
+    height: 36px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
 
-      .select {
-        height: 36px;
-        font-size: 12px;
-        padding: 0 10px;
-      }
+  .textarea {
+    min-height: 80px;
+    font-size: 13px;
+  }
 
-      .segItem {
-        padding: 4px 8px;
-        font-size: 12px;
-      }
-
-      .textarea {
-        min-height: 80px;
-        font-size: 13px;
-      }
-
-      .btn {
-        height: 36px;
-        font-size: 12px;
-        padding: 0 10px;
-      }
-
-      .previewFrame {
-        min-height: 260px;
-        padding: 8px;
-      }
-
-      .previewImg {
-        width: 100%;
-        max-width: 260px;
-      }
-
-      .previewCaption {
-        font-size: 12px;
-      }
-
-      .metaRow {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-        font-size: 12px;
-      }
-    }
+  .btn {
+    height: 36px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+}
     `}</style>
     </main>
   );
