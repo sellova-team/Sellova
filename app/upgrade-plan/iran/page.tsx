@@ -258,95 +258,56 @@ export default function IranPlansPage() {
           max-width: 1400px;
         }
 
-        /* موبایل و تبلت */
-        @media (max-width: 768px) {
-          .plans-page {
-            padding: 8px 10px 20px; /* ✅ کل صفحه بالاتر آمد */
-          }
+       /* موبایل و تبلت */
+@media (max-width: 768px) {
+  .plans-page {
+    padding-top: 6px !important; /* کل صفحه رفت بالا */
+  }
 
-          .plans-logo-wrap {
-            margin-top: 4px; /* ✅ لوگو کاملاً می‌چسبه به بالای صفحه */
-            margin-bottom: 8px; /* فاصله کم تا مستطیل‌ها */
-          }
+  /* لوگو */
+  .plans-logo-wrap {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; /* فاصله لوگو با کارت‌ها کمتر */
+    display: flex;
+    justify-content: center;
+  }
 
-          .plans-logo-img {
-            transform: scale(0.5); /* ✅ حدود دو سایز کوچک‌تر از قبل */
-            transform-origin: top center;
-          }
+  .plans-logo-img {
+    width: 150px !important; /* 🔥 خیلی کوچک‌تر از قبل */
+    height: auto !important;
+    transform: scale(0.45) !important; /* سه سایز کوچک‌تر */
+    transform-origin: top center;
+  }
 
-          .plans-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-          }
+  /* کارت‌ها 200px بالاتر */
+  .plans-grid {
+    margin-top: -120px !important; /* 🔥 کل کارت‌ها را کشیدیم بالا */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px !important;
+  }
 
-          /* مستطیل‌ها کوتاه و منظم */
-          .plan-card {
-            padding: 18px 14px !important;
-            min-height: 220px !important;
-          }
+  /* کارت‌ها جمع‌وجورتر */
+  .plan-card {
+    padding: 18px 12px !important;
+    min-height: 190px !important; /* 🔥 کوتاه‌تر و زیباتر */
+  }
 
-          .plan-title {
-            font-size: 20px !important;
-            margin-bottom: 8px !important;
-          }
+  .plan-title {
+    font-size: 21px !important;
+  }
+  .plan-credits {
+    font-size: 16px !important;
+  }
+  .plan-price {
+    font-size: 18px !important;
+  }
 
-          .plan-credits {
-            font-size: 16px !important;
-            margin-bottom: 6px !important;
-          }
-
-          .plan-price {
-            font-size: 18px !important;
-            margin-bottom: 8px !important;
-          }
-
-          .plan-desc {
-            font-size: 14px !important;
-            margin-bottom: 8px !important;
-          }
-
-          .plan-btn {
-            font-size: 16px !important;
-            padding: 10px 0 !important;
-          }
-
-          .free-credit {
-            width: 90%;
-            margin-top: 20px;
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .free-credit-text {
-            margin-right: 0;
-            margin-bottom: 8px;
-          }
-
-          .free-credit-text p {
-            font-size: 16px !important;
-            margin: 2px 0;
-          }
-
-          .free-credit-btn {
-            font-size: 16px !important;
-            padding: 10px 20px !important;
-          }
-        }
-
-        /* موبایل خیلی کوچک */
-        @media (max-width: 480px) {
-          .plans-grid {
-            gap: 10px;
-          }
-
-          .plan-card {
-            min-height: 200px !important;
-          }
-
-          .free-credit {
-            width: 95%;
-          }
-        }
+  /* کارت زرد */
+  .free-credit {
+    margin-top: -40px !important; /* کشاندیم بالا */
+    width: 90% !important;
+  }
+}
       `}</style>
     </div>
   );
