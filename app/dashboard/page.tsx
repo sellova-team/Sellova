@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang"; // ✅ استفاده از سیستم زبان
+import { useLang } from "../../lib/lang"; // ✅ سیستم زبان
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -22,6 +22,7 @@ const ICONS = {
 const styles: { [k: string]: CSSProperties } = {
   page: {
     minHeight: "100vh",
+    width: "100%", // ✅ کل عرض صفحه سورمه‌ای
     background: "#0b1e3d",
     display: "flex",
     flexDirection: "column",
@@ -43,7 +44,6 @@ const styles: { [k: string]: CSSProperties } = {
     textAlign: "center",
   },
 
-  // این همچنان برای دسکتاپ استفاده می‌شود (سه ستونه)
   grid: {
     display: "grid",
     gap: 16,
@@ -79,14 +79,9 @@ const styles: { [k: string]: CSSProperties } = {
 
   icon: { width: 42, height: 42, objectFit: "contain" },
 
-  cardTitle: {
-    color: "#0b1e3d",
-    fontWeight: 700,
-    fontSize: 20,
-    lineHeight: 1.18,
-  },
+  cardTitle: { color: "#0b1e3d", fontWeight: 700, fontSize: 18, lineHeight: 1.2 },
 
-  // ✅ استایل دکمه زبان
+  // ✅ دکمه زبان
   langBar: {
     position: "absolute",
     top: 50,
@@ -120,7 +115,7 @@ function Tile({ href, title, iconSrc }: { href: string; title: string; iconSrc: 
 }
 
 export default function DashboardPage() {
-  const { locale, setLocale, messages } = useLang(); // ✅ گرفتن زبان و ترجمه‌ها از Context
+  const { locale, setLocale, messages } = useLang();
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
@@ -145,7 +140,11 @@ export default function DashboardPage() {
       iconSrc: ICONS.brandOverlay,
     },
     { href: "/promo-slides", title: messages.dashboard.cards.promoSlides, iconSrc: ICONS.slides },
-    { href: "/guide-center", title: messages.dashboard.cards.sellovaGuide, iconSrc: ICONS.guideCenter },
+    {
+      href: "/guide-center",
+      title: messages.dashboard.cards.sellovaGuide,
+      iconSrc: ICONS.guideCenter,
+    },
     {
       href: "/academy-insight",
       title: messages.dashboard.cards.academyInsight,
@@ -159,7 +158,7 @@ export default function DashboardPage() {
       style={{ ...styles.page }}
       dir={locale === "fa" ? "rtl" : "ltr"}
     >
-      {/* ✅ دکمه تغییر زبان بالا */}
+      {/* دکمه تغییر زبان */}
       <div style={styles.langBar}>
         <button style={styles.langButton} onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
@@ -170,44 +169,37 @@ export default function DashboardPage() {
         <img src="/logo.png" alt="Sellova" width={280} height={200} />
       </div>
 
-      {/* ✅ متن خوش‌آمدگویی از ترجمه‌ها */}
-      <div style={styles.title}>{messages.dashboard.welcome}</div>
+      <div className="dash-title" style={styles.title}>
+        {messages.dashboard.welcome}
+      </div>
 
-      {/* ✅ شبکه کارت‌ها با ترجمه داینامیک */}
-      <section className="dash-grid">
+      {/* گرید کارت‌ها */}
+      <section className="dash-grid" style={styles.grid}>
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
         ))}
       </section>
 
-      {/* فقط ریسپانسیو، بدون دست‌زدن به استایل دسکتاپ */}
       <style jsx>{`
-        .dash-grid {
-          display: grid;
-          gap: 16px;
-          grid-template-columns: repeat(3, 1fr);
-          width: min(920px, 92vw);
-          transform: translateY(-10px);
-        }
+        /* دسکتاپ همون استایل قبلی (۳ ستونه) */
 
-        /* 📱 موبایل: هم‌چنان ۳ ستونه، ولی کوچیک و تمیز، بدون بیرون‌زدن */
-        @media (max-width: 768px) {
+        /* موبایل: دو ستونه، جمع‌وجورتر */
+        @media (max-width: 900px) {
           .dash-page {
-            padding: 20px 8px 40px;
+            padding: 24px 8px 40px;
+            align-items: center;
+          }
+
+          .dash-title {
+            font-size: 19px;
+            margin-bottom: 18px;
           }
 
           .dash-grid {
+            grid-template-columns: repeat(2, minmax(140px, 1fr));
             width: 100%;
             max-width: 420px;
-            margin: 0 auto;
-            gap: 10px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .dash-grid {
-            max-width: 360px;
-            gap: 8px;
+            transform: translateY(0);
           }
         }
       `}</style>
