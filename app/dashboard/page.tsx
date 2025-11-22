@@ -20,7 +20,6 @@ const ICONS = {
 };
 
 const styles: { [k: string]: CSSProperties } = {
-  // ===== استایل دسکتاپ (همون قبلی خودت) =====
   page: {
     minHeight: "100vh",
     background: "#0b1e3d",
@@ -36,7 +35,6 @@ const styles: { [k: string]: CSSProperties } = {
     display: "flex",
     justifyContent: "center",
   },
-
   title: {
     color: "#fff",
     fontSize: 22,
@@ -87,7 +85,7 @@ const styles: { [k: string]: CSSProperties } = {
     lineHeight: 1.18,
   },
 
-  // دکمه زبان (دسکتاپ)
+  // ✅ استایل دکمه زبان
   langBar: {
     position: "absolute",
     top: 50,
@@ -116,17 +114,12 @@ function Tile({
 }) {
   return (
     <Link href={href} style={{ textDecoration: "none" }}>
-      <div className="dash-card" style={styles.card}>
-        <div className="dash-card-inner" style={styles.cardInner}>
-          <div className="dash-icon-wrap" style={styles.iconWrap}>
-            <img
-              src={iconSrc}
-              alt={title}
-              className="dash-icon"
-              style={styles.icon}
-            />
+      <div style={styles.card} className="card">
+        <div style={styles.cardInner} className="card-inner">
+          <div style={styles.iconWrap}>
+            <img src={iconSrc} alt={title} style={styles.icon} className="card-icon" />
           </div>
-          <div className="dash-card-title" style={styles.cardTitle}>
+          <div style={styles.cardTitle} className="card-title">
             {title}
           </div>
         </div>
@@ -136,137 +129,163 @@ function Tile({
 }
 
 export default function DashboardPage() {
-  const { locale, setLocale, messages } = useLang(); // ✅ گرفتن زبان و ترجمه‌ها
+  const { locale, setLocale, messages } = useLang(); // ✅ گرفتن زبان و ترجمه‌ها از Context
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
   };
 
+  // ✅ درست کردن آیتم‌ها بر اساس زبان انتخابی
   const localizedItems = [
     { href: "/guide", title: messages.dashboard.cards.uploadGuide, iconSrc: ICONS.upload },
-    { href: "/generate-image", title: messages.dashboard.cards.generateImage, iconSrc: ICONS.image },
-    { href: "/generate-video", title: messages.dashboard.cards.generateVideo, iconSrc: ICONS.video },
-    { href: "/avatar", title: messages.dashboard.cards.createAvatar, iconSrc: ICONS.avatar },
-    { href: "/hashtags", title: messages.dashboard.cards.captionsHashtags, iconSrc: ICONS.captions },
-    { href: "/advisory-consultation", title: messages.dashboard.cards.advisoryAnalysis, iconSrc: ICONS.advisory },
-    { href: "/upgrade-plan", title: messages.dashboard.cards.upgradePlan, iconSrc: ICONS.upgrade },
+    {
+      href: "/generate-image",
+      title: messages.dashboard.cards.generateImage,
+      iconSrc: ICONS.image,
+    },
+    {
+      href: "/generate-video",
+      title: messages.dashboard.cards.generateVideo,
+      iconSrc: ICONS.video,
+    },
+    {
+      href: "/avatar",
+      title: messages.dashboard.cards.createAvatar,
+      iconSrc: ICONS.avatar,
+    },
+    {
+      href: "/hashtags",
+      title: messages.dashboard.cards.captionsHashtags,
+      iconSrc: ICONS.captions,
+    },
+    {
+      href: "/advisory-consultation",
+      title: messages.dashboard.cards.advisoryAnalysis,
+      iconSrc: ICONS.advisory,
+    },
+    {
+      href: "/upgrade-plan",
+      title: messages.dashboard.cards.upgradePlan,
+      iconSrc: ICONS.upgrade,
+    },
     { href: "/settings", title: messages.dashboard.cards.settings, iconSrc: ICONS.settings },
-    { href: "/brand-overlay", title: messages.dashboard.cards.brandOverlay, iconSrc: ICONS.brandOverlay },
-    { href: "/promo-slides", title: messages.dashboard.cards.promoSlides, iconSrc: ICONS.slides },
-    { href: "/guide-center", title: messages.dashboard.cards.sellovaGuide, iconSrc: ICONS.guideCenter },
-    { href: "/academy-insight", title: messages.dashboard.cards.academyInsight, iconSrc: ICONS.academyInsight },
+    {
+      href: "/brand-overlay",
+      title: messages.dashboard.cards.brandOverlay,
+      iconSrc: ICONS.brandOverlay,
+    },
+    {
+      href: "/promo-slides",
+      title: messages.dashboard.cards.promoSlides,
+      iconSrc: ICONS.slides,
+    },
+    {
+      href: "/guide-center",
+      title: messages.dashboard.cards.sellovaGuide,
+      iconSrc: ICONS.guideCenter,
+    },
+    {
+      href: "/academy-insight",
+      title: messages.dashboard.cards.academyInsight,
+      iconSrc: ICONS.academyInsight,
+    },
   ];
 
   return (
     <main
-      className="dash-page"
       style={{ ...styles.page }}
+      className="page"
       dir={locale === "fa" ? "rtl" : "ltr"}
     >
-      {/* دکمه تغییر زبان */}
-      <div style={styles.langBar} className="dash-lang-bar">
-        <button
-          style={styles.langButton}
-          className="dash-lang-btn"
-          onClick={toggleLang}
-        >
+      {/* ✅ دکمه تغییر زبان بالا */}
+      <div style={styles.langBar} className="lang-bar">
+        <button style={styles.langButton} className="lang-button" onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
         </button>
       </div>
 
-      {/* لوگو */}
-      <div style={styles.logoWrap} className="dash-logo-wrap">
+      <div style={styles.logoWrap} className="logo-wrap">
         <img src="/logo.png" alt="Sellova" width={280} height={200} />
       </div>
 
-      {/* متن خوش‌آمدگویی */}
-      <div style={styles.title} className="dash-title">
+      {/* ✅ متن خوش‌آمدگویی از ترجمه‌ها */}
+      <div style={styles.title} className="page-title">
         {messages.dashboard.welcome}
       </div>
 
-      {/* گرید کارت‌ها */}
-      <section className="dash-grid">
+      {/* ✅ شبکه کارت‌ها با ترجمه داینامیک */}
+      <section className="grid">
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
         ))}
       </section>
 
       <style jsx>{`
-        /* ===== گرید دسکتاپ: همون ۳ ستونه قبلی ===== */
-        .dash-page {
-          width: 100%;
-        }
-
-        .dash-grid {
+        /* لپ‌تاپ: دقیقا مثل قبل ۳ ستون */
+        .grid {
           display: grid;
           gap: 16px;
-          grid-template-columns: repeat(3, 1fr); /* دسکتاپ */
+          grid-template-columns: repeat(3, 1fr);
           width: min(920px, 92vw);
-          transform: translateY(-10px);
         }
 
-        /* ===== موبایل / تبلت ===== */
+        /* 📱 استایل موبایل شیک و مرتب */
         @media (max-width: 768px) {
-          .dash-page {
-            padding: 16px 8px 32px !important;
-            align-items: stretch !important; /* بک‌گراند سورمه‌ای تا دو طرف */
+          .page {
+            padding: 16px 10px 32px !important;
+            align-items: center;
           }
 
-          .dash-logo-wrap {
-            margin-top: 12px !important;
-            margin-bottom: 6px !important;
+          .lang-bar {
+            top: 16px !important;
+            right: 16px !important;
           }
 
-          .dash-logo-wrap img {
-            width: 190px !important;
-            height: auto !important;
-          }
-
-          .dash-title {
-            font-size: 18px !important;
-            margin-bottom: 14px !important;
-          }
-
-          .dash-lang-bar {
-            top: 10px !important;
-            right: 12px !important;
-          }
-
-          .dash-lang-btn {
+          .lang-button {
             font-size: 12px !important;
-            padding: 2px 8px !important;
+            padding: 4px 10px !important;
           }
 
-          /* دو ستون مستطیلی، باریک‌تر و مرتب */
-          .dash-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+          .logo-wrap {
+            margin-top: 24px !important;
+            margin-bottom: 8px !important;
+          }
+
+          .logo-wrap img {
+            width: 200px;
+            height: auto;
+          }
+
+          .page-title {
+            font-size: 16px !important; /* تقریبا ۳ درجه کوچیک‌تر */
+            margin-bottom: 18px !important;
+          }
+
+          .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* ۲ ستون در موبایل */
             gap: 10px;
-            width: 100% !important;
-            max-width: 420px;
-            margin: 0 auto;
-            transform: translateY(0); /* کمی نزدیک‌تر به لوگو */
+            width: min(420px, 100%);
+            margin-top: 8px;
           }
 
-          .dash-card {
+          .card {
             padding: 8px !important;
             border-radius: 12px !important;
           }
 
-          .dash-card-inner {
-            display: grid !important;
-            grid-template-columns: 36px 1fr !important; /* آیکون باریک + متن */
-            align-items: center !important;
-            gap: 6px !important;
+          .card-inner {
+            grid-template-columns: 56px 1fr !important;
+            gap: 8px !important;
             min-height: 64px !important;
           }
 
-          .dash-icon {
-            width: 24px !important;
-            height: 24px !important;
+          .card-icon {
+            width: 30px !important;
+            height: 30px !important;
           }
 
-          .dash-card-title {
-            font-size: 14px !important; /* ۳ سایز ریزتر از دسکتاپ */
+          .card-title {
+            font-size: 13px !important; /* نوشته‌ها ریزتر کنار آیکون */
             line-height: 1.25 !important;
           }
         }
