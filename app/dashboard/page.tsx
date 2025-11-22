@@ -191,88 +191,101 @@ export default function DashboardPage() {
       </section>
 
       {/* استایل‌های گرید + موبایل */}
-     <style jsx>{`
-  .dash-page {
-    background: #0b1e3d;
-    min-height: 100vh;
-    width: 100%;
-  }
+    <style jsx>{`
+        /* Desktop – همون قبلی */
+        .dash-page {
+          background: #0b1e3d;
+          min-height: 100vh;
+          width: 100%;
+        }
 
-  .grid {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(3, 1fr);
-    width: min(920px, 92vw);
-    transform: translateY(-10px);
-  }
+        .grid {
+          display: grid;
+          gap: 16px;
+          grid-template-columns: repeat(3, 1fr);
+          width: min(920px, 92vw);
+          transform: translateY(-10px);
+        }
 
-  :global(body) {
-    background: #0b1e3d;
-  }
+        :global(body) {
+          background: #0b1e3d;
+        }
 
-  @media (max-width: 768px) {
-    .dash-page {
-      background: #0b1e3d !important;
-      width: 100% !important;
-      min-height: 100vh !important;
-      padding: 12px 0 32px !important;
-      margin: 0 !important;
-      overflow-x: hidden !important;
-    }
+        /* Mobile */
+        @media (max-width: 768px) {
+          .dash-page {
+            background: #0b1e3d !important;
+            width: 100% !important;
+            min-height: 100vh !important;
+            padding: 8px 0 28px !important;
+            margin: 0 !important;
+            overflow-x: hidden !important;
+          }
 
-    .dash-logo-wrap {
-      margin-top: 20px !important;
-      margin-bottom: 6px !important;
-    }
+          /* لوگو و تایتل بالاتر */
+          .dash-lang-bar {
+            top: 10px !important;
+            right: 12px !important;
+          }
 
-    .dash-logo {
-      width: 170px !important;
-      height: auto !important;
-    }
+          .dash-logo-wrap {
+            margin-top: 14px !important;
+            margin-bottom: 4px !important;
+          }
 
-    .dash-title {
-      font-size: 14px !important;
-      margin-bottom: 10px !important;
-    }
+          .dash-logo {
+            width: 150px !important;
+            height: auto !important;
+          }
 
-    .grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 8px !important;
-      width: 100% !important;
-      max-width: 420px !important;
-      padding: 0 8px !important;
-      margin: 0 auto !important;
-      box-sizing: border-box;
-    }
+          .dash-title {
+            font-size: 16px !important; /* تایتل کمی بزرگ‌تر */
+            margin-bottom: 10px !important;
+          }
 
-    .dash-card {
-      padding: 6px 8px !important;
-      border-radius: 8px !important;
-    }
+          /* دو ستون، ستون راست کامل دیده شود */
+          .grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 6px !important;
+            width: 100% !important;
+            max-width: 420px !important;
+            padding: 0 10px !important;
+            margin: 0 auto !important;
+            box-sizing: border-box;
+          }
 
-    .dash-card-inner {
-      grid-template-columns: 40px 1fr !important;
-      gap: 6px !important;
-      min-height: 52px !important;
-    }
+          /* کارت باریک و کشیده */
+          .dash-card {
+            padding: 6px 10px !important;
+            border-radius: 8px !important;
+          }
 
-    .dash-icon {
-      width: 22px !important;
-      height: 22px !important;
-    }
+          .dash-card-inner {
+            grid-template-columns: 32px 1fr !important;
+            gap: 6px !important;
+            min-height: 46px !important; /* ارتفاع کمتر، مستطیل افقی‌تر */
+            align-items: center !important;
+          }
 
-    .dash-card-title {
-      font-size: 11px !important;
-      line-height: 1.25 !important;
-      word-break: break-word;
-    }
+          .dash-icon {
+            width: 20px !important;
+            height: 20px !important;
+          }
 
-    .dash-lang-btn {
-      font-size: 12px !important;
-      padding: 4px 10px !important;
-    }
-  }
-`}</style>
+          /* متن داخل پنجره ۱–۲ سایز کوچیک‌تر */
+          .dash-card-title {
+            font-size: 11px !important;
+            line-height: 1.25 !important;
+            word-break: break-word;
+          }
+
+          .dash-lang-btn {
+            font-size: 12px !important;
+            padding: 4px 10px !important;
+          }
+        }
+      `}</style>
+
 
     </main>
   );
