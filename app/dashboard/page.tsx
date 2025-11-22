@@ -207,25 +207,46 @@ export default function DashboardPage() {
 
   /* 📱 موبایل */
   @media (max-width: 768px) {
-    .dash-page {
-      background: #0b1e3d !important;
-      padding: 12px 0 28px !important;
-      overflow-x: hidden !important;
-    }
 
-    /* دو ستون کامل + فاصله از دو طرف */
-    .grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-
-      width: 100%;
-      max-width: 380px;
-
-      padding: 0 12px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
+  /* باریک کردن کارت‌ها */
+  .dash-card {
+    padding: 4px 8px !important;
+    border-radius: 8px !important;
   }
+
+  .dash-card-inner {
+    grid-template-columns: 26px 1fr !important;
+    gap: 4px !important;
+    min-height: 40px !important; /* ارتفاع کمتر و باریک‌تر */
+    align-items: center;
+  }
+
+  /* آیکون خیلی کوچیک‌تر */
+  .dash-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* متن داخل کارت ۲ سایز کوچیک‌تر */
+  .dash-card-title {
+    font-size: 9.5px !important; /* دقیقاً کوچک‌تر */
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    word-break: break-word;
+  }
+
+  /* کارت‌ها باریک‌تر با محدودیت عرض */
+  .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100%;
+    max-width: 340px !important; /* عرض باریک‌تر از قبل */
+    padding: 0 10px !important;
+    margin: 0 auto !important;
+    gap: 8px !important;
+    box-sizing: border-box;
+  }
+}
+
 `}</style>
     </main>
   );
