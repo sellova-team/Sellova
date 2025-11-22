@@ -667,59 +667,36 @@ export default function GenerateVideoPage() {
         }
     @media (max-width: 640px) {
   .pg {
-    padding: 0px 6px 20px; /* کل صفحه از بالا جمع شد */
+    padding: 0 !important; /* کل فاصله صفحه صفر */
   }
 
   .hdr {
-    margin-top: 0 !important; /* لوگو کامل چسبید بالا */
-    margin-bottom: 2px !important; 
+    margin: 0 !important; /* لوگو کاملاً چسبیده به بالای صفحه */
+    padding: 0 !important;
   }
 
   .logo {
-    max-width: 95px !important; /* 👈 دقیقاً ۴ برابر کوچیک‌تر از چیزی که الان هست */
+    max-width: 80px !important; /* 👈 حتی کوچیک‌تر از قبل - ۵ برابر کوچک‌تر */
     height: auto;
+    margin-top: 4px !important; /* خیلی کم فاصله */
   }
 
   .title {
     font-size: 20px;
-    margin: 4px 0 10px !important; /* عنوان خیلی نزدیک لوگو */
+    margin: 2px 0 6px !important; /* تایتل چسبیده به لوگو */
   }
 
   .grid {
-    margin-top: 0 !important;
-    transform: translateY(-25px) !important; /* 👈 کل فرم/جدول‌ها کشیده شد بالا */
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateY(-45px) !important; 
+    /* 👈 کل جدول‌ها تقریباً نیم صفحه کشیده شد بالا */
     gap: 10px;
   }
 
   .card {
     padding: 10px;
     border-radius: 10px;
-  }
-
-  .uploadBox {
-    padding: 12px 10px 10px;
-  }
-
-  .label {
-    font-size: 12px;
-    margin-bottom: 4px;
-  }
-
-  .select {
-    height: 36px;
-    font-size: 12px;
-    padding: 0 10px;
-  }
-
-  .textarea {
-    min-height: 80px;
-    font-size: 13px;
-  }
-
-  .btn {
-    height: 36px;
-    font-size: 12px;
-    padding: 0 10px;
   }
 }
     `}</style>
