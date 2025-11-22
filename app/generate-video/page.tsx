@@ -665,88 +665,94 @@ export default function GenerateVideoPage() {
           direction: rtl;
           grid-template-columns: 1fr auto;
         }
-    @media (max-width: 640px) {
-          .pg {
-            padding: 10px 8px 20px;
-          }
+     @media (max-width: 640px) {
+      .pg {
+        padding: 4px 8px 20px; /* کل صفحه بالاتر */
+      }
 
-          .logo {
-            max-width: 180px; /* لوگو کوچیک‌تر */
-            height: auto;
-          }
+      .hdr {
+        margin-top: 0; /* لوگو می‌چسبه بالا */
+        margin-bottom: 4px; /* فاصله خیلی کم تا تیتر */
+      }
 
-          .title {
-            font-size: 22px; /* تیتر ریزتر */
-            margin: 12px 0 24px;
-          }
+      .logo {
+        max-width: 120px; /* 👈 حدود ۳–۴ برابر کوچیک‌تر از دسکتاپ */
+        height: auto;
+      }
 
-          .grid {
-            max-width: 100%;
-            gap: 12px;
-            transform: translateY(-6px);
-          }
+      .title {
+        font-size: 20px; /* تیتر کمی ریزتر */
+        margin: 8px 0 16px; /* فاصله تا فرم زیاد نیست */
+      }
 
-          .card {
-            padding: 10px; /* کارت‌ها جمع‌وجورتر */
-            border-radius: 10px;
-          }
+      .grid {
+        max-width: 100%;
+        gap: 12px;
+        margin-top: 0; /* دیگه الکی پایین نمی‌ره */
+        transform: translateY(0); 
+      }
 
-          .uploadBox {
-            padding: 12px 10px 10px;
-          }
+      .card {
+        padding: 10px;
+        border-radius: 10px;
+      }
 
-          .field {
-            margin-top: 10px;
-          }
+      .uploadBox {
+        padding: 12px 10px 10px;
+      }
 
-          .label {
-            font-size: 12px;
-            margin-bottom: 4px;
-          }
+      .field {
+        margin-top: 10px;
+      }
 
-          .select {
-            height: 36px;
-            font-size: 12px;
-            padding: 0 10px;
-          }
+      .label {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
 
-          .segItem {
-            padding: 4px 8px;
-            font-size: 12px;
-          }
+      .select {
+        height: 36px;
+        font-size: 12px;
+        padding: 0 10px;
+      }
 
-          .textarea {
-            min-height: 80px;
-            font-size: 13px;
-          }
+      .segItem {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
 
-          .btn {
-            height: 36px;
-            font-size: 12px;
-            padding: 0 10px;
-          }
+      .textarea {
+        min-height: 80px;
+        font-size: 13px;
+      }
 
-          .previewFrame {
-            min-height: 260px;
-            padding: 8px;
-          }
+      .btn {
+        height: 36px;
+        font-size: 12px;
+        padding: 0 10px;
+      }
 
-          .previewImg {
-            width: 100%;
-            max-width: 260px; /* پیش‌نمایش کوچیک‌تر تو گوشی */
-          }
+      .previewFrame {
+        min-height: 260px;
+        padding: 8px;
+      }
 
-          .previewCaption {
-            font-size: 12px;
-          }
+      .previewImg {
+        width: 100%;
+        max-width: 260px;
+      }
 
-          .metaRow {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
-            font-size: 12px;
-          }
-        }
+      .previewCaption {
+        font-size: 12px;
+      }
+
+      .metaRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        font-size: 12px;
+      }
+    }
     `}</style>
     </main>
   );
