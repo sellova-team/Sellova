@@ -22,6 +22,7 @@ const ICONS = {
 const styles: { [k: string]: CSSProperties } = {
   page: {
     minHeight: "100vh",
+    width: "100%", // ✅ که کل عرض صفحه سورمه‌ای شود
     background: "#0b1e3d",
     display: "flex",
     flexDirection: "column",
@@ -30,11 +31,12 @@ const styles: { [k: string]: CSSProperties } = {
   },
 
   logoWrap: {
-    marginTop: 36,
+    marginTop: 24,
     marginBottom: 10,
     display: "flex",
     justifyContent: "center",
   },
+
   title: {
     color: "#fff",
     fontSize: 22,
@@ -83,8 +85,8 @@ const styles: { [k: string]: CSSProperties } = {
   // ✅ استایل دکمه زبان
   langBar: {
     position: "absolute",
-    top: 50,
-    right: 60,
+    top: 40,
+    right: 40,
   },
   langButton: {
     borderRadius: 999,
@@ -101,12 +103,12 @@ const styles: { [k: string]: CSSProperties } = {
 function Tile({ href, title, iconSrc }: { href: string; title: string; iconSrc: string }) {
   return (
     <Link href={href} style={{ textDecoration: "none" }}>
-      <div className="dash-card" style={styles.card}>
-        <div className="dash-cardInner" style={styles.cardInner}>
-          <div className="dash-iconWrap" style={styles.iconWrap}>
-            <img className="dash-icon" src={iconSrc} alt={title} style={styles.icon} />
+      <div style={styles.card} className="dash-card">
+        <div style={styles.cardInner} className="dash-card-inner">
+          <div style={styles.iconWrap} className="dash-icon-wrap">
+            <img src={iconSrc} alt={title} style={styles.icon} className="dash-icon" />
           </div>
-          <div className="dash-cardTitle" style={styles.cardTitle}>
+          <div style={styles.cardTitle} className="dash-card-title">
             {title}
           </div>
         </div>
@@ -116,13 +118,12 @@ function Tile({ href, title, iconSrc }: { href: string; title: string; iconSrc: 
 }
 
 export default function DashboardPage() {
-  const { locale, setLocale, messages } = useLang(); // ✅ گرفتن زبان و ترجمه‌ها از Context
+  const { locale, setLocale, messages } = useLang();
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
   };
 
-  // ✅ درست کردن آیتم‌ها بر اساس زبان انتخابی
   const localizedItems = [
     { href: "/guide", title: messages.dashboard.cards.uploadGuide, iconSrc: ICONS.upload },
     { href: "/generate-image", title: messages.dashboard.cards.generateImage, iconSrc: ICONS.image },
@@ -142,11 +143,7 @@ export default function DashboardPage() {
       iconSrc: ICONS.brandOverlay,
     },
     { href: "/promo-slides", title: messages.dashboard.cards.promoSlides, iconSrc: ICONS.slides },
-    {
-      href: "/guide-center",
-      title: messages.dashboard.cards.sellovaGuide,
-      iconSrc: ICONS.guideCenter,
-    },
+    { href: "/guide-center", title: messages.dashboard.cards.sellovaGuide, iconSrc: ICONS.guideCenter },
     {
       href: "/academy-insight",
       title: messages.dashboard.cards.academyInsight,
@@ -155,14 +152,10 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main
-      className="dash-main"
-      style={{ ...styles.page }}
-      dir={locale === "fa" ? "rtl" : "ltr"}
-    >
-      {/* ✅ دکمه تغییر زبان بالا */}
-      <div className="dash-langBar" style={styles.langBar}>
-        <button className="dash-langButton" style={styles.langButton} onClick={toggleLang}>
+    <main style={{ ...styles.page }} dir={locale === "fa" ? "rtl" : "ltr"}>
+      {/* دکمه تغییر زبان */}
+      <div style={styles.langBar} className="lang-bar">
+        <button style={styles.langButton} className="lang-btn" onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
         </button>
       </div>
@@ -171,80 +164,93 @@ export default function DashboardPage() {
         <img src="/logo.png" alt="Sellova" width={280} height={200} className="dash-logo" />
       </div>
 
-      {/* ✅ متن خوش‌آمدگویی از ترجمه‌ها */}
-      <div className="dash-title" style={styles.title}>
-        {messages.dashboard.welcome}
-      </div>
+      <div style={styles.title}>{messages.dashboard.welcome}</div>
 
-      {/* ✅ شبکه کارت‌ها با ترجمه داینامیک */}
-      <section className="dash-grid">
+      <section className="grid">
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
         ))}
       </section>
 
       <style jsx>{`
-        /* دسکتاپ: همون استایل قبلی */
-        .dash-grid {
+        .grid {
           display: grid;
           gap: 16px;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(3, 1fr); /* دسکتاپ مثل قبل */
           width: min(920px, 92vw);
         }
 
-        .dash-title {
-          text-align: center;
-        }
-
-        /* ===== موبایل و تبلت کوچک ===== */
+        /* ✅ موبایل و تبلت: دو ستونه، متن زیر آیکون، همه چیز ریزتر */
         @media (max-width: 768px) {
-          .dash-main {
-            padding: 16px 10px 32px;
+          .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            width: min(480px, 94vw);
+            gap: 12px;
+            margin-top: 8px;
+          }
+
+          .dash-card {
+            border-radius: 12px;
+            padding: 10px;
+          }
+
+          .dash-card-inner {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center;
+            gap: 6px !important;
+            min-height: 96px;
+          }
+
+          .dash-icon-wrap {
+            margin-bottom: 2px;
+          }
+
+          .dash-icon {
+            width: 30px !important;
+            height: 30px !important;
+          }
+
+          .dash-card-title {
+            font-size: 14px !important;
+            text-align: center;
+            line-height: 1.3;
           }
 
           .dash-logo {
             width: 170px;
+            height: auto;
           }
 
-          .dash-langBar {
-            top: 16px;
-            right: 16px;
+          .lang-bar {
+            top: 14px !important;
+            right: 14px !important;
           }
 
-          .dash-langButton {
-            font-size: 14px;
-            padding: 4px 10px;
+          .lang-btn {
+            font-size: 12px !important;
+            padding: 4px 10px !important;
+          }
+        }
+
+        /* خیلی موبایل کوچک (مثلاً قدیمی‌ترها) */
+        @media (max-width: 480px) {
+          .grid {
+            width: min(420px, 94vw);
+            gap: 10px;
           }
 
-          .dash-title {
-            font-size: 18px;
-            margin-bottom: 16px;
-          }
-
-          /* دو ستونه و پر کردن عرض صفحه */
-          .dash-grid {
-            grid-template-columns: repeat(2, minmax(140px, 1fr));
-            gap: 12px;
-            width: 100%;
-          }
-
-          /* آیکون بالا، متن زیرش، همه وسط‌چین */
-          .dash-cardInner {
-            grid-template-columns: 1fr !important;
-            row-gap: 6px;
-            justify-items: center;
-            text-align: center;
+          .dash-card-inner {
             min-height: 90px;
           }
 
-          .dash-icon {
-            width: 32px;
-            height: 32px;
+          .dash-card-title {
+            font-size: 13px !important;
           }
 
-          .dash-cardTitle {
-            font-size: 15px !important;
-            line-height: 1.3;
+          .dash-logo {
+            width: 150px;
           }
         }
       `}</style>
