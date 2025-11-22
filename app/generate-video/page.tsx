@@ -669,9 +669,9 @@ export default function GenerateVideoPage() {
 
   /* لوگو — ۸ برابر کوچیک + چسبیده به بالای صفحه */
   .logo {
-    max-width: 55px !important;
+    max-width: 80px !important;
     height: auto !important;
-    margin-top: 2px !important;
+    margin-top: 0px !important;
     margin-bottom: 4px !important;
     display: block !important;
   }
@@ -683,14 +683,14 @@ export default function GenerateVideoPage() {
 
   /* تایتل خیلی نزدیک به لوگو */
   .title {
-    font-size: 18px !important;
-    margin-top: 4px !important;
+    font-size: 22px !important;
+    margin-top: 2px !important;
     margin-bottom: 10px !important;
   }
 
   /* کل کارت‌ها و فرم‌ها را شدید ببر بالا */
   .grid {
-    margin-top: -35px !important;
+    margin-top: -45px !important;
   }
 
   /* اولین کارت (آپلود) هم بیشتر بیاد بالا */
