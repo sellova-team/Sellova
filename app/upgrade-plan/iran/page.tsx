@@ -25,7 +25,7 @@ export default function IranPlansPage() {
     },
     {
       title: 'VIP ماهانه',
-      credits: '۵۰۰ کردیت ',
+      credits: '۶۰۰ کردیت', // ⬅️ اینجا از ۵۰۰ به ۶۰۰ تغییر کرد
       price: '۱٬۲۸۰٬۰۰۰ تومان',
       description: '',
       route: '/payment/vip-monthly',
@@ -159,7 +159,7 @@ export default function IranPlansPage() {
         ))}
       </div>
 
-      {/* کارت کردیت آزاد افقی کوچک و وسط‌چین */}
+      {/* کارت کردیت آزاد */}
       <div
         className="free-credit"
         style={{
@@ -168,15 +168,15 @@ export default function IranPlansPage() {
           borderRadius: '20px',
           padding: '12px 20px',
           display: 'flex',
-          justifyContent: 'center', // متن و دکمه وسط کارت
-          alignItems: 'center', // وسط عمودی
-          width: '25%', // دسکتاپ: مثل قبل
+          justifyContent: 'center',
+          alignItems: 'center',
           minHeight: '60px',
           marginTop: '40px',
           boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
           cursor: 'pointer',
           transition: 'transform 0.3s, box-shadow 0.3s',
           textAlign: 'center',
+          // ❌ دیگه width: '25%' نمی‌ذاریم که روی موبایل به‌هم نریزه
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'translateY(-3px)';
@@ -189,6 +189,7 @@ export default function IranPlansPage() {
       >
         {/* متن‌ها */}
         <div
+          className="free-credit-text"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -216,6 +217,7 @@ export default function IranPlansPage() {
 
         {/* دکمه */}
         <button
+          className="free-credit-btn"
           onClick={() => handleSelect(freeCreditPlan.route)}
           style={{
             padding: '12px 24px',
@@ -238,9 +240,9 @@ export default function IranPlansPage() {
         </button>
       </div>
 
-      {/* استایل‌های ریسپانسیو فقط برای موبایل/تبلت */}
+      {/* استایل‌های ریسپانسیو */}
       <style jsx>{`
-        /* دسکتاپ: مثل قبل */
+        /* desktop */
         .plans-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -249,7 +251,7 @@ export default function IranPlansPage() {
           max-width: 1400px;
         }
 
-        /* موبایل و تبلت */
+        /* mobile / tablet */
         @media (max-width: 768px) {
           .plans-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -262,12 +264,29 @@ export default function IranPlansPage() {
           }
 
           .free-credit {
-            width: 90%;
+            width: 90% !important;
             margin-top: 24px;
+            flex-direction: column !important; /* متن و دکمه زیر هم */
+            align-items: center !important;
+          }
+
+          .free-credit-text {
+            margin-right: 0 !important;
+            margin-bottom: 8px;
+          }
+
+          .free-credit-text p {
+            font-size: 16px !important;
+            margin: 2px 0;
+          }
+
+          .free-credit-btn {
+            font-size: 16px !important;
+            padding: 10px 20px !important;
           }
         }
 
-        /* موبایل خیلی کوچک */
+        /* very small mobile */
         @media (max-width: 480px) {
           .plans-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -279,7 +298,7 @@ export default function IranPlansPage() {
           }
 
           .free-credit {
-            width: 95%;
+            width: 95% !important;
           }
         }
       `}</style>
