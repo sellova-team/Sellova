@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang";
+import { useLang } from "../../lib/lang"; // ✅ سیستم زبان خودت
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -27,6 +27,7 @@ const styles: { [k: string]: CSSProperties } = {
     flexDirection: "column",
     alignItems: "center",
     padding: "24px 16px 56px",
+    width: "100%", // ⬅ بک‌گراند سورمه‌ای کل عرض را می‌گیرد
   },
 
   logoWrap: {
@@ -61,7 +62,6 @@ const styles: { [k: string]: CSSProperties } = {
     transition: "transform .08s ease",
   },
 
-  // 👇 همون استایل دسکتاپ خودت (آیکون چپ، متن راست)
   cardInner: {
     display: "grid",
     gridTemplateColumns: "80px 1fr",
@@ -89,8 +89,8 @@ const styles: { [k: string]: CSSProperties } = {
 
   langBar: {
     position: "absolute",
-    top: 40,
-    right: 36,
+    top: 18,
+    right: 12,
   },
 
   langButton: {
@@ -98,8 +98,8 @@ const styles: { [k: string]: CSSProperties } = {
     border: "1px solid rgba(255,255,255,.6)",
     background: "rgba(255,255,255,.15)",
     color: "#fff",
-    fontSize: 16,
-    padding: "4px 14px",
+    fontSize: 14,
+    padding: "3px 10px",
     cursor: "pointer",
     backdropFilter: "blur(4px)",
   },
@@ -158,12 +158,8 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main
-      className="dash-page"
-      style={{ ...styles.page }}
-      dir={locale === "fa" ? "rtl" : "ltr"}
-    >
-      {/* دکمه زبان */}
+    <main style={{ ...styles.page }} dir={locale === "fa" ? "rtl" : "ltr"}>
+      {/* زبان */}
       <div style={styles.langBar}>
         <button
           className="dash-lang"
@@ -179,7 +175,7 @@ export default function DashboardPage() {
         <img src="/logo.png" alt="Sellova" width={260} height={180} />
       </div>
 
-      {/* متن خوش آمد */}
+      {/* متن خوش‌آمد */}
       <div style={styles.title} className="dash-title">
         {messages.dashboard.welcome}
       </div>
@@ -192,7 +188,7 @@ export default function DashboardPage() {
       </section>
 
       <style jsx>{`
-        /* ===== دسکتاپ: دقیقاً استایل خودت ===== */
+        /* ===== دسکتاپ (استایل اصلی تو) ===== */
         .dash-grid {
           display: grid;
           gap: 16px;
@@ -200,50 +196,43 @@ export default function DashboardPage() {
           width: min(920px, 92vw);
         }
 
-        /* ===== فقط موبایل و تبلت ===== */
+        /* ===== موبایل / تبلت ===== */
         @media (max-width: 768px) {
-          .dash-page {
-            padding: 16px 0 40px;
+          main {
+            padding: 18px 0 32px;
           }
 
           .dash-logo-wrap img {
-            width: 170px !important;
+            width: 200px !important;
             height: auto !important;
           }
 
           .dash-title {
             font-size: 18px !important;
-            margin-top: -4px !important;
             margin-bottom: 14px !important;
           }
 
-          .dash-lang {
-            font-size: 11px !important;
-            padding: 2px 8px !important;
-          }
-
-          /* دو ستونه، وسط صفحه، باریک‌تر */
           .dash-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
             width: 100%;
             max-width: 360px;
-            margin: 0 auto;
+            margin: 0 auto 16px;
+            padding: 0 10px;
           }
 
           .dash-card {
-            padding: 10px !important;
-            border-radius: 12px !important;
+            padding: 8px !important;
           }
 
-          /* آیکون بالا – متن زیرش */
+          /* آیکون بالا، متن زیرش، وسط‌چین */
           .dash-card-inner {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 6px !important;
-            min-height: 100px !important;
+            min-height: 92px !important;
           }
 
           .dash-icon {
@@ -252,9 +241,9 @@ export default function DashboardPage() {
           }
 
           .dash-card-title {
-            font-size: 12px !important; /* کوچیک‌تر از دسکتاپ */
+            font-size: 13px !important; /* یک سایز ریزتر از قبل */
             text-align: center !important;
-            line-height: 1.2 !important;
+            line-height: 1.25 !important;
           }
         }
       `}</style>
