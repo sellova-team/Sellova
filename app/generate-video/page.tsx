@@ -667,70 +667,31 @@ export default function GenerateVideoPage() {
         }
     @media (max-width: 640px) {
 
-  /* لوگو و هدر */
-  .hdr {
-    margin-top: -25px !important; /* لوگو می‌چسبد به بالا */
-    margin-bottom: 0 !important;
-  }
-
+  /* لوگو ۴ برابر کوچک‌تر */
   .logo {
-    max-width: 120px !important; /* لوگو 4 برابر کوچک‌تر */
-    height: auto !important;
+    max-width: 80px !important;
+    margin-top: 4px !important;
   }
 
-  /* تایتل */
+  /* کل صفحه بیاد بالا */
+  .pg {
+    padding-top: 8px !important;
+  }
+
+  /* تایتل خیلی بالاتر بیاد */
   .title {
-    font-size: 20px !important;
     margin-top: 6px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 14px !important;
+    font-size: 20px !important;
   }
 
-  /* گرید */
+  /* کل فرم‌ها و کارت‌ها را بچسبانیم بالا */
   .grid {
-    margin-top: -10px !important; /* کل جدول می‌آید بالا */
-    transform: translateY(-30px) !important;
-    gap: 10px !important;
+    margin-top: -20px !important;
   }
 
-  /* 🎯 کارت‌ها (card) */
   .card {
-    padding: 10px !important; /* کارت کوچک‌تر */
-    border-radius: 10px !important;
-    margin-top: -4px !important; /* کارت‌ها ارتفاع اضافه را کم می‌کنند */
-  }
-
-  /* آپلود باکس */
-  .uploadBox {
-    padding: 12px 10px 10px !important;
-  }
-
-  .field {
-    margin-top: 10px !important;
-  }
-
-  .label {
-    font-size: 12px !important;
-    margin-bottom: 4px !important;
-  }
-
-  .select {
-    height: 36px !important;
-    font-size: 12px !important;
-    padding: 0 10px !important;
-  }
-
-  .textarea {
-    min-height: 80px !important;
-    font-size: 13px !important;
-  }
-
-  .previewFrame {
-    min-height: 260px !important;
-    padding: 8px !important;
-  }
-
-  .previewImg {
-    max-width: 260px !important;
+    margin-top: -12px !important;
   }
 }
     `}</style>
