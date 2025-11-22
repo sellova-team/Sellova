@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang"; // ✅ استفاده از سیستم زبان
+import { useLang } from "../../lib/lang";
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -85,7 +85,6 @@ const styles: { [k: string]: CSSProperties } = {
     lineHeight: 1.18,
   },
 
-  // ✅ استایل دکمه زبان
   langBar: {
     position: "absolute",
     top: 50,
@@ -134,13 +133,12 @@ function Tile({
 }
 
 export default function DashboardPage() {
-  const { locale, setLocale, messages } = useLang(); // ✅ گرفتن زبان و ترجمه‌ها از Context
+  const { locale, setLocale, messages } = useLang();
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
   };
 
-  // ✅ درست کردن آیتم‌ها بر اساس زبان انتخابی
   const localizedItems = [
     { href: "/guide", title: messages.dashboard.cards.uploadGuide, iconSrc: ICONS.upload },
     { href: "/generate-image", title: messages.dashboard.cards.generateImage, iconSrc: ICONS.image },
@@ -158,11 +156,10 @@ export default function DashboardPage() {
 
   return (
     <main
-      style={{ ...styles.page }}
+      style={styles.page}
       dir={locale === "fa" ? "rtl" : "ltr"}
       className="dash-page"
     >
-      {/* ✅ دکمه تغییر زبان بالا */}
       <div style={styles.langBar} className="dash-lang-bar">
         <button
           style={styles.langButton}
@@ -183,22 +180,23 @@ export default function DashboardPage() {
         />
       </div>
 
-      {/* ✅ متن خوش‌آمدگویی از ترجمه‌ها */}
       <div style={styles.title} className="dash-title">
         {messages.dashboard.welcome}
       </div>
 
-      {/* ✅ شبکه کارت‌ها با ترجمه داینامیک */}
       <section className="grid">
         {localizedItems.map((it) => (
           <Tile key={it.href} {...it} />
         ))}
       </section>
 
+      {/* استایل‌های گرید + موبایل */}
       <style jsx>{`
-        /* 💻 لپ‌تاپ: عین قبل، ۳ ستون */
+        /* 💻 دسکتاپ – مثل قبل */
         .dash-page {
-          width: 100vw; /* بک‌گراند سورمه‌ای کل عرض صفحه */
+          background: #0b1e3d;
+          min-height: 100vh;
+          width: 100%;
         }
 
         .grid {
@@ -206,23 +204,14 @@ export default function DashboardPage() {
           gap: 16px;
           grid-template-columns: repeat(3, 1fr);
           width: min(920px, 92vw);
+          transform: translateY(-10px);
         }
 
-        /* 📱 موبایل */
+        /* 📱 موبایل – دو ستون، فونت و آیکون کوچک‌تر */
         @media (max-width: 768px) {
           .dash-page {
-            padding: 16px 10px 32px !important;
-            align-items: center;
-          }
-
-          .dash-lang-bar {
-            top: 16px !important;
-            right: 16px !important;
-          }
-
-          .dash-lang-btn {
-            font-size: 12px !important;
-            padding: 4px 10px !important;
+            padding: 16px 10px 40px !important;
+            overflow-x: hidden !important;
           }
 
           .dash-logo-wrap {
@@ -231,21 +220,21 @@ export default function DashboardPage() {
           }
 
           .dash-logo {
-            width: 200px;
-            height: auto;
+            width: 180px !important;
+            height: auto !important;
           }
 
           .dash-title {
-            font-size: 16px !important; /* ۲–۳ درجه کوچیک‌تر */
-            margin-bottom: 14px !important;
+            font-size: 14px !important; /* حدودا ۲ سایز کوچیک‌تر */
+            margin-bottom: 12px !important;
           }
 
           .grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)); /* ✅ دو ستون */
-            gap: 8px;
-            width: 100%;
-            max-width: 420px;
-            margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+            width: 100% !important;
+            max-width: 400px !important;
+            margin: 0 auto !important;
           }
 
           .dash-card {
@@ -254,19 +243,24 @@ export default function DashboardPage() {
           }
 
           .dash-card-inner {
-            grid-template-columns: 48px 1fr !important;
+            grid-template-columns: 45px 1fr !important;
             gap: 6px !important;
-            min-height: 60px !important;
+            min-height: 56px !important;
           }
 
           .dash-icon {
-            width: 26px !important;
-            height: 26px !important;
+            width: 24px !important;
+            height: 24px !important;
           }
 
           .dash-card-title {
-            font-size: 12px !important; /* نوشته‌ها ریزتر تو پنجره جا می‌شن */
-            line-height: 1.3 !important;
+            font-size: 12px !important; /* دو سایز کوچیک‌تر */
+            line-height: 1.25 !important;
+          }
+
+          .dash-lang-btn {
+            font-size: 12px !important;
+            padding: 4px 10px !important;
           }
         }
       `}</style>
