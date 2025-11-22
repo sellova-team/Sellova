@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang"; // ✅ سیستم زبان خودت
+import { useLang } from "../../lib/lang";
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -30,8 +30,8 @@ const styles: { [k: string]: CSSProperties } = {
   },
 
   logoWrap: {
-    marginTop: 15,
-    marginBottom: 6,
+    marginTop: 28,
+    marginBottom: 8,
     display: "flex",
     justifyContent: "center",
   },
@@ -61,6 +61,7 @@ const styles: { [k: string]: CSSProperties } = {
     transition: "transform .08s ease",
   },
 
+  // 👇 همون استایل دسکتاپ خودت (آیکون چپ، متن راست)
   cardInner: {
     display: "grid",
     gridTemplateColumns: "80px 1fr",
@@ -118,7 +119,12 @@ function Tile({
       <div className="dash-card" style={styles.card}>
         <div className="dash-card-inner" style={styles.cardInner}>
           <div className="dash-icon-wrap" style={styles.iconWrap}>
-            <img src={iconSrc} alt={title} className="dash-icon" style={styles.icon} />
+            <img
+              src={iconSrc}
+              alt={title}
+              className="dash-icon"
+              style={styles.icon}
+            />
           </div>
           <div className="dash-card-title" style={styles.cardTitle}>
             {title}
@@ -152,10 +158,18 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main style={{ ...styles.page }} dir={locale === "fa" ? "rtl" : "ltr"}>
-      {/* زبان */}
+    <main
+      className="dash-page"
+      style={{ ...styles.page }}
+      dir={locale === "fa" ? "rtl" : "ltr"}
+    >
+      {/* دکمه زبان */}
       <div style={styles.langBar}>
-        <button className="dash-lang" style={styles.langButton} onClick={toggleLang}>
+        <button
+          className="dash-lang"
+          style={styles.langButton}
+          onClick={toggleLang}
+        >
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
         </button>
       </div>
@@ -165,7 +179,7 @@ export default function DashboardPage() {
         <img src="/logo.png" alt="Sellova" width={260} height={180} />
       </div>
 
-      {/* متن خوش‌آمد */}
+      {/* متن خوش آمد */}
       <div style={styles.title} className="dash-title">
         {messages.dashboard.welcome}
       </div>
@@ -178,7 +192,7 @@ export default function DashboardPage() {
       </section>
 
       <style jsx>{`
-        /* ===== دسکتاپ (همون استایل خودت) ===== */
+        /* ===== دسکتاپ: دقیقاً استایل خودت ===== */
         .dash-grid {
           display: grid;
           gap: 16px;
@@ -186,69 +200,63 @@ export default function DashboardPage() {
           width: min(920px, 92vw);
         }
 
-        /* ===== موبایل / تبلت ===== */
+        /* ===== فقط موبایل و تبلت ===== */
         @media (max-width: 768px) {
-  /* کل صفحه موبایل جمع‌وجورتر */
-  main {
-    padding: 12px 8px 28px;
-  }
+          .dash-page {
+            padding: 16px 0 40px;
+          }
 
-  /* دکمه "فارسی" کوچیک‌تر + کمی فاصله از بالا */
-  .dash-lang {
-    font-size: 12px !important;
-    padding: 2px 10px !important;
-  }
+          .dash-logo-wrap img {
+            width: 170px !important;
+            height: auto !important;
+          }
 
-  /* لوگو کوچیک‌تر و بالاتر */
-  .dash-logo-wrap img {
-    width: 180px !important;
-    height: auto !important;
-  }
+          .dash-title {
+            font-size: 18px !important;
+            margin-top: -4px !important;
+            margin-bottom: 14px !important;
+          }
 
-  /* تایتل نزدیک‌تر به لوگو و خیلی درشت نباشه */
-  .dash-title {
-    font-size: 18px !important;
-    margin-top: -4px !important;
-    margin-bottom: 10px !important;
-  }
+          .dash-lang {
+            font-size: 11px !important;
+            padding: 2px 8px !important;
+          }
 
-  /* گرید دو ستونه وسط صفحه، پنجره‌ها باریک‌تر */
-  .dash-grid {
-    width: 100%;
-    max-width: 360px;
-    margin: 4px auto 16px; /* از چپ و راست فاصله دارد */
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
+          /* دو ستونه، وسط صفحه، باریک‌تر */
+          .dash-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto;
+          }
 
-  /* خود کارت‌ها کمی جمع‌وجورتر */
-  .dash-card {
-    padding: 10px !important;
-  }
+          .dash-card {
+            padding: 10px !important;
+            border-radius: 12px !important;
+          }
 
-  /* آیکون بالا، متن زیرش، همه وسطِ کارت */
-  .dash-card-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    min-height: 88px !important;
-  }
+          /* آیکون بالا – متن زیرش */
+          .dash-card-inner {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            min-height: 100px !important;
+          }
 
-  /* آیکون کوچیک‌تر */
-  .dash-icon {
-    width: 28px !important;
-    height: 28px !important;
-  }
+          .dash-icon {
+            width: 28px !important;
+            height: 28px !important;
+          }
 
-  /* نوشته‌ها کوچیک + زیر آیکون + وسط */
-  .dash-card-title {
-    font-size: 13px !important; /* از دسکتاپ کوچیک‌تر */
-    text-align: center !important;
-    line-height: 1.3 !important;
-  }
-}
+          .dash-card-title {
+            font-size: 12px !important; /* کوچیک‌تر از دسکتاپ */
+            text-align: center !important;
+            line-height: 1.2 !important;
+          }
+        }
       `}</style>
     </main>
   );
