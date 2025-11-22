@@ -666,37 +666,71 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
     @media (max-width: 640px) {
-  .pg {
-    padding: 0 !important; /* کل فاصله صفحه صفر */
-  }
 
+  /* لوگو و هدر */
   .hdr {
-    margin: 0 !important; /* لوگو کاملاً چسبیده به بالای صفحه */
-    padding: 0 !important;
+    margin-top: -25px !important; /* لوگو می‌چسبد به بالا */
+    margin-bottom: 0 !important;
   }
 
   .logo {
-    max-width: 80px !important; /* 👈 حتی کوچیک‌تر از قبل - ۵ برابر کوچک‌تر */
-    height: auto;
-    margin-top: 4px !important; /* خیلی کم فاصله */
+    max-width: 120px !important; /* لوگو 4 برابر کوچک‌تر */
+    height: auto !important;
   }
 
+  /* تایتل */
   .title {
-    font-size: 20px;
-    margin: 2px 0 6px !important; /* تایتل چسبیده به لوگو */
+    font-size: 20px !important;
+    margin-top: 6px !important;
+    margin-bottom: 10px !important;
   }
 
+  /* گرید */
   .grid {
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: translateY(-45px) !important; 
-    /* 👈 کل جدول‌ها تقریباً نیم صفحه کشیده شد بالا */
-    gap: 10px;
+    margin-top: -10px !important; /* کل جدول می‌آید بالا */
+    transform: translateY(-30px) !important;
+    gap: 10px !important;
   }
 
+  /* 🎯 کارت‌ها (card) */
   .card {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 10px !important; /* کارت کوچک‌تر */
+    border-radius: 10px !important;
+    margin-top: -4px !important; /* کارت‌ها ارتفاع اضافه را کم می‌کنند */
+  }
+
+  /* آپلود باکس */
+  .uploadBox {
+    padding: 12px 10px 10px !important;
+  }
+
+  .field {
+    margin-top: 10px !important;
+  }
+
+  .label {
+    font-size: 12px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .select {
+    height: 36px !important;
+    font-size: 12px !important;
+    padding: 0 10px !important;
+  }
+
+  .textarea {
+    min-height: 80px !important;
+    font-size: 13px !important;
+  }
+
+  .previewFrame {
+    min-height: 260px !important;
+    padding: 8px !important;
+  }
+
+  .previewImg {
+    max-width: 260px !important;
   }
 }
     `}</style>
