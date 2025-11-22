@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang"; // ✅ استفاده از سیستم زبان
+import { useLang } from "../../lib/lang";
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -22,7 +22,7 @@ const ICONS = {
 const styles: { [k: string]: CSSProperties } = {
   page: {
     minHeight: "100vh",
-    width: "100%", // ✅ که کل عرض صفحه سورمه‌ای شود
+    width: "100%",
     background: "#0b1e3d",
     display: "flex",
     flexDirection: "column",
@@ -31,8 +31,8 @@ const styles: { [k: string]: CSSProperties } = {
   },
 
   logoWrap: {
-    marginTop: 24,
-    marginBottom: 10,
+    marginTop: 32,
+    marginBottom: 12,
     display: "flex",
     justifyContent: "center",
   },
@@ -82,7 +82,6 @@ const styles: { [k: string]: CSSProperties } = {
 
   cardTitle: { color: "#0b1e3d", fontWeight: 700, fontSize: 20, lineHeight: 1.18 },
 
-  // ✅ استایل دکمه زبان
   langBar: {
     position: "absolute",
     top: 40,
@@ -153,18 +152,19 @@ export default function DashboardPage() {
 
   return (
     <main style={{ ...styles.page }} dir={locale === "fa" ? "rtl" : "ltr"}>
-      {/* دکمه تغییر زبان */}
       <div style={styles.langBar} className="lang-bar">
         <button style={styles.langButton} className="lang-btn" onClick={toggleLang}>
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
         </button>
       </div>
 
-      <div style={styles.logoWrap}>
+      <div style={styles.logoWrap} className="logo-wrap">
         <img src="/logo.png" alt="Sellova" width={280} height={200} className="dash-logo" />
       </div>
 
-      <div style={styles.title}>{messages.dashboard.welcome}</div>
+      <div style={styles.title} className="dash-title">
+        {messages.dashboard.welcome}
+      </div>
 
       <section className="grid">
         {localizedItems.map((it) => (
@@ -176,17 +176,17 @@ export default function DashboardPage() {
         .grid {
           display: grid;
           gap: 16px;
-          grid-template-columns: repeat(3, 1fr); /* دسکتاپ مثل قبل */
+          grid-template-columns: repeat(3, 1fr);
           width: min(920px, 92vw);
         }
 
-        /* ✅ موبایل و تبلت: دو ستونه، متن زیر آیکون، همه چیز ریزتر */
+        /* ========= موبایل و تبلت ========= */
         @media (max-width: 768px) {
           .grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            width: min(480px, 94vw);
-            gap: 12px;
+            width: min(420px, 90vw); /* حاشیه سورمه‌ای چپ/راست */
             margin-top: 8px;
+            gap: 12px;
           }
 
           .dash-card {
@@ -200,7 +200,7 @@ export default function DashboardPage() {
             align-items: center !important;
             justify-content: center;
             gap: 6px !important;
-            min-height: 96px;
+            min-height: 90px;
           }
 
           .dash-icon-wrap {
@@ -213,9 +213,9 @@ export default function DashboardPage() {
           }
 
           .dash-card-title {
-            font-size: 14px !important;
+            font-size: 13px !important; /* نوشته‌ها ۲–۳ سایز کوچکتر */
             text-align: center;
-            line-height: 1.3;
+            line-height: 1.25;
           }
 
           .dash-logo {
@@ -223,30 +223,41 @@ export default function DashboardPage() {
             height: auto;
           }
 
+          .logo-wrap {
+            margin-top: 18px !important; /* لوگو بالاتر */
+            margin-bottom: 8px !important;
+          }
+
+          .dash-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+          }
+
           .lang-bar {
-            top: 14px !important;
+            top: 18px !important; /* از بالا کمی فاصله */
             right: 14px !important;
           }
 
           .lang-btn {
-            font-size: 12px !important;
-            padding: 4px 10px !important;
+            font-size: 11px !important; /* دکمه کوچک‌تر */
+            padding: 3px 9px !important;
+            border-width: 1px;
           }
         }
 
-        /* خیلی موبایل کوچک (مثلاً قدیمی‌ترها) */
+        /* موبایل خیلی کوچک */
         @media (max-width: 480px) {
           .grid {
-            width: min(420px, 94vw);
+            width: min(380px, 90vw);
             gap: 10px;
           }
 
           .dash-card-inner {
-            min-height: 90px;
+            min-height: 82px;
           }
 
           .dash-card-title {
-            font-size: 13px !important;
+            font-size: 12px !important;
           }
 
           .dash-logo {
