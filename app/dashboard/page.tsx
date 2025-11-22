@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CSSProperties } from "react";
-import { useLang } from "../../lib/lang";
+import { useLang } from "../../lib/lang"; // ✅ استفاده از سیستم زبان
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -20,6 +20,7 @@ const ICONS = {
 };
 
 const styles: { [k: string]: CSSProperties } = {
+  // ===== استایل دسکتاپ (همون قبلی خودت) =====
   page: {
     minHeight: "100vh",
     background: "#0b1e3d",
@@ -27,13 +28,11 @@ const styles: { [k: string]: CSSProperties } = {
     flexDirection: "column",
     alignItems: "center",
     padding: "24px 16px 56px",
-    width: "100%",
-    boxSizing: "border-box",
   },
 
   logoWrap: {
-    marginTop: 16, // 👈 لوگو بالاتر
-    marginBottom: 6,
+    marginTop: 36,
+    marginBottom: 10,
     display: "flex",
     justifyContent: "center",
   },
@@ -42,7 +41,7 @@ const styles: { [k: string]: CSSProperties } = {
     color: "#fff",
     fontSize: 22,
     fontWeight: 800,
-    marginBottom: 18,
+    marginBottom: 22,
     textAlign: "center",
   },
 
@@ -51,7 +50,7 @@ const styles: { [k: string]: CSSProperties } = {
     gap: 16,
     gridTemplateColumns: "repeat(3, 1fr)",
     width: "min(920px, 92vw)",
-    transform: "translateY(-6px)",
+    transform: "translateY(-10px)",
   },
 
   card: {
@@ -84,23 +83,23 @@ const styles: { [k: string]: CSSProperties } = {
   cardTitle: {
     color: "#0b1e3d",
     fontWeight: 700,
-    fontSize: 18, // 👈 یه سایز از قبل ریزتر
+    fontSize: 20,
     lineHeight: 1.18,
   },
 
+  // دکمه زبان (دسکتاپ)
   langBar: {
     position: "absolute",
-    top: 16,
-    right: 12,
+    top: 50,
+    right: 60,
   },
-
   langButton: {
     borderRadius: 999,
     border: "1px solid rgba(255,255,255,.6)",
     background: "rgba(255,255,255,.15)",
     color: "#fff",
-    fontSize: 13,
-    padding: "3px 10px",
+    fontSize: 18,
+    padding: "6px 16px",
     cursor: "pointer",
     backdropFilter: "blur(4px)",
   },
@@ -137,7 +136,7 @@ function Tile({
 }
 
 export default function DashboardPage() {
-  const { locale, setLocale, messages } = useLang();
+  const { locale, setLocale, messages } = useLang(); // ✅ گرفتن زبان و ترجمه‌ها
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
@@ -160,15 +159,15 @@ export default function DashboardPage() {
 
   return (
     <main
-      className="dash-main"
+      className="dash-page"
       style={{ ...styles.page }}
       dir={locale === "fa" ? "rtl" : "ltr"}
     >
-      {/* زبان */}
-      <div style={styles.langBar}>
+      {/* دکمه تغییر زبان */}
+      <div style={styles.langBar} className="dash-lang-bar">
         <button
-          className="dash-lang"
           style={styles.langButton}
+          className="dash-lang-btn"
           onClick={toggleLang}
         >
           {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
@@ -177,10 +176,10 @@ export default function DashboardPage() {
 
       {/* لوگو */}
       <div style={styles.logoWrap} className="dash-logo-wrap">
-        <img src="/logo.png" alt="Sellova" width={240} height={160} />
+        <img src="/logo.png" alt="Sellova" width={280} height={200} />
       </div>
 
-      {/* متن خوش‌آمد */}
+      {/* متن خوش‌آمدگویی */}
       <div style={styles.title} className="dash-title">
         {messages.dashboard.welcome}
       </div>
@@ -193,33 +192,29 @@ export default function DashboardPage() {
       </section>
 
       <style jsx>{`
-        /* بکگراند کل صفحه برای مطمئن شدن */
-        :global(body) {
-          margin: 0;
-          background: #0b1e3d;
-        }
-
-        .dash-main {
+        /* ===== گرید دسکتاپ: همون ۳ ستونه قبلی ===== */
+        .dash-page {
           width: 100%;
         }
 
-        /* ===== دسکتاپ (همون استایل ۳ ستونه) ===== */
         .dash-grid {
           display: grid;
           gap: 16px;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(3, 1fr); /* دسکتاپ */
           width: min(920px, 92vw);
+          transform: translateY(-10px);
         }
 
         /* ===== موبایل / تبلت ===== */
         @media (max-width: 768px) {
-          .dash-main {
-            padding: 18px 0 32px;
+          .dash-page {
+            padding: 16px 8px 32px !important;
+            align-items: stretch !important; /* بک‌گراند سورمه‌ای تا دو طرف */
           }
 
           .dash-logo-wrap {
-            margin-top: 8px !important;
-            margin-bottom: 4px !important;
+            margin-top: 12px !important;
+            margin-bottom: 6px !important;
           }
 
           .dash-logo-wrap img {
@@ -229,42 +224,49 @@ export default function DashboardPage() {
 
           .dash-title {
             font-size: 18px !important;
-            margin-bottom: 12px !important;
+            margin-bottom: 14px !important;
           }
 
+          .dash-lang-bar {
+            top: 10px !important;
+            right: 12px !important;
+          }
+
+          .dash-lang-btn {
+            font-size: 12px !important;
+            padding: 2px 8px !important;
+          }
+
+          /* دو ستون مستطیلی، باریک‌تر و مرتب */
           .dash-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 10px;
-            width: 100%;
-            max-width: 360px;
-            margin: 0 auto 16px;
-            padding: 0 10px;
+            width: 100% !important;
+            max-width: 420px;
+            margin: 0 auto;
+            transform: translateY(0); /* کمی نزدیک‌تر به لوگو */
           }
 
-          /* خود کارت‌ها کمی باریک‌تر */
           .dash-card {
             padding: 8px !important;
+            border-radius: 12px !important;
           }
 
-          /* آیکون بالا – متن زیرش، وسط‌چین */
           .dash-card-inner {
-            display: flex !important;
-            flex-direction: column !important;
+            display: grid !important;
+            grid-template-columns: 36px 1fr !important; /* آیکون باریک + متن */
             align-items: center !important;
-            justify-content: center !important;
             gap: 6px !important;
-            min-height: 90px !important;
+            min-height: 64px !important;
           }
 
           .dash-icon {
-            width: 26px !important;
-            height: 26px !important;
+            width: 24px !important;
+            height: 24px !important;
           }
 
-          /* 👈 نوشته ۳ سایز ریزتر و وسط کارت */
           .dash-card-title {
-            font-size: 13px !important;
-            text-align: center !important;
+            font-size: 14px !important; /* ۳ سایز ریزتر از دسکتاپ */
             line-height: 1.25 !important;
           }
         }
