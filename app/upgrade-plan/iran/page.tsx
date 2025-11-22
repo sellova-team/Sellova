@@ -340,19 +340,52 @@ export default function IranPlansPage() {
         }
 
         /* 📏 موبایل خیلی کوچک */
-        @media (max-width: 480px) {
-          .plans-grid {
-            gap: 10px;
-          }
+        @media (max-width: 768px) {
+  .plans-page {
+    padding-top: 2px !important; /* 👈 سه برابر کمتر از قبل */
+  }
 
-          .plan-card {
-            min-height: 200px !important;
-          }
+  /* لوگو */
+  .plans-logo-wrap {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important; /* 👈 خیلی کم فاصله از کارت‌ها */
+    display: flex;
+    justify-content: center;
+  }
 
-          .free-credit {
-            width: 95%;
-          }
-        }
+  .plans-logo-img {
+    width: 155px !important; /* 👈 کمی کوچک‌تر از نسخه قبلی */
+    height: auto !important;
+  }
+
+  /* کارت‌ها */
+  .plans-grid {
+    margin-top: -35px !important; /* 👈 این خط کارت‌ها را دقیقاً 3 برابر بیشتر بالا می‌کشد */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .plan-card {
+    padding: 18px 14px !important;
+    min-height: 220px !important;
+  }
+
+  .plan-title {
+    font-size: 20px !important;
+  }
+  .plan-credits {
+    font-size: 16px !important;
+  }
+  .plan-price {
+    font-size: 18px !important;
+  }
+
+  /* کارت زرد پایین */
+  .free-credit {
+    width: 90%;
+    margin-top: 10px !important;
+  }
+}
       `}</style>
     </div>
   );
