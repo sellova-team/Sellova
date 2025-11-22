@@ -18,228 +18,231 @@ const ICONS = {
   academyInsight: "/assets/icons/academy-insight.png",
 };
 
-type ItemKey =
-  | "uploadGuide"
-  | "generateImage"
-  | "generateVideo"
-  | "createAvatar"
-  | "captionsHashtags"
-  | "advisoryAnalysis"
-  | "upgradePlan"
-  | "settings"
-  | "brandOverlay"
-  | "promoSlides"
-  | "sellovaGuide"
-  | "academyInsight";
-
-const ITEMS: { href: string; key: ItemKey; icon: string }[] = [
-  { href: "/guide", key: "uploadGuide", icon: ICONS.upload },
-  { href: "/generate-image", key: "generateImage", icon: ICONS.image },
-  { href: "/generate-video", key: "generateVideo", icon: ICONS.video },
-  { href: "/avatar", key: "createAvatar", icon: ICONS.avatar },
-  { href: "/hashtags", key: "captionsHashtags", icon: ICONS.captions },
-  {
-    href: "/advisory-consultation",
-    key: "advisoryAnalysis",
-    icon: ICONS.advisory,
-  },
-  { href: "/upgrade-plan", key: "upgradePlan", icon: ICONS.upgrade },
-  { href: "/settings", key: "settings", icon: ICONS.settings },
-  { href: "/brand-overlay", key: "brandOverlay", icon: ICONS.brandOverlay },
-  { href: "/promo-slides", key: "promoSlides", icon: ICONS.slides },
-  { href: "/guide-center", key: "sellovaGuide", icon: ICONS.guideCenter },
-  {
-    href: "/academy-insight",
-    key: "academyInsight",
-    icon: ICONS.academyInsight,
-  },
-];
-
 export default function DashboardPage() {
   const { locale, setLocale, messages } = useLang();
-  const t = messages.dashboard;
 
-  const toggleLang = () => setLocale(locale === "en" ? "fa" : "en");
+  const toggleLang = () => {
+    setLocale(locale === "en" ? "fa" : "en");
+  };
+
+  const items = [
+    { href: "/guide", label: messages.dashboard.cards.uploadGuide, icon: ICONS.upload },
+    { href: "/generate-image", label: messages.dashboard.cards.generateImage, icon: ICONS.image },
+    { href: "/generate-video", label: messages.dashboard.cards.generateVideo, icon: ICONS.video },
+    { href: "/avatar", label: messages.dashboard.cards.createAvatar, icon: ICONS.avatar },
+    {
+      href: "/hashtags",
+      label: messages.dashboard.cards.captionsHashtags,
+      icon: ICONS.captions,
+    },
+    {
+      href: "/advisory-consultation",
+      label: messages.dashboard.cards.advisoryAnalysis,
+      icon: ICONS.advisory,
+    },
+    { href: "/upgrade-plan", label: messages.dashboard.cards.upgradePlan, icon: ICONS.upgrade },
+    { href: "/settings", label: messages.dashboard.cards.settings, icon: ICONS.settings },
+    {
+      href: "/brand-overlay",
+      label: messages.dashboard.cards.brandOverlay,
+      icon: ICONS.brandOverlay,
+    },
+    {
+      href: "/promo-slides",
+      label: messages.dashboard.cards.promoSlides,
+      icon: ICONS.slides,
+    },
+    {
+      href: "/guide-center",
+      label: messages.dashboard.cards.sellovaGuide,
+      icon: ICONS.guideCenter,
+    },
+    {
+      href: "/academy-insight",
+      label: messages.dashboard.cards.academyInsight,
+      icon: ICONS.academyInsight,
+    },
+  ];
 
   return (
-    <main
-      className="dash-page"
-      dir={locale === "fa" ? "rtl" : "ltr"}
-    >
+    <main className="page" dir={locale === "fa" ? "rtl" : "ltr"}>
       {/* دکمه زبان */}
-      <button className="dash-lang" onClick={toggleLang}>
-        {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
-      </button>
+      <div className="lang-bar">
+        <button className="lang-btn" onClick={toggleLang}>
+          {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
+        </button>
+      </div>
 
-      {/* لوگو و تیتر */}
-      <header className="dash-header">
-        <img src="/logo.png" alt="Sellova" className="dash-logo" />
-        <h1 className="dash-title">{t.welcome}</h1>
-      </header>
+      {/* لوگو */}
+      <div className="logo-wrap">
+        <img src="/logo.png" alt="Sellova" className="logo" />
+      </div>
 
-      {/* گرید کارت‌ها */}
+      {/* متن خوش آمد */}
+      <h1 className="welcome">{messages.dashboard.welcome}</h1>
+
+      {/* گرید ۳ ستونه – هم در دسکتاپ هم موبایل */}
       <section className="dash-grid">
-        {ITEMS.map((item) => {
-          const label =
-            (messages.dashboard.cards as any)[item.key] ?? item.key;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="dash-link"
-            >
-              <div className="dash-tile">
-                <div className="dash-icon-wrap">
-                  <img
-                    src={item.icon}
-                    alt={String(label)}
-                    className="dash-icon"
-                  />
-                </div>
-                <div className="dash-label">{label}</div>
-              </div>
-            </Link>
-          );
-        })}
+        {items.map((item) => (
+          <Link href={item.href} key={item.href} className="tile">
+            <div className="icon-box">
+              <img src={item.icon} alt={item.label} className="icon" />
+            </div>
+            <div className="tile-label">{item.label}</div>
+          </Link>
+        ))}
       </section>
 
       <style jsx>{`
-        .dash-page {
+        .page {
           min-height: 100vh;
           background: #0b1e3d;
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 24px 16px 56px;
-          color: #fff;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-            Roboto, Arial, sans-serif;
-          position: relative;
+          padding: 24px 12px 40px;
+          overflow-x: hidden;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
-        .dash-lang {
-          position: absolute;
-          top: 18px;
-          right: 18px;
+        .lang-bar {
+          position: fixed;
+          top: 14px;
+          right: 16px;
+          z-index: 10;
+        }
+
+        .lang-btn {
           border-radius: 999px;
           border: 1px solid rgba(255, 255, 255, 0.6);
-          background: rgba(255, 255, 255, 0.15);
+          background: rgba(255, 255, 255, 0.12);
           color: #fff;
-          font-size: 16px;
-          padding: 6px 14px;
+          padding: 5px 14px;
+          font-size: 13px;
           cursor: pointer;
           backdrop-filter: blur(4px);
         }
 
-        .dash-header {
-          margin-top: 32px;
-          text-align: center;
+        .logo-wrap {
+          margin-top: 40px;
+          margin-bottom: 10px;
         }
 
-        .dash-logo {
-          width: 250px;
+        .logo {
+          width: 260px;
           height: auto;
         }
 
-        .dash-title {
-          margin-top: 16px;
+        .welcome {
+          color: #ffffff;
           font-size: 26px;
           font-weight: 800;
+          margin: 0 0 22px;
+          text-align: center;
         }
 
         .dash-grid {
-          margin-top: 28px;
-          width: min(920px, 92vw);
+          width: min(920px, 100%);
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 14px;
+          gap: 18px;
         }
 
-        .dash-link {
-          text-decoration: none;
-        }
-
-        .dash-tile {
+        .tile {
           background: #ffffff;
           border-radius: 18px;
-          border: 1px solid rgba(0, 0, 0, 0.85);
-          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
-          padding: 10px 8px 12px;
+          border: 1px solid rgba(0, 0, 0, 0.9);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+          padding: 14px 8px 10px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
-          gap: 8px;
-          min-height: 110px;
+          text-decoration: none;
+          transition: transform 0.1s ease, box-shadow 0.1s ease;
         }
 
-        .dash-icon-wrap {
-          width: 44px;
-          height: 44px;
+        .tile:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon-box {
+          width: 78px;
+          height: 78px;
+          border-radius: 22px;
+          background: #f7fafc;
           display: flex;
           align-items: center;
           justify-content: center;
+          margin-bottom: 8px;
         }
 
-        .dash-icon {
-          width: 42px;
-          height: 42px;
+        .icon {
+          width: 40px;
+          height: 40px;
           object-fit: contain;
         }
 
-        .dash-label {
-          font-size: 16px;
-          font-weight: 700;
-          color: #0b1e3d;
+        .tile-label {
           text-align: center;
+          color: #0b1e3d;
+          font-size: 13px;
+          font-weight: 700;
           line-height: 1.3;
+          padding: 0 4px;
+          word-break: break-word;
         }
 
-        /* تبلت و موبایل: گرید دو ستونه، کارت‌ها کمی جمع‌وجورتر */
-        @media (max-width: 900px) {
+        /* موبایل – هنوز ۳ ستونه، فقط همه‌چیز کوچک‌تر و مرتب‌تر */
+        @media (max-width: 768px) {
+          .logo {
+            width: 210px;
+          }
+          .welcome {
+            font-size: 22px;
+          }
           .dash-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            width: min(640px, 94vw);
-          }
-        }
-
-        @media (max-width: 480px) {
-          .dash-page {
-            padding-top: 24px;
-          }
-
-          .dash-logo {
-            width: 190px;
-          }
-
-          .dash-title {
-            font-size: 20px;
-          }
-
-          .dash-grid {
-            margin-top: 22px;
-            grid-template-columns: repeat(2, minmax(140px, 1fr));
             gap: 10px;
           }
-
-          .dash-tile {
-            min-height: 96px;
-            padding: 8px 6px 10px;
+          .tile {
+            padding: 10px 4px 8px;
             border-radius: 16px;
           }
-
-          .dash-icon-wrap {
-            width: 38px;
-            height: 38px;
+          .icon-box {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
           }
-
-          .dash-icon {
-            width: 36px;
-            height: 36px;
+          .icon {
+            width: 32px;
+            height: 32px;
           }
+          .tile-label {
+            font-size: 11px;
+          }
+        }
 
-          .dash-label {
-            font-size: 12px;
+        /* خیلی گوشی کوچک (مثلاً عرض 360) باز هم ۳ ستونه ولی فشرده */
+        @media (max-width: 400px) {
+          .page {
+            padding: 18px 6px 30px;
+          }
+          .welcome {
+            font-size: 20px;
+          }
+          .dash-grid {
+            gap: 8px;
+          }
+          .icon-box {
+            width: 60px;
+            height: 60px;
+          }
+          .icon {
+            width: 28px;
+            height: 28px;
+          }
+          .tile-label {
+            font-size: 10px;
           }
         }
       `}</style>
