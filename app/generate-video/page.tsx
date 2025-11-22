@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -14,7 +15,6 @@ type PlatformOpt =
   | "amazon";
 type LengthOpt = "5" | "10";
 type MotionOpt = "static" | "pan" | "orbit-slow" | "orbit-medium";
-type RotationOpt = "none" | "slow" | "medium";
 type LightOpt =
   | "studio-softbox"
   | "three-point"
@@ -38,21 +38,19 @@ export default function GenerateVideoPage() {
   const [platform, setPlatform] = React.useState<PlatformOpt>("instagram-post");
   const [length, setLength] = React.useState<LengthOpt>("5");
 
-  // کنترل‌های حرکت و نور و افکت
+  // کنترل‌های حرکت، نور، افکت
   const [motion, setMotion] = React.useState<MotionOpt>("orbit-slow");
-  const [rotation, setRotation] = React.useState<RotationOpt>("slow");
   const [lighting, setLighting] = React.useState<LightOpt>("studio-softbox");
   const [effects, setEffects] = React.useState<EffectOpt>("auto");
 
   // پرامپت
   const [prompt, setPrompt] = React.useState("");
 
-  // ✅ آدرس ویدیو برای دانلود (هر زمان ویدیو ساختی، setVideoUrl بده)
+  // ✅ آدرس ویدیو برای دانلود
   const [videoUrl, setVideoUrl] = React.useState<string | null>(null);
 
-  // ✅ دکمه‌ی دانلود ویدیو
   const downloadVideo = () => {
-    const url = videoUrl ?? "/demo.mp4"; // اگر هنوز URL ندادی، از یک فایل پیش‌فرض استفاده می‌کند
+    const url = videoUrl ?? "/demo.mp4";
     const a = document.createElement("a");
     a.href = url;
     a.download = `sellova_${Date.now()}.mp4`;
@@ -87,28 +85,23 @@ export default function GenerateVideoPage() {
         : platform === "amazon"
         ? "Amazon main image video (1:1)"
         : "custom size";
+
     parts.push(`Create a ${lenText} product promo video for ${platText}.`);
 
     const motionMap: Record<MotionOpt, string> = {
       static: "static camera",
       pan: "subtle lateral camera pan",
-      "orbit-slow": "slow, smooth orbital camera move around the product",
+      "orbit-slow": "slow orbital camera move around the product",
       "orbit-medium": "medium-speed orbital camera move around the product",
     };
-    const rotMap: Record<RotationOpt, string> = {
-      none: "no product rotation",
-      slow: "slow product rotation (3–6°/frame feel)",
-      medium: "moderate product rotation (6–10°/frame feel)",
-    };
-    parts.push(`${motionMap[motion]}, ${rotMap[rotation]}.`);
+    parts.push(motionMap[motion]);
 
     const lightMap: Record<LightOpt, string> = {
       "studio-softbox":
         "studio softbox lighting, soft shadows, controlled highlights",
       "three-point":
         "cinematic three-point lighting (key, fill, rim), natural shadow falloff",
-      "warm-sunset":
-        "warm sunset tone, golden highlights, gentle contrast",
+      "warm-sunset": "warm sunset tone, golden highlights, gentle contrast",
       "cool-studio":
         "cool neutral studio lighting, color-true, even exposure",
       "dramatic-spot":
@@ -118,19 +111,20 @@ export default function GenerateVideoPage() {
 
     const fxMap: Record<EffectOpt, string> = {
       auto:
-        "tasteful automatic micro-effects based on product category (e.g., soft smoke for luxury, light bokeh for cosmetics, tiny sparks for metal)",
+        "tasteful automatic micro-effects based on product category (e.g., soft smoke for luxury, bokeh for cosmetics)",
       none: "no cinematic effects",
-      "smoke-soft": "subtle soft smoke wisps behind the product",
-      "sparks-subtle": "very subtle metallic sparks, safe and minimal",
-      steam: "gentle steam plume for warmth",
-      bokeh: "creamy background bokeh for depth",
+      "smoke-soft": "subtle soft smoke behind the product",
+      "sparks-subtle": "very subtle metallic sparks",
+      steam: "gentle warm steam",
+      bokeh: "creamy background bokeh",
       "light-streaks": "subtle light streaks for premium motion",
     };
     parts.push(fxMap[effects]);
 
     parts.push(
-      "physically-plausible reflections, parallax-correct shadows, micro-contrast, no distortion, no warping of geometry."
+      "physically-plausible reflections, parallax-correct shadows, micro-contrast, no geometry warping."
     );
+
     setPrompt(parts.join(" "));
   };
 
@@ -233,7 +227,7 @@ export default function GenerateVideoPage() {
             </div>
           </div>
 
-          {/* Camera motion */}
+          {/* Motion */}
           <div className="field">
             <label className="label">
               {messages.generateVideo.cameraLabel}
@@ -250,29 +244,9 @@ export default function GenerateVideoPage() {
             </select>
           </div>
 
-          {/* Rotation */}
-          <div className="field">
-            <label className="label">
-              {messages.generateVideo.rotationLabel}
-            </label>
-            <select
-              className="select"
-              value={rotation}
-              onChange={(e) => setRotation(e.target.value as RotationOpt)}
-            >
-              <option value="none">{messages.generateVideo.rotationNone}</option>
-              <option value="slow">{messages.generateVideo.rotationSlow}</option>
-              <option value="medium">
-                {messages.generateVideo.rotationMedium}
-              </option>
-            </select>
-          </div>
-
           {/* Lighting */}
           <div className="field">
-            <label className="label">
-              {messages.generateVideo.lightingLabel}
-            </label>
+            <label className="label">Lighting</label>
             <select
               className="select"
               value={lighting}
@@ -345,7 +319,8 @@ export default function GenerateVideoPage() {
           {/* Dynamic credit cost line */}
           <div className="metaRow" style={{ marginTop: 6 }}>
             <div className="muted">
-              {messages.generateVideo.creditCostLabel}:&nbsp;<b>{creditCost}</b>
+              {messages.generateVideo.creditCostLabel}:&nbsp;
+              <b>{creditCost}</b>
             </div>
             <div className="muted">
               {platform === "amazon"
@@ -410,14 +385,12 @@ export default function GenerateVideoPage() {
           font-family: Inter, "Segoe UI", system-ui, -apple-system, Roboto,
             Arial, sans-serif;
         }
-
         .hdr {
           margin-top: 6px;
           margin-bottom: 6px;
           display: flex;
           justify-content: center;
         }
-
         .logo {
           display: block;
           width: auto;
@@ -425,7 +398,6 @@ export default function GenerateVideoPage() {
           image-rendering: -webkit-optimize-contrast;
           filter: drop-shadow(0 1px 0.5px rgba(0, 0, 0, 0.35));
         }
-
         .title {
           color: #fff;
           text-align: center;
@@ -436,17 +408,15 @@ export default function GenerateVideoPage() {
           position: relative;
           z-index: 2;
         }
-
         .grid {
           width: 100%;
           max-width: 1160px;
           display: grid;
           grid-template-columns: 1fr;
           gap: 20px;
-          margin-top: 8px;
+          margin-top: 0;
           transform: translateY(-10px);
         }
-
         @media (min-width: 980px) {
           .grid {
             grid-template-columns: 1fr 1fr;
@@ -454,7 +424,6 @@ export default function GenerateVideoPage() {
             transform: translateY(-95px);
           }
         }
-
         .card {
           background: #fff;
           border: 1px solid #111;
@@ -463,11 +432,9 @@ export default function GenerateVideoPage() {
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06),
             0 6px 18px rgba(0, 0, 0, 0.06);
         }
-
         .uploadWrap {
           padding: 6px 2px 8px;
         }
-
         .uploadBox {
           border: 2px dashed #222;
           border-radius: 12px;
@@ -475,7 +442,6 @@ export default function GenerateVideoPage() {
           text-align: center;
           background: #fafcff;
         }
-
         .uploadIcon {
           width: 34px;
           height: 34px;
@@ -488,13 +454,11 @@ export default function GenerateVideoPage() {
           font-size: 18px;
           border: 1px solid #bcd6ff;
         }
-
         .uploadTitle {
           font-weight: 700;
           color: #0b1e3d;
           margin-bottom: 6px;
         }
-
         .actionsRow {
           display: flex;
           align-items: center;
@@ -507,7 +471,6 @@ export default function GenerateVideoPage() {
         .field {
           margin-top: 14px;
         }
-
         .label {
           display: block;
           font-size: 13px;
@@ -515,7 +478,6 @@ export default function GenerateVideoPage() {
           margin-bottom: 6px;
           font-weight: 700;
         }
-
         .hint {
           margin-top: 6px;
           font-size: 12px;
@@ -532,7 +494,6 @@ export default function GenerateVideoPage() {
           padding: 0 12px;
           outline: none;
         }
-
         .select:focus {
           box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
           border-color: #0b57d0;
@@ -542,7 +503,6 @@ export default function GenerateVideoPage() {
           display: inline-flex;
           gap: 8px;
         }
-
         .segItem {
           border: 1px solid #111;
           border-radius: 999px;
@@ -557,7 +517,6 @@ export default function GenerateVideoPage() {
           align-items: center;
           gap: 8px;
         }
-
         .segItem input {
           appearance: none;
           width: 12px;
@@ -565,11 +524,9 @@ export default function GenerateVideoPage() {
           border: 2px solid #0b57d0;
           border-radius: 50%;
         }
-
         .segItem input:checked {
           background: #0b57d0;
         }
-
         .segItem:hover {
           background: #f7faff;
         }
@@ -580,7 +537,6 @@ export default function GenerateVideoPage() {
           gap: 8px;
           align-items: start;
         }
-
         .textarea {
           min-height: 92px;
           resize: vertical;
@@ -592,7 +548,6 @@ export default function GenerateVideoPage() {
           outline: none;
           line-height: 1.5;
         }
-
         .textarea:focus {
           box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
           border-color: #0b57d0;
@@ -606,42 +561,34 @@ export default function GenerateVideoPage() {
           cursor: pointer;
           transition: transform 0.05s ease, box-shadow 0.15s ease;
         }
-
         .btn:active {
           transform: translateY(1px);
         }
-
         .btnGhost {
           background: #fff;
           color: #0b57d0;
           border: 1px solid #0b57d0;
         }
-
         .btnGhost:hover {
           background: #f0f6ff;
         }
-
         .btnLight {
           background: #f5f7fb;
           color: #111;
           border: 1px solid #111;
         }
-
         .btnLight:hover {
           background: #eef2f8;
         }
-
         .btnPrimary {
           background: #1483ff;
           color: #fff;
           border: 1px solid #0b57d0;
           box-shadow: 0 6px 18px rgba(20, 131, 255, 0.25);
         }
-
         .btnPrimary:hover {
           background: #0f74e6;
         }
-
         .btnBlock {
           width: 100%;
         }
@@ -655,11 +602,9 @@ export default function GenerateVideoPage() {
           color: #111;
           font-size: 13px;
         }
-
         .muted {
           color: #333;
         }
-
         .genRow {
           margin-top: 10px;
         }
@@ -674,7 +619,6 @@ export default function GenerateVideoPage() {
           padding: 16px;
           box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
         }
-
         .previewFrame {
           border: 1px solid #111;
           border-radius: 12px;
@@ -684,7 +628,6 @@ export default function GenerateVideoPage() {
           place-items: center;
           min-height: 420px;
         }
-
         .previewImg {
           width: min(360px, 46vw);
           height: auto;
@@ -693,7 +636,6 @@ export default function GenerateVideoPage() {
           background: #111;
           display: block;
         }
-
         .previewCaption {
           color: #ffffff;
           font-size: 13px;
@@ -720,45 +662,46 @@ export default function GenerateVideoPage() {
         .pg[dir="rtl"] .hint {
           text-align: right;
         }
-
         .pg[dir="rtl"] .actionsRow {
           flex-direction: row-reverse;
         }
-
         .pg[dir="rtl"] .promptRow {
           direction: rtl;
           grid-template-columns: 1fr auto;
         }
 
-        /* ===== فقط موبایل (زیر 640px) — لوگو کوچیک و همه‌چیز بالا ===== */
-        @media (max-width: 640px) {
+        /* ============= Mobile only ============= */
+        @media (max-width: 768px) {
           .pg {
-            padding: 8px 8px 20px;
+            padding: 6px 10px 20px;
           }
 
           .hdr {
-            margin-top: 0;
-            margin-bottom: 4px;
+            margin-top: 2px;
+            margin-bottom: 0;
           }
 
+          /* 👇 لوگو خیلی کوچیک و چسبیده به بالا */
           .logo {
-            width: 70px !important; /* 👈 حدودا ۶–۷ برابر کوچیک‌تر از دسکتاپ */
-            height: auto !important;
+            max-width: 90px;
+            height: auto;
           }
 
+          /* 👇 عنوان نزدیک لوگو و کم‌فاصله */
           .title {
             font-size: 22px;
-            margin: 6px 0 12px; /* نزدیک لوگو و بیرون از کارت */
+            margin: 6px 0 10px;
           }
 
+          /* 👇 فرم‌ها و کارت‌ها بالاتر و جمع‌وجورتر */
           .grid {
             margin-top: 0;
-            transform: translateY(0); /* کارت‌ها زیر تایتل شروع می‌شوند */
-            gap: 12px;
+            gap: 14px;
+            transform: translateY(0);
           }
 
           .card {
-            padding: 12px;
+            padding: 10px;
             border-radius: 12px;
           }
 
@@ -782,11 +725,22 @@ export default function GenerateVideoPage() {
           .btn {
             height: 36px;
             font-size: 12px;
+            padding: 0 10px;
           }
 
           .select {
             height: 36px;
             font-size: 12px;
+            padding: 0 10px;
+          }
+
+          .label {
+            font-size: 12px;
+            margin-bottom: 4px;
+          }
+
+          .field {
+            margin-top: 10px;
           }
         }
       `}</style>
