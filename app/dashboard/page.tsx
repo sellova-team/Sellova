@@ -1,7 +1,7 @@
 "use client";
 
+import React, { CSSProperties, useEffect, useState } from "react";
 import Link from "next/link";
-import { CSSProperties } from "react";
 import { useLang } from "../../lib/lang";
 
 const ICONS = {
@@ -94,30 +94,48 @@ const styles: { [k: string]: CSSProperties } = {
   },
 };
 
-function Tile({
-  href,
-  title,
-  iconSrc,
-}: {
+type TileProps = {
   href: string;
   title: string;
   iconSrc: string;
-}) {
+  isMobile: boolean;
+};
+
+function Tile({ href, title, iconSrc, isMobile }: TileProps) {
+  // استایل مخصوص موبایل برای کارت
+  const cardStyle: CSSProperties = isMobile
+    ? {
+        ...styles.card,
+        padding: 6,
+        borderRadius: 10,
+      }
+    : styles.card;
+
+  const cardInnerStyle: CSSProperties = isMobile
+    ? {
+        ...styles.cardInner,
+        gridTemplateColumns: "30px 1fr",
+        gap: 6,
+        minHeight: 46, // مستطیل باریک‌تر
+      }
+    : styles.cardInner;
+
+  const iconStyle: CSSProperties = isMobile
+    ? { ...styles.icon, width: 20, height: 20 }
+    : styles.icon;
+
+  const titleStyle: CSSProperties = isMobile
+    ? { ...styles.cardTitle, fontSize: 12, lineHeight: 1.25 } // دو سایز کوچیک‌تر
+    : styles.cardTitle;
+
   return (
     <Link href={href} style={{ textDecoration: "none" }}>
-      <div style={styles.card} className="dash-card">
-        <div style={styles.cardInner} className="dash-card-inner">
+      <div style={cardStyle}>
+        <div style={cardInnerStyle}>
           <div style={styles.iconWrap}>
-            <img
-              src={iconSrc}
-              alt={title}
-              style={styles.icon}
-              className="dash-icon"
-            />
+            <img src={iconSrc} alt={title} style={iconStyle} />
           </div>
-          <div style={styles.cardTitle} className="dash-card-title">
-            {title}
-          </div>
+          <div style={titleStyle}>{title}</div>
         </div>
       </div>
     </Link>
@@ -126,6 +144,20 @@ function Tile({
 
 export default function DashboardPage() {
   const { locale, setLocale, messages } = useLang();
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  // تشخیص موبایل برای تغییر سایز کارت و فونت
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth <= 768);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
@@ -178,12 +210,12 @@ export default function DashboardPage() {
 
       <section className="grid">
         {localizedItems.map((it) => (
-          <Tile key={it.href} {...it} />
+          <Tile key={it.href} {...it} isMobile={isMobile} />
         ))}
       </section>
 
-    <style jsx>{`
-        /* 💻 دسکتاپ – همون طرح لپ‌تاپ */
+      <style jsx>{`
+        /* دسکتاپ – همون استایل لپ‌تاپ */
         .dash-page {
           background: #0b1e3d;
           min-height: 100vh;
@@ -205,7 +237,7 @@ export default function DashboardPage() {
           background: #0b1e3d;
         }
 
-        /* 📱 موبایل */
+        /* موبایل */
         @media (max-width: 768px) {
           .dash-page {
             background: #0b1e3d !important;
@@ -216,58 +248,30 @@ export default function DashboardPage() {
             overflow-x: hidden !important;
           }
 
-          /* لوگو و تایتل کمی نزدیک‌تر بالا */
+          /* دو ستون، با نوار سورمه‌ای دو طرف (باریک) */
+          .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            width: 100%;
+            max-width: 340px;
+            padding: 0 12px;
+            margin: 0 auto;
+            box-sizing: border-box;
+          }
+
           .dash-logo-wrap {
-            margin-top: 14px !important;
-            margin-bottom: 4px !important;
+            margin-top: 16px !important;
+            margin-bottom: 6px !important;
           }
 
           .dash-logo {
-            width: 150px !important;
+            width: 160px !important;
             height: auto !important;
           }
 
           .dash-title {
             font-size: 16px !important;
             margin-bottom: 10px !important;
-          }
-
-          /* 🔵 دو ستون + نوار سورمه‌ای پهن‌تر دو طرف */
-          .grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 8px;
-
-            width: 100%;
-            max-width: 320px; /* کارت‌ها باریک‌تر */
-            padding: 0 20px; /* حدوداً ۱ سانت فاصله سورمه‌ای از چپ و راست */
-            margin: 0 auto;
-            box-sizing: border-box;
-          }
-
-          /* خود کارت‌ها کمی باریک‌تر */
-          .dash-card {
-            padding: 4px 8px !important;
-            border-radius: 8px !important;
-          }
-
-          .dash-card-inner {
-            grid-template-columns: 28px 1fr !important;
-            gap: 4px !important;
-            min-height: 40px !important; /* ارتفاع کمتر → مستطیل باریک‌تر */
-            align-items: center !important;
-          }
-
-          .dash-icon {
-            width: 18px !important;
-            height: 18px !important;
-          }
-
-          /* ✂️ نوشته‌ی داخل کارت یک سایز دیگه هم کوچک‌تر شد */
-          .dash-card-title {
-            font-size: 9px !important;
-            line-height: 1.2 !important;
-            font-weight: 600 !important;
-            word-break: break-word;
           }
 
           .dash-lang-btn {
