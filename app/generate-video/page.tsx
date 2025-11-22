@@ -665,39 +665,44 @@ export default function GenerateVideoPage() {
           direction: rtl;
           grid-template-columns: 1fr auto;
         }
-    @media (max-width: 640px) {
+   @media (max-width: 640px) {
+      /* کل صفحه کمی بالاتر */
+      .pg {
+        padding: 4px 8px 20px !important;
+      }
 
-  /* لوگو — ۸ برابر کوچیک + چسبیده به بالای صفحه */
-  .logo {
-    max-width: 20px !important;
-    height: auto !important;
-    margin-top: 5px !important;
-    margin-bottom: 4px !important;
-    display: block !important;
-  }
+      /* هدر و لوگو */
+      .hdr {
+        margin-top: 0 !important; /* لوگو می‌چسبه به بالای صفحه */
+        margin-bottom: 4px !important;
+        display: flex;
+        justify-content: center;
+      }
 
-  /* صفحه کاملا چسبیده به بالا */
-  .pg {
-    padding-top: 4px !important;
-  }
+      .logo {
+        width: 30px !important; /* 👈 این دقیقا سایز لوگو است */
+        height: auto !important;
+      }
 
-  /* تایتل خیلی نزدیک به لوگو */
-  .title {
-    font-size: 22px !important;
-    margin-top: 0px !important;
-    margin-bottom: 10px !important;
-  }
+      /* تیتر */
+      .title {
+        font-size: 20px !important; /* سایز تیتر */
+        margin-top: 2px !important; /* فاصله از لوگو */
+        margin-bottom: 10px !important; /* فاصله تا فرم */
+      }
 
-  /* کل کارت‌ها و فرم‌ها را شدید ببر بالا */
-  .grid {
-    margin-top: -35px !important;
-  }
+      /* فرم‌ها و کارت‌ها بالاتر */
+      .grid {
+        margin-top: -40px !important; /* هرچه منفی‌تر، بالاتر */
+        gap: 12px !important;
+      }
 
-  /* اولین کارت (آپلود) هم بیشتر بیاد بالا */
-  .card {
-    margin-top: -20px !important;
-  }
-}
+      .card {
+        margin-top: 0 !important;
+        padding: 10px !important;
+        border-radius: 10px !important;
+      }
+    }
     `}</style>
     </main>
   );
