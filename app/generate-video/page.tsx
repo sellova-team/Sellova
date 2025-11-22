@@ -61,7 +61,7 @@ export default function GenerateVideoPage() {
     a.remove();
   };
 
-  // محاسبهٔ کردیت‌ها (نسخهٔ درست‌شده)
+  // محاسبهٔ کردیت‌ها
   const creditCost = React.useMemo(() => {
     const isAmazon = platform === "amazon";
     if (isAmazon) {
@@ -233,7 +233,7 @@ export default function GenerateVideoPage() {
             </div>
           </div>
 
-          {/* Motion / rotation / lights / effects */}
+          {/* Camera motion */}
           <div className="field">
             <label className="label">
               {messages.generateVideo.cameraLabel}
@@ -250,10 +250,43 @@ export default function GenerateVideoPage() {
             </select>
           </div>
 
-          {/* (بخش‌های نور/افکت و ... مثل قبل شما) */}
-          {/* ... */}
-          {/* فقط ادامه‌ی همان کدی که فرستادی: */}
-          {/* -------------------- Effects -------------------- */}
+          {/* Rotation */}
+          <div className="field">
+            <label className="label">
+              {messages.generateVideo.rotationLabel}
+            </label>
+            <select
+              className="select"
+              value={rotation}
+              onChange={(e) => setRotation(e.target.value as RotationOpt)}
+            >
+              <option value="none">{messages.generateVideo.rotationNone}</option>
+              <option value="slow">{messages.generateVideo.rotationSlow}</option>
+              <option value="medium">
+                {messages.generateVideo.rotationMedium}
+              </option>
+            </select>
+          </div>
+
+          {/* Lighting */}
+          <div className="field">
+            <label className="label">
+              {messages.generateVideo.lightingLabel}
+            </label>
+            <select
+              className="select"
+              value={lighting}
+              onChange={(e) => setLighting(e.target.value as LightOpt)}
+            >
+              <option value="studio-softbox">Studio softbox</option>
+              <option value="three-point">Three-point</option>
+              <option value="warm-sunset">Warm sunset</option>
+              <option value="cool-studio">Cool studio</option>
+              <option value="dramatic-spot">Dramatic spot</option>
+            </select>
+          </div>
+
+          {/* Effects */}
           <div className="field">
             <label className="label">
               {messages.generateVideo.effectsLabel}
@@ -351,7 +384,6 @@ export default function GenerateVideoPage() {
             {messages.generateVideo.previewCaption}
           </p>
 
-          {/* ✅ دکمه دانلود (هیچ استایل جدیدی اضافه نشده، از کلاس‌های موجود استفاده شده) */}
           <div className="genRow">
             <button
               type="button"
@@ -378,12 +410,14 @@ export default function GenerateVideoPage() {
           font-family: Inter, "Segoe UI", system-ui, -apple-system, Roboto,
             Arial, sans-serif;
         }
+
         .hdr {
           margin-top: 6px;
           margin-bottom: 6px;
           display: flex;
           justify-content: center;
         }
+
         .logo {
           display: block;
           width: auto;
@@ -391,6 +425,7 @@ export default function GenerateVideoPage() {
           image-rendering: -webkit-optimize-contrast;
           filter: drop-shadow(0 1px 0.5px rgba(0, 0, 0, 0.35));
         }
+
         .title {
           color: #fff;
           text-align: center;
@@ -401,15 +436,17 @@ export default function GenerateVideoPage() {
           position: relative;
           z-index: 2;
         }
+
         .grid {
           width: 100%;
           max-width: 1160px;
           display: grid;
           grid-template-columns: 1fr;
           gap: 20px;
-          margin-top: 0;
+          margin-top: 8px;
           transform: translateY(-10px);
         }
+
         @media (min-width: 980px) {
           .grid {
             grid-template-columns: 1fr 1fr;
@@ -417,6 +454,7 @@ export default function GenerateVideoPage() {
             transform: translateY(-95px);
           }
         }
+
         .card {
           background: #fff;
           border: 1px solid #111;
@@ -425,9 +463,11 @@ export default function GenerateVideoPage() {
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06),
             0 6px 18px rgba(0, 0, 0, 0.06);
         }
+
         .uploadWrap {
           padding: 6px 2px 8px;
         }
+
         .uploadBox {
           border: 2px dashed #222;
           border-radius: 12px;
@@ -435,6 +475,7 @@ export default function GenerateVideoPage() {
           text-align: center;
           background: #fafcff;
         }
+
         .uploadIcon {
           width: 34px;
           height: 34px;
@@ -447,11 +488,13 @@ export default function GenerateVideoPage() {
           font-size: 18px;
           border: 1px solid #bcd6ff;
         }
+
         .uploadTitle {
           font-weight: 700;
           color: #0b1e3d;
           margin-bottom: 6px;
         }
+
         .actionsRow {
           display: flex;
           align-items: center;
@@ -464,6 +507,7 @@ export default function GenerateVideoPage() {
         .field {
           margin-top: 14px;
         }
+
         .label {
           display: block;
           font-size: 13px;
@@ -471,6 +515,7 @@ export default function GenerateVideoPage() {
           margin-bottom: 6px;
           font-weight: 700;
         }
+
         .hint {
           margin-top: 6px;
           font-size: 12px;
@@ -487,6 +532,7 @@ export default function GenerateVideoPage() {
           padding: 0 12px;
           outline: none;
         }
+
         .select:focus {
           box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
           border-color: #0b57d0;
@@ -496,6 +542,7 @@ export default function GenerateVideoPage() {
           display: inline-flex;
           gap: 8px;
         }
+
         .segItem {
           border: 1px solid #111;
           border-radius: 999px;
@@ -510,6 +557,7 @@ export default function GenerateVideoPage() {
           align-items: center;
           gap: 8px;
         }
+
         .segItem input {
           appearance: none;
           width: 12px;
@@ -517,9 +565,11 @@ export default function GenerateVideoPage() {
           border: 2px solid #0b57d0;
           border-radius: 50%;
         }
+
         .segItem input:checked {
           background: #0b57d0;
         }
+
         .segItem:hover {
           background: #f7faff;
         }
@@ -530,6 +580,7 @@ export default function GenerateVideoPage() {
           gap: 8px;
           align-items: start;
         }
+
         .textarea {
           min-height: 92px;
           resize: vertical;
@@ -541,6 +592,7 @@ export default function GenerateVideoPage() {
           outline: none;
           line-height: 1.5;
         }
+
         .textarea:focus {
           box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
           border-color: #0b57d0;
@@ -554,34 +606,42 @@ export default function GenerateVideoPage() {
           cursor: pointer;
           transition: transform 0.05s ease, box-shadow 0.15s ease;
         }
+
         .btn:active {
           transform: translateY(1px);
         }
+
         .btnGhost {
           background: #fff;
           color: #0b57d0;
           border: 1px solid #0b57d0;
         }
+
         .btnGhost:hover {
           background: #f0f6ff;
         }
+
         .btnLight {
           background: #f5f7fb;
           color: #111;
           border: 1px solid #111;
         }
+
         .btnLight:hover {
           background: #eef2f8;
         }
+
         .btnPrimary {
           background: #1483ff;
           color: #fff;
           border: 1px solid #0b57d0;
           box-shadow: 0 6px 18px rgba(20, 131, 255, 0.25);
         }
+
         .btnPrimary:hover {
           background: #0f74e6;
         }
+
         .btnBlock {
           width: 100%;
         }
@@ -595,9 +655,11 @@ export default function GenerateVideoPage() {
           color: #111;
           font-size: 13px;
         }
+
         .muted {
           color: #333;
         }
+
         .genRow {
           margin-top: 10px;
         }
@@ -612,6 +674,7 @@ export default function GenerateVideoPage() {
           padding: 16px;
           box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
         }
+
         .previewFrame {
           border: 1px solid #111;
           border-radius: 12px;
@@ -621,6 +684,7 @@ export default function GenerateVideoPage() {
           place-items: center;
           min-height: 420px;
         }
+
         .previewImg {
           width: min(360px, 46vw);
           height: auto;
@@ -629,6 +693,7 @@ export default function GenerateVideoPage() {
           background: #111;
           display: block;
         }
+
         .previewCaption {
           color: #ffffff;
           font-size: 13px;
@@ -636,9 +701,6 @@ export default function GenerateVideoPage() {
           margin-top: 4px;
         }
 
-        .grid {
-          margin-top: 8px;
-        }
         .visuallyHidden {
           position: absolute !important;
           clip: rect(1px, 1px, 1px, 1px);
@@ -658,52 +720,76 @@ export default function GenerateVideoPage() {
         .pg[dir="rtl"] .hint {
           text-align: right;
         }
+
         .pg[dir="rtl"] .actionsRow {
           flex-direction: row-reverse;
         }
+
         .pg[dir="rtl"] .promptRow {
           direction: rtl;
           grid-template-columns: 1fr auto;
         }
-   @media (max-width: 640px) {
-      /* کل صفحه کمی بالاتر */
-      .pg {
-        padding: 4px 8px 20px !important;
-      }
 
-      /* هدر و لوگو */
-      .hdr {
-        margin-top: 0 !important; /* لوگو می‌چسبه به بالای صفحه */
-        margin-bottom: 4px !important;
-        display: flex;
-        justify-content: center;
-      }
+        /* ===== فقط موبایل (زیر 640px) — لوگو کوچیک و همه‌چیز بالا ===== */
+        @media (max-width: 640px) {
+          .pg {
+            padding: 8px 8px 20px;
+          }
 
-      .logo {
-        width: 30px !important; /* 👈 این دقیقا سایز لوگو است */
-        height: auto !important;
-      }
+          .hdr {
+            margin-top: 0;
+            margin-bottom: 4px;
+          }
 
-      /* تیتر */
-      .title {
-        font-size: 20px !important; /* سایز تیتر */
-        margin-top: 2px !important; /* فاصله از لوگو */
-        margin-bottom: 10px !important; /* فاصله تا فرم */
-      }
+          .logo {
+            width: 70px !important; /* 👈 حدودا ۶–۷ برابر کوچیک‌تر از دسکتاپ */
+            height: auto !important;
+          }
 
-      /* فرم‌ها و کارت‌ها بالاتر */
-      .grid {
-        margin-top: -40px !important; /* هرچه منفی‌تر، بالاتر */
-        gap: 12px !important;
-      }
+          .title {
+            font-size: 22px;
+            margin: 6px 0 12px; /* نزدیک لوگو و بیرون از کارت */
+          }
 
-      .card {
-        margin-top: 0 !important;
-        padding: 10px !important;
-        border-radius: 10px !important;
-      }
-    }
-    `}</style>
+          .grid {
+            margin-top: 0;
+            transform: translateY(0); /* کارت‌ها زیر تایتل شروع می‌شوند */
+            gap: 12px;
+          }
+
+          .card {
+            padding: 12px;
+            border-radius: 12px;
+          }
+
+          .previewFrame {
+            min-height: 260px;
+            padding: 8px;
+          }
+
+          .previewImg {
+            max-width: 260px;
+            width: 100%;
+          }
+
+          .metaRow {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            font-size: 12px;
+          }
+
+          .btn {
+            height: 36px;
+            font-size: 12px;
+          }
+
+          .select {
+            height: 36px;
+            font-size: 12px;
+          }
+        }
+      `}</style>
     </main>
   );
 }
