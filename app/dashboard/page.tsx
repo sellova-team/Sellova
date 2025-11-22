@@ -28,7 +28,6 @@ const styles: { [k: string]: CSSProperties } = {
     alignItems: "center",
     padding: "24px 16px 56px",
   },
-
   logoWrap: {
     marginTop: 36,
     marginBottom: 10,
@@ -42,7 +41,6 @@ const styles: { [k: string]: CSSProperties } = {
     marginBottom: 22,
     textAlign: "center",
   },
-
   grid: {
     display: "grid",
     gap: 16,
@@ -50,7 +48,6 @@ const styles: { [k: string]: CSSProperties } = {
     width: "min(920px, 92vw)",
     transform: "translateY(-10px)",
   },
-
   card: {
     background: "#fff",
     borderRadius: 14,
@@ -59,7 +56,6 @@ const styles: { [k: string]: CSSProperties } = {
     border: "1px solid rgba(0,0,0,.9)",
     transition: "transform .08s ease",
   },
-
   cardInner: {
     display: "grid",
     gridTemplateColumns: "80px 1fr",
@@ -67,7 +63,6 @@ const styles: { [k: string]: CSSProperties } = {
     gap: 14,
     minHeight: 80,
   },
-
   iconWrap: {
     height: "auto",
     width: "auto",
@@ -75,16 +70,13 @@ const styles: { [k: string]: CSSProperties } = {
     placeItems: "center",
     overflow: "visible",
   },
-
   icon: { width: 42, height: 42, objectFit: "contain" },
-
   cardTitle: {
     color: "#0b1e3d",
     fontWeight: 700,
     fontSize: 20,
     lineHeight: 1.18,
   },
-
   langBar: {
     position: "absolute",
     top: 50,
@@ -190,9 +182,8 @@ export default function DashboardPage() {
         ))}
       </section>
 
-      {/* استایل‌های گرید + موبایل */}
-    <style jsx>{`
-        /* Desktop – همون قبلی */
+      <style jsx>{`
+        /* DESKTOP (همون استایل لپ‌تاپ) */
         .dash-page {
           background: #0b1e3d;
           min-height: 100vh;
@@ -207,29 +198,31 @@ export default function DashboardPage() {
           transform: translateY(-10px);
         }
 
+        :global(html),
         :global(body) {
+          margin: 0;
+          padding: 0;
           background: #0b1e3d;
         }
 
-        /* Mobile */
+        /* MOBILE */
         @media (max-width: 768px) {
           .dash-page {
             background: #0b1e3d !important;
             width: 100% !important;
             min-height: 100vh !important;
-            padding: 8px 0 28px !important;
+            padding: 8px 0 24px !important;
             margin: 0 !important;
             overflow-x: hidden !important;
           }
 
-          /* لوگو و تایتل بالاتر */
           .dash-lang-bar {
-            top: 10px !important;
-            right: 12px !important;
+            top: 8px !important;
+            right: 10px !important;
           }
 
           .dash-logo-wrap {
-            margin-top: 14px !important;
+            margin-top: 12px !important;
             margin-bottom: 4px !important;
           }
 
@@ -238,12 +231,13 @@ export default function DashboardPage() {
             height: auto !important;
           }
 
+          /* تایتل کمی بزرگ‌تر و نزدیک لوگو */
           .dash-title {
-            font-size: 16px !important; /* تایتل کمی بزرگ‌تر */
+            font-size: 16px !important;
             margin-bottom: 10px !important;
           }
 
-          /* دو ستون، ستون راست کامل دیده شود */
+          /* دو ستون، با حاشیه داخلی که ستون راست نصفه نشه */
           .grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 6px !important;
@@ -263,7 +257,7 @@ export default function DashboardPage() {
           .dash-card-inner {
             grid-template-columns: 32px 1fr !important;
             gap: 6px !important;
-            min-height: 46px !important; /* ارتفاع کمتر، مستطیل افقی‌تر */
+            min-height: 44px !important;
             align-items: center !important;
           }
 
@@ -272,9 +266,9 @@ export default function DashboardPage() {
             height: 20px !important;
           }
 
-          /* متن داخل پنجره ۱–۲ سایز کوچیک‌تر */
+          /* متن داخل کارت ۱–۲ سایز کوچکتر */
           .dash-card-title {
-            font-size: 11px !important;
+            font-size: 10px !important;
             line-height: 1.25 !important;
             word-break: break-word;
           }
@@ -285,8 +279,6 @@ export default function DashboardPage() {
           }
         }
       `}</style>
-
-
     </main>
   );
 }
