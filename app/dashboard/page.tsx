@@ -182,103 +182,51 @@ export default function DashboardPage() {
         ))}
       </section>
 
-      <style jsx>{`
-        /* DESKTOP (همون استایل لپ‌تاپ) */
-        .dash-page {
-          background: #0b1e3d;
-          min-height: 100vh;
-          width: 100%;
-        }
+     <style jsx>{`
+  /* استایل دسکتاپ – بدون تغییر */
+  .dash-page {
+    background: #0b1e3d;
+    min-height: 100vh;
+    width: 100%;
+  }
 
-        .grid {
-          display: grid;
-          gap: 16px;
-          grid-template-columns: repeat(3, 1fr);
-          width: min(920px, 92vw);
-          transform: translateY(-10px);
-        }
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    width: min(920px, 92vw);
+    transform: translateY(-10px);
+  }
 
-        :global(html),
-        :global(body) {
-          margin: 0;
-          padding: 0;
-          background: #0b1e3d;
-        }
+  :global(html),
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    background: #0b1e3d;
+  }
 
-        /* MOBILE */
-        @media (max-width: 768px) {
-          .dash-page {
-            background: #0b1e3d !important;
-            width: 100% !important;
-            min-height: 100vh !important;
-            padding: 8px 0 24px !important;
-            margin: 0 !important;
-            overflow-x: hidden !important;
-          }
+  /* 📱 موبایل */
+  @media (max-width: 768px) {
+    .dash-page {
+      background: #0b1e3d !important;
+      padding: 12px 0 28px !important;
+      overflow-x: hidden !important;
+    }
 
-          .dash-lang-bar {
-            top: 8px !important;
-            right: 10px !important;
-          }
+    /* دو ستون کامل + فاصله از دو طرف */
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
 
-          .dash-logo-wrap {
-            margin-top: 12px !important;
-            margin-bottom: 4px !important;
-          }
+      width: 100%;
+      max-width: 380px;
 
-          .dash-logo {
-            width: 150px !important;
-            height: auto !important;
-          }
-
-          /* تایتل کمی بزرگ‌تر و نزدیک لوگو */
-          .dash-title {
-            font-size: 16px !important;
-            margin-bottom: 10px !important;
-          }
-
-          /* دو ستون، با حاشیه داخلی که ستون راست نصفه نشه */
-          .grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 6px !important;
-            width: 100% !important;
-            max-width: 420px !important;
-            padding: 0 10px !important;
-            margin: 0 auto !important;
-            box-sizing: border-box;
-          }
-
-          /* کارت باریک و کشیده */
-          .dash-card {
-            padding: 6px 10px !important;
-            border-radius: 8px !important;
-          }
-
-          .dash-card-inner {
-            grid-template-columns: 32px 1fr !important;
-            gap: 6px !important;
-            min-height: 44px !important;
-            align-items: center !important;
-          }
-
-          .dash-icon {
-            width: 20px !important;
-            height: 20px !important;
-          }
-
-          /* متن داخل کارت ۱–۲ سایز کوچکتر */
-          .dash-card-title {
-            font-size: 10px !important;
-            line-height: 1.25 !important;
-            word-break: break-word;
-          }
-
-          .dash-lang-btn {
-            font-size: 12px !important;
-            padding: 4px 10px !important;
-          }
-        }
-      `}</style>
+      padding: 0 12px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+  }
+`}</style>
     </main>
   );
 }
