@@ -30,8 +30,8 @@ const styles: { [k: string]: CSSProperties } = {
   },
 
   logoWrap: {
-    marginTop: 28,
-    marginBottom: 8,
+    marginTop: 15,
+    marginBottom: 6,
     display: "flex",
     justifyContent: "center",
   },
@@ -188,58 +188,67 @@ export default function DashboardPage() {
 
         /* ===== موبایل / تبلت ===== */
         @media (max-width: 768px) {
-          main {
-            padding: 18px 8px 36px;
-          }
+  /* کل صفحه موبایل جمع‌وجورتر */
+  main {
+    padding: 12px 8px 28px;
+  }
 
-          .dash-logo-wrap img {
-            width: 200px !important;
-            height: auto !important;
-          }
+  /* دکمه "فارسی" کوچیک‌تر + کمی فاصله از بالا */
+  .dash-lang {
+    font-size: 12px !important;
+    padding: 2px 10px !important;
+  }
 
-          .dash-title {
-            font-size: 18px !important;
-            margin-bottom: 16px !important;
-          }
+  /* لوگو کوچیک‌تر و بالاتر */
+  .dash-logo-wrap img {
+    width: 180px !important;
+    height: auto !important;
+  }
 
-          .dash-lang {
-            font-size: 13px !important;
-            padding: 2px 10px !important;
-          }
+  /* تایتل نزدیک‌تر به لوگو و خیلی درشت نباشه */
+  .dash-title {
+    font-size: 18px !important;
+    margin-top: -4px !important;
+    margin-bottom: 10px !important;
+  }
 
-          .dash-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-            width: 100%;
-            max-width: 420px;
-            margin: 0 auto 16px;
-          }
+  /* گرید دو ستونه وسط صفحه، پنجره‌ها باریک‌تر */
+  .dash-grid {
+    width: 100%;
+    max-width: 360px;
+    margin: 4px auto 16px; /* از چپ و راست فاصله دارد */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
 
-          .dash-card {
-            padding: 10px !important;
-          }
+  /* خود کارت‌ها کمی جمع‌وجورتر */
+  .dash-card {
+    padding: 10px !important;
+  }
 
-          /* آیکون بالا – متن زیرش */
-          .dash-card-inner {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 6px !important;
-            min-height: 90px !important;
-          }
+  /* آیکون بالا، متن زیرش، همه وسطِ کارت */
+  .dash-card-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    min-height: 88px !important;
+  }
 
-          .dash-icon {
-            width: 30px !important;
-            height: 30px !important;
-          }
+  /* آیکون کوچیک‌تر */
+  .dash-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
 
-          .dash-card-title {
-            font-size: 14px !important; /* ۳–۴ درجه کوچیک‌تر از دسکتاپ */
-            text-align: center !important;
-            line-height: 1.25 !important;
-          }
-        }
+  /* نوشته‌ها کوچیک + زیر آیکون + وسط */
+  .dash-card-title {
+    font-size: 13px !important; /* از دسکتاپ کوچیک‌تر */
+    text-align: center !important;
+    line-height: 1.3 !important;
+  }
+}
       `}</style>
     </main>
   );
