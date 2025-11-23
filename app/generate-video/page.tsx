@@ -133,13 +133,23 @@ export default function GenerateVideoPage() {
       {/* ===== Header / Logo ===== */}
       <header className="hdr" aria-label="Sellova brand">
         <div className="logoBox">
+          {/* لوگوی دسکتاپ - همون قبلی */}
           <Image
             src="/logo.png"
             alt="Sellova"
             width={300}
             height={200}
             priority
-            className="logo"
+            className="logo logoDesktop"
+          />
+          {/* لوگوی موبایل - کوچیک */}
+          <Image
+            src="/logo.png"
+            alt="Sellova"
+            width={140}
+            height={80}
+            priority
+            className="logo logoMobile"
           />
         </div>
       </header>
@@ -377,7 +387,7 @@ export default function GenerateVideoPage() {
       <style jsx>{`
         .pg {
           min-height: 100vh;
-          padding: 8px 16px 24px; /* دسکتاپ همون قبلی */
+          padding: 8px 16px 24px; /* دسکتاپ */
           background: #0b1e3d;
           color: #111;
           display: flex;
@@ -395,10 +405,24 @@ export default function GenerateVideoPage() {
           justify-content: center;
         }
 
+        .logoBox {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
         .logo {
           display: block;
           image-rendering: -webkit-optimize-contrast;
           filter: drop-shadow(0 1px 0.5px rgba(0, 0, 0, 0.35));
+        }
+
+        .logoDesktop {
+          display: block;
+        }
+
+        .logoMobile {
+          display: none; /* فقط تو موبایل روشنش می‌کنیم */
         }
 
         .title {
@@ -703,111 +727,107 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-        /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه (کامل درست) */
-       @media (max-width: 640px) {
-  .pg {
-    padding: 2px 8px 14px; /* صفحه بیاد بالاتر */
-    gap: 6px;
-    font-size: 13px;
-  }
+        /* 🔹 موبایل – فقط اینجا لوگوی کوچیک و صفحه جمع‌وجور می‌شه */
+        @media (max-width: 640px) {
+          .pg {
+            padding: 2px 8px 14px;
+            gap: 6px;
+          }
 
-  .hdr {
-    margin-top: 0;
-    margin-bottom: 2px;
-    justify-content: center;
-  }
+          .logoDesktop {
+            display: none;
+          }
 
-  .logo {
-    width: 90px !important; /* 👈 لوگو کوچیک فقط تو گوشی */
-    height: auto !important;
-    margin: 0;
-  }
+          .logoMobile {
+            display: block;
+            width: 90px;
+            height: auto;
+          }
 
-  .title {
-    font-size: 20px; /* تایتل کوچیک‌تر */
-    margin: 4px 0 8px; /* چسبیده‌تر به لوگو */
-  }
+          .title {
+            font-size: 20px;
+            margin: 4px 0 8px;
+          }
 
-  .grid {
-    gap: 12px;
-    margin-top: 0;
-    transform: translateY(-20px); /* کل کارت‌ها بیان بالاتر */
-  }
+          .grid {
+            gap: 12px;
+            margin-top: 0;
+            transform: translateY(-20px);
+          }
 
-  .card {
-    padding: 10px;
-  }
+          .card {
+            padding: 10px;
+          }
 
-  .uploadBox {
-    padding: 14px 10px;
-  }
+          .uploadBox {
+            padding: 14px 10px;
+          }
 
-  .uploadIcon {
-    width: 26px;
-    height: 26px;
-    font-size: 14px;
-  }
+          .uploadIcon {
+            width: 26px;
+            height: 26px;
+            font-size: 14px;
+          }
 
-  .uploadTitle {
-    font-size: 14px;
-  }
+          .uploadTitle {
+            font-size: 14px;
+          }
 
-  .field {
-    margin-top: 10px;
-  }
+          .field {
+            margin-top: 10px;
+          }
 
-  .label {
-    font-size: 12px;
-  }
+          .label {
+            font-size: 12px;
+          }
 
-  .hint {
-    font-size: 11px;
-  }
+          .hint {
+            font-size: 11px;
+          }
 
-  .select {
-    height: 34px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
+          .select {
+            height: 34px;
+            font-size: 13px;
+            border-radius: 8px;
+          }
 
-  .segItem {
-    padding: 4px 8px;
-    font-size: 12px;
-  }
+          .segItem {
+            padding: 4px 8px;
+            font-size: 12px;
+          }
 
-  .textarea {
-    min-height: 70px;
-    font-size: 13px;
-  }
+          .textarea {
+            min-height: 70px;
+            font-size: 13px;
+          }
 
-  .btn {
-    height: 36px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
+          .btn {
+            height: 36px;
+            font-size: 13px;
+            border-radius: 8px;
+          }
 
-  .metaRow {
-    font-size: 12px;
-  }
+          .metaRow {
+            font-size: 12px;
+          }
 
-  .previewCard {
-    padding: 12px;
-  }
+          .previewCard {
+            padding: 12px;
+          }
 
-  .previewFrame {
-    padding: 8px;
-    min-height: 320px;
-  }
+          .previewFrame {
+            padding: 8px;
+            min-height: 320px;
+          }
 
-  .previewImg {
-    width: min(260px, 70vw); /* پریویو کوچیک‌تر تو گوشی */
-  }
+          .previewImg {
+            width: min(260px, 70vw);
+          }
 
-  .previewCaption {
-    font-size: 12px;
-  }
-}
-
+          .previewCaption {
+            font-size: 12px;
+          }
+        }
       `}</style>
     </main>
   );
