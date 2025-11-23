@@ -136,8 +136,8 @@ export default function GenerateVideoPage() {
         <Image
           src="/logo.png"
           alt="Sellova"
-          width={300}
-          height={200}
+          width={160}
+          height={90}
           priority
           className="logo"
         />
@@ -378,7 +378,7 @@ export default function GenerateVideoPage() {
       <style jsx>{`
         .pg {
           min-height: 100vh;
-          padding: 12px 16px 28px;
+          padding: 8px 16px 24px; /* بالای صفحه کمتر شد */
           background: #0b1e3d;
           color: #111;
           display: flex;
@@ -390,16 +390,14 @@ export default function GenerateVideoPage() {
         }
 
         .hdr {
-          margin-top: 6px;
-          margin-bottom: 6px;
+          margin-top: 0; /* حفره‌ی بالای لوگو حذف شد */
+          margin-bottom: 4px; /* فاصله‌ی خیلی کم زیر لوگو */
           display: flex;
           justify-content: center;
         }
 
         .logo {
           display: block;
-          width: auto;
-          height: auto;
           image-rendering: -webkit-optimize-contrast;
           filter: drop-shadow(0 1px 0.5px rgba(0, 0, 0, 0.35));
         }
@@ -409,7 +407,7 @@ export default function GenerateVideoPage() {
           text-align: center;
           font-size: 30px;
           font-weight: 700;
-          margin: 20px 0 120px;
+          margin: 8px 0 24px; /* قبلاً 20px و 120px بود! */
           letter-spacing: 0.2px;
           position: relative;
           z-index: 2;
@@ -421,15 +419,13 @@ export default function GenerateVideoPage() {
           display: grid;
           grid-template-columns: 1fr;
           gap: 20px;
-          margin-top: 8px;
-          transform: translateY(-10px);
+          margin-top: 0; /* دیگه فرم رو پایین نمی‌برد */
         }
 
         @media (min-width: 980px) {
           .grid {
             grid-template-columns: 1fr 1fr;
             gap: 24px;
-            transform: translateY(-95px);
           }
         }
 
@@ -679,10 +675,6 @@ export default function GenerateVideoPage() {
           margin-top: 4px;
         }
 
-        .grid {
-          margin-top: 8px;
-        }
-
         .visuallyHidden {
           position: absolute !important;
           clip: rect(1px, 1px, 1px, 1px);
@@ -712,98 +704,19 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-        /* ========== MOBILE OVERRIDE ========== */
+        /* فقط تنظیمات موبایل */
         @media (max-width: 640px) {
-          /* کل صفحه بالاتر + جمع‌وجورتر */
-          .pg {
-            padding: 4px 10px 20px;
-          }
-
-          /* لوگو: کوچک و چسبیده به بالا */
-          .hdr {
-            margin-top: 0;
-            margin-bottom: 4px;
-            justify-content: center;
-          }
-
-          .logo {
-            max-width: 70px;
-            height: auto;
-            margin: 0 auto;
-          }
-
-          /* تایتل نزدیکِ لوگو و بدون فاصله‌ی الکی */
           .title {
-            font-size: 22px;
-            margin: 4px 0 12px;
+            font-size: 24px;
+            margin: 4px 0 16px; /* تیتر چسبیده‌تر به لوگو و فرم */
           }
 
-          /* کارت‌ها را بکش بالا */
           .grid {
-            margin-top: 0;
             gap: 14px;
-            transform: translateY(0);
           }
 
           .card {
             padding: 12px;
-            border-radius: 10px;
-          }
-
-          .uploadBox {
-            padding: 12px 10px 10px;
-          }
-
-          .field {
-            margin-top: 10px;
-          }
-
-          .label {
-            font-size: 12px;
-            margin-bottom: 4px;
-          }
-
-          .select {
-            height: 36px;
-            font-size: 12px;
-            padding: 0 10px;
-          }
-
-          .segItem {
-            padding: 4px 8px;
-            font-size: 12px;
-          }
-
-          .textarea {
-            min-height: 80px;
-            font-size: 13px;
-          }
-
-          .btn {
-            height: 36px;
-            font-size: 12px;
-            padding: 0 10px;
-          }
-
-          .previewFrame {
-            min-height: 260px;
-            padding: 8px;
-          }
-
-          .previewImg {
-            width: 100%;
-            max-width: 260px;
-          }
-
-          .previewCaption {
-            font-size: 12px;
-          }
-
-          .metaRow {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
-            font-size: 12px;
           }
         }
       `}</style>
