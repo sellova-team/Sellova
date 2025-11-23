@@ -145,7 +145,7 @@ export default function GenerateVideoPage() {
       </header>
 
       {/* ===== Title ===== */}
-      <h1 className="title">TEST</h1>
+      <h1 className="title">{messages.generateVideo.title}</h1>
 
       {/* ===== Two-column layout ===== */}
       <section className="grid">
@@ -706,9 +706,13 @@ export default function GenerateVideoPage() {
 
         /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه */
         @media (max-width: 640px) {
+          body {
+            background: red !important 
+        }
+      }
           .pg {
-            padding: 2px 8px 14px; /* تقریباً بچسبه به بالا */
-            font-size: 14px;
+            padding: 1px 5px 10px; /* تقریباً بچسبه به بالا */
+            font-size: 13px;
           }
 
           .hdr {
@@ -718,7 +722,7 @@ export default function GenerateVideoPage() {
           }
 
           .logo {
-            width: 90px !important; /* لوگو کوچیک */
+            width: 50px !important; /* لوگو کوچیک */
             height: auto !important;
             margin: 0;
             transform-origin: top center;
@@ -726,13 +730,13 @@ export default function GenerateVideoPage() {
 
           .title {
             font-size: 20px;
-            margin: 4px 0 8px; /* نزدیک لوگو */
+            margin: 1px 0 5px; /* نزدیک لوگو */
           }
 
           .grid {
             gap: 10px;
             margin-top: 0;
-            transform: translateY(-24px); /* کل کارت‌ها بالاتر */
+            transform: translateY(-35px); /* کل کارت‌ها بالاتر */
           }
 
           .card {
@@ -809,6 +813,7 @@ export default function GenerateVideoPage() {
           }
         }
       `}</style>
+
     </main>
   );
 }
