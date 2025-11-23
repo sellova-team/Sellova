@@ -743,6 +743,21 @@ export default function GenerateVideoPage() {
 
   .field {
     margin-top: 10px;
+  /* فاصله لوگو با بالای صفحه */
+  .hdr {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* تایتل نزدیک‌تر به لوگو */
+  .title {
+    margin-top: 4px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* کل کارت‌ها و فرم‌ها را ببَرش بالا */
+  .grid {
+    margin-top: -20px !important;
   }
 }
       `}</style>
