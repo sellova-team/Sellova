@@ -136,8 +136,8 @@ export default function GenerateVideoPage() {
         <Image
           src="/logo.png"
           alt="Sellova"
-          width={160}
-          height={90}
+          width={300}
+          height={200}
           priority
           className="logo"
         />
@@ -484,7 +484,7 @@ export default function GenerateVideoPage() {
 
         .label {
           display: block;
-          font-size: 13px;
+          font-size: 16px;
           color: #111;
           margin-bottom: 6px;
           font-weight: 700;
@@ -492,7 +492,7 @@ export default function GenerateVideoPage() {
 
         .hint {
           margin-top: 6px;
-          font-size: 12px;
+          font-size: 15px;
           color: #444;
         }
 
@@ -525,7 +525,7 @@ export default function GenerateVideoPage() {
           user-select: none;
           background: #fff;
           color: #111;
-          font-size: 13px;
+          font-size: 16px;
           font-weight: 600;
           display: inline-flex;
           align-items: center;
@@ -627,7 +627,7 @@ export default function GenerateVideoPage() {
           align-items: center;
           margin-top: 10px;
           color: #111;
-          font-size: 13px;
+          font-size: 16px;
         }
 
         .muted {
@@ -670,7 +670,7 @@ export default function GenerateVideoPage() {
 
         .previewCaption {
           color: #ffffff;
-          font-size: 13px;
+          font-size: 16px;
           text-align: center;
           margin-top: 4px;
         }
@@ -704,21 +704,37 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-        /* فقط تنظیمات موبایل */
-        @media (max-width: 640px) {
-          .title {
-            font-size: 24px;
-            margin: 4px 0 16px; /* تیتر چسبیده‌تر به لوگو و فرم */
-          }
+       @media (max-width: 640px) {
+  /* لوگو کوچیک‌تر */
+  .logo img {
+    width: 90px !important;
+    margin-top: 8px !important;
+  }
 
-          .grid {
-            gap: 14px;
-          }
+  /* برداشتن فاصله خیلی زیاد بین لوگو و تایتل */
+  .title {
+    margin-top: 12px !important;
+    margin-bottom: 8px !important;
+    font-size: 22px !important;
+  }
 
-          .card {
-            padding: 12px;
-          }
-        }
+  /* کل صفحه بیاد بالا */
+  main {
+    padding-top: 12px !important;
+  }
+
+  /* کارت‌ها بیان نزدیک‌تر */
+  .card {
+    margin-top: 10px !important;
+    padding: 10px !important;
+  }
+
+  /* grid نزدیک‌تر به عنوان */
+  .grid {
+    margin-top: 6px !important;
+    gap: 10px !important;
+  }
+}
       `}</style>
     </main>
   );
