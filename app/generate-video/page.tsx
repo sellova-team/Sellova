@@ -706,8 +706,8 @@ export default function GenerateVideoPage() {
         /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه (کامل درست) */
         @media (max-width: 640px) {
           .pg {
-            padding: 2px 8px 14px; /* تقریباً بچسبه به بالا */
-            font-size: 13px;
+            padding: 1px 4px 7px; /* تقریباً بچسبه به بالا */
+            font-size: 10px;
           }
 
           .hdr {
@@ -717,7 +717,7 @@ export default function GenerateVideoPage() {
           }
 
           .logo {
-            width: 90px !important; /* لوگو کوچیک */
+            width: 50px !important; /* لوگو کوچیک */
             height: auto !important;
             margin: 0;
             transform-origin: top center;
@@ -725,13 +725,13 @@ export default function GenerateVideoPage() {
 
           .title {
             font-size: 20px !important;
-            margin: 4px 0 8px !important; /* نزدیک لوگو */
+            margin: 2px 0 8px !important; /* نزدیک لوگو */
           }
 
           .grid {
-            gap: 10px;
+            gap: 9px;
             margin-top: 0;
-            transform: translateY(-24px); /* کل کارت‌ها بالاتر */
+            transform: translateY(-35px); /* کل کارت‌ها بالاتر */
           }
 
           .card {
@@ -757,27 +757,27 @@ export default function GenerateVideoPage() {
           }
 
           .label {
-            font-size: 12px !important;
+            font-size: 11px !important;
           }
 
           .hint {
-            font-size: 11px !important;
+            font-size: 10px !important;
           }
 
           .select {
             height: 34px;
-            font-size: 13px;
+            font-size: 12px;
             border-radius: 8px;
           }
 
           .segItem {
             padding: 4px 8px;
-            font-size: 12px;
+            font-size: 11px;
           }
 
           .textarea {
             min-height: 70px;
-            font-size: 13px;
+            font-size: 12px;
           }
 
           .btn {
@@ -787,7 +787,7 @@ export default function GenerateVideoPage() {
           }
 
           .metaRow {
-            font-size: 12px;
+            font-size: 11px;
           }
 
           .previewCard {
@@ -804,7 +804,7 @@ export default function GenerateVideoPage() {
           }
 
           .previewCaption {
-            font-size: 12px !important;
+            font-size: 11px !important;
           }
         }
       `}</style>
