@@ -378,7 +378,7 @@ export default function GenerateVideoPage() {
       <style jsx>{`
         .pg {
           min-height: 100vh;
-          padding: 8px 16px 24px; /* بالای صفحه کمتر شد */
+          padding: 8px 16px 24px; /* دسکتاپ همون قبلی */
           background: #0b1e3d;
           color: #111;
           display: flex;
@@ -390,8 +390,8 @@ export default function GenerateVideoPage() {
         }
 
         .hdr {
-          margin-top: 0; /* حفره‌ی بالای لوگو حذف شد */
-          margin-bottom: 4px; /* فاصله‌ی خیلی کم زیر لوگو */
+          margin-top: 0;
+          margin-bottom: 4px;
           display: flex;
           justify-content: center;
         }
@@ -407,7 +407,7 @@ export default function GenerateVideoPage() {
           text-align: center;
           font-size: 30px;
           font-weight: 700;
-          margin: 8px 0 24px; /* قبلاً 20px و 120px بود! */
+          margin: 8px 0 24px;
           letter-spacing: 0.2px;
           position: relative;
           z-index: 2;
@@ -419,7 +419,7 @@ export default function GenerateVideoPage() {
           display: grid;
           grid-template-columns: 1fr;
           gap: 20px;
-          margin-top: 0; /* دیگه فرم رو پایین نمی‌برد */
+          margin-top: 0;
         }
 
         @media (min-width: 980px) {
@@ -704,41 +704,110 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-  @media (max-width: 640px) {
-  .pg {
-    /* کل صفحه بیاد بالاتر */
-    padding: 2px 10px 18px;
-  }
+        /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه */
+        @media (max-width: 640px) {
+          .pg {
+            padding: 2px 8px 14px; /* تقریباً بچسبه به بالا */
+            font-size: 14px;
+          }
 
-  .hdr {
-    /* لوگو تقریباً بچسبه به بالای صفحه */
-    margin-top: 0;
-    margin-bottom: 2px;
-    justify-content: center;
-  }
+          .hdr {
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+          }
 
-  .logo {
-    /* لوگو کوچیک‌تر روی موبایل */
-    max-width: 100px;
-  }
+          .logo {
+            width: 90px !important; /* لوگو کوچیک */
+            height: auto !important;
+            margin: 0;
+            transform-origin: top center;
+          }
 
-  .title {
-    /* تایتل نزدیک لوگو و کمی کوچیک‌تر */
-    font-size: 22px;
-    margin: 2px 0 10px;
-  }
+          .title {
+            font-size: 20px;
+            margin: 4px 0 8px; /* نزدیک لوگو */
+          }
 
-  .grid {
-    /* کل کارت‌ها بیاد بالاتر و فاصله‌ها کمتر بشه */
-    gap: 14px;
-    margin-top: 0;
-    transform: translateY(-10px);
-  }
+          .grid {
+            gap: 10px;
+            margin-top: 0;
+            transform: translateY(-24px); /* کل کارت‌ها بالاتر */
+          }
 
-  .card {
-    padding: 12px;
-  }
-}
+          .card {
+            padding: 10px;
+          }
+
+          .uploadBox {
+            padding: 14px 10px;
+          }
+
+          .uploadIcon {
+            width: 26px;
+            height: 26px;
+            font-size: 14px;
+          }
+
+          .uploadTitle {
+            font-size: 14px;
+          }
+
+          .field {
+            margin-top: 10px;
+          }
+
+          .label {
+            font-size: 12px;
+          }
+
+          .hint {
+            font-size: 11px;
+          }
+
+          .select {
+            height: 34px;
+            font-size: 13px;
+            border-radius: 8px;
+          }
+
+          .segItem {
+            padding: 4px 8px;
+            font-size: 12px;
+          }
+
+          .textarea {
+            min-height: 70px;
+            font-size: 13px;
+          }
+
+          .btn {
+            height: 36px;
+            font-size: 13px;
+            border-radius: 8px;
+          }
+
+          .metaRow {
+            font-size: 12px;
+          }
+
+          .previewCard {
+            padding: 12px;
+          }
+
+          .previewFrame {
+            padding: 8px;
+            min-height: 320px;
+          }
+
+          .previewImg {
+            width: min(280px, 60vw);
+          }
+
+          .previewCaption {
+            font-size: 12px;
+          }
+        }
       `}</style>
     </main>
   );
