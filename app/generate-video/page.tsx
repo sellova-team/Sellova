@@ -807,6 +807,9 @@ export default function GenerateVideoPage() {
             font-size: 11px !important;
           }
         }
+          @media(max-width:900x){
+          body {bacground: red !important; }
+          }
       `}</style>
     </main>
   );
