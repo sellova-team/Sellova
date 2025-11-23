@@ -374,6 +374,7 @@ export default function GenerateVideoPage() {
       </section>
 
       {/* ===== Styles ===== */}
+       {/* ===== Styles ===== */}
       <style jsx>{`
         .pg {
           min-height: 100vh;
@@ -387,12 +388,14 @@ export default function GenerateVideoPage() {
           font-family: Inter, "Segoe UI", system-ui, -apple-system, Roboto,
             Arial, sans-serif;
         }
+
         .hdr {
           margin-top: 6px;
           margin-bottom: 6px;
           display: flex;
           justify-content: center;
         }
+
         .logo {
           display: block;
           width: auto;
@@ -400,6 +403,7 @@ export default function GenerateVideoPage() {
           image-rendering: -webkit-optimize-contrast;
           filter: drop-shadow(0 1px 0.5px rgba(0, 0, 0, 0.35));
         }
+
         .title {
           color: #fff;
           text-align: center;
@@ -410,15 +414,17 @@ export default function GenerateVideoPage() {
           position: relative;
           z-index: 2;
         }
+
         .grid {
           width: 100%;
           max-width: 1160px;
           display: grid;
           grid-template-columns: 1fr;
           gap: 20px;
-          margin-top: 0;
+          margin-top: 8px;
           transform: translateY(-10px);
         }
+
         @media (min-width: 980px) {
           .grid {
             grid-template-columns: 1fr 1fr;
@@ -426,6 +432,7 @@ export default function GenerateVideoPage() {
             transform: translateY(-95px);
           }
         }
+
         .card {
           background: #fff;
           border: 1px solid #111;
@@ -434,9 +441,11 @@ export default function GenerateVideoPage() {
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06),
             0 6px 18px rgba(0, 0, 0, 0.06);
         }
+
         .uploadWrap {
           padding: 6px 2px 8px;
         }
+
         .uploadBox {
           border: 2px dashed #222;
           border-radius: 12px;
@@ -444,6 +453,7 @@ export default function GenerateVideoPage() {
           text-align: center;
           background: #fafcff;
         }
+
         .uploadIcon {
           width: 34px;
           height: 34px;
@@ -456,11 +466,13 @@ export default function GenerateVideoPage() {
           font-size: 18px;
           border: 1px solid #bcd6ff;
         }
+
         .uploadTitle {
           font-weight: 700;
           color: #0b1e3d;
           margin-bottom: 6px;
         }
+
         .actionsRow {
           display: flex;
           align-items: center;
@@ -473,6 +485,7 @@ export default function GenerateVideoPage() {
         .field {
           margin-top: 14px;
         }
+
         .label {
           display: block;
           font-size: 13px;
@@ -480,6 +493,7 @@ export default function GenerateVideoPage() {
           margin-bottom: 6px;
           font-weight: 700;
         }
+
         .hint {
           margin-top: 6px;
           font-size: 12px;
@@ -496,6 +510,7 @@ export default function GenerateVideoPage() {
           padding: 0 12px;
           outline: none;
         }
+
         .select:focus {
           box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
           border-color: #0b57d0;
@@ -505,6 +520,7 @@ export default function GenerateVideoPage() {
           display: inline-flex;
           gap: 8px;
         }
+
         .segItem {
           border: 1px solid #111;
           border-radius: 999px;
@@ -519,6 +535,7 @@ export default function GenerateVideoPage() {
           align-items: center;
           gap: 8px;
         }
+
         .segItem input {
           appearance: none;
           width: 12px;
@@ -526,9 +543,11 @@ export default function GenerateVideoPage() {
           border: 2px solid #0b57d0;
           border-radius: 50%;
         }
+
         .segItem input:checked {
           background: #0b57d0;
         }
+
         .segItem:hover {
           background: #f7faff;
         }
@@ -539,6 +558,7 @@ export default function GenerateVideoPage() {
           gap: 8px;
           align-items: start;
         }
+
         .textarea {
           min-height: 92px;
           resize: vertical;
@@ -550,6 +570,7 @@ export default function GenerateVideoPage() {
           outline: none;
           line-height: 1.5;
         }
+
         .textarea:focus {
           box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
           border-color: #0b57d0;
@@ -563,34 +584,42 @@ export default function GenerateVideoPage() {
           cursor: pointer;
           transition: transform 0.05s ease, box-shadow 0.15s ease;
         }
+
         .btn:active {
           transform: translateY(1px);
         }
+
         .btnGhost {
           background: #fff;
           color: #0b57d0;
           border: 1px solid #0b57d0;
         }
+
         .btnGhost:hover {
           background: #f0f6ff;
         }
+
         .btnLight {
           background: #f5f7fb;
           color: #111;
           border: 1px solid #111;
         }
+
         .btnLight:hover {
           background: #eef2f8;
         }
+
         .btnPrimary {
           background: #1483ff;
           color: #fff;
           border: 1px solid #0b57d0;
           box-shadow: 0 6px 18px rgba(20, 131, 255, 0.25);
         }
+
         .btnPrimary:hover {
           background: #0f74e6;
         }
+
         .btnBlock {
           width: 100%;
         }
@@ -604,9 +633,11 @@ export default function GenerateVideoPage() {
           color: #111;
           font-size: 13px;
         }
+
         .muted {
           color: #333;
         }
+
         .genRow {
           margin-top: 10px;
         }
@@ -621,6 +652,7 @@ export default function GenerateVideoPage() {
           padding: 16px;
           box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
         }
+
         .previewFrame {
           border: 1px solid #111;
           border-radius: 12px;
@@ -630,6 +662,7 @@ export default function GenerateVideoPage() {
           place-items: center;
           min-height: 420px;
         }
+
         .previewImg {
           width: min(360px, 46vw);
           height: auto;
@@ -638,11 +671,16 @@ export default function GenerateVideoPage() {
           background: #111;
           display: block;
         }
+
         .previewCaption {
           color: #ffffff;
           font-size: 13px;
           text-align: center;
           margin-top: 4px;
+        }
+
+        .grid {
+          margin-top: 8px;
         }
 
         .visuallyHidden {
@@ -664,104 +702,110 @@ export default function GenerateVideoPage() {
         .pg[dir="rtl"] .hint {
           text-align: right;
         }
+
         .pg[dir="rtl"] .actionsRow {
           flex-direction: row-reverse;
         }
+
         .pg[dir="rtl"] .promptRow {
           direction: rtl;
           grid-template-columns: 1fr auto;
         }
 
-        /* ============= Mobile only ============= */
-       @media (max-width: 768px) {
-  .pg {
-    padding: 4px 10px 18px;
-  }
+        /* ========== MOBILE OVERRIDE ========== */
+        @media (max-width: 640px) {
+          /* کل صفحه بالاتر + جمع‌وجورتر */
+          .pg {
+            padding: 4px 10px 20px;
+          }
 
-  .hdr {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+          /* لوگو: کوچک و چسبیده به بالا */
+          .hdr {
+            margin-top: 0;
+            margin-bottom: 4px;
+            justify-content: center;
+          }
 
-  /* 👇 کوچیک کردن لوگو با scale و چسباندن به بالای صفحه */
-  .logoBox {
-    transform: scale(0.28); /* حدوداً ۳–۴ برابر کوچیک‌تر */
-    transform-origin: top center;
-    margin-top: 0;
-    margin-bottom: 4px;
-  }
+          .logo {
+            max-width: 70px;
+            height: auto;
+            margin: 0 auto;
+          }
 
-  .title {
-    font-size: 22px;
-    margin: 6px 0 10px; /* تایتل نزدیک لوگو */
-  }
+          /* تایتل نزدیکِ لوگو و بدون فاصله‌ی الکی */
+          .title {
+            font-size: 22px;
+            margin: 4px 0 12px;
+          }
 
-  .grid {
-    margin-top: 0;
-    gap: 14px;
-    transform: translateY(0);
-  }
+          /* کارت‌ها را بکش بالا */
+          .grid {
+            margin-top: 0;
+            gap: 14px;
+            transform: translateY(0);
+          }
 
-  .card {
-    padding: 10px;
-    border-radius: 12px;
-  }
+          .card {
+            padding: 12px;
+            border-radius: 10px;
+          }
 
-  .previewFrame {
-    min-height: 260px;
-    padding: 8px;
-  }
+          .uploadBox {
+            padding: 12px 10px 10px;
+          }
 
-  .previewImg {
-    max-width: 260px;
-    width: 100%;
-  }
+          .field {
+            margin-top: 10px;
+          }
 
-  .metaRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    font-size: 12px;
-  }
+          .label {
+            font-size: 12px;
+            margin-bottom: 4px;
+          }
 
-  .btn {
-    height: 36px;
-    font-size: 12px;
-    padding: 0 10px;
-  }
+          .select {
+            height: 36px;
+            font-size: 12px;
+            padding: 0 10px;
+          }
 
-  .select {
-    height: 36px;
-    font-size: 12px;
-    padding: 0 10px;
-  }
+          .segItem {
+            padding: 4px 8px;
+            font-size: 12px;
+          }
 
-  .label {
-    font-size: 12px;
-    margin-bottom: 4px;
-  }
+          .textarea {
+            min-height: 80px;
+            font-size: 13px;
+          }
 
-  .field {
-    margin-top: 10px;
-  /* فاصله لوگو با بالای صفحه */
-  .hdr {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
+          .btn {
+            height: 36px;
+            font-size: 12px;
+            padding: 0 10px;
+          }
 
-  /* تایتل نزدیک‌تر به لوگو */
-  .title {
-    margin-top: 0px !important;
-    margin-bottom: 6px !important;
-  }
+          .previewFrame {
+            min-height: 260px;
+            padding: 8px;
+          }
 
-  /* کل کارت‌ها و فرم‌ها را ببَرش بالا */
-  .grid {
-    margin-top: -35px !important;
-    gap: 12px
-  }
-}
-   pm2 restart sellova
+          .previewImg {
+            width: 100%;
+            max-width: 260px;
+          }
+
+          .previewCaption {
+            font-size: 12px;
+          }
+
+          .metaRow {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            font-size: 12px;
+          }
+        }
       `}</style>
     </main>
   );
