@@ -704,35 +704,34 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-       @media (max-width: 640px) {
-  /* لوگو کوچیک‌تر */
-  .logo img {
-    width: 90px !important;
-    margin-top: 8px !important;
+    @media (max-width: 640px) {
+  /* صفحه کمی بالاتر بیاد */
+  .pg {
+    padding-top: 8px;
   }
 
-  /* برداشتن فاصله خیلی زیاد بین لوگو و تایتل */
+  /* لوگو: فقط موبایل -> کوچیک‌تر و چسبیده‌تر به بالا */
+  .hdr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .logo {
+    max-width: 110px; /* سایز لوگو در گوشی */
+    height: auto;
+  }
+
+  /* تایتل نزدیک لوگو و فاصله‌ی پایین خیلی کم */
   .title {
-    margin-top: 12px !important;
-    margin-bottom: 8px !important;
-    font-size: 22px !important;
+    font-size: 24px; /* یه ذره ریزتر از دسکتاپ */
+    margin: 6px 0 10px; /* قبلاً 20px 0 120px بود، فقط تو گوشی عوض می‌شه */
   }
 
-  /* کل صفحه بیاد بالا */
-  main {
-    padding-top: 12px !important;
-  }
-
-  /* کارت‌ها بیان نزدیک‌تر */
-  .card {
-    margin-top: 10px !important;
-    padding: 10px !important;
-  }
-
-  /* grid نزدیک‌تر به عنوان */
+  /* فرم‌ها بچسبن به تایتل، نه translateY عجیب */
   .grid {
-    margin-top: 6px !important;
-    gap: 10px !important;
+    margin-top: 0;
+    transform: none;
+    gap: 14px;
   }
 }
       `}</style>
