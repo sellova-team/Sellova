@@ -132,15 +132,15 @@ export default function GenerateVideoPage() {
     <main className="pg" dir={locale === "fa" ? "rtl" : "ltr"}>
       {/* ===== Header / Logo ===== */}
       <header className="hdr" aria-label="Sellova brand">
-      <div className="logoBox">
-        <Image
-          src="/logo.png"
-          alt="Sellova"
-          width={300}
-          height={200}
-          priority
-          className="logo"
-        />
+        <div className="logoBox">
+          <Image
+            src="/logo.png"
+            alt="Sellova"
+            width={300}
+            height={200}
+            priority
+            className="logo"
+          />
         </div>
       </header>
 
@@ -374,7 +374,6 @@ export default function GenerateVideoPage() {
       </section>
 
       {/* ===== Styles ===== */}
-       {/* ===== Styles ===== */}
       <style jsx>{`
         .pg {
           min-height: 100vh;
@@ -704,8 +703,8 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-        /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه */
-        @media (max-width: 640px) {ss
+        /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه (کامل درست) */
+        @media (max-width: 640px) {
           .pg {
             padding: 2px 8px 14px; /* تقریباً بچسبه به بالا */
             font-size: 13px;
@@ -725,8 +724,8 @@ export default function GenerateVideoPage() {
           }
 
           .title {
-            font-size: 20px;
-            margin: 4px 0 8px; /* نزدیک لوگو */
+            font-size: 20px !important;
+            margin: 4px 0 8px !important; /* نزدیک لوگو */
           }
 
           .grid {
@@ -750,7 +749,7 @@ export default function GenerateVideoPage() {
           }
 
           .uploadTitle {
-            font-size: 14px;
+            font-size: 14px !important;
           }
 
           .field {
@@ -758,11 +757,11 @@ export default function GenerateVideoPage() {
           }
 
           .label {
-            font-size: 12px;
+            font-size: 12px !important;
           }
 
           .hint {
-            font-size: 11px;
+            font-size: 11px !important;
           }
 
           .select {
@@ -805,11 +804,10 @@ export default function GenerateVideoPage() {
           }
 
           .previewCaption {
-            font-size: 12px;
+            font-size: 12px !important;
           }
         }
       `}</style>
-
     </main>
   );
 }
