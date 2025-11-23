@@ -705,13 +705,9 @@ export default function GenerateVideoPage() {
         }
 
         /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه */
-        @media (max-width: 640px) {
-          body {
-            background: red !important 
-        }
-      }
+        @media (max-width: 640px) {ss
           .pg {
-            padding: 1px 5px 10px; /* تقریباً بچسبه به بالا */
+            padding: 2px 8px 14px; /* تقریباً بچسبه به بالا */
             font-size: 13px;
           }
 
@@ -722,7 +718,7 @@ export default function GenerateVideoPage() {
           }
 
           .logo {
-            width: 50px !important; /* لوگو کوچیک */
+            width: 90px !important; /* لوگو کوچیک */
             height: auto !important;
             margin: 0;
             transform-origin: top center;
@@ -730,13 +726,13 @@ export default function GenerateVideoPage() {
 
           .title {
             font-size: 20px;
-            margin: 1px 0 5px; /* نزدیک لوگو */
+            margin: 4px 0 8px; /* نزدیک لوگو */
           }
 
           .grid {
             gap: 10px;
             margin-top: 0;
-            transform: translateY(-35px); /* کل کارت‌ها بالاتر */
+            transform: translateY(-24px); /* کل کارت‌ها بالاتر */
           }
 
           .card {
