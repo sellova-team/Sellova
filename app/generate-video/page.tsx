@@ -132,6 +132,7 @@ export default function GenerateVideoPage() {
     <main className="pg" dir={locale === "fa" ? "rtl" : "ltr"}>
       {/* ===== Header / Logo ===== */}
       <header className="hdr" aria-label="Sellova brand">
+      <div className="logoBox">
         <Image
           src="/logo.png"
           alt="Sellova"
@@ -140,6 +141,7 @@ export default function GenerateVideoPage() {
           priority
           className="logo"
         />
+        </div>
       </header>
 
       {/* ===== Title ===== */}
@@ -671,78 +673,78 @@ export default function GenerateVideoPage() {
         }
 
         /* ============= Mobile only ============= */
-        @media (max-width: 768px) {
-          .pg {
-            padding: 6px 10px 20px;
-          }
+       @media (max-width: 768px) {
+  .pg {
+    padding: 4px 10px 18px;
+  }
 
-          .hdr {
-            margin-top: 2px;
-            margin-bottom: 0;
-          }
+  .hdr {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
-          /* 👇 لوگو خیلی کوچیک و چسبیده به بالا */
-          .logo {
-            max-width: 90px;
-            height: auto;
-          }
+  /* 👇 کوچیک کردن لوگو با scale و چسباندن به بالای صفحه */
+  .logoBox {
+    transform: scale(0.28); /* حدوداً ۳–۴ برابر کوچیک‌تر */
+    transform-origin: top center;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
 
-          /* 👇 عنوان نزدیک لوگو و کم‌فاصله */
-          .title {
-            font-size: 22px;
-            margin: 6px 0 10px;
-          }
+  .title {
+    font-size: 22px;
+    margin: 6px 0 10px; /* تایتل نزدیک لوگو */
+  }
 
-          /* 👇 فرم‌ها و کارت‌ها بالاتر و جمع‌وجورتر */
-          .grid {
-            margin-top: 0;
-            gap: 14px;
-            transform: translateY(0);
-          }
+  .grid {
+    margin-top: 0;
+    gap: 14px;
+    transform: translateY(0);
+  }
 
-          .card {
-            padding: 10px;
-            border-radius: 12px;
-          }
+  .card {
+    padding: 10px;
+    border-radius: 12px;
+  }
 
-          .previewFrame {
-            min-height: 260px;
-            padding: 8px;
-          }
+  .previewFrame {
+    min-height: 260px;
+    padding: 8px;
+  }
 
-          .previewImg {
-            max-width: 260px;
-            width: 100%;
-          }
+  .previewImg {
+    max-width: 260px;
+    width: 100%;
+  }
 
-          .metaRow {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
-            font-size: 12px;
-          }
+  .metaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 12px;
+  }
 
-          .btn {
-            height: 36px;
-            font-size: 12px;
-            padding: 0 10px;
-          }
+  .btn {
+    height: 36px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
 
-          .select {
-            height: 36px;
-            font-size: 12px;
-            padding: 0 10px;
-          }
+  .select {
+    height: 36px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
 
-          .label {
-            font-size: 12px;
-            margin-bottom: 4px;
-          }
+  .label {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
 
-          .field {
-            margin-top: 10px;
-          }
-        }
+  .field {
+    margin-top: 10px;
+  }
+}
       `}</style>
     </main>
   );
