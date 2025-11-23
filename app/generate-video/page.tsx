@@ -704,112 +704,107 @@ export default function GenerateVideoPage() {
         }
 
         /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه (کامل درست) */
-        @media (max-width: 640px) {
-          .pg {
-            padding: 1px 4px 7px; /* تقریباً بچسبه به بالا */
-            font-size: 10px;
-          }
-
-          .hdr {
-            margin: 0;
-            padding: 0;
-            justify-content: center;
-          }
-
-          .logo {
-            width: 50px !important; /* لوگو کوچیک */
-            height: auto !important;
-            margin: 0;
-            transform-origin: top center;
-          }
-
-          .title {
-            font-size: 20px !important;
-            margin: 2px 0 8px !important; /* نزدیک لوگو */
-          }
-
-          .grid {
-            gap: 9px;
-            margin-top: 0;
-            transform: translateY(-35px); /* کل کارت‌ها بالاتر */
-          }
-
-          .card {
-            padding: 10px;
-          }
-
-          .uploadBox {
-            padding: 14px 10px;
-          }
-
-          .uploadIcon {
-            width: 26px;
-            height: 26px;
-            font-size: 14px;
-          }
-
-          .uploadTitle {
-            font-size: 14px !important;
-          }
-
-          .field {
-            margin-top: 10px;
-          }
-
-          .label {
-            font-size: 11px !important;
-          }
-
-          .hint {
-            font-size: 10px !important;
-          }
-
-          .select {
-            height: 34px;
-            font-size: 12px;
-            border-radius: 8px;
-          }
-
-          .segItem {
-            padding: 4px 8px;
-            font-size: 11px;
-          }
-
-          .textarea {
-            min-height: 70px;
-            font-size: 12px;
-          }
-
-          .btn {
-            height: 36px;
-            font-size: 13px;
-            border-radius: 8px;
-          }
-
-          .metaRow {
-            font-size: 11px;
-          }
-
-          .previewCard {
-            padding: 12px;
-          }
-
-          .previewFrame {
-            padding: 8px;
-            min-height: 320px;
-          }
-
-          .previewImg {
-            width: min(280px, 60vw);
-          }
-
-          .previewCaption {
-            font-size: 11px !important;
-          }
-        }
-        @media (max-width: 640px) {
+       @media (max-width: 640px) {
   .pg {
-    background: red;
+    padding: 2px 8px 14px; /* صفحه بیاد بالاتر */
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .hdr {
+    margin-top: 0;
+    margin-bottom: 2px;
+    justify-content: center;
+  }
+
+  .logo {
+    width: 90px !important; /* 👈 لوگو کوچیک فقط تو گوشی */
+    height: auto !important;
+    margin: 0;
+  }
+
+  .title {
+    font-size: 20px; /* تایتل کوچیک‌تر */
+    margin: 4px 0 8px; /* چسبیده‌تر به لوگو */
+  }
+
+  .grid {
+    gap: 12px;
+    margin-top: 0;
+    transform: translateY(-20px); /* کل کارت‌ها بیان بالاتر */
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .uploadBox {
+    padding: 14px 10px;
+  }
+
+  .uploadIcon {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .uploadTitle {
+    font-size: 14px;
+  }
+
+  .field {
+    margin-top: 10px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .hint {
+    font-size: 11px;
+  }
+
+  .select {
+    height: 34px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .segItem {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .textarea {
+    min-height: 70px;
+    font-size: 13px;
+  }
+
+  .btn {
+    height: 36px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .metaRow {
+    font-size: 12px;
+  }
+
+  .previewCard {
+    padding: 12px;
+  }
+
+  .previewFrame {
+    padding: 8px;
+    min-height: 320px;
+  }
+
+  .previewImg {
+    width: min(260px, 70vw); /* پریویو کوچیک‌تر تو گوشی */
+  }
+
+  .previewCaption {
+    font-size: 12px;
   }
 }
 
