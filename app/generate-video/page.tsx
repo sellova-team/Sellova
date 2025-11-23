@@ -761,6 +761,7 @@ export default function GenerateVideoPage() {
     gap: 12px
   }
 }
+   pm2 restart sellova
       `}</style>
     </main>
   );
