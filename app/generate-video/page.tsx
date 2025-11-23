@@ -145,7 +145,7 @@ export default function GenerateVideoPage() {
       </header>
 
       {/* ===== Title ===== */}
-      <h1 className="title">{messages.generateVideo.title}</h1>
+      <h1 className="title">TEST</h1>
 
       {/* ===== Two-column layout ===== */}
       <section className="grid">
