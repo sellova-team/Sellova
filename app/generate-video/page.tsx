@@ -133,13 +133,23 @@ export default function GenerateVideoPage() {
       {/* ===== Header / Logo ===== */}
       <header className="hdr" aria-label="Sellova brand">
         <div className="logoBox">
+          {/* لوگوی دسکتاپ - همون قبلی */}
           <Image
             src="/logo.png"
             alt="Sellova"
             width={300}
             height={200}
             priority
-            className="logo"
+            className="logo logoDesktop"
+          />
+          {/* لوگوی موبایل - کوچیک */}
+          <Image
+            src="/logo.png"
+            alt="Sellova"
+            width={140}
+            height={80}
+            priority
+            className="logo logoMobile"
           />
         </div>
       </header>
@@ -405,6 +415,14 @@ export default function GenerateVideoPage() {
           display: block;
           image-rendering: -webkit-optimize-contrast;
           filter: drop-shadow(0 1px 0.5px rgba(0, 0, 0, 0.35));
+        }
+
+        .logoDesktop {
+          display: block;
+        }
+
+        .logoMobile {
+          display: none; /* فقط تو موبایل روشنش می‌کنیم */
         }
 
         .title {
@@ -709,21 +727,21 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-        /* 🔹 موبایل — لوگو کوچیک + صفحه بالاتر */
+        /* 🔹 موبایل – فقط اینجا لوگوی کوچیک و صفحه جمع‌وجور می‌شه */
         @media (max-width: 640px) {
           .pg {
-            padding: 2px 10px 14px;
+            padding: 2px 8px 14px;
             gap: 6px;
           }
 
-          .hdr {
-            margin-top: 0;
-            margin-bottom: 2px;
+          .logoDesktop {
+            display: none;
           }
 
-          .logo {
-            width: 90px !important; /* 👈 این دو تا خط زورکی روی next/image */
-            height: auto !important;
+          .logoMobile {
+            display: block;
+            width: 90px;
+            height: auto;
           }
 
           .title {
@@ -734,7 +752,7 @@ export default function GenerateVideoPage() {
           .grid {
             gap: 12px;
             margin-top: 0;
-            transform: translateY(-24px); /* کل کارت‌ها بیاد بالا */
+            transform: translateY(-20px);
           }
 
           .card {

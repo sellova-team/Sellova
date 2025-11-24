@@ -17,19 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* ✔️ این خط باعث می‌شود موبایل درست رندر شود */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        />
-      </head>
-
       <body className={inter.className}>
         <LangProvider>
-          <div className="app-shell">{children}</div>
+          <div className="app-shell">
+            {children}
+          </div>
         </LangProvider>
       </body>
     </html>
   );
 }
+
