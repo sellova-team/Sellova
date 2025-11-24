@@ -727,8 +727,8 @@ export default function GenerateVideoPage() {
 
           .title {
             font-size: 20px;
-            margin-top: 6px !important;
-            margin-bottom: 18px !importanr;
+            margin-top: 4px !important;
+            margin-bottom: 24px !importanr;
             ; /* نزدیک لوگو */
           }
 

@@ -52,8 +52,8 @@ body {
 
   /* فاصله عنوان با لوگو */
   .pg .title {
-    margin-top: -15px !important;
-    margin-bottom: 15px !important;
+    margin-top: -18px !important;
+    margin-bottom: 12px !important;
     font-size: 18px !important; /* کمی کوچک‌تر، خواناتر */
     line-height: 1.2;
   }
