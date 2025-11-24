@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <LangProvider>
-          <div className="app-shell">{children}</div>
+          <div className="app-shell">
+            {children}
+          </div>
         </LangProvider>
       </body>
     </html>

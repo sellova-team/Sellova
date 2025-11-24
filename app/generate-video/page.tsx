@@ -132,25 +132,15 @@ export default function GenerateVideoPage() {
     <main className="pg" dir={locale === "fa" ? "rtl" : "ltr"}>
       {/* ===== Header / Logo ===== */}
       <header className="hdr" aria-label="Sellova brand">
-        <div className="logoBox">
-          {/* لوگوی دسکتاپ - همون قبلی */}
-          <Image
-            src="/logo.png"
-            alt="Sellova"
-            width={300}
-            height={200}
-            priority
-            className="logo logoDesktop"
-          />
-          {/* لوگوی موبایل - کوچیک */}
-          <Image
-            src="/logo.png"
-            alt="Sellova"
-            width={140}
-            height={80}
-            priority
-            className="logo logoMobile"
-          />
+      <div className="logoBox">
+        <Image
+          src="/logo.png"
+          alt="Sellova"
+          width={300}
+          height={200}
+          priority
+          className="logo"
+        />
         </div>
       </header>
 
@@ -255,8 +245,8 @@ export default function GenerateVideoPage() {
               <option value="orbit-medium">Orbit (medium)</option>
             </select>
           </div>
-
-          {/* Lighting */}
+         
+{/* Lighting */}
           <div className="field">
             <label className="label">Lighting</label>
             <select
@@ -384,10 +374,11 @@ export default function GenerateVideoPage() {
       </section>
 
       {/* ===== Styles ===== */}
+       {/* ===== Styles ===== */}
       <style jsx>{`
         .pg {
           min-height: 100vh;
-          padding: 8px 16px 24px; /* همون استایل لپ‌تاپ خودت */
+          padding: 8px 16px 24px; /* دسکتاپ همون قبلی */
           background: #0b1e3d;
           color: #111;
           display: flex;
@@ -435,7 +426,6 @@ export default function GenerateVideoPage() {
           .grid {
             grid-template-columns: 1fr 1fr;
             gap: 24px;
-            transform: translateY(-95px); /* همون استایل لپ‌تاپ قبلی */
           }
         }
 
@@ -459,7 +449,7 @@ export default function GenerateVideoPage() {
           text-align: center;
           background: #fafcff;
         }
-
+          
         .uploadIcon {
           width: 34px;
           height: 34px;
@@ -714,37 +704,113 @@ export default function GenerateVideoPage() {
           grid-template-columns: 1fr auto;
         }
 
-        /* موبایل – فعلاً فقط کمی جمع‌وجور، بدون دست‌زدن به لپ‌تاپ */
-        @media (max-width: 640px) {
+        /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه */
+        @media (max-width: 640px) {ss
           .pg {
-            padding: 8px 10px 16px;
+            padding: 2px 8px 14px; /* تقریباً بچسبه به بالا */
+            font-size: 13px;
+          }
+
+          
+          .hdr {
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+          }
+
+          .logo {
+            width: 90px !important; /* لوگو کوچیک */
+            height: auto !important;
+            margin: 0;
+            transform-origin: top center;
           }
 
           .title {
-            font-size: 24px;
-            margin: 8px 0 16px;
+            font-size: 20px;
+            margin: 4px 0 8px; /* نزدیک لوگو */
           }
 
           .grid {
-            gap: 14px;
-            transform: translateY(-10px);
+            gap: 10px;
+            margin-top: 0;
+            transform: translateY(-24px); /* کل کارت‌ها بالاتر */
           }
 
           .card {
-            padding: 12px;
+            padding: 10px;
           }
 
-          .label {
+          .uploadBox {
+            padding: 14px 10px;
+          }
+
+          .uploadIcon {
+            width: 26px;
+            height: 26px;
             font-size: 14px;
           }
 
-          .hint,
-          .metaRow,
-          .previewCaption {
+          .uploadTitle {
+            font-size: 14px;
+          }
+
+          .field {
+            margin-top: 10px;
+          }
+
+          .label {
+            font-size: 12px;
+          }
+
+          .hint {
+            font-size: 11px;
+          }
+
+          .select {
+            height: 34px;
             font-size: 13px;
+            border-radius: 8px;
+          }
+
+          .segItem {
+            padding: 4px 8px;
+            font-size: 12px;
+          }
+
+          .textarea {
+            min-height: 70px;
+            font-size: 13px;
+          }
+
+          .btn {
+            height: 36px;
+            font-size: 13px;
+            border-radius: 8px;
+          }
+
+          .metaRow {
+            font-size: 12px;
+          }
+
+          .previewCard {
+            padding: 12px;
+          }
+
+          .previewFrame {
+            padding: 8px;
+            min-height: 320px;
+          }
+
+          .previewImg {
+            width: min(280px, 60vw);
+          }
+
+          .previewCaption {
+            font-size: 12px;
           }
         }
       `}</style>
+
     </main>
   );
 }
