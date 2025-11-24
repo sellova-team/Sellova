@@ -1,39 +1,39 @@
-/* ظرف اصلی برای کل سایت */
-.app-shell {
-  max-width: 1200px; /* عرض کلی سایت روی مانیتورهای بزرگ */
-  margin: 0 auto; /* وسط‌چین */
-  padding: 16px; /* کمی فاصله از کناره‌ها */
+/* ====== پس‌زمینه سورمه‌ای کامل روی کل سایت ====== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #0b1e3d; /* سورمه‌ای کامل */
+  overflow-x: hidden; /* جلوگیری از اسکرول چپ راست */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* روی لپ‌تاپ‌های کوچیک مثل مال خودت (1366px) کمی جمع‌وجورتر */
+/* ظرف کلی سایت – روی دسکتاپ */
+.app-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  background: transparent; /* دیگه سفید نیست */
+}
+
+/* لپ‌تاپ کوچیک */
 @media (max-width: 1366px) {
   .app-shell {
     max-width: 1100px;
-    padding: 8px;
+    padding: 12px;
   }
 }
 
-/* تنظیمات مخصوص موبایل */
+/* ====== موبایل ====== */
 @media (max-width: 768px) {
-  /* متن‌ها ریزتر بشن */
-  body {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
   .app-shell {
+    padding: 0; /* بدون حاشیه اضافی */
     max-width: 100%;
-    padding: 8px;
   }
 
-  /* عکس و ویدیو از صفحه نزنن بیرون و منطقی کوچیک شن */
   img,
   video {
     max-width: 100%;
