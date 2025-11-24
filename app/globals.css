@@ -44,15 +44,17 @@ body {
 @media (max-width: 768px) {
   /* لوگو را کوچک‌تر و بالاتر می‌برد */
   .pg .logo {
-    width: 120px !important; /* ۴ سایز کوچک‌تر */
+    width: 110px !important; /* ۴ سایز کوچک‌تر */
     height: auto !important;
-    margin-top: 8px !important; /* لوگو می‌رود بالاتر */
+    margin-top: 0px !important; /* لوگو می‌رود بالاتر */
     display: block;
   }
 
   /* فاصله عنوان با لوگو */
   .pg .title {
-    margin-top: 4px !important;
-    font-size: 22px !important; /* کمی کوچک‌تر، خواناتر */
+    margin-top: -4px !important;
+    margin-bottom: 10px !important;
+    font-size: 18px !important; /* کمی کوچک‌تر، خواناتر */
+    line-height: 1.2;
   }
 }
