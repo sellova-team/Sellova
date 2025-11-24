@@ -44,9 +44,9 @@ body {
 @media (max-width: 768px) {
   /* لوگو را کوچک‌تر و بالاتر می‌برد */
   .pg .logo {
-    width: 110px !important; /* ۴ سایز کوچک‌تر */
+    width: 90px !important; /* ۴ سایز کوچک‌تر */
     height: auto !important;
-    margin-top: -4px !important; /* لوگو می‌رود بالاتر */
+    margin-top: -8px !important; /* لوگو می‌رود بالاتر */
     display: block;
   }
 
