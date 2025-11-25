@@ -79,15 +79,13 @@ const supportTexts = {
 };
 
 export default function SupportPage() {
-  // مهم‌ترین خط‌ها برای فارسی/انگلیسی شدن 👇
-  const { lang } = useLang(); // از context خودت می‌گیریم: "en" یا "fa"
-  const t = lang === "fa" ? supportTexts.fa : supportTexts.en;
+  // مهم‌ترین خط‌ها
+  const { messages } = useLang();
+  const t = messages.support as any;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [topic, setTopic] = useState<"technical" | "billing" | "other">(
-    "technical"
-  );
+  const [topic, setTopic] = useState<"technical" | "billing" | "other">("technical");
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
@@ -401,6 +399,44 @@ export default function SupportPage() {
               grid-template-columns: 1fr !important;
             }
           }
+          
+  /* موبایل فقط */
+  @media (max-width: 768px) {
+
+    /* کل صفحه نزدیک بالا */
+    main {
+      padding-top: 10px !important;
+    }
+
+    /* فاصله کادر داخلی کمتر */
+    div[style*="background: #f9fafb"] {
+      padding: 12px !important;
+    }
+
+    /* لوگو */
+    header img {
+      width: 120px !important;
+      height: auto !important;
+      margin-top: 0 !important;
+    }
+
+    /* فاصله زیر لوگو کمتر */
+    header {
+      margin-bottom: 10px !important;
+      padding-bottom: 8px !important;
+    }
+
+    /* تیتر Support نزدیک‌تر شود */
+    header h1 {
+      margin-top: 4px !important;
+      font-size: 22px !important;
+    }
+
+    /* توضیح زیر تیتر هم نزدیک‌تر شود */
+    header p {
+      margin-top: 4px !important;
+      font-size: 13px !important;
+    }
         `}</style>
       </div>
     </main>
