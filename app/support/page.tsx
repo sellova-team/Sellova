@@ -399,6 +399,36 @@ export default function SupportPage() {
               grid-template-columns: 1fr !important;
             }
           }
+
+          @media (max-width: 768px) {
+
+    /* خود لوگو */
+    header img {
+      width: 120px !important;
+      height: auto !important;
+      margin-top: 0 !important;
+    }
+
+    /* فاصله هدر */
+    header {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      margin-bottom: 10px !important;
+    }
+
+    /* تیتر Support نزدیک‌تر شود */
+    header h1 {
+      margin-top: 4px !important;
+      font-size: 22px !important;
+    }
+
+    /* توضیح زیر تیتر نزدیک شود */
+    header p {
+      margin-top: 4px !important;
+      font-size: 13px !important;
+    }
+  }
+
         `}</style>
       </div>
     </main>
