@@ -258,134 +258,90 @@ export default function IranPlansPage() {
           max-width: 1400px;
         }
 
-        /* 📱 موبایل و تبلت */
-        @media (max-width: 768px) {
-          .plans-page {
-            padding: 12px 10px 24px;
-          }
-
-          /* لوگو – کوچیک و چسبیده‌تر به بالا */
-          .plans-logo-wrap {
-            margin-top: 4px;
-            margin-bottom: 8px; /* فاصله خیلی کم تا کارت‌ها */
-            display: flex;
-            justify-content: center;
-          }
-
-          .plans-logo-img {
-            width: 170px !important; /* 👈 از قبل کوچیک‌تر شد */
-            height: auto !important;
-          }
-
-          /* دو ستون کارت‌ها، نزدیک لوگو */
-          .plans-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 0; /* دیگه فاصله اضافی نیست */
-          }
-
-          /* کارت‌ها جمع‌وجور */
-          .plan-card {
-            padding: 18px 14px !important;
-            min-height: 220px !important;
-          }
-
-          .plan-title {
-            font-size: 20px !important;
-            margin-bottom: 8px !important;
-          }
-
-          .plan-credits {
-            font-size: 16px !important;
-            margin-bottom: 6px !important;
-          }
-
-          .plan-price {
-            font-size: 18px !important;
-            margin-bottom: 8px !important;
-          }
-
-          .plan-desc {
-            font-size: 14px !important;
-            margin-bottom: 8px !important;
-          }
-
-          .plan-btn {
-            font-size: 16px !important;
-            padding: 10px 0 !important;
-          }
-
-          /* کارت زرد */
-          .free-credit {
-            width: 90%;
-            margin-top: 20px;
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .free-credit-text {
-            margin-right: 0;
-            margin-bottom: 8px;
-          }
-
-          .free-credit-text p {
-            font-size: 16px !important;
-            margin: 2px 0;
-          }
-
-          .free-credit-btn {
-            font-size: 16px !important;
-            padding: 10px 20px !important;
-          }
-        }
-
-        /* 📏 موبایل خیلی کوچک */
-        @media (max-width: 768px) {
+       
+/* ===== فقط موبایل و تبلت ===== */
+@media (max-width: 768px) {
   .plans-page {
-    padding-top: 2px !important; /* 👈 سه برابر کمتر از قبل */
+    padding: 6px 10px 20px; /* بالاتر و جمع‌تر از قبل */
   }
 
-  /* لوگو */
+  /* لوگو – کوچیک و چسبیده‌تر به بالا */
   .plans-logo-wrap {
-    margin-top: 0 !important;
-    margin-bottom: 2px !important; /* 👈 خیلی کم فاصله از کارت‌ها */
+    margin-top: 0;
+    margin-bottom: 4px; /* فاصله خیلی کم تا کارت‌ها */
     display: flex;
     justify-content: center;
   }
 
   .plans-logo-img {
-    width: 155px !important; /* 👈 کمی کوچک‌تر از نسخه قبلی */
+    width: 145px !important; /* 👈 کوچک‌تر از قبل */
     height: auto !important;
   }
 
-  /* کارت‌ها */
+  /* کارت‌ها – دو ستون، باریک و نزدیک لوگو */
   .plans-grid {
-    margin-top: -35px !important; /* 👈 این خط کارت‌ها را دقیقاً 3 برابر بیشتر بالا می‌کشد */
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    gap: 10px;
+    margin-top: -24px; /* 👈 کل کارت‌ها می‌آد بالاتر */
   }
 
+  /* خود کارت‌ها باریک‌تر و جمع‌وجورتر */
   .plan-card {
-    padding: 18px 14px !important;
-    min-height: 220px !important;
+    padding: 14px 10px !important;
+    min-height: 200px !important;
+    border-radius: 14px;
   }
 
+  /* متن‌ها ۱–۲ سایز ریزتر */
   .plan-title {
-    font-size: 20px !important;
-  }
-  .plan-credits {
-    font-size: 16px !important;
-  }
-  .plan-price {
     font-size: 18px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .plan-credits {
+    font-size: 14px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .plan-price {
+    font-size: 16px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .plan-desc {
+    font-size: 13px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .plan-btn {
+    font-size: 14px !important;
+    padding: 8px 0 !important;
   }
 
   /* کارت زرد پایین */
   .free-credit {
-    width: 90%;
-    margin-top: 10px !important;
+    width: 92%;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .free-credit-text {
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
+
+  .free-credit-text p {
+    font-size: 14px !important;
+    margin: 2px 0;
+  }
+
+  .free-credit-btn {
+    font-size: 14px !important;
+    padding: 8px 16px !important;
   }
 }
+
       `}</style>
     </div>
   );
