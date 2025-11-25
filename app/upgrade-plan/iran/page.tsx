@@ -354,74 +354,79 @@ export default function IranPlansPage() {
 
   /* 📱 موبایل و تبلت – مستطیل‌ها باریک‌تر و متن ریزتر */
   @media (max-width: 768px) {
-    .plans-page {
-      padding: 16px 10px 30px;
-    }
 
-    .plans-logo-wrap {
-      margin-top: 4px;
-      margin-bottom: 8px;
-    }
-
-    .plans-logo-img {
-      width: 150px;
-    }
-
-    .plans-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      max-width: 100%;
-    }
-
-    .plan-card {
-      padding: 16px 12px !important;
-      min-height: 210px !important;
-      border-radius: 16px;
-    }
-
-    .plan-title {
-      font-size: 18px !important;
-      margin-bottom: 6px !important;
-    }
-
-    .plan-credits {
-      font-size: 14px !important;
-      margin-bottom: 4px !important;
-    }
-
-    .plan-price {
-      font-size: 16px !important;
-      margin-bottom: 6px !important;
-    }
-
-    .plan-desc {
-      font-size: 12px !important;
-      margin-bottom: 6px !important;
-    }
-
-    .plan-btn {
-      font-size: 14px !important;
-      padding: 8px 0 !important;
-    }
-
-    .free-credit {
-      width: 90%;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 14px !important;
-      text-align: center;
-      padding: 10px 14px !important;
-    }
-
-    .free-credit-text p {
-      font-size: 14px !important;
-    }
-
-    .free-credit-btn {
-      font-size: 14px !important;
-      padding: 8px 18px !important;
-    }
+  /* کل صفحه بیاد بالا */
+  .plans-page {
+    padding-top: 4px !important;
   }
+
+  /* لوگو کوچک و بالاتر */
+  .plans-logo-wrap {
+    margin-top: -6px !important;
+    margin-bottom: 2px !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .plans-logo-img {
+    width: 120px !important;
+    height: auto !important;
+  }
+
+  /* کارت‌ها جمع‌وجور و باریک‌تر */
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px !important;
+    margin-top: -28px !important; /* کارت‌ها بالاتر */
+  }
+
+  .plan-card {
+    padding: 12px 10px !important;
+    border-radius: 10px !important;
+    min-height: 180px !important; /* کوتاه‌تر */
+  }
+
+  /* متن‌ها کوچک‌تر */
+  .plan-title {
+    font-size: 16px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .plan-credits {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .plan-price {
+    font-size: 14px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .plan-desc {
+    font-size: 12px !important;
+  }
+
+  .plan-btn {
+    font-size: 13px !important;
+    padding: 8px 0 !important;
+  }
+
+  /* کارت زرد پایین */
+  .free-credit {
+    width: 90% !important;
+    margin-top: 10px !important;
+    padding: 10px !important;
+  }
+
+  .free-credit-text p {
+    font-size: 14px !important;
+  }
+
+  .free-credit-btn {
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+  }
+}
 `}</style>
     </div>
   );
