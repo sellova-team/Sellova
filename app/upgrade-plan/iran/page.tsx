@@ -257,83 +257,84 @@ export default function IranPlansPage() {
           width: 100%;
           max-width: 1400px;
         }
-
-       
-/* ===== فقط موبایل و تبلت ===== */
+/* =======================
+   📱 فقط موبایل — بدون دست‌زدن به نسخه لپ‌تاپ
+======================= */
 @media (max-width: 768px) {
+
+  /* کل صفحه */
   .plans-page {
-    padding: 6px 10px 20px; /* بالاتر و جمع‌تر از قبل */
+    padding: 6px 6px 20px !important;
   }
 
-  /* لوگو – کوچیک و چسبیده‌تر به بالا */
+  /* لوگو */
   .plans-logo-wrap {
-    margin-top: 0;
-    margin-bottom: 4px; /* فاصله خیلی کم تا کارت‌ها */
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
     display: flex;
     justify-content: center;
   }
 
   .plans-logo-img {
-    width: 145px !important; /* 👈 کوچک‌تر از قبل */
+    width: 135px !important; /* 👈 کوچک‌تر */
     height: auto !important;
   }
 
-  /* کارت‌ها – دو ستون، باریک و نزدیک لوگو */
+  /* گرید کارت‌ها */
   .plans-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: -24px; /* 👈 کل کارت‌ها می‌آد بالاتر */
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-top: -25px !important; /* 👈 همه چیز بالاتر */
   }
 
-  /* خود کارت‌ها باریک‌تر و جمع‌وجورتر */
+  /* کارت‌ها */
   .plan-card {
     padding: 14px 10px !important;
-    min-height: 200px !important;
-    border-radius: 14px;
+    border-radius: 12px !important;
+    min-height: 180px !important; /* 👈 کوتاه‌تر */
   }
 
-  /* متن‌ها ۱–۲ سایز ریزتر */
+  /* تیتر داخل کارت */
   .plan-title {
-    font-size: 18px !important;
-    margin-bottom: 6px !important;
+    font-size: 16px !important;
+    margin-bottom: 4px !important;
   }
 
+  /* تعداد کردیت */
   .plan-credits {
     font-size: 14px !important;
     margin-bottom: 4px !important;
   }
 
+  /* قیمت */
   .plan-price {
-    font-size: 16px !important;
+    font-size: 15px !important;
     margin-bottom: 6px !important;
   }
 
+  /* توضیحات */
   .plan-desc {
     font-size: 13px !important;
     margin-bottom: 6px !important;
+    line-height: 1.4 !important;
   }
 
+  /* دکمه انتخاب */
   .plan-btn {
     font-size: 14px !important;
     padding: 8px 0 !important;
+    border-radius: 10px !important;
   }
 
-  /* کارت زرد پایین */
+  /* کارت زرد */
   .free-credit {
-    width: 92%;
-    margin-top: 10px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .free-credit-text {
-    margin-right: 0;
-    margin-bottom: 6px;
+    width: 94% !important;
+    margin-top: 12px !important;
+    padding: 10px !important;
   }
 
   .free-credit-text p {
     font-size: 14px !important;
-    margin: 2px 0;
   }
 
   .free-credit-btn {
@@ -341,7 +342,6 @@ export default function IranPlansPage() {
     padding: 8px 16px !important;
   }
 }
-
       `}</style>
     </div>
   );
