@@ -1,25 +1,31 @@
-/* ====== پس‌زمینه سورمه‌ای کامل روی کل سایت ====== */
+
+/* ===== ریست ساده ===== */
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background: #0b1e3d; /* سورمه‌ای کامل */
-  overflow-x: hidden; /* جلوگیری از اسکرول چپ راست */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0b1e3d; /* سورمه‌ای کل صفحه */
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }
 
-/* ظرف کلی سایت – روی دسکتاپ */
+/* ظرف اصلی سایت روی دسکتاپ (همه صفحه‌ها) */
 .app-shell {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px;
-  background: transparent; /* دیگه سفید نیست */
+  background: transparent;
 }
 
-/* لپ‌تاپ کوچیک */
+/* لپ‌تاپ‌های کوچیک‌تر */
 @media (max-width: 1366px) {
   .app-shell {
     max-width: 1100px;
@@ -27,11 +33,23 @@ body {
   }
 }
 
-/* ====== موبایل ====== */
+/* ===== فقط موبایل عمومی ===== */
 @media (max-width: 768px) {
   .app-shell {
-    padding: 0; /* بدون حاشیه اضافی */
     max-width: 100%;
+    padding: 8px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
   }
 
   img,
@@ -40,21 +58,20 @@ body {
     height: auto;
   }
 }
-/* ONLY MOBILE FIXES */
+
+/* ===== فقط موبایل: صفحه ساخت ویدیو (کلاس pg) ===== */
 @media (max-width: 768px) {
-  /* لوگو را کوچک‌تر و بالاتر می‌برد */
   .pg .logo {
-    width: 100px !important; /* ۴ سایز کوچک‌تر */
+    width: 100px !important;
     height: auto !important;
-    margin-top: -8px !important; /* لوگو می‌رود بالاتر */
+    margin-top: -8px !important;
     display: block;
   }
 
-  /* فاصله عنوان با لوگو */
   .pg .title {
     margin-top: -18px !important;
     margin-bottom: 22px !important;
-    font-size: 18px !important; /* کمی کوچک‌تر، خواناتر */
+    font-size: 18px !important;
     line-height: 1.2;
   }
 }
