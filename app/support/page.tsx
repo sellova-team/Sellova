@@ -118,6 +118,7 @@ export default function SupportPage() {
       >
         {/* Header */}
         <header
+        className="support-logo-header"
           style={{
             textAlign: "center",
             marginBottom: 24,
