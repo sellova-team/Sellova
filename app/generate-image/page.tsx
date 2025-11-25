@@ -506,21 +506,21 @@ export default function ProductStudio() {
   }
 
   .top{
-    gap: 2px;
-    margin-top: 0;
+    gap: 0px;
+    margin-top: 0px;
     margin-bottom: 4px; /* فاصله خیلی کم تا فرم */
   }
 
   .logo{
     width: 100px; /* دقیقا مثل صفحه‌ی ویدیو */
     height: auto;
-    margin-top: -4px; /* کمی نزدیک‌تر به بالای صفحه */
+    margin-top: -12px; /* کمی نزدیک‌تر به بالای صفحه */
   }
 
   .title{
     font-size: 20px; /* یک سایز ریزتر */
     margin-top: -4px; /* به لوگو نزدیک‌تر */
-    margin-bottom: 10px; /* از فرم کمی فاصله بگیره */
+    margin-bottom: 4px; /* از فرم کمی فاصله بگیره */
     text-align: center;
   }
 
