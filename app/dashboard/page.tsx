@@ -237,48 +237,58 @@ export default function DashboardPage() {
           background: #0b1e3d;
         }
 
-        /* موبایل */
-        @media (max-width: 768px) {
-          .dash-page {
-            background: #0b1e3d !important;
-            width: 100% !important;
-            min-height: 100vh !important;
-            padding: 12px 0 28px !important;
-            margin: 0 !important;
-            overflow-x: hidden !important;
-          }
+      /* موبایل */
+@media (max-width: 768px) {
+  .dash-page {
+    background: #0b1e3d !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 12px 0 28px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
 
-          /* دو ستون، با نوار سورمه‌ای دو طرف (باریک) */
-          .grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 8px;
-            width: 100%;
-            max-width: 340px;
-            padding: 0 12px;
-            margin: 0 auto;
-            box-sizing: border-box;
-          }
+  /* دکمه زبان – بره بالاتر و کوچیک‌تر بشه */
+  .dash-lang-bar {
+    top: 8px !important; /* کاملاً بالا */
+    right: 10px !important; /* کاملاً سمت راست */
+  }
 
-          .dash-logo-wrap {
-            margin-top: 16px !important;
-            margin-bottom: 6px !important;
-          }
+  .dash-lang-btn {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+    border-radius: 999px !important;
+  }
 
-          .dash-logo {
-            width: 160px !important;
-            height: auto !important;
-          }
+  /* لوگو همون بمونه، فقط کمی فاصله */
+  .dash-logo-wrap {
+    margin-top: 24px !important;
+    margin-bottom: 6px !important;
+  }
 
-          .dash-title {
-            font-size: 16px !important;
-            margin-bottom: 10px !important;
-          }
+  .dash-logo {
+    width: 160px !important;
+    height: auto !important;
+  }
 
-          .dash-lang-btn {
-            font-size: 12px !important;
-            padding: 4px 10px !important;
-          }
-        }
+  /* عنوان از کارت‌ها فاصله بگیره */
+  .dash-title {
+    font-size: 16px !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* گرید کارت‌ها – کمی پایین‌تر بیاد و دو ستونه بماند */
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    max-width: 340px;
+    padding: 0 12px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    transform: none !important; /* اون translateY(-10px) برای موبایل خنثی شود */
+  }
+}
       `}</style>
     </main>
   );
