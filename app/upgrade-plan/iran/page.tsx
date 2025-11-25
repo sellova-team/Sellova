@@ -362,14 +362,14 @@ export default function IranPlansPage() {
 
   /* لوگو کوچک و بالاتر */
   .plans-logo-wrap {
-    margin-top: -6px !important;
+    margin-top: -8px !important;
     margin-bottom: 2px !important;
     display: flex;
     justify-content: center;
   }
 
   .plans-logo-img {
-    width: 120px !important;
+    width: 100px !important;
     height: auto !important;
   }
 
@@ -425,6 +425,17 @@ export default function IranPlansPage() {
   .free-credit-btn {
     font-size: 14px !important;
     padding: 8px 16px !important;
+  }
+
+  @media (max-width: 768px) {
+  .plans-logo-wrap {
+    margin-top: -10px !important; /* لوگو میره بالای بالای صفحه */
+    margin-bottom: 4px !important;
+  }
+
+  .plans-logo-img {
+    width: 120px !important; /* مثل صفحه عکس و ویدیو */
+    height: auto !important;
   }
 }
 `}</style>
