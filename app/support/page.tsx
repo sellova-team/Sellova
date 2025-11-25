@@ -404,28 +404,29 @@ export default function SupportPage() {
 
     /* خود لوگو */
     header img {
-      width: 100px !important;
+      width: 80x !important;
       height: auto !important;
-      margin-top: -4!important;
+      margin-top: 0!important;
     }
 
     /* فاصله هدر */
     header {
-      margin-top: -4 !important;
+      margin-top: 0 !important;
       padding-top: 0 !important;
-      margin-bottom: 12px !important;
+      margin-bottom: 6px !important;
     }
 
     /* تیتر Support نزدیک‌تر شود */
     header h1 {
-      margin-top: 8px !important;
-      font-size: 22px !important;
+      margin-top: 2px !important;
+      font-size: 20px !important;
     }
 
     /* توضیح زیر تیتر نزدیک شود */
     header p {
-      margin-top: 8px !important;
-      font-size: 13px !important;
+      margin-top: 2px !important;
+      font-size: 12px !important;
+      liner-height: 1.5 !important;
     }
   }
 
