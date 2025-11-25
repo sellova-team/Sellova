@@ -418,6 +418,36 @@ export default function PromoSlidesPage() {
           .counter {
             font-size: 12px;
           }
+
+          /* ===== لوگوی موبایل — کوچک و چسبیده به بالا ===== */
+@media (max-width: 768px) {
+
+  /* لوگو خیلی کوچک‌تر از قبل */
+  .logo {
+    width: 95px !important; /* سایز خیلی کوچک */
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+  }
+
+  /* بالای صفحه کاملاً بچسبد */
+  .top {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    padding-top: 0 !important;
+  }
+
+  /* فرم و پیش‌نمایش بیاد بالاتر نزدیک لوگو */
+  .grid {
+    margin-top: 4px !important;
+    gap: 12px !important;
+  }
+
+  .panel {
+    margin-top: 0 !important;
+  }
+}
         }
       `}</style>
     </main>
