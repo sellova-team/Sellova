@@ -55,4 +55,18 @@ body {
     font-size: 18px !important; /* کمی کوچک‌تر، خواناتر */
     line-height: 1.2;
   }
+
+  @media (max-width: 768px) {
+  .plans-logo-img {
+    width: 95px !important; /* دقیقا مثل صفحات عکس/ویدیو */
+    height: auto !important;
+    margin-top: -6px !important; /* میره بالای صفحه */
+    display: block;
+  }
+
+  .plans-logo-wrap {
+    margin-top: 0 !important;
+    margin-bottom: 4px !important; /* نزدیک به کارت‌ها */
+  }
+}
 }
