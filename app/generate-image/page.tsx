@@ -499,63 +499,74 @@ export default function ProductStudio() {
         }
 
         /* 🟢 موبایل: همه‌چیز ریزتر و جمع‌وجورتر */
-        @media (max-width:640px){
-          .wrap{
-            padding: 10px 8px 18px;
-            font-size:13px;
-          }
-          .top{
-            gap:4px;
-            margin-bottom:6px;
-          }
-          .logo{
-            width:140px; /* لوگو کوچک‌تر */
-          }
-          .title{
-            font-size:22px; /* تیتر کوچک‌تر */
-          }
-          .grid{
-            width:100vw;
-            gap:10px;
-          }
-          .card{
-            border-radius:12px;
-            box-shadow:0 10px 30px rgba(3,8,20,.26);
-          }
-          .leftPanel{
-            padding:10px 10px 8px;
-            font-size:13px;
-          }
-          .label{
-            font-size:13px;
-            margin-bottom:4px;
-          }
-          .control{
-            padding:7px 9px;
-            font-size:12px;
-            border-radius:8px;
-          }
-          .btn{
-            padding:8px 11px;
-            font-size:12px;
-            border-radius:9px;
-          }
-          .hint{
-            font-size:10px;
-          }
-          .rightBox{
-            padding:8px;
-            min-height:260px;
-          }
-          .luxOuter{
-            padding:6px;
-            border-radius:14px;
-          }
-          .luxInner{
-            padding:6px;
-            border-radius:10px;
-          }
-        }
+       @media (max-width:640px){
+  .wrap{
+    padding: 6px 8px 18px; /* صفحه بیاد بالاتر */
+    font-size:13px;
+  }
+
+  .top{
+    gap: 2px;
+    margin-top: 0;
+    margin-bottom: 4px; /* فاصله خیلی کم تا فرم */
+  }
+
+  .logo{
+    width: 100px; /* دقیقا مثل صفحه‌ی ویدیو */
+    height: auto;
+    margin-top: -4px; /* کمی نزدیک‌تر به بالای صفحه */
+  }
+
+  .title{
+    font-size: 20px; /* یک سایز ریزتر */
+    margin-top: -4px; /* به لوگو نزدیک‌تر */
+    margin-bottom: 10px; /* از فرم کمی فاصله بگیره */
+    text-align: center;
+  }
+
+  .grid{
+    width:100vw;
+    gap:10px;
+  }
+
+  .card{
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(3,8,20,.26);
+  }
+  .leftPanel{
+    padding:10px 10px 8px;
+    font-size:13px;
+  }
+  .label{
+    font-size:13px;
+    margin-bottom:4px;
+  }
+  .control{
+    padding:7px 9px;
+    font-size:12px;
+    border-radius:8px;
+  }
+  .btn{
+    padding:8px 11px;
+    font-size:12px;
+    border-radius:9px;
+  }
+  .hint{
+    font-size:10px;
+  }
+  .rightBox{
+    padding:8px;
+    min-height:260px;
+  }
+  .luxOuter{
+    padding:6px;
+    border-radius:14px;
+  }
+  .luxInner{
+    padding:6px;
+    border-radius:10px;
+  }
+}
 
         [dir="rtl"] .leftPanel{
           direction: rtl;
