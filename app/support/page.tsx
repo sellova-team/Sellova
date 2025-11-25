@@ -440,15 +440,6 @@ export default function SupportPage() {
               </div>
             </article>
           </section>
-
-          {/* استایل قبلی برای تک ستون شدن گرید در موبایل */}
-          <style jsx>{`
-            @media (max-width: 900px) {
-              section {
-                grid-template-columns: 1fr !important;
-              }
-            }
-          `}</style>
         </div>
       </main>
     </>
