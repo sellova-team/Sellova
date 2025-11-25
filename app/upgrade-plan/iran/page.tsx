@@ -437,6 +437,11 @@ export default function IranPlansPage() {
     width: 120px !important; /* مثل صفحه عکس و ویدیو */
     height: auto !important;
   }
+
+  @media (max-width: 768px) {
+  .plans-logo-warp {
+    display: none !important;
+  } 
 }
 `}</style>
     </div>
