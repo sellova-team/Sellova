@@ -55,8 +55,8 @@ export default function AdvisoryConsultationPage() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: isMobile ? "16px 10px" : "24px 16px",
-    gap: isMobile ? 12 : 18,
+    padding: isMobile ? "6px 10px" : "24px 16px",
+    gap: isMobile ? 6 : 18,
   };
 
   const container: React.CSSProperties = {
@@ -150,20 +150,24 @@ export default function AdvisoryConsultationPage() {
     display: "flex",
     flexDirection: "column" as const,
     alignItems: "center",
-    gap: isMobile ? 6 : 8,
+    gap: isMobile ? 4 : 8,
+    marginBottom: isMobile ? 4 : 12,
   };
 
   const logoStyle: React.CSSProperties = {
-    width: isMobile ? 150 : 200,
+    width: isMobile ? 100 : 200,
     height: "auto",
     objectFit: "contain" as const,
+    marginTop: isMobile ? -8 : 0, 
   };
 
   const titleStyle: React.CSSProperties = {
     color: "#fff",
     fontWeight: 900,
-    fontSize: isMobile ? 20 : "clamp(20px, 3.6vw, 30px)",
+    fontSize: isMobile ? 18 : "clamp(20px, 3.6vw, 30px)",
     textAlign: "center" as const,
+    marginTop: isMobile ? -12 : 0,
+    marginBottom: isMobile ? 8 : 12,
   };
 
   const resGrid: React.CSSProperties = {
