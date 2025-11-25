@@ -369,7 +369,7 @@ export default function IranPlansPage() {
   }
 
   .plans-logo-img {
-    width: 100px !important;
+    width: 80px !important;
     height: auto !important;
   }
 
@@ -429,7 +429,7 @@ export default function IranPlansPage() {
 
   @media (max-width: 768px) {
   .plans-logo-wrap {
-    margin-top: -10px !important; /* لوگو میره بالای بالای صفحه */
+    margin-top: -14px !important; /* لوگو میره بالای بالای صفحه */
     margin-bottom: 4px !important;
   }
 
