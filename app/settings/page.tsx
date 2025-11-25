@@ -50,198 +50,230 @@ export default function SettingsPage() {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "30px auto",
-        padding: "30px",
-        backgroundColor: "#fff",
-        borderRadius: "15px",
-        boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
-      }}
-    >
-      <header style={{ textAlign: "center", marginBottom: "30px" }}>
-        <Image src="/logo.png" alt="Sellova Logo" width={250} height={150} />
-      </header>
+    <>
+      {/* استایل فقط برای موبایل */}
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .settings-page-wrapper {
+            margin: 5px auto !important;
+            padding: 15px !important;
+          }
 
-      <h2
-        style={{
-          textAlign: "center",
-          marginBottom: "25px",
-          color: "#4a90e2",
-          fontSize: "28px",
-        }}
-      >
-        {t.title}
-      </h2>
+          .settings-logo-header {
+            margin-top: 0 !important;
+            margin-bottom: 10px !important;
+          }
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
-        <div style={{ flex: 1, minWidth: "250px" }}>
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              style={{
-                display: "block",
-                fontWeight: "bold",
-                marginBottom: "5px",
-              }}
-            >
-              {t.fullNameLabel}
-            </label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder={t.fullNamePlaceholder}
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-              }}
-            />
-          </div>
-
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              style={{
-                display: "block",
-                fontWeight: "bold",
-                marginBottom: "5px",
-              }}
-            >
-              {t.emailLabel}
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={t.emailPlaceholder}
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-              }}
-            />
-          </div>
-
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              style={{
-                display: "block",
-                fontWeight: "bold",
-                marginBottom: "5px",
-              }}
-            >
-              {t.passwordLabel}
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder={t.passwordPlaceholder}
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-              }}
-            />
-          </div>
-
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              style={{
-                display: "block",
-                fontWeight: "bold",
-                marginBottom: "5px",
-              }}
-            >
-              {t.subscriptionLabel}
-            </label>
-            <input
-              type="text"
-              value={subscription}
-              readOnly
-              style={{
-                width: "100%",
-                padding: "12px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-                backgroundColor: "#f0f0f0",
-              }}
-            />
-          </div>
-        </div>
-
-        <div style={{ flex: 1, minWidth: "250px" }}>
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              style={{
-                display: "block",
-                fontWeight: "bold",
-                marginBottom: "5px",
-              }}
-            >
-              {t.languageLabel}
-            </label>
-            <select
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-              style={{
-                width: "80%",
-                padding: "10px",
-                borderRadius: "8px",
-                border: "1px solid #ccc",
-              }}
-            >
-              {languages.map((lang, idx) => (
-                <option key={idx} value={lang}>
-                  {lang}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </div>
+          .settings-logo-img {
+            width: 120px !important;
+            height: auto !important;
+          }
+        }
+      `}</style>
 
       <div
+        className="settings-page-wrapper"
         style={{
-          marginTop: "30px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
+          maxWidth: "900px",
+          margin: "30px auto",
+          padding: "30px",
+          backgroundColor: "#fff",
+          borderRadius: "15px",
+          boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
         }}
       >
-        <button
-          onClick={saveSettings}
+        <header
+          className="settings-logo-header"
+          style={{ textAlign: "center", marginBottom: "30px" }}
+        >
+          <Image
+            src="/logo.png"
+            alt="Sellova Logo"
+            width={250}
+            height={150}
+            className="settings-logo-img"
+          />
+        </header>
+
+        <h2
           style={{
-            padding: "15px",
-            borderRadius: "8px",
-            backgroundColor: "#4a90e2",
-            color: "#fff",
-            border: "none",
-            fontSize: "16px",
-            cursor: "pointer",
+            textAlign: "center",
+            marginBottom: "25px",
+            color: "#4a90e2",
+            fontSize: "28px",
           }}
         >
-          {t.saveButton}
-        </button>
-        <button
-          onClick={goSupport}
+          {t.title}
+        </h2>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
+          <div style={{ flex: 1, minWidth: "250px" }}>
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontWeight: "bold",
+                  marginBottom: "5px",
+                }}
+              >
+                {t.fullNameLabel}
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={t.fullNamePlaceholder}
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                }}
+              />
+            </div>
+
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontWeight: "bold",
+                  marginBottom: "5px",
+                }}
+              >
+                {t.emailLabel}
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={t.emailPlaceholder}
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                }}
+              />
+            </div>
+
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontWeight: "bold",
+                  marginBottom: "5px",
+                }}
+              >
+                {t.passwordLabel}
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder={t.passwordPlaceholder}
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                }}
+              />
+            </div>
+
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontWeight: "bold",
+                  marginBottom: "5px",
+                }}
+              >
+                {t.subscriptionLabel}
+              </label>
+              <input
+                type="text"
+                value={subscription}
+                readOnly
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                  backgroundColor: "#f0f0f0",
+                }}
+              />
+            </div>
+          </div>
+
+          <div style={{ flex: 1, minWidth: "250px" }}>
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontWeight: "bold",
+                  marginBottom: "5px",
+                }}
+              >
+                {t.languageLabel}
+              </label>
+              <select
+                value={language}
+                onChange={(e) => setLanguage(e.target.value)}
+                style={{
+                  width: "80%",
+                  padding: "10px",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                }}
+              >
+                {languages.map((lang, idx) => (
+                  <option key={idx} value={lang}>
+                    {lang}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div
           style={{
-            padding: "15px",
-            borderRadius: "8px",
-            backgroundColor: "#f39c12",
-            color: "#fff",
-            border: "none",
-            fontSize: "16px",
-            cursor: "pointer",
+            marginTop: "30px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "15px",
           }}
         >
-          {t.supportButton}
-        </button>
+          <button
+            onClick={saveSettings}
+            style={{
+              padding: "15px",
+              borderRadius: "8px",
+              backgroundColor: "#4a90e2",
+              color: "#fff",
+              border: "none",
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            {t.saveButton}
+          </button>
+          <button
+            onClick={goSupport}
+            style={{
+              padding: "15px",
+              borderRadius: "8px",
+              backgroundColor: "#f39c12",
+              color: "#fff",
+              border: "none",
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            {t.supportButton}
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
