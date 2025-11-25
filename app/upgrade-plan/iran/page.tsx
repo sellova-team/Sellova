@@ -248,7 +248,7 @@ export default function IranPlansPage() {
         </button>
       </div>
 
-     <style jsx>{`
+   <style jsx>{`
         /* دسکتاپ – همون استایل خوب قبلی */
         .plans-grid {
           display: grid;
@@ -390,3 +390,4 @@ export default function IranPlansPage() {
     </div>
   );
 }
+  
