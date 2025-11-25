@@ -248,55 +248,58 @@ export default function IranPlansPage() {
         </button>
       </div>
 
-  <style jsx>{`
-  /* -------- صفحه ارتقا پلن – دسکتاپ / لپ تاپ -------- */
+    <style jsx>{`
+  /* ⭐ لپ‌تاپ / دسکتاپ – ۴ تا مستطیل بزرگ، زرد زیر دو تای وسط */
   .plans-page {
     min-height: 100vh;
+    padding: 40px 24px 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 16px;
+    background: radial-gradient(900px 600px at 10% 0%, #1b2a5a 0%, #0b1224 45%, #060b17 100%);
   }
 
-  /* لوگو در دسکتاپ */
   .plans-logo-wrap {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
   }
 
   .plans-logo-img {
-    width: 220px;
+    width: 210px;
     height: auto;
   }
 
-  /* چهار تا مستطیل کنار هم */
   .plans-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(220px, 1fr)); /* دقیقا ۴ ستون */
-    gap: 24px;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 26px;
     width: 100%;
     max-width: 1200px;
-    align-items: stretch;
-    justify-items: center;
+    margin-bottom: 22px;
   }
 
   .plan-card {
-    width: 100%;
-    border-radius: 18px;
-    padding: 22px 18px;
+    border-radius: 20px;
+    padding: 26px 20px;
+    min-height: 260px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
-    box-sizing: border-box;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
   }
 
   .plan-title {
-    font-size: 24px;
+    font-size: 22px;
+    font-weight: 800;
     margin-bottom: 10px;
   }
 
   .plan-credits {
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .plan-price {
@@ -305,115 +308,121 @@ export default function IranPlansPage() {
   }
 
   .plan-desc {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 1.5;
   }
 
   .plan-btn {
-    font-size: 18px;
+    margin-top: 6px;
     padding: 10px 0;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
   }
 
-  /* مستطیل زرد – زیر دو تای وسط (وسط کلی گرید) */
+  /* کارت زرد پایین – زیر دو تا وسطی قرار می‌گیره */
   .free-credit {
-    margin-top: 28px;
-    width: min(440px, 100%);
-    margin-left: auto;
-    margin-right: auto; /* میاد دقیقا وسط، زیر چهار تا کارت */
-    border-radius: 16px;
-    padding: 14px 16px;
+    margin-top: 6px;
+    padding: 14px 20px;
+    border-radius: 18px;
+    background: #facc15;
+    color: #1f2937;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
   }
 
   .free-credit-text p {
     margin: 2px 0;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 700;
   }
 
   .free-credit-btn {
-    font-size: 16px;
-    padding: 8px 20px;
+    padding: 10px 20px;
     border-radius: 999px;
+    border: none;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
   }
 
-  /* -------- فقط موبایل / تبلت (همه‌چیز ریزتر و بالاتر) -------- */
+  /* 📱 موبایل و تبلت – مستطیل‌ها باریک‌تر و متن ریزتر */
   @media (max-width: 768px) {
     .plans-page {
-      padding: 14px 10px 24px;
+      padding: 16px 10px 30px;
     }
 
     .plans-logo-wrap {
-      margin-top: 0;
-      margin-bottom: 6px;
+      margin-top: 4px;
+      margin-bottom: 8px;
     }
 
     .plans-logo-img {
-      width: 150px; /* 👈 لوگوی کوچیک بالای صفحه */
-      height: auto;
+      width: 150px;
     }
 
-    /* دو ستون باریک، نزدیک لوگو */
     .plans-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: -10px; /* کمی می‌کشه بالا */
+      gap: 14px;
+      max-width: 100%;
     }
 
     .plan-card {
-      padding: 16px 10px;
-      min-height: 210px;
+      padding: 16px 12px !important;
+      min-height: 210px !important;
+      border-radius: 16px;
     }
 
-    /* متن‌ها یک–دو سایز کوچیک‌تر */
     .plan-title {
-      font-size: 18px;
-      margin-bottom: 6px;
+      font-size: 18px !important;
+      margin-bottom: 6px !important;
     }
 
     .plan-credits {
-      font-size: 14px;
-      margin-bottom: 4px;
+      font-size: 14px !important;
+      margin-bottom: 4px !important;
     }
 
     .plan-price {
-      font-size: 16px;
-      margin-bottom: 6px;
+      font-size: 16px !important;
+      margin-bottom: 6px !important;
     }
 
     .plan-desc {
-      font-size: 13px;
-      margin-bottom: 6px;
+      font-size: 12px !important;
+      margin-bottom: 6px !important;
     }
 
     .plan-btn {
-      font-size: 14px;
-      padding: 8px 0;
+      font-size: 14px !important;
+      padding: 8px 0 !important;
     }
 
-    /* کارت زرد پایین در موبایل */
     .free-credit {
-      width: 92%;
-      margin-top: 14px;
+      width: 90%;
       flex-direction: column;
       align-items: center;
+      margin-top: 14px !important;
       text-align: center;
-      gap: 6px;
+      padding: 10px 14px !important;
     }
 
     .free-credit-text p {
-      font-size: 14px;
+      font-size: 14px !important;
     }
 
     .free-credit-btn {
-      font-size: 14px;
-      padding: 8px 18px;
+      font-size: 14px !important;
+      padding: 8px 18px !important;
     }
   }
 `}</style>
     </div>
   );
 }
-  
