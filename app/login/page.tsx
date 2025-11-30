@@ -4,8 +4,15 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 
+import { auth } from "../../lib/firebase";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+
+// فونت جدید خواناتر و زیباتر
 const fontStack =
-  'Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji","Segoe UI Emoji"';
+  'IRANSans, Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
 
 const styles: Record<string, React.CSSProperties> = {
   page: {
@@ -27,7 +34,7 @@ const styles: Record<string, React.CSSProperties> = {
     background: "#ffffff",
     borderRadius: 16,
     boxShadow: "0 14px 40px rgba(0,0,0,.28)",
-    padding: 20,
+    padding: 24, // کمی بزرگ‌تر
     marginTop: 40,
   },
   tabs: {
@@ -37,53 +44,68 @@ const styles: Record<string, React.CSSProperties> = {
     background: "#eef3f7",
     borderRadius: 12,
     padding: 6,
-    marginBottom: 16,
+    marginBottom: 20,
   },
+
+  // 🔵 دکمه‌های بزرگ‌تر + فونت 18
   tabBtn: {
-    height: 42,
+    height: 48,
     borderRadius: 10,
     background: "transparent",
     color: "#0b1e3d",
     fontWeight: 800,
+    fontSize: 18,
     border: "none",
     cursor: "pointer",
   },
+
   tabBtnActive: {
     background: "#0ea5e9",
     color: "#fff",
+    fontSize: 18,
+    fontWeight: 900,
   },
+
+  // 🔵 متن لیبل بزرگ‌تر و خواناتر
   label: {
     display: "block",
-    fontSize: 13,
+    fontSize: 18,
     color: "#334155",
     margin: "8px 4px 6px",
-    fontWeight: 700,
+    fontWeight: 800,
   },
+
+  // 🔵 ورودی‌ها بزرگ‌تر
   input: {
     width: "100%",
-    height: 44,
+    height: 50,
     borderRadius: 10,
     border: "1px solid #e2e8f0",
-    padding: "0 12px",
+    padding: "0 14px",
     outline: "none",
-    marginBottom: 10,
+    marginBottom: 14,
     fontFamily: fontStack,
+    fontSize: 17,
   },
+
+  // 🔵 دکمه اصلی کمی بزرگ‌تر و خواناتر
   primary: {
     width: "100%",
-    height: 46,
+    height: 52,
     borderRadius: 12,
     border: "none",
     background: "#0ea5e9",
     color: "#fff",
-    fontWeight: 800,
+    fontWeight: 900,
+    fontSize: 18,
     cursor: "pointer",
     marginTop: 6,
     boxShadow: "0 6px 14px rgba(14,165,233,.35)",
   },
+
   backLink: {
     color: "#5b6475",
-    fontSize: 13,
+    fontSize: 16,
     textDecoration: "none",
   },
 };
@@ -91,6 +113,55 @@ const styles: Record<string, React.CSSProperties> = {
 export default function LoginPage() {
   const router = useRouter();
   const [tab, setTab] = useState<"signin" | "signup">("signin");
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+   const handleContinue = async () => {
+    setError(null);
+
+    if (!email || !password) {
+      setError("Please enter email and password.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      if (tab === "signup") {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } else {
+        await signInWithEmailAndPassword(auth, email, password);
+      }
+
+      router.push("/dashboard");
+    } catch (err: any) {
+      console.error(err);
+
+      let msg = "";
+
+      if (err.code === "auth/invalid-email") {
+        msg = "Invalid email address.";
+      } else if (err.code === "auth/email-already-in-use") {
+        msg = "This email is already in use.";
+      } else if (err.code === "auth/weak-password") {
+        msg = "Password must be at least 6 characters.";
+      } else if (err.code === "auth/invalid-credential") {
+        msg = "Email or password is incorrect.";
+      } else {
+        // show the real error code so we know what's going on
+        msg = `Error: ${err.code || err.message || "Unknown error"}`;
+      }
+
+      setError(msg);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main style={styles.page}>
@@ -112,7 +183,10 @@ export default function LoginPage() {
         <div style={styles.tabs}>
           <button
             type="button"
-            onClick={() => setTab("signin")}
+            onClick={() => {
+              setTab("signin");
+              setError(null);
+            }}
             style={{
               ...styles.tabBtn,
               ...(tab === "signin" ? styles.tabBtnActive : {}),
@@ -120,9 +194,13 @@ export default function LoginPage() {
           >
             Sign in
           </button>
+
           <button
             type="button"
-            onClick={() => setTab("signup")}
+            onClick={() => {
+              setTab("signup");
+              setError(null);
+            }}
             style={{
               ...styles.tabBtn,
               ...(tab === "signup" ? styles.tabBtnActive : {}),
@@ -135,24 +213,59 @@ export default function LoginPage() {
         {tab === "signup" && (
           <>
             <label style={styles.label}>Name</label>
-            <input style={styles.input} placeholder="Your name" />
+            <input
+              style={styles.input}
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </>
         )}
 
         <label style={styles.label}>Email</label>
-        <input style={styles.input} placeholder="you@example.com" />
+        <input
+          style={styles.input}
+          placeholder="you@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+        />
 
         <label style={styles.label}>Password</label>
-        <input style={styles.input} placeholder="••••••••" type="password" />
+        <input
+          style={styles.input}
+          placeholder="••••••••"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-        {/* Continue → Dashboard */}
         <button
           type="button"
-          onClick={() => router.push("/dashboard")}
+          onClick={handleContinue}
           style={styles.primary}
+          disabled={loading}
         >
-          Continue
+          {loading
+            ? "Please wait..."
+            : tab === "signin"
+            ? "Sign in"
+            : "Create account"}
         </button>
+
+        {error && (
+          <div
+            style={{
+              color: "#b91c1c",
+              fontSize: 15,
+              marginTop: 10,
+              textAlign: "center",
+              fontWeight: 700,
+            }}
+          >
+            {error}
+          </div>
+        )}
 
         <div style={{ textAlign: "center", marginTop: 12 }}>
           <a href="/" style={styles.backLink}>
