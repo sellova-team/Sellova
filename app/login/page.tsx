@@ -26,7 +26,10 @@ const styles: Record<string, React.CSSProperties> = {
   },
   logoWrap: {
     position: "absolute",
-    top: 36,
+    top: 12,
+    left: "50%",
+    transform: "translateX(-50%)",
+    zIndex: 5,
   },
   card: {
     width: "100%",
@@ -49,7 +52,7 @@ const styles: Record<string, React.CSSProperties> = {
 
   // 🔵 دکمه‌های بزرگ‌تر + فونت 18
   tabBtn: {
-    height: 48,
+    height: 50,
     borderRadius: 10,
     background: "transparent",
     color: "#0b1e3d",
@@ -57,6 +60,8 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 18,
     border: "none",
     cursor: "pointer",
+    padding: "0 6px",
+    touchAction: "manipulation"
   },
 
   tabBtnActive: {
