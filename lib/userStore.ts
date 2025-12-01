@@ -8,8 +8,8 @@ export type UserRecord = {
   email: string;
   passwordHash: string;
   salt: string;
-  securityWordHash: string; // 🔵 هش کلمه امنیتی
-  securityWordSalt: string; // 🔵 نمک کلمه امنیتی
+  securityWordHash: string; // هش کلمه امنیتی
+  securityWordSalt: string; // نمک کلمه امنیتی
   createdAt: string;
 };
 
@@ -30,8 +30,6 @@ export function loadUsers(): UserRecord[] {
   const raw = fs.readFileSync(USERS_FILE, "utf8");
   try {
     const parsed = JSON.parse(raw) as any[];
-
-    // اگر قبلاً فیلدهای جدید نبودن، مقدار پیش‌فرض بده
     return parsed.map((u) => ({
       id: u.id,
       name: u.name ?? "",
@@ -52,21 +50,21 @@ export function saveUsers(users: UserRecord[]) {
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2), "utf8");
 }
 
-export function hashPassword(password: string) {
+export function hashPassword(value: string) {
   const salt = crypto.randomBytes(16).toString("hex");
   const hash = crypto
-    .pbkdf2Sync(password, salt, 10000, 64, "sha512")
+    .pbkdf2Sync(value, salt, 10000, 64, "sha512")
     .toString("hex");
   return { salt, hash };
 }
 
 export function verifyPassword(
-  password: string,
+  value: string,
   salt: string,
   hash: string
 ): boolean {
   const testHash = crypto
-    .pbkdf2Sync(password, salt, 10000, 64, "sha512")
+    .pbkdf2Sync(value, salt, 10000, 64, "sha512")
     .toString("hex");
   return testHash === hash;
 }

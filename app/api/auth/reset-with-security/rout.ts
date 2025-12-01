@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   loadUsers,
   saveUsers,
-  hashPassword,
   verifyPassword,
+  hashPassword,
 } from "../../../../lib/userStore";
 
 export async function POST(req: NextRequest) {
@@ -12,10 +12,7 @@ export async function POST(req: NextRequest) {
 
     if (!email || !securityWord || !newPassword) {
       return NextResponse.json(
-        {
-          ok: false,
-          error: "Email, security word and new password are required.",
-        },
+        { ok: false, error: "All fields are required." },
         { status: 400 }
       );
     }
@@ -34,6 +31,17 @@ export async function POST(req: NextRequest) {
 
     const user = users[idx];
 
+    if (!user.securityWordSalt || !user.securityWordHash) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Security word not set for this account.",
+        },
+        { status: 400 }
+      );
+    }
+
+    // چک کردن صحیح بودن کلمه سکیوریتی (همه‌جا lowercase)
     const ok = verifyPassword(
       String(securityWord).toLowerCase(),
       user.securityWordSalt,
@@ -47,9 +55,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // حالا که کلمه امنیتی درست بود، پسورد جدید رو ست می‌کنیم
+    // وقتی درست بود → پسورد جدید بساز
     const { salt, hash } = hashPassword(String(newPassword));
-
     user.salt = salt;
     user.passwordHash = hash;
 

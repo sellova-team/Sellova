@@ -21,10 +21,10 @@ export async function POST(req: NextRequest) {
     }
 
     const users = loadUsers();
+
     const existing = users.find(
       (u) => u.email.toLowerCase() === String(email).toLowerCase()
     );
-
     if (existing) {
       return NextResponse.json(
         { ok: false, error: "This email is already registered." },
@@ -32,7 +32,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // هش پسورد
     const { salt, hash } = hashPassword(String(password));
+
+    // هش کلمه امنیتی (همیشه lowercase ذخیره می‌کنیم)
     const { salt: secSalt, hash: secHash } = hashPassword(
       String(securityWord).toLowerCase()
     );
@@ -60,4 +63,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-``
