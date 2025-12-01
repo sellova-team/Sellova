@@ -8,6 +8,8 @@ export type UserRecord = {
   email: string;
   passwordHash: string;
   salt: string;
+  securityWordHash: string; // 🔵 هش کلمه امنیتی
+  securityWordSalt: string; // 🔵 نمک کلمه امنیتی
   createdAt: string;
 };
 
@@ -27,7 +29,19 @@ export function loadUsers(): UserRecord[] {
   ensureFile();
   const raw = fs.readFileSync(USERS_FILE, "utf8");
   try {
-    return JSON.parse(raw) as UserRecord[];
+    const parsed = JSON.parse(raw) as any[];
+
+    // اگر قبلاً فیلدهای جدید نبودن، مقدار پیش‌فرض بده
+    return parsed.map((u) => ({
+      id: u.id,
+      name: u.name ?? "",
+      email: u.email,
+      passwordHash: u.passwordHash,
+      salt: u.salt,
+      securityWordHash: u.securityWordHash ?? "",
+      securityWordSalt: u.securityWordSalt ?? "",
+      createdAt: u.createdAt ?? new Date().toISOString(),
+    }));
   } catch {
     return [];
   }

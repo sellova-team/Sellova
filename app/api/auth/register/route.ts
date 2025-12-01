@@ -8,17 +8,19 @@ import {
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, password } = await req.json();
+    const { name, email, password, securityWord } = await req.json();
 
-    if (!email || !password) {
+    if (!email || !password || !securityWord) {
       return NextResponse.json(
-        { ok: false, error: "Email and password are required." },
+        {
+          ok: false,
+          error: "Email, password and security word are required.",
+        },
         { status: 400 }
       );
     }
 
     const users = loadUsers();
-
     const existing = users.find(
       (u) => u.email.toLowerCase() === String(email).toLowerCase()
     );
@@ -31,6 +33,9 @@ export async function POST(req: NextRequest) {
     }
 
     const { salt, hash } = hashPassword(String(password));
+    const { salt: secSalt, hash: secHash } = hashPassword(
+      String(securityWord).toLowerCase()
+    );
 
     const user: UserRecord = {
       id: Date.now().toString(),
@@ -38,6 +43,8 @@ export async function POST(req: NextRequest) {
       email: String(email),
       salt,
       passwordHash: hash,
+      securityWordSalt: secSalt,
+      securityWordHash: secHash,
       createdAt: new Date().toISOString(),
     };
 
@@ -53,3 +60,4 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+``

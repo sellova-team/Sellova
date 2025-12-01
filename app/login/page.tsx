@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 
-// فونت جدید خواناتر و زیباتر
 const fontStack =
   'IRANSans, Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
 
@@ -31,7 +30,7 @@ const styles: Record<string, React.CSSProperties> = {
     background: "#ffffff",
     borderRadius: 16,
     boxShadow: "0 14px 40px rgba(0,0,0,.28)",
-    padding: 24, // کمی بزرگ‌تر
+    padding: 24,
     marginTop: 40,
   },
   tabs: {
@@ -43,8 +42,6 @@ const styles: Record<string, React.CSSProperties> = {
     padding: 6,
     marginBottom: 20,
   },
-
-  // 🔵 دکمه‌های بزرگ‌تر + فونت 18
   tabBtn: {
     height: 50,
     borderRadius: 10,
@@ -55,17 +52,13 @@ const styles: Record<string, React.CSSProperties> = {
     border: "none",
     cursor: "pointer",
     padding: "0 6px",
-    touchAction: "manipulation",
   },
-
   tabBtnActive: {
     background: "#0ea5e9",
     color: "#fff",
     fontSize: 18,
     fontWeight: 900,
   },
-
-  // 🔵 متن لیبل بزرگ‌تر و خواناتر
   label: {
     display: "block",
     fontSize: 18,
@@ -73,8 +66,6 @@ const styles: Record<string, React.CSSProperties> = {
     margin: "8px 4px 6px",
     fontWeight: 800,
   },
-
-  // 🔵 ورودی‌ها بزرگ‌تر
   input: {
     width: "100%",
     height: 50,
@@ -86,8 +77,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily: fontStack,
     fontSize: 17,
   },
-
-  // 🔵 دکمه اصلی کمی بزرگ‌تر و خواناتر
   primary: {
     width: "100%",
     height: 52,
@@ -101,11 +90,18 @@ const styles: Record<string, React.CSSProperties> = {
     marginTop: 6,
     boxShadow: "0 6px 14px rgba(14,165,233,.35)",
   },
-
   backLink: {
     color: "#5b6475",
     fontSize: 16,
     textDecoration: "none",
+  },
+  forgot: {
+    color: "#0ea5e9",
+    fontSize: 15,
+    marginTop: 10,
+    textAlign: "center",
+    cursor: "pointer",
+    fontWeight: 700,
   },
 };
 
@@ -115,54 +111,63 @@ export default function LoginPage() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [securityWord, setSecurityWord] = useState(""); // 🔵 کلمه امنیتی
   const [password, setPassword] = useState("");
+  const [showPass, setShowPass] = useState(false); // 🔵 چشم برای نمایش پسورد
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-const handleContinue = async () => {
-  setError(null);
+  const handleContinue = async () => {
+    setError(null);
 
-  if (!email || !password) {
-    setError("Please enter email and password.");
-    return;
-  }
-
-  try {
-    setLoading(true);
-
-    let endpoint = tab === "signup"
-      ? "/api/auth/register"
-      : "/api/auth/signin";
-
-    const res = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-      }),
-    });
-
-    const data = await res.json();
-    setLoading(false);
-
-    if (!data.ok) {
-      setError(data.error || "Failed to continue.");
+    if (!email || !password) {
+      setError("Please enter email and password.");
       return;
     }
 
-    router.push("/dashboard");
-  } catch (err: any) {
-    console.error(err);
-    setError("Server connection error.");
-  } finally {
-    setLoading(false);
-  }
-};
+    if (tab === "signup" && securityWord.length !== 5) {
+      setError("Security word must be exactly 5 characters.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const endpoint =
+        tab === "signup" ? "/api/auth/register" : "/api/auth/signin";
+
+      const body: any = {
+        email,
+        password,
+      };
+
+      if (tab === "signup") {
+        body.name = name;
+        body.securityWord = securityWord;
+      }
+
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+
+      if (!data.ok) {
+        setError(data.error || "Something went wrong.");
+        return;
+      }
+
+      router.push("/dashboard");
+    } catch (err) {
+      console.error(err);
+      setError("Server error. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main style={styles.page}>
@@ -183,7 +188,6 @@ const handleContinue = async () => {
         {/* Tabs */}
         <div style={styles.tabs}>
           <button
-            type="button"
             onClick={() => {
               setTab("signin");
               setError(null);
@@ -197,7 +201,6 @@ const handleContinue = async () => {
           </button>
 
           <button
-            type="button"
             onClick={() => {
               setTab("signup");
               setError(null);
@@ -211,6 +214,7 @@ const handleContinue = async () => {
           </button>
         </div>
 
+        {/* Signup fields */}
         {tab === "signup" && (
           <>
             <label style={styles.label}>Name</label>
@@ -220,29 +224,61 @@ const handleContinue = async () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+
+            <label style={styles.label}>Security word (5 letters)</label>
+            <input
+              style={styles.input}
+              placeholder="ex: apple"
+              value={securityWord}
+              maxLength={5}
+              onChange={(e) =>
+                setSecurityWord(e.target.value.toLowerCase())
+              }
+            />
+            <div style={{ fontSize: 14, marginBottom: 10, color: "#64748b" }}>
+              این کلمه برای زمانی است که پسورد خود را فراموش می‌کنید.
+            </div>
           </>
         )}
 
+        {/* Email */}
         <label style={styles.label}>Email</label>
         <input
           style={styles.input}
           placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          type="email"
         />
 
+        {/* Password + Eye */}
         <label style={styles.label}>Password</label>
-        <input
-          style={styles.input}
-          placeholder="••••••••"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div style={{ position: "relative" }}>
+          <input
+            style={styles.input}
+            placeholder="••••••••"
+            type={showPass ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
+          {/* چشم */}
+          <span
+            style={{
+              position: "absolute",
+              right: 12,
+              top: 15,
+              cursor: "pointer",
+              color: "#777",
+              fontSize: 18,
+            }}
+            onClick={() => setShowPass(!showPass)}
+          >
+            {showPass ? "👁️" : "👁️‍🗨️"}
+          </span>
+        </div>
+
+        {/* Submit */}
         <button
-          type="button"
           onClick={handleContinue}
           style={styles.primary}
           disabled={loading}
@@ -254,6 +290,7 @@ const handleContinue = async () => {
             : "Create account"}
         </button>
 
+        {/* Errors */}
         {error && (
           <div
             style={{
@@ -268,6 +305,17 @@ const handleContinue = async () => {
           </div>
         )}
 
+        {/* Forgot Password */}
+        {tab === "signin" && (
+          <div
+            style={styles.forgot}
+            onClick={() => router.push("/forgot-password")}
+          >
+            Forgot password?
+          </div>
+        )}
+
+        {/* Back */}
         <div style={{ textAlign: "center", marginTop: 12 }}>
           <a href="/" style={styles.backLink}>
             ← Back to home
