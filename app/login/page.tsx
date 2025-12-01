@@ -120,52 +120,49 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleContinue = async () => {
-    setError(null);
+const handleContinue = async () => {
+  setError(null);
 
-    if (!email || !password) {
-      setError("Please enter email and password.");
+  if (!email || !password) {
+    setError("Please enter email and password.");
+    return;
+  }
+
+  try {
+    setLoading(true);
+
+    let endpoint = tab === "signup"
+      ? "/api/auth/register"
+      : "/api/auth/signin";
+
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    });
+
+    const data = await res.json();
+    setLoading(false);
+
+    if (!data.ok) {
+      setError(data.error || "Failed to continue.");
       return;
     }
 
-    try {
-      setLoading(true);
-
-      // اگر روی تب signup باشیم → ثبت‌نام
-      // اگر روی تب signin باشیم → ورود
-      const endpoint =
-        tab === "signup" ? "/api/auth/register" : "/api/auth/signin";
-
-      const body: any = {
-        email,
-        password,
-      };
-
-      if (tab === "signup") {
-        body.name = name;
-      }
-
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok || !data.ok) {
-        setError(data.error || "Something went wrong.");
-        return;
-      }
-
-      router.push("/dashboard");
-    } catch (err) {
-      console.error(err);
-      setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    router.push("/dashboard");
+  } catch (err: any) {
+    console.error(err);
+    setError("Server connection error.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <main style={styles.page}>
