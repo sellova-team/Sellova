@@ -4,12 +4,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 
-import { auth } from "../../lib/firebase";
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
-
 // فونت جدید خواناتر و زیباتر
 const fontStack =
   'IRANSans, Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
@@ -61,7 +55,7 @@ const styles: Record<string, React.CSSProperties> = {
     border: "none",
     cursor: "pointer",
     padding: "0 6px",
-    touchAction: "manipulation"
+    touchAction: "manipulation",
   },
 
   tabBtnActive: {
@@ -126,7 +120,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-   const handleContinue = async () => {
+  const handleContinue = async () => {
     setError(null);
 
     if (!email || !password) {
@@ -137,32 +131,37 @@ export default function LoginPage() {
     try {
       setLoading(true);
 
+      // اگر روی تب signup باشیم → ثبت‌نام
+      // اگر روی تب signin باشیم → ورود
+      const endpoint =
+        tab === "signup" ? "/api/auth/register" : "/api/auth/signin";
+
+      const body: any = {
+        email,
+        password,
+      };
+
       if (tab === "signup") {
-        await createUserWithEmailAndPassword(auth, email, password);
-      } else {
-        await signInWithEmailAndPassword(auth, email, password);
+        body.name = name;
+      }
+
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.ok) {
+        setError(data.error || "Something went wrong.");
+        return;
       }
 
       router.push("/dashboard");
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-
-      let msg = "";
-
-      if (err.code === "auth/invalid-email") {
-        msg = "Invalid email address.";
-      } else if (err.code === "auth/email-already-in-use") {
-        msg = "This email is already in use.";
-      } else if (err.code === "auth/weak-password") {
-        msg = "Password must be at least 6 characters.";
-      } else if (err.code === "auth/invalid-credential") {
-        msg = "Email or password is incorrect.";
-      } else {
-        // show the real error code so we know what's going on
-        msg = `Error: ${err.code || err.message || "Unknown error"}`;
-      }
-
-      setError(msg);
+      setError("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
