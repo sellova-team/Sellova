@@ -19,7 +19,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   logoWrap: {
     position: "absolute",
-    top: 12,
+    top: 0,
     left: "50%",
     transform: "translateX(-50%)",
     zIndex: 5,
@@ -31,7 +31,7 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: 16,
     boxShadow: "0 14px 40px rgba(0,0,0,.28)",
     padding: 24,
-    marginTop: 40,
+    marginTop: 80,
   },
   tabs: {
     display: "grid",
@@ -236,7 +236,7 @@ export default function LoginPage() {
               }
             />
             <div style={{ fontSize: 14, marginBottom: 10, color: "#64748b" }}>
-              این کلمه برای زمانی است که پسورد خود را فراموش می‌کنید.
+             This word will be used to recover account if you forget your password.
             </div>
           </>
         )}
