@@ -35,13 +35,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Security word not set for this account.",
+          error: "No security word set for this account.",
         },
         { status: 400 }
       );
     }
 
-    // چک کردن صحیح بودن کلمه سکیوریتی (همه‌جا lowercase)
+    // 👇 چاپ برای دیباگ
+    console.log("CHECKING WORD:", securityWord.toLowerCase());
+    console.log("STORED HASH:", user.securityWordHash);
+
     const ok = verifyPassword(
       String(securityWord).toLowerCase(),
       user.securityWordSalt,
@@ -55,7 +58,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // وقتی درست بود → پسورد جدید بساز
+    // پسورد جدید
     const { salt, hash } = hashPassword(String(newPassword));
     user.salt = salt;
     user.passwordHash = hash;
@@ -65,7 +68,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error(err);
+    console.error("RESET ERROR:", err);
     return NextResponse.json(
       { ok: false, error: "Server error while resetting password." },
       { status: 500 }
