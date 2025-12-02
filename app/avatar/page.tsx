@@ -185,6 +185,40 @@ export default function AvatarPage() {
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
+  async function generateAvatarFromEngine() {
+  try {
+    setGenerating(true);
+    setOutputs([]);
+
+    const form = new FormData();
+
+    if (ownAvatarFile) form.append("avatar", ownAvatarFile);
+    if (productFile) form.append("product", productFile);
+
+    form.append("category", selectedCategory);
+    form.append("prompt", prompt);
+
+    const res = await fetch("/api/avatar-engine/generate", {
+      method: "POST",
+      body: form,
+    });
+
+    if (!res.ok) {
+      alert("خطا در ساخت آواتار");
+      return;
+    }
+
+    const data = await res.json();
+    setOutputs(data.outputs || []);
+    setCredits((c) => c - requiredCredits);
+  } catch (err) {
+    console.error(err);
+    alert("خطا در ارتباط با موتور آواتار");
+  } finally {
+    setGenerating(false);
+  }
+}
+
   // === ADDED: download current preview (canvas) ===
   const downloadPreview = () => {
     const c = canvasRef.current;
@@ -527,7 +561,7 @@ export default function AvatarPage() {
         .page-root { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; max-width: 1180px; margin: 28px auto; padding: 20px; color: var(--text); }
         .header { display:flex; align-items:center; gap:16px; margin-bottom: 16px; }
         .logo { height: 200px; width: auto; object-fit:contain; display:block; }
-        h1.title { font-size:20px; margin:0; font-weight:800; letter-spacing: -0.2px; }
+        h1.title { font-size:20px; margin:0; font-weight:800; letter-spacing: -0.2px; color: #ffffff !important; }
         .layout { display:grid; grid-template-columns: 1fr 380px; gap:20px; align-items:start; }
         .panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding:14px; box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04); }
         .label { display:block; font-weight:700; margin-bottom:8px; }
@@ -783,4 +817,5 @@ export default function AvatarPage() {
       </div>
     </div>
   );
+  // ======== NEW: Backend avatar-engine integration ========
 }
