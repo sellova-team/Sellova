@@ -10,15 +10,17 @@ export async function POST(req: NextRequest) {
   try {
     const form = await req.formData();
 
-    const faceId = form.get("faceId") as string | null;
+    // اینجا دیگر faceId نمی‌گیریم — چون page.tsx مقدار را با کلید face می‌فرستد
+    const faceUrl = form.get("face") as string | null;
+
     const prompt = form.get("prompt") as string | null;
     const category = form.get("category") as string | null;
 
     const avatarFile = form.get("avatar") as File | null;
     const productFile = form.get("product") as File | null;
 
-    // اگر نه صورت انتخاب شده و نه آپلود شده
-    if (!avatarFile && !faceId) {
+    // اگر هیچ صورت یا آواتار آپلود نشده بود → خطا
+    if (!avatarFile && !faceUrl) {
       return NextResponse.json(
         { ok: false, error: "Please upload avatar or select a face." },
         { status: 400 }
@@ -28,25 +30,23 @@ export async function POST(req: NextRequest) {
     // لود بانک
     const bank = loadAvatarBank();
 
-    // پیدا کردن چهره انتخابی
+    // اگر صورت انتخاب شده باشد
     let face: AvatarItem | null = null;
-    if (faceId) {
-      face = bank.find(i => i.id === faceId && i.type === "face") || null;
+    if (faceUrl) {
+      face = {
+        id: "custom-face",
+        src: faceUrl,
+        type: "face",
+        gender: category === "men" ? "men" : category === "kids" ? "kids" : "women",
+        label: "custom",
+      };
     }
 
-    if (!face && !avatarFile) {
-      return NextResponse.json(
-        { ok: false, error: "Face not found." },
-        { status: 400 }
-      );
-    }
-
-    // تعیین جنسیت
     const gender = face ? face.gender : (category || "women");
 
-    const poses = bank.filter(i => i.type === "pose" && i.gender === gender);
-    const dresses = bank.filter(i => i.type === "dress" && i.gender === gender);
-    const backgrounds = bank.filter(i => i.type === "background");
+    const poses = bank.filter((i) => i.type === "pose" && i.gender === gender);
+    const dresses = bank.filter((i) => i.type === "dress" && i.gender === gender);
+    const backgrounds = bank.filter((i) => i.type === "background");
 
     const pose = pickOne(poses);
     const dress = pickOne(dresses);
