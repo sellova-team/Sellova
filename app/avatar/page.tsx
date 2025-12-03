@@ -592,21 +592,25 @@ export default function AvatarPage() {
             <span className="small-muted">{t.faceUploadHelp}</span>
           </div>
 
-          {!useOwnAvatar && (
-            <div className="faces-grid" style={{marginTop:10}}>
-              {faces.map((f) => (
-                <div
-                  key={f}
-                  onClick={() => setSelectedFace(f)}
-                  className={`face-box ${selectedFace===f ? "selected": ""}`}
-                  role="button"
-                  tabIndex={0}
-                >
-                  <img className="face-img" src={f} alt="face" />
-                </div>
-              ))}
-            </div>
-          )}
+         {faces.map((f) => {
+  const parts = f.split("/");
+  const folder = parts[parts.length - 2]; // women/men/kids
+  const filename = parts[parts.length - 1].replace(".png", "");
+
+  const id = `face-${folder}-${filename}`;
+
+  return (
+    <div
+      key={id}
+      onClick={() => setSelectedFace(id)}
+      className={`face-box ${selectedFace === id ? "selected" : ""}`}
+      role="button"
+      tabIndex={0}
+    >
+      <img className="face-img" src={f} alt="face" />
+    </div>
+  );
+})}
 
           <div className="controls-row" style={{marginTop:14, rowGap:10}}>
             <div>

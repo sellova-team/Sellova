@@ -2,14 +2,14 @@ import fs from "fs";
 import path from "path";
 
 export type AvatarItem = {
-  id: string; // مثلاً face-women-face1
+  id: string;
   label: string;
-  src: string; // آدرس عکس در public
+  src: string;
   gender: "men" | "women" | "kids" | "none";
   type: "face" | "dress" | "pose" | "background";
 };
 
-// فولدرهایی مثل face / dress / pose که زیرش men / women / kids دارن
+// اسکن فولدرهایی که زیرشاخه جنسیت دارند
 function scanSubFolders(baseFolder: string, type: AvatarItem["type"]) {
   const results: AvatarItem[] = [];
   const basePath = path.join(process.cwd(), "public/assets/avatar", baseFolder);
@@ -18,21 +18,21 @@ function scanSubFolders(baseFolder: string, type: AvatarItem["type"]) {
 
   const genders = fs
     .readdirSync(basePath)
-    .filter((f) => fs.statSync(path.join(basePath, f)).isDirectory());
+    .filter(f => fs.statSync(path.join(basePath, f)).isDirectory());
 
   for (const g of genders) {
     const genderPath = path.join(basePath, g);
     const files = fs
       .readdirSync(genderPath)
-      .filter((file) => file.match(/\.(png|jpg|jpeg|webp)$/i));
+      .filter(file => file.match(/\.(png|jpg|jpeg|webp)$/i));
 
     for (const file of files) {
-      const cleanName = file.replace(/\..+$/, "");
+      const clean = file.replace(/\..+$/, "");
       results.push({
-        id: `${type}-${g}-${cleanName}`,
-        label: cleanName,
+        id: `${type}-${g}-${clean}`, // مثال: face-women-face1
+        label: clean,
         src: `/assets/avatar/${baseFolder}/${g}/${file}`,
-        gender: g as "men" | "women" | "kids",
+        gender: g as any,
         type,
       });
     }
@@ -41,7 +41,7 @@ function scanSubFolders(baseFolder: string, type: AvatarItem["type"]) {
   return results;
 }
 
-// بکگراند که زیرشاخه جنسیت نداره
+// اسکن فولدرهای بدون جنسیت مثل background
 function scanSimpleFolder(baseFolder: string, type: AvatarItem["type"]) {
   const results: AvatarItem[] = [];
   const basePath = path.join(process.cwd(), "public/assets/avatar", baseFolder);
@@ -50,13 +50,13 @@ function scanSimpleFolder(baseFolder: string, type: AvatarItem["type"]) {
 
   const files = fs
     .readdirSync(basePath)
-    .filter((file) => file.match(/\.(png|jpg|jpeg|webp)$/i));
+    .filter(file => file.match(/\.(png|jpg|jpeg|webp)$/i));
 
   for (const file of files) {
-    const cleanName = file.replace(/\..+$/, "");
+    const clean = file.replace(/\..+$/, "");
     results.push({
-      id: `${type}-none-${cleanName}`,
-      label: cleanName,
+      id: `${type}-none-${clean}`,
+      label: clean,
       src: `/assets/avatar/${baseFolder}/${file}`,
       gender: "none",
       type,
