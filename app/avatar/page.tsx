@@ -191,10 +191,11 @@ export default function AvatarPage() {
     setOutputs([]);
 
     const form = new FormData();
-
+  
     if (ownAvatarFile) form.append("avatar", ownAvatarFile);
     if (productFile) form.append("product", productFile);
-
+    if (selectedFace) form.append("faceId", selectedFace);
+    
     form.append("category", selectedCategory);
     form.append("prompt", prompt);
 
