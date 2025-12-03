@@ -318,223 +318,122 @@ export default function AvatarPage() {
 
   // ---------- GENERATE ----------
   const generateOutputs = async () => {
-    // Determine mode based on platform selection
-    const isAmazonVideo5 = platform === "amazon-video-5";
-    const isAmazonVideo10 = platform === "amazon-video-10";
-    const isAmazonLifestyle = platform === "amazon-lifestyle";
-    const forceVideo = isAmazonVideo5 || isAmazonVideo10;
-    const localOutputType: OutputType = forceVideo ? "video" : "photo";
-    const localVideoLen: VideoLen = isAmazonVideo10 ? 10 : 5;
+  if (!productFile) {
+    alert("لطفاً عکس محصول را آپلود کنید");
+    return;
+  }
 
-    if (!productFile) {
-      alert(t.alertNoProduct || "Please upload a product image.");
-      return;
-    }
-    if (!useOwnAvatar && !selectedFace) {
-      alert(t.alertNoFace || "Please select a face or upload your own avatar.");
-      return;
-    }
-    if (credits < requiredCredits) {
-      alert(
-        (t.alertNoCreditsPrefix || "Insufficient credits. Required:") +
-          ` ${requiredCredits}, ` +
-          (t.alertNoCreditsSuffix || "Available: ") +
-          credits
-      );
-      return;
+  if (!useOwnAvatar && !selectedFace) {
+    alert("لطفاً چهره را انتخاب کنید یا عکس خود را آپلود کنید");
+    return;
+  }
+
+  setGenerating(true);
+  setOutputs([]);
+
+  try {
+    // ---- ارسال به API ----
+    const form = new FormData();
+
+    if (useOwnAvatar && ownAvatarFile) {
+      form.append("avatar", ownAvatarFile);
+    } else if (selectedFace) {
+      form.append("faceId", selectedFace);
     }
 
-    setGenerating(true);
-    setOutputs([]);
+    form.append("category", selectedCategory);
+    form.append("prompt", prompt);
+    form.append("product", productFile);
 
+    const res = await fetch("/api/avatar-engine/generate", {
+      method: "POST",
+      body: form,
+    });
+
+    const data = await res.json();
+
+    if (!data.ok) {
+      alert("خطا: " + data.error);
+      return;
+    }
+
+    const { layers } = data;
+
+    // ---- حالا ۳ عکس (فرهنگ عربی، ترک، اروپایی) بسازیم ----
     const canvasSize = SIZE_MAP[platform];
-    if (!canvasRef.current) canvasRef.current = document.createElement("canvas");
     const canvas = canvasRef.current!;
     canvas.width = canvasSize.w;
     canvas.height = canvasSize.h;
     const ctx = canvas.getContext("2d")!;
-    const outArr: OutputItem[] = [];
-
-    const { existingPoses, existingDresses, existingBackgrounds } = await discoverAssets(
-      selectedCategory
-    );
 
     const productImg = await loadImage(productFile);
 
-    try {
-      if (localOutputType === "photo") {
-        // 3 photos bundle
-        const cultures = CULTURE_LIST;
-        for (const cul of cultures) {
-          const poseIdx = existingPoses[Math.floor(Math.random() * existingPoses.length)];
-          const dressIdx = existingDresses[Math.floor(Math.random() * existingDresses.length)];
-          const bgIdx = existingBackgrounds[Math.floor(Math.random() * existingBackgrounds.length)];
-          const faceSrc = useOwnAvatar && ownAvatarFile ? ownAvatarFile : (selectedFace as string);
+    const generatedArray = [];
 
-          const [bgImg, poseImg, dressImg, faceImg] = await Promise.all([
-            loadImage(assetPath("background", undefined, bgIdx)),
-            loadImage(assetPath("pose", selectedCategory, poseIdx)),
-            loadImage(assetPath("dress", selectedCategory, dressIdx)),
-            loadImage(faceSrc),
-          ]);
+    for (const cul of CULTURE_LIST) {
+      const bgImg = await loadImage(layers.background);
+      const poseImg = layers.pose ? await loadImage(layers.pose) : null;
+      const dressImg = layers.dress ? await loadImage(layers.dress) : null;
 
-          // Background + global lighting
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
-          applyGlobalLighting(ctx, canvas.width, canvas.height);
+      const faceImg = useOwnAvatar
+        ? await loadImage(ownAvatarFile!)
+        : await loadImage(layers.face);
 
-          // Body & dress
-          ctx.drawImage(poseImg, 0, 0, canvas.width, canvas.height);
-          ctx.drawImage(dressImg, 0, 0, canvas.width, canvas.height);
-          tintDressSoft(ctx, canvas.width, canvas.height, dressIdx + bgIdx * 7);
+      // ----- رسم -----
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-          // Face (slight rotation)
-          const faceW = Math.floor(canvas.width * 0.3);
-          const faceH = Math.floor((faceImg.height / faceImg.width) * faceW);
-          const faceX = Math.floor((canvas.width - faceW) / 2);
-          const faceY = Math.floor(canvas.height * 0.18);
-          const angle = ((poseIdx % 5) - 2) * (Math.PI / 180) * 1.6;
-          ctx.save();
-          ctx.translate(faceX + faceW / 2, faceY + faceH / 2);
-          ctx.rotate(angle);
-          ctx.drawImage(faceImg, -faceW / 2, -faceH / 2, faceW, faceH);
-          ctx.restore();
+      // Background
+      ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+      applyGlobalLighting(ctx, canvas.width, canvas.height);
 
-          // Chin shadow
-          drawChinShadow(ctx, faceX, faceY, faceW, faceH);
+      // Pose
+      poseImg && ctx.drawImage(poseImg, 0, 0, canvas.width, canvas.height);
 
-          // Product with soft shadow
-          const prodMaxW = Math.floor(canvas.width * 0.35);
-          const prodScaledH = Math.floor((productImg.height / productImg.width) * prodMaxW);
-          const prodX = canvas.width - prodMaxW - 40;
-          const prodY = canvas.height - prodScaledH - 40;
-          ctx.save();
-          ctx.shadowColor = "rgba(0,0,0,0.35)";
-          ctx.shadowBlur = 18;
-          ctx.shadowOffsetX = 6;
-          ctx.shadowOffsetY = 8;
-          ctx.drawImage(productImg, prodX, prodY, prodMaxW, prodScaledH);
-          ctx.restore();
+      // Dress
+      dressImg && ctx.drawImage(dressImg, 0, 0, canvas.width, canvas.height);
 
-          // Culture grading
-          applyCultureGrading(ctx, canvas.width, canvas.height, cul);
+      // Face
+      const faceW = Math.floor(canvas.width * 0.3);
+      const faceH = Math.floor((faceImg.height / faceImg.width) * faceW);
+      const faceX = Math.floor((canvas.width - faceW) / 2);
+      const faceY = Math.floor(canvas.height * 0.18);
 
-          // Optional prompt bar (short)
-          if (prompt) {
-            ctx.fillStyle = "rgba(0,0,0,0.5)";
-            const barW = Math.min(900, canvas.width - 28);
-            ctx.fillRect(14, 14, barW, 52);
-            ctx.fillStyle = "#fff";
-            ctx.font = "16px sans-serif";
-            const short = prompt.length > 150 ? `${prompt.slice(0, 147)}...` : prompt;
-            ctx.fillText(short, 22, 46);
-          }
+      ctx.drawImage(faceImg, faceX, faceY, faceW, faceH);
+      drawChinShadow(ctx, faceX, faceY, faceW, faceH);
 
-          // Footer meta
-          const isAmazon = isAmazonLifestyle;
-          const footerText = isAmazon
-            ? (t.footerAmazon || `${plan} • ${credits} credits • Amazon Lifestyle • 3 photos = 30 credits`)
-            : (t.footerStandard || `${plan} • ${credits} credits • 3 photos = 18 credits`);
+      // Product
+      const prodW = Math.floor(canvas.width * 0.35);
+      const prodH = Math.floor((productImg.height / productImg.width) * prodW);
+      const prodX = canvas.width - prodW - 40;
+      const prodY = canvas.height - prodH - 40;
 
-          ctx.fillStyle = "rgba(0,0,0,0.6)";
-          ctx.fillRect(10, canvas.height - 56, Math.min(820, canvas.width - 20), 40);
-          ctx.fillStyle = "#fff";
-          ctx.font = "15px sans-serif";
-          ctx.fillText(footerText, 18, canvas.height - 30);
+      ctx.drawImage(productImg, prodX, prodY, prodW, prodH);
 
-          // Export
-          // eslint-disable-next-line no-await-in-loop
-          const blob = await new Promise<Blob | null>((res) => canvas.toBlob((b) => res(b), "image/png"));
-          if (blob) {
-            const url = URL.createObjectURL(blob);
-            const name = isAmazon
-              ? `sellova_amazon_lifestyle_${selectedCategory}_${cul}.png`
-              : `sellova_photo_${selectedCategory}_${cul}.png`;
-            outArr.push({ url, name });
-          }
-        }
-      } else {
-        // Amazon promo video preview frame (single image)
-        const poseIdx = existingPoses[Math.floor(Math.random() * existingPoses.length)];
-        const dressIdx = existingDresses[Math.floor(Math.random() * existingDresses.length)];
-        const bgIdx = existingBackgrounds[Math.floor(Math.random() * existingBackgrounds.length)];
-        const faceSrc = useOwnAvatar && ownAvatarFile ? ownAvatarFile : (selectedFace as string);
+      // Culture filter
+      applyCultureGrading(ctx, canvas.width, canvas.height, cul);
 
-        const [bgImg, poseImg, dressImg, faceImg] = await Promise.all([
-          loadImage(assetPath("background", undefined, bgIdx)),
-          loadImage(assetPath("pose", selectedCategory, poseIdx)),
-          loadImage(assetPath("dress", selectedCategory, dressIdx)),
-          loadImage(faceSrc),
-        ]);
+      // ---- خروجی ----
+      const blob = await new Promise<Blob | null>((resolve) =>
+        canvas.toBlob((b) => resolve(b), "image/png")
+      );
 
-        const canvas = canvasRef.current!;
-        const ctx = canvas.getContext("2d")!;
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
-        applyGlobalLighting(ctx, canvas.width, canvas.height);
-
-        ctx.drawImage(poseImg, 0, 0, canvas.width, canvas.height);
-        ctx.drawImage(dressImg, 0, 0, canvas.width, canvas.height);
-        tintDressSoft(ctx, canvas.width, canvas.height, dressIdx + bgIdx * 7);
-
-        const faceW = Math.floor(canvas.width * 0.28);
-        const faceH = Math.floor((faceImg.height / faceImg.width) * faceW);
-        const faceX = Math.floor(canvas.width * 0.15);
-        const faceY = Math.floor(canvas.height * 0.18);
-        const angle = ((poseIdx % 5) - 2) * (Math.PI / 180) * 1.6;
-
-        ctx.save();
-        ctx.translate(faceX + faceW / 2, faceY + faceH / 2);
-        ctx.rotate(angle);
-        ctx.drawImage(faceImg, -faceW / 2, -faceH / 2, faceW, faceH);
-        ctx.restore();
-
-        drawChinShadow(ctx, faceX, faceY, faceW, faceH);
-
-        // Product larger prominence for video
-        const prodMaxW = Math.floor(canvas.width * 0.38);
-        const prodScaledH = Math.floor((productImg.height / productImg.width) * prodMaxW);
-        const prodX = canvas.width - prodMaxW - 56;
-        const prodY = canvas.height - prodScaledH - 60;
-
-        ctx.save();
-        ctx.shadowColor = "rgba(0,0,0,0.35)";
-        ctx.shadowBlur = 18;
-        ctx.shadowOffsetX = 6;
-        ctx.shadowOffsetY = 8;
-        ctx.drawImage(productImg, prodX, prodY, prodMaxW, prodScaledH);
-        ctx.restore();
-
-        // Promo bar
-        ctx.fillStyle = "rgba(0,0,0,0.62)";
-        ctx.fillRect(0, canvas.height - 92, canvas.width, 92);
-        ctx.fillStyle = "#fff";
-        ctx.font = "22px sans-serif";
-        ctx.fillText(
-          t.amazonVideoBanner ||
-            `Amazon Promo Video Preview • ${localVideoLen}s • Conversion Optimized`,
-          18,
-          canvas.height - 44
-        );
-
-        // Export (single frame preview)
-        const blob = await new Promise<Blob | null>((res) => canvas.toBlob((b) => res(b), "image/png"));
-        if (blob) {
-          const url = URL.createObjectURL(blob);
-          const name = `sellova_amazon_video_preview_${selectedCategory}_${localVideoLen}s.png`;
-          outArr.push({ url, name });
-        }
+      if (blob) {
+        const url = URL.createObjectURL(blob);
+        generatedArray.push({
+          url,
+          name: `sellova_${selectedCategory}_${cul}.png`,
+        });
       }
-    } catch (e) {
-      console.error(e);
-      alert(t.alertGenericError || "Generation error. Please try again.");
     }
 
-    setCredits((prev) => Math.max(0, prev - requiredCredits));
-    setOutputs(outArr);
-    setGenerating(false);
-  };
+    setOutputs(generatedArray);
+  } catch (err) {
+    console.error(err);
+    alert("خطا هنگام ساخت آواتار");
+  }
+
+  setGenerating(false);
+};
 
   // ---------- Helpers ----------
   const handleDownload = (u: string, name: string) => {
