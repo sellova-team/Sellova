@@ -1,24 +1,21 @@
+// lib/email.ts
 import nodemailer from "nodemailer";
 
-export const mailer = nodemailer.createTransport({
-  service: "gmail", // یا هر سرویس دیگری
-  auth: {
-    user: process.env.ALERT_EMAIL,
-    pass: process.env.ALERT_EMAIL_PASS,
-  },
-});
+export async function sendAlertEmail(subject: string, message: string) {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.ALERT_EMAIL,
+      pass: process.env.ALERT_EMAIL_PASS,
+    },
+  });
 
-export async function sendEmail(to: string, subject: string, html: string) {
-  try {
-    await mailer.sendMail({
-      from: `"Sellova AI Manager" <${process.env.ALERT_EMAIL}>`,
-      to,
-      subject,
-      html,
-    });
+  await transporter.sendMail({
+    from: `"Sellova AI Alert" <${process.env.ALERT_EMAIL}>`,
+    to: process.env.ADMIN_TARGET_EMAIL,
+    subject,
+    text: message,
+  });
 
-    console.log("Email sent:", subject);
-  } catch (err) {
-    console.error("Email error:", err);
-  }
+  console.log("📧 هشدار ایمیلی ارسال شد:", subject);
 }
