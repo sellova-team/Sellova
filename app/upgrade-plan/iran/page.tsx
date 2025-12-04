@@ -44,7 +44,7 @@ export default function IranPlansPage() {
   const freeCreditPlan = {
     title: 'کردیت آزاد',
     credits: '۳۵ کردیت',
-    price: '۱۶۵س٬۰۰۰ تومان',
+    price: '۱۶۵٬۰۰۰ تومان',
     route: '/payment/flexible',
     color: '#f39c12',
   };
