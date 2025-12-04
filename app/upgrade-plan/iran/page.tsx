@@ -18,23 +18,23 @@ export default function IranPlansPage() {
     {
       title: 'پلن ماهانه',
       credits: '۴۰۰ کردیت',
-      price: '۸۹۰٬۰۰۰ تومان',
+      price: '۹۳۰٬۰۰۰ تومان',
       description: '',
       route: '/payment/monthly',
       color: '#4a90e2',
     },
     {
       title: 'VIP ماهانه',
-      credits: '۶۰۰ کردیت', // ✅ از ۵۰۰ به ۶۰۰
-      price: '۱٬۲۸۰٬۰۰۰ تومان',
+      credits: '۵۵۰ کردیت', // ✅ از ۵۰۰ به ۶۰۰
+      price: '۱٬۲۳۰٬۰۰۰ تومان',
       description: '',
       route: '/payment/vip-monthly',
       color: '#e74c3c',
     },
     {
       title: 'پلن سالانه',
-      credits: '۳٬۳۰۰ کردیت',
-      price: '۵٬۸۰۰٬۰۰۰ تومان',
+      credits: '۵٬۰۰۰ کردیت',
+      price: '۶٬۵۰۰٬۰۰۰ تومان',
       description: 'تخفیف ۴۰٪ به مدت محدود',
       route: '/payment/yearly',
       color: '#27ae60',
@@ -43,8 +43,8 @@ export default function IranPlansPage() {
 
   const freeCreditPlan = {
     title: 'کردیت آزاد',
-    credits: '۲۰ کردیت',
-    price: '۱۵۰٬۰۰۰ تومان',
+    credits: '۳۵ کردیت',
+    price: '۱۶۵س٬۰۰۰ تومان',
     route: '/payment/flexible',
     color: '#f39c12',
   };
