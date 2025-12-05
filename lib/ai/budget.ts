@@ -1,34 +1,36 @@
 // lib/ai/budget.ts
 
-import { sendAlertEmail } from "../email";
+export type ModelBudget = {
+  name: string;
+  remaining: number;
+  thresholdWarning: number;
+  thresholdCritical: number;
+};
 
-class BudgetEngine {
-  private modelBudget: Record<string, number> = {
-    "openai-text": 20,
-    "openai-image": 25,
-    "gemini-text": 999,
-    "gemini-image": 999,
-    "kaling": 15,
-    "pika": 20,
-    "luma": 30,
-    "runway": 25,
-  };
+export class BudgetEngine {
+  constructor() {}
 
-  use(model: string, cost: number) {
-    if (!this.modelBudget[model]) return;
-
-    this.modelBudget[model] -= cost;
-
-    if (this.modelBudget[model] < 3) {
-      sendAlertEmail(
-        `⚠️ هشدار: شارژ مدل ${model} رو به اتمام است!`,
-        `تنها ${this.modelBudget[model]} دلار باقی مانده است.`
-      );
-    }
-  }
-
-  getBudgetReport() {
-    return this.modelBudget;
+  getBudgetReport(): ModelBudget[] {
+    return [
+      {
+        name: "openai-image",
+        remaining: 85,
+        thresholdWarning: 40,
+        thresholdCritical: 15,
+      },
+      {
+        name: "gemini-video",
+        remaining: 22,
+        thresholdWarning: 30,
+        thresholdCritical: 10,
+      },
+      {
+        name: "stability-image",
+        remaining: 12,
+        thresholdWarning: 25,
+        thresholdCritical: 10,
+      },
+    ];
   }
 }
 

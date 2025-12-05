@@ -1,66 +1,85 @@
 // lib/ai/aiManager.ts
-type AIType = "text" | "image" | "video" | "remove_bg";
+import { AI_MODELS, AIModelConfig } from "./aiConfig";
 
-// قیمت تقریبی هر مدل (میتونی بعداً دقیقش کنی)
-const MODEL_COST = {
-  "openai-text": 0.002,
-  "openai-image": 0.02,
-  "gemini-text": 0.0,
-  "gemini-image": 0.0,
-  "kaling": 0.015,
-  "pika": 0.02,
-  "luma": 0.05,
-  "runway": 0.03,
-};
+export type AIType = "text" | "image" | "video" | "remove_bg";
 
 class AIManager {
-  private usageCount: Record<string, number> = {};
-  private dollarUsed: number = 0;
+  private usage: Record<string, number> = {};
+  private dollarUsed = 0;
 
   constructor() {}
 
-  private pick(list: string[]): string {
-    const selected = list[Math.floor(Math.random() * list.length)];
+  // ------------------------------
+  // پیدا کردن مدل‌های فعال بر اساس نوع
+  // ------------------------------
+
+  private getEnabledModels(type: AIType): AIModelConfig[] {
+    return AI_MODELS.filter(
+      (m) => m.enabled === true && m.type === type && m.remainingCredits > 0
+    ).sort((a, b) => a.priority - b.priority);
+  }
+
+  // ------------------------------
+  // انتخاب بهترین مدل
+  // (طبق اولویت + مصرف + وضعیت شارژ)
+  // ------------------------------
+
+  private pickModel(type: AIType): AIModelConfig {
+    const list = this.getEnabledModels(type);
+
+    if (list.length === 0) {
+      throw new Error(`❌ هیچ مدل فعالی برای نوع "${type}" یافت نشد.`);
+    }
+
+    const chosen = list[0]; // بهترین گزینه طبق priority
 
     // ثبت مصرف
-    this.usageCount[selected] = (this.usageCount[selected] || 0) + 1;
+    this.usage[chosen.name] = (this.usage[chosen.name] || 0) + 1;
 
-    // افزایش مصرف دلار
-    this.dollarUsed += MODEL_COST[selected] || 0;
+    // کاهش کرِدیت Fake
+    chosen.remainingCredits -= 1;
 
-    return selected;
+    // ثبت هزینه‌ دلاری (فعلاً فیک)
+    this.dollarUsed += 0.02;
+
+    return chosen;
   }
 
-  getModel(type: AIType): string {
-    switch (type) {
-      case "text":
-        return this.pick(["openai-text", "gemini-text"]);
+  // ------------------------------
+  // خروجی برای سرویس‌های مختلف
+  // ------------------------------
 
-      case "image":
-        return this.pick(["openai-image", "gemini-image"]);
-
-      case "video":
-        return this.pick(["kaling", "pika", "luma", "runway"]);
-
-      case "remove_bg":
-        return this.pick(["kaling", "openai-image"]);
-    }
+  getModelName(type: AIType): string {
+    return this.pickModel(type).name;
   }
 
+  // ------------------------------
   // گزارش مصرف مدل‌ها
+  // ------------------------------
+
   getUsageReport() {
     return {
-      usage: this.usageCount,
-      dollar_used: this.dollarUsed.toFixed(2)
+      usage: this.usage,
+      dollar_used: this.dollarUsed.toFixed(2),
+      models: AI_MODELS.map((m) => ({
+        name: m.name,
+        credits: m.remainingCredits,
+        priority: m.priority,
+      }))
     };
   }
 
-  // بررسی دلار
-  checkBudget(limit: number) {
+  // ------------------------------
+  // چک کردن بودجه
+  // ------------------------------
+
+  checkBudget(limit: number): string {
     if (this.dollarUsed >= limit) {
-      return `⚠️ هشدار: بودجه شما رو به اتمام است! (مصرف: $${this.dollarUsed.toFixed(2)})`;
+      return `⚠️ هشدار: بودجه در خطر تمام شدن است (مصرف: $${this.dollarUsed.toFixed(
+        2
+      )})`;
     }
-    return "همه چیز اوکی است.";
+    return "✔ بودجه در وضعیت امن است.";
   }
 }
 

@@ -17,17 +17,30 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    // ✅ مهم‌ترین دو خط برای رفع ارورهای مسیر
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
     "plugins": [
       {
         "name": "next"
       }
     ]
   },
+  // ✅ فقط مسیرهای درست پروژه
   "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "app",
+    "components",
+    "lib",
+    "next-env.d.ts",
+    "pages",
+    "utils",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
