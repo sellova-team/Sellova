@@ -1,30 +1,39 @@
 import { NextRequest, NextResponse } from "next/server";
-import { avatarOrchestrator } from "@/lib/avatar/orchestrator";
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const form = await req.formData();
 
-    const { userId, faceImageUrl, pose, scene, productImageUrl } = body;
+    const avatar = form.get("avatar") as File | null;
+    const product = form.get("product") as File | null;
+    const faceId = form.get("faceId") as string | null;
+    const category = form.get("category") as string | null;
+    const prompt = form.get("prompt") as string | null;
 
-    if (!userId || !faceImageUrl || !pose || !scene) {
+    if (!product) {
       return NextResponse.json(
-        { ok: false, error: "Missing required fields." },
+        { ok: false, error: "Missing product image" },
         { status: 400 }
       );
     }
 
-    const result = await avatarOrchestrator.generateAvatar({
-      userId,
-      faceImageUrl,
-      pose,
-      scene,
-      productImageUrl: productImageUrl || null,
-    });
+    if (!avatar && !faceId) {
+      return NextResponse.json(
+        { ok: false, error: "Missing avatar or faceId" },
+        { status: 400 }
+      );
+    }
 
+    // اینجا فعلاً خروجی ساختگی می‌دهیم
+    // بعداً توی اورکستریتور واقعی وصلش می‌کنیم
     return NextResponse.json({
       ok: true,
-      ...result,
+      layers: {
+        background: "/assets/avatar/background/Background1.png",
+        pose: "/assets/avatar/pose/women/pose1.png",
+        dress: "/assets/avatar/dress/women/dress1.png",
+        face: avatar ? URL.createObjectURL(avatar) : faceId,
+      },
     });
   } catch (err) {
     console.error("Avatar AI API Error:", err);
