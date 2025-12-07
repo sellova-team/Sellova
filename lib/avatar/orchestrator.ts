@@ -2,7 +2,7 @@
 
 import { identityEngine } from "./identityEngine";
 import { sceneEngine, PoseType, SceneType } from "./sceneEngine";
-import { loadBalancer } from "../../ai/LoadBalancer";   // ← مسیر صحیح
+import { loadBalancer } from "../ai/loadBalancer";
 
 export type AvatarRequest = {
   userId: string;
@@ -15,7 +15,7 @@ export type AvatarRequest = {
 export type AvatarResult = {
   modelUsed: string;
   finalPrompt: string;
-  imageUrl: string; // output from AI call
+  imageBase64: string; // output from AI model
 };
 
 class AvatarOrchestrator {
@@ -55,14 +55,14 @@ class AvatarOrchestrator {
     `;
 
     // --- مرحله ۵: تماس فیک با مدل
-    const fakeOutput = {
-      imageUrl: "https://placehold.co/800x800?text=Avatar+Preview",
-    };
+  const fakePngBase64 =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."; // نمونه کوتاه‌شده
+
 
     return {
       modelUsed: model,
       finalPrompt: prompt,
-      imageUrl: fakeOutput.imageUrl,
+      imageBase64: fakePngBase64,
     };
   }
 }

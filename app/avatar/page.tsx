@@ -199,7 +199,7 @@ export default function AvatarPage() {
     form.append("category", selectedCategory);
     form.append("prompt", prompt);
 
-    const res = await fetch("/api/avatar-engine/generate", {
+    const res = await fetch("/api/avatar-ai/generate", {
       method: "POST",
       body: form,
     });
@@ -346,7 +346,7 @@ export default function AvatarPage() {
     form.append("prompt", prompt);
     form.append("product", productFile);
 
-    const res = await fetch("/api/avatar-engine/generate", {
+   const res = await fetch("/api/avatar-ai/generate", {
       method: "POST",
       body: form,
     });
@@ -367,7 +367,14 @@ export default function AvatarPage() {
     canvas.height = canvasSize.h;
     const ctx = canvas.getContext("2d")!;
 
-    const productImg = await loadImage(productFile);
+    // Product
+if (!productFile) {
+  alert("لطفاً عکس محصول را آپلود کنید");
+  return;
+}
+
+const productImg = await loadImage(URL.createObjectURL(productFile));
+
 
     const generatedArray = [];
 
@@ -445,6 +452,8 @@ export default function AvatarPage() {
     a.click();
     a.remove();
   };
+
+
 
   // ---------- UI ----------
   return (
@@ -658,17 +667,22 @@ export default function AvatarPage() {
             style={{width:"100%", minHeight:96, resize:"vertical", padding:12, borderRadius:10, border:"1px solid var(--line)"}}
           />
 
-          <div className="controls-row" style={{marginTop:16, justifyContent:"space-between"}}>
-            <button className="btn" onClick={generateOutputs} disabled={generating}>
-              {generating ? t.generatingButton : t.generateButton}
-            </button>
-            <div className="small-muted">
-              {t.requiredCreditsPrefix} {requiredCredits}
-              {platform === "amazon-lifestyle" && ` ${t.requiredCreditsAmazonLifestyle}`}
-              {(platform === "amazon-video-5" || platform === "amazon-video-10") && ` ${t.requiredCreditsAmazonVideo}`}
-            </div>
-          </div>
-        </section>
+          <div className="controls-row" style={{ marginTop: 16, justifyContent: "space-between" }}>
+  
+  {/* دکمه ساخت معمولی */}
+  <button className="btn" onClick={generateOutputs} disabled={generating}>
+    {generating ? t.generatingButton : t.generateButton}
+  </button>
+
+  
+  {/* نمایش تعداد کردیت‌های مورد نیاز */}
+  <div className="small-muted">
+    {t.requiredCreditsPrefix} {requiredCredits}
+  </div>
+
+</div>
+
+</section>
 
         {/* Right preview / outputs */}
         <aside className="aside">
@@ -717,5 +731,4 @@ export default function AvatarPage() {
       </div>
     </div>
   );
-  // ======== NEW: Backend avatar-engine integration ========
 }
