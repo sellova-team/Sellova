@@ -339,7 +339,7 @@ export default function AvatarPage() {
     if (useOwnAvatar && ownAvatarFile) {
       form.append("avatar", ownAvatarFile);
     } else if (selectedFace) {
-      form.append("face", selectedFace);
+      form.append("faceId", selectedFace);
     }
 
     form.append("category", selectedCategory);
