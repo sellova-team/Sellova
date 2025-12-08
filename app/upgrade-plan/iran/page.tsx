@@ -18,7 +18,7 @@ export default function IranPlansPage() {
     {
       title: 'پلن ماهانه',
       credits: '۴۰۰ کردیت',
-      price: '۹۳۰٬۰۰۰ تومان',
+      price: '۸۷۰,۰۰۰ تومان',
       description: '',
       route: '/payment/monthly',
       color: '#4a90e2',
@@ -33,7 +33,7 @@ export default function IranPlansPage() {
     },
     {
       title: 'پلن سالانه',
-      credits: '۵٬۰۰۰ کردیت',
+      credits: '۴٬۵۰۰ کردیت',
       price: '۶٬۵۰۰٬۰۰۰ تومان',
       description: 'تخفیف ۴۰٪ به مدت محدود',
       route: '/payment/yearly',
