@@ -8,18 +8,17 @@ export default function HomePage() {
       style={{
         minHeight: "100vh",
         background: "#fff",
-        display: "grid",
-        placeItems: "center",
+        display: "flex",
+        justifyContent: "center",
         padding: "clamp(12px, 3vw, 24px)",
       }}
     >
-      {/* ظرف واکنش‌گرا: روی موبایل باریک، روی دسکتاپ تا 900px */}
       <div
         style={{
-          width: "clamp(320px, 92vw, 900px)",
-          display: "grid",
-          gap: "clamp(14px, 2.5vw, 24px)",
+          width: "clamp(320px, 92vw, 850px)",
           textAlign: "center",
+          display: "grid",
+          gap: "clamp(18px, 2.5vw, 28px)",
         }}
       >
         {/* تیتر */}
@@ -27,20 +26,25 @@ export default function HomePage() {
           style={{
             margin: 0,
             fontWeight: 800,
-            lineHeight: 1.2,
-            fontSize: "clamp(20px, 4.8vw, 36px)",
+            lineHeight: 1.25,
+            fontSize: "clamp(22px, 4vw, 34px)",
           }}
         >
-          All solutions for AI advertising
+          AI Solutions for Advertising
         </h1>
 
-        {/* عکس (تمام عرض ظرف) */}
-        <div style={{ position: "relative" }}>
+        {/* عکس کوچیک‌تر (دیگه کل صفحه نیست) */}
+        <div
+          style={{
+            width: "clamp(260px, 65vw, 500px)",
+            margin: "0 auto",
+          }}
+        >
           <Image
             src="/homepage.png"
             alt="Sellova"
-            width={900}        // مرجع برای Next؛ پایین خودش 100% می‌شود
-            height={500}
+            width={500}
+            height={400}
             priority
             style={{
               width: "100%",
@@ -52,23 +56,23 @@ export default function HomePage() {
           />
         </div>
 
-        {/* دکمه Login: مستطیل تمام‌عرض زیر عکس */}
-        <div style={{ width: "100%", marginTop: "4px" }}>
+        {/* دکمه Login → بزرگ، واضح، حرفه‌ای */}
+        <div style={{ marginTop: "4px" }}>
           <Link
             href="/login"
             style={{
-              display: "block",                     // کل عرض را می‌گیرد
-              width: "100%",
+              display: "block",
+              width: "clamp(200px, 40vw, 280px)",
+              margin: "0 auto",
               textDecoration: "none",
               textAlign: "center",
               background: "#0ea5e9",
               color: "#fff",
               fontWeight: 800,
-              // اندازه‌ها واکنش‌گرا با clamp
-              fontSize: "clamp(16px, 2.4vw, 20px)",
+              fontSize: "clamp(18px, 2.4vw, 22px)",
               padding: "clamp(14px, 2.6vw, 18px) 0",
-              borderRadius: 10,                     // اگر کاملاً صاف می‌خوای: 0 بگذار
-              boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
+              borderRadius: 12,
+              boxShadow: "0 6px 16px rgba(0,0,0,0.15)",
             }}
           >
             Login
