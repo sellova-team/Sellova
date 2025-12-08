@@ -33,11 +33,12 @@ export default function IranPlansPage() {
     },
     {
       title: 'پلن سالانه',
-      credits: '۴٬۵۰۰ کردیت',
-      price: '۶٬۵۰۰٬۰۰۰ تومان',
-      description: 'تخفیف ۴۰٪ به مدت محدود',
-      route: '/payment/yearly',
-      color: '#27ae60',
+  credits: '۴٬۵۰۰ کردیت',
+  originalPrice: '۱۲٬۵۰۰٬۰۰۰ تومان',   // قیمت اصلی (برای خط خوردن)
+  price: '۶٬۵۰۰٬۰۰۰ تومان',            // قیمت با تخفیف
+  description: 'تخفیف ۴۸٪ به مدت محدود',
+  route: '/payment/yearly',
+  color: '#27ae60',
     },
   ];
 
