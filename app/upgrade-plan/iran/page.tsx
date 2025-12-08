@@ -130,6 +130,20 @@ export default function IranPlansPage() {
             >
               {plan.price}
             </p>
+            {/* قیمت اصلی خط‌خورده – فقط اگر وجود داشت */}
+{plan.originalPrice && (
+  <p
+    style={{
+      textDecoration: "line-through",
+      opacity: 0.8,
+      fontSize: "16px",
+      marginTop: "-10px",
+      marginBottom: "10px",
+    }}
+  >
+    {plan.originalPrice}
+  </p>
+)}
             {plan.description && (
               <p
                 className="plan-desc"
