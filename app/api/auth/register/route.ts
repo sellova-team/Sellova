@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  loadUsers,
-  saveUsers,
-  hashPassword,
-  UserRecord,
-} from "../../../../lib/userStore";
+import { auth, db } from "@/lib/firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,53 +9,35 @@ export async function POST(req: NextRequest) {
 
     if (!email || !password || !securityWord) {
       return NextResponse.json(
-        {
-          ok: false,
-          error: "Email, password and security word are required.",
-        },
+        { ok: false, error: "Email, password and security word are required." },
         { status: 400 }
       );
     }
 
-    const users = loadUsers();
+    // 1) ساخت کاربر در Firebase Auth
+    const userCred = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCred.user;
 
-    const existing = users.find(
-      (u) => u.email.toLowerCase() === String(email).toLowerCase()
-    );
-    if (existing) {
-      return NextResponse.json(
-        { ok: false, error: "This email is already registered." },
-        { status: 400 }
-      );
-    }
+    // 2) آپدیت نام کاربر
+    await updateProfile(user, { displayName: name });
 
-    // هش پسورد
-    const { salt, hash } = hashPassword(String(password));
-
-    // هش کلمه امنیتی (همیشه lowercase ذخیره می‌کنیم)
-    const { salt: secSalt, hash: secHash } = hashPassword(
-      String(securityWord).toLowerCase()
-    );
-
-    const user: UserRecord = {
-      id: Date.now().toString(),
-      name: String(name || ""),
-      email: String(email),
-      salt,
-      passwordHash: hash,
-      securityWordSalt: secSalt,
-      securityWordHash: secHash,
-      createdAt: new Date().toISOString(),
-    };
-
-    users.push(user);
-    saveUsers(users);
+    // 3) ساخت سند Firestore
+    await setDoc(doc(db, "users", user.uid), {
+      role: "user",
+      creditBalance: 30,
+      monthlyQuota: 0,
+      monthlyUsed: 0,
+      lastReset: new Date().toISOString(),
+      name,
+      email,
+      securityWord: securityWord.toLowerCase(),
+    });
 
     return NextResponse.json({ ok: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error(err);
     return NextResponse.json(
-      { ok: false, error: "Server error while registering." },
+      { ok: false, error: err.message || "Error registering user." },
       { status: 500 }
     );
   }

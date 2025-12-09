@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { loadUsers, verifyPassword } from "../../../../lib/userStore";
+import { auth, db } from "@/lib/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,33 +14,37 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const users = loadUsers();
+    // 1) ورود با Firebase Auth
+    const userCred = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCred.user;
 
-    const user = users.find(
-      (u) => u.email.toLowerCase() === String(email).toLowerCase()
-    );
+    // 2) گرفتن اطلاعات Firestore
+    const ref = doc(db, "users", user.uid);
+    const snap = await getDoc(ref);
 
-    if (!user) {
+    if (!snap.exists()) {
       return NextResponse.json(
-        { ok: false, error: "Invalid email or password." },
-        { status: 400 }
+        { ok: false, error: "User profile not found in Firestore." },
+        { status: 500 }
       );
     }
 
-    const valid = verifyPassword(password, user.salt, user.passwordHash);
+    const userData = snap.data();
 
-    if (!valid) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid email or password." },
-        { status: 400 }
-      );
-    }
+    // 3) برگرداندن نقش و کریديت
+    return NextResponse.json({
+      ok: true,
+      uid: user.uid,
+      email: user.email,
+      role: userData.role,
+      creditBalance: userData.creditBalance,
+    });
 
-    return NextResponse.json({ ok: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error(err);
+
     return NextResponse.json(
-      { ok: false, error: "Server error while login." },
+      { ok: false, error: err.message || "Sign-in failed." },
       { status: 500 }
     );
   }
