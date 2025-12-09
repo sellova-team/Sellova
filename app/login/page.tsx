@@ -4,6 +4,11 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 
+// Firebase
+import { auth, db } from "@/lib/firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+
 const fontStack =
   'IRANSans, Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
 
@@ -51,7 +56,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 18,
     border: "none",
     cursor: "pointer",
-    padding: "0 6px",
   },
   tabBtnActive: {
     background: "#0ea5e9",
@@ -111,9 +115,9 @@ export default function LoginPage() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [securityWord, setSecurityWord] = useState(""); // 🔵 کلمه امنیتی
+  const [securityWord, setSecurityWord] = useState("");
   const [password, setPassword] = useState("");
-  const [showPass, setShowPass] = useState(false); // 🔵 چشم برای نمایش پسورد
+  const [showPass, setShowPass] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -127,45 +131,49 @@ export default function LoginPage() {
     }
 
     if (tab === "signup" && securityWord.length !== 5) {
-      setError("Security word must be exactly 5 characters.");
+      setError("Security word must be exactly 5 letters.");
       return;
     }
 
     try {
       setLoading(true);
 
-      const endpoint =
-        tab === "signup" ? "/api/auth/register" : "/api/auth/signin";
-
-      const body: any = {
-        email,
-        password,
-      };
-
+      // ----------------------
+      // 🔵 SIGN UP (Create Account)
+      // ----------------------
       if (tab === "signup") {
-        body.name = name;
-        body.securityWord = securityWord;
-      }
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCred.user;
 
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+        // ذخیره در Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          name,
+          email,
+          securityWord,
+          role: "user",
+          creditBalance: 30,
+          monthlyQuota: 0,
+          monthlyUsed: 0,
+          lastReset: new Date().toISOString(),
+        });
 
-      const data = await res.json();
-
-      if (!data.ok) {
-        setError(data.error || "Something went wrong.");
+        localStorage.setItem("uid", user.uid);
+        router.push("/dashboard");
         return;
       }
-// ذخیره UID برای استفاده در داشبورد
-localStorage.setItem("uid", data.uid);
 
-      router.push("/dashboard");
-    } catch (err) {
-      console.error(err);
-      setError("Server error. Try again.");
+      // ----------------------
+      // 🔵 SIGN IN
+      // ----------------------
+      if (tab === "signin") {
+        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        localStorage.setItem("uid", userCred.user.uid);
+        router.push("/dashboard");
+        return;
+      }
+    } catch (err: any) {
+      console.log(err);
+      setError("Firebase Error: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -181,7 +189,6 @@ localStorage.setItem("uid", data.uid);
           width={210}
           height={56}
           priority
-          style={{ display: "block", height: "auto", width: "auto" }}
         />
       </div>
 
@@ -233,13 +240,8 @@ localStorage.setItem("uid", data.uid);
               placeholder="ex: apple"
               value={securityWord}
               maxLength={5}
-              onChange={(e) =>
-                setSecurityWord(e.target.value.toLowerCase())
-              }
+              onChange={(e) => setSecurityWord(e.target.value.toLowerCase())}
             />
-            <div style={{ fontSize: 14, marginBottom: 10, color: "#64748b" }}>
-             This word will be used to recover account if you forget your password.
-            </div>
           </>
         )}
 
@@ -252,18 +254,17 @@ localStorage.setItem("uid", data.uid);
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        {/* Password + Eye */}
+        {/* Password */}
         <label style={styles.label}>Password</label>
         <div style={{ position: "relative" }}>
           <input
             style={styles.input}
-            placeholder="••••••••"
             type={showPass ? "text" : "password"}
+            placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {/* چشم */}
           <span
             style={{
               position: "absolute",
@@ -279,20 +280,14 @@ localStorage.setItem("uid", data.uid);
           </span>
         </div>
 
-        {/* Submit */}
         <button
           onClick={handleContinue}
-          style={styles.primary}
           disabled={loading}
+          style={styles.primary}
         >
-          {loading
-            ? "Please wait..."
-            : tab === "signin"
-            ? "Sign in"
-            : "Create account"}
+          {loading ? "Please wait..." : tab === "signin" ? "Sign in" : "Create account"}
         </button>
 
-        {/* Errors */}
         {error && (
           <div
             style={{
@@ -307,7 +302,6 @@ localStorage.setItem("uid", data.uid);
           </div>
         )}
 
-        {/* Forgot Password */}
         {tab === "signin" && (
           <div
             style={styles.forgot}
@@ -317,7 +311,6 @@ localStorage.setItem("uid", data.uid);
           </div>
         )}
 
-        {/* Back */}
         <div style={{ textAlign: "center", marginTop: 12 }}>
           <a href="/" style={styles.backLink}>
             ← Back to home
