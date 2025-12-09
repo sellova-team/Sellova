@@ -159,6 +159,8 @@ export default function LoginPage() {
         setError(data.error || "Something went wrong.");
         return;
       }
+// ذخیره UID برای استفاده در داشبورد
+localStorage.setItem("uid", data.uid);
 
       router.push("/dashboard");
     } catch (err) {

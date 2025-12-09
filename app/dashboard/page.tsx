@@ -1,5 +1,7 @@
 "use client";
 
+import { db } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
 import React, { CSSProperties, useEffect, useState } from "react";
 import Link from "next/link";
 import { useLang } from "../../lib/lang";
@@ -147,6 +149,10 @@ export default function DashboardPage() {
 
   const [isMobile, setIsMobile] = useState(false);
 
+  const [role, setRole] = useState("");
+const [credit, setCredit] = useState<number | null>(null);
+const [loadingUser, setLoadingUser] = useState(true);
+
   // تشخیص موبایل برای تغییر سایز کارت و فونت
   useEffect(() => {
     const handleResize = () => {
@@ -158,6 +164,26 @@ export default function DashboardPage() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+  const uid = localStorage.getItem("uid");
+  if (!uid) return;
+
+  async function loadUser() {
+    const ref = doc(db, "users", uid);
+    const snap = await getDoc(ref);
+
+    if (snap.exists()) {
+      const data = snap.data();
+      setRole(data.role);
+      setCredit(data.creditBalance);
+    }
+
+    setLoadingUser(false);
+  }
+
+  loadUser();
+}, []);
 
   const toggleLang = () => {
     setLocale(locale === "en" ? "fa" : "en");
@@ -207,6 +233,20 @@ export default function DashboardPage() {
       <div style={styles.title} className="dash-title">
         {messages.dashboard.welcome}
       </div>
+
+{!loadingUser && (
+  <div style={{ color: "#fff", marginBottom: 20, fontSize: 18, fontWeight: 700 }}>
+    {/* نقش */}
+    <div>Role: {role}</div>
+
+    {/* کریـدیـت */}
+    {role === "owner" ? (
+      <div>Credits: Unlimited</div>
+    ) : (
+      <div>Credits: {credit}</div>
+    )}
+  </div>
+)}
 
       <section className="grid">
         {localizedItems.map((it) => (
