@@ -7,12 +7,10 @@ export async function GET(req: Request) {
     const url = new URL(req.url);
     const type = url.searchParams.get("type") || "avatar-single";
 
-    // امروز ساعت 00:00
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const start = today.getTime();
 
-    // ساخت query
     const q = query(
       collection(db, "logs"),
       where("type", "==", type),
