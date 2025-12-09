@@ -34,59 +34,67 @@ export const enMessages = {
 
   // --- Generate Image ---
 generateImage: {
-  title: "Sellova — Product Studio",
-  uploadLabel: "Upload Product",
-  styleLabel: "Photo Style",
+  title: "AI Product Photo Studio",
+  uploadLabel: "Upload product image",
+  styleLabel: "Photo style",
   bgLabel: "Background",
-  platformLabel: "Platform",
+  platformLabel: "Platform size",
   promptLabel: "Prompt",
-  placeholder: "Describe the exact vibe you want...",
   suggest: "Suggest",
   generate: "Generate",
-  generating: "Generating...",
   createAvatar: "Create Avatar",
   download: "Download",
-  hint: "Credit cost: 5 • Amazon: 10 • Current plan: Basic",
-  placeholder: "Describe the exact vibe you want...",
+  credits: "Credits used",
+
+  // Messages
   generating: "Generating...",
-  hint: "Credit cost: 5 • Amazon: 10 • Current plan: Basic",
+  hint: "",
+  costWarning: "This action costs 5 credits. Continue?",
+  notEnoughCredit: "Not enough credits.",
+  serverError: "Server error. Please try again.",
+  success: "Image generated successfully!"
 },
 
 
   // --- Generate Video ---
 generateVideo: {
   title: "Generate promotional videos with AI",
-  uploadTitle: "Upload an image of your product",
-  chooseAvatar: "Choose an Avatar",
-  orContinue: "or continue with a product image",
+  uploadTitle: "Upload your product image",
+  chooseAvatar: "Choose avatar",
+  orContinue: "or continue without avatar",
 
-  platformLabel: "Video size / Platform",
-  sizeHint: "Output sample size depends on platform (e.g., 1080×1080 / 1080×1920).",
+  platformLabel: "Video format (platform)",
+  sizeHint: "Choose the aspect ratio for your video",
 
   lengthLabel: "Video length",
-  seconds5: "5 sec",
-  seconds10: "10 sec",
+  seconds5: "5 seconds",
+  seconds10: "10 seconds",
 
   cameraLabel: "Camera motion",
-  rotationLabel: "Product rotation",
-  lightingLabel: "Lighting",
-  effectsLabel: "Cinematic effects",
-  effectsHint:
-    "All effects are subtle and product-safe — aimed to feel real, not cheesy.",
+  effectsLabel: "Effects",
+  effectsHint: "Optional cinematic effects for your video",
 
+  lightingLabel: "Lighting",
   promptLabel: "Prompt",
-  promptPlaceholder: "Write a detailed prompt (for advanced users)…",
+  promptPlaceholder: "Describe how the video should look…",
   suggest: "Suggest",
 
-  plan: "Plan",
+  plan: "Current plan",
   planBasic: "Basic",
   creditsLeft: "Credits left",
-  creditCostLabel: "Credit cost",
-  videoTypeAmazon: "Amazon video",
-  videoTypeStandard: "Standard video",
 
-  generate: "Generate",
-  previewCaption: "Generated video preview — 5 seconds",
+  creditCostLabel: "Credit cost",
+  videoTypeAmazon: "Amazon optimized video",
+  videoTypeStandard: "Standard promotional video",
+
+  generate: "Generate video",
+  generating: "Generating video…",
+  previewCaption: "This is a preview of your AI-generated video.",
+
+  costWarning: "This action costs credits. Continue?",
+  notEnoughCredit: "Not enough credits.",
+  serverError: "Server error. Please try again.",
+  success: "Video generated successfully!",
 },
 
  // --- Avatar ---

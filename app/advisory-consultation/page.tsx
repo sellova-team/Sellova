@@ -184,6 +184,46 @@ export default function AdvisoryConsultationPage() {
 
   // ---------- logic ----------
   function handleAnalyze() {
+    async function handleAnalyze() {
+  // 💳 مقدار لازم برای این سرویس
+  const requiredCredits = 3;
+
+  // 💳 دریافت کردیت فعلی کاربر از API
+  const res = await fetch("/api/credits/get");
+  const data = await res.json();
+
+  if (data.credits < requiredCredits) {
+    alert("کردیت کافی نیست");
+    return;
+  }
+
+  // 💳 کم کردن کردیت + ذخیره لاگ
+  await fetch("/api/credits/use", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      creditsUsed: requiredCredits,
+      type: "advisory",
+      createdAt: Date.now(),
+    }),
+  });
+
+  // ⬇ حالا وارد مرحله پردازش شو
+  setLoading(true);
+  setTimeout(() => {
+    const demo: Competitor[] = buildDemoCompetitors(platform, bizName);
+    setCompetitors(demo);
+
+    setCompSummary(t.compSummary);
+    setAuditStrengths(t.auditStrengths);
+    setAuditWeaknesses(t.auditWeaknesses);
+    setAuditActions(t.auditActions);
+
+    setAnalyzed(true);
+    setLoading(false);
+  }, 700);
+}
+
     setLoading(true);
     setTimeout(() => {
       const demo: Competitor[] = buildDemoCompetitors(platform, bizName);

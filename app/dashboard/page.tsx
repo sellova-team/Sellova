@@ -152,6 +152,7 @@ export default function DashboardPage() {
   const [role, setRole] = useState("");
 const [credit, setCredit] = useState<number | null>(null);
 const [loadingUser, setLoadingUser] = useState(true);
+const [plan, setPlan] = useState("");
 
   // تشخیص موبایل برای تغییر سایز کارت و فونت
   useEffect(() => {
@@ -177,6 +178,7 @@ const [loadingUser, setLoadingUser] = useState(true);
       const data = snap.data();
       setRole(data.role);
       setCredit(data.creditBalance);
+       setPlan(data.planType || "Free");
     }
 
     setLoadingUser(false);
@@ -235,11 +237,17 @@ const [loadingUser, setLoadingUser] = useState(true);
       </div>
 
 {!loadingUser && (
-  <div style={{ color: "#fff", marginBottom: 20, fontSize: 18, fontWeight: 700 }}>
-    {/* نقش */}
+  <div
+    style={{
+      color: "white",
+      marginBottom: 20,
+      fontSize: 18,
+      fontWeight: 700,
+    }}
+  >
+    <div>Plan: {plan}</div>
     <div>Role: {role}</div>
 
-    {/* کریـدیـت */}
     {role === "owner" ? (
       <div>Credits: Unlimited</div>
     ) : (
@@ -247,6 +255,7 @@ const [loadingUser, setLoadingUser] = useState(true);
     )}
   </div>
 )}
+
 
       <section className="grid">
         {localizedItems.map((it) => (

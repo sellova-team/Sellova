@@ -45,43 +45,49 @@ export const faMessages = {
     createAvatar: "ساخت آواتار",
     download: "دانلود",
     credits: "کردیت مصرفی",
-  },
+  hint: "",
 
+  costWarning: "این عملیات ۵ کردیت هزینه دارد. ادامه می‌دهید؟",
+  notEnoughCredit: "کردیت شما کافی نیست.",
+  serverError: "خطای سرور. لطفاً دوباره تلاش کنید.",
+  success: "تصویر با موفقیت ساخته شد!"
+},
+
+
+  // --- صفحه ساخت ویدیو ---
   // --- Generate Video ---
 generateVideo: {
-  title: "ساخت ویدیوهای تبلیغاتی با هوش مصنوعی",
+  title: "ساخت ویدیو تبلیغاتی با هوش مصنوعی",
   uploadTitle: "عکس محصول خود را آپلود کنید",
   chooseAvatar: "انتخاب آواتار",
-  orContinue: "یا با عکس محصول ادامه دهید",
+  orContinue: "یا بدون آواتار ادامه دهید",
 
-  platformLabel: "سایز ویدیو / پلتفرم",
-  sizeHint: "اندازهٔ خروجی بسته به پلتفرم متفاوت است (مثلاً ۱۰۸۰×۱۰۸۰ / ۱۰۸۰×۱۹۲۰).",
+  platformLabel: "فرمت ویدیو (پلتفرم)",
+  sizeHint: "نسبت تصویر مناسب ویدیو را انتخاب کنید",
 
   lengthLabel: "طول ویدیو",
   seconds5: "۵ ثانیه",
   seconds10: "۱۰ ثانیه",
 
-  cameraLabel: "حرکت دوربین",
-  rotationLabel: "چرخش محصول",
+  cameraLabel: "نوع حرکت دوربین",
   lightingLabel: "نورپردازی",
-  effectsLabel: "افکت‌های سینمایی",
-  effectsHint:
-    "همهٔ افکت‌ها ملایم و مناسب محصول هستند و ظاهر واقعی ایجاد می‌کنند، نه اغراق‌آمیز.",
+  effectsLabel: "افکت‌ها",
+  effectsHint: "افکت‌های سینمایی برای جذابیت بیشتر ویدیو",
 
   promptLabel: "پرامپت",
-  promptPlaceholder: "اگر می‌خواهید به‌صورت حرفه‌ای توضیح کامل بنویسید…",
-  suggest: "پیشنهاد",
+  promptPlaceholder: "توضیح دهید چه نوع ویدیویی می‌خواهید...",
 
-  plan: "پلن",
-  planBasic: "پایه",
-  creditsLeft: "کردیت باقیمانده",
-  creditCostLabel: "هزینهٔ کردیت",
-  videoTypeAmazon: "ویدیوی آمازون",
-  videoTypeStandard: "ویدیوی معمولی",
+  suggest: "پیشنهاد پرامپت",
+  generate: "ساخت ویدیو",
 
-  generate: "بساز",
-  previewCaption: "پیش‌نمایش ویدیوی ساخته‌شده — ۵ ثانیه",
+  previewCaption: "پیش‌نمایش ویدیوی ساخته‌شده با هوش مصنوعی",
+
+  costWarning: "این عملیات دارای هزینهٔ کردیت است. ادامه می‌دهید؟",
+  notEnoughCredit: "کردیت کافی نیست.",
+  serverError: "خطای سرور. دوباره تلاش کنید.",
+  success: "ویدیو با موفقیت ساخته شد!"
 },
+
 
   // --- Avatar ---
 avatar: {

@@ -180,6 +180,9 @@ export default function AvatarPage() {
   const [outputs, setOutputs] = useState<OutputItem[]>([]);
 
   const [prompt, setPrompt] = useState<string>("");
+  // نوع خروجی آواتار
+const [avatarMode, setAvatarMode] = useState<"single" | "triple" | "video5" | "video10">("triple");
+
   const [outputType, setOutputType] = useState<OutputType>("photo"); // UI controls it implicitly for Amazon video
   const [videoLength, setVideoLength] = useState<VideoLen>(5);
 
@@ -198,6 +201,15 @@ export default function AvatarPage() {
     
     form.append("category", selectedCategory);
     form.append("prompt", prompt);
+    // ---- ترجمه پرامپت ----
+const translateRes = await fetch("/api/translate", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ text: prompt }),
+});
+const translateData = await translateRes.json();
+const translatedPrompt = translateData.text || prompt;
+
 
     const res = await fetch("/api/avatar-ai/generate", {
       method: "POST",
@@ -238,14 +250,12 @@ export default function AvatarPage() {
 
   // ---------- Required credits (by platform) ----------
   const requiredCredits = useMemo(() => {
-    if (platform === "amazon-lifestyle") return 30; // 3 photos (premium quality)
-    if (platform === "amazon-video-5") return 40;
-    if (platform === "amazon-video-10") return 50;
-    // Non-Amazon photos: 3 photos = 18 credits
-    if (outputType === "photo") return 18;
-    // Non-Amazon video (if you add later) — fallback:
-    return videoLength === 10 ? 60 : 45;
-  }, [platform, outputType, videoLength]);
+  if (avatarMode === "single") return 8;
+  if (avatarMode === "triple") return 24;
+  if (avatarMode === "video5") return 35;
+  if (avatarMode === "video10") return 45;
+  return 24;
+}, [avatarMode]);
 
   // ---------- LOAD FACES ----------
   useEffect(() => {
@@ -317,8 +327,44 @@ export default function AvatarPage() {
     return { existingPoses, existingDresses, existingBackgrounds };
   };
 
+  function modeToType(mode: string) {
+  if (mode === "single") return "avatar-single";
+  if (mode === "triple") return "avatar-triple";
+  if (mode === "video5") return "avatar-video5";
+  return "avatar-video10";
+}
+
   // ---------- GENERATE ----------
   const generateOutputs = async () => {
+    let translatedPrompt = prompt;   // فعلاً ترجمه خاموشه
+
+    // ---- محدودیت روزانه ----
+const dailyLimitMap: Record<string, number> = {
+  "avatar-single": 30,
+  "avatar-triple": 15,
+  "avatar-video5": 10,
+  "avatar-video10": 5,
+};
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const todayStart = today.getTime();
+
+// گرفتن لاگ‌های امروز از API
+const limitRes = await fetch("/api/log/today?type=" + avatarMode);
+const limitData = await limitRes.json();
+
+if (limitData.count >= dailyLimitMap[modeToType(avatarMode)]) {
+  alert("سقف استفاده روزانه برای این نوع ساخت پر شده است.");
+  return;
+}
+
+    // ---- چک کردن کردیت ----
+if (credits < requiredCredits) {
+  alert("کردیت کافی نیست");
+  return;
+}
+
   if (!productFile) {
     alert("لطفاً عکس محصول را آپلود کنید");
     return;
@@ -378,61 +424,150 @@ const productImg = await loadImage(URL.createObjectURL(productFile));
 
     const generatedArray = [];
 
-    for (const cul of CULTURE_LIST) {
-      const bgImg = await loadImage(layers.background);
-      const poseImg = layers.pose ? await loadImage(layers.pose) : null;
-      const dressImg = layers.dress ? await loadImage(layers.dress) : null;
+   // ---------------- خروجی بر اساس avatarMode ----------------
 
-      const faceImg = useOwnAvatar
-        ? await loadImage(ownAvatarFile!)
-        : await loadImage(layers.face);
 
-      // ----- رسم -----
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+if (avatarMode === "single") {
+  // ===== عکس تکی =====
+  const bgImg = await loadImage(layers.background);
+  const poseImg = layers.pose ? await loadImage(layers.pose) : null;
+  const dressImg = layers.dress ? await loadImage(layers.dress) : null;
 
-      // Background
-      ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
-      applyGlobalLighting(ctx, canvas.width, canvas.height);
+  const faceImg = useOwnAvatar
+    ? await loadImage(ownAvatarFile!)
+    : await loadImage(layers.face);
 
-      // Pose
-      poseImg && ctx.drawImage(poseImg, 0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Dress
-      dressImg && ctx.drawImage(dressImg, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+  applyGlobalLighting(ctx, canvas.width, canvas.height);
 
-      // Face
-      const faceW = Math.floor(canvas.width * 0.3);
-      const faceH = Math.floor((faceImg.height / faceImg.width) * faceW);
-      const faceX = Math.floor((canvas.width - faceW) / 2);
-      const faceY = Math.floor(canvas.height * 0.18);
+  poseImg && ctx.drawImage(poseImg, 0, 0, canvas.width, canvas.height);
+  dressImg && ctx.drawImage(dressImg, 0, 0, canvas.width, canvas.height);
 
-      ctx.drawImage(faceImg, faceX, faceY, faceW, faceH);
-      drawChinShadow(ctx, faceX, faceY, faceW, faceH);
+  const faceW = Math.floor(canvas.width * 0.3);
+  const faceH = Math.floor((faceImg.height / faceImg.width) * faceW);
+  const faceX = Math.floor((canvas.width - faceW) / 2);
+  const faceY = Math.floor(canvas.height * 0.18);
 
-      // Product
-      const prodW = Math.floor(canvas.width * 0.35);
-      const prodH = Math.floor((productImg.height / productImg.width) * prodW);
-      const prodX = canvas.width - prodW - 40;
-      const prodY = canvas.height - prodH - 40;
+  ctx.drawImage(faceImg, faceX, faceY, faceW, faceH);
+  drawChinShadow(ctx, faceX, faceY, faceW, faceH);
 
-      ctx.drawImage(productImg, prodX, prodY, prodW, prodH);
+  const prodW = Math.floor(canvas.width * 0.35);
+  const prodH = Math.floor((productImg.height / productImg.width) * prodW);
+  const prodX = canvas.width - prodW - 40;
+  const prodY = canvas.height - prodH - 40;
 
-      // Culture filter
-      applyCultureGrading(ctx, canvas.width, canvas.height, cul);
+  ctx.drawImage(productImg, prodX, prodY, prodW, prodH);
 
-      // ---- خروجی ----
-      const blob = await new Promise<Blob | null>((resolve) =>
-        canvas.toBlob((b) => resolve(b), "image/png")
-      );
+  const blob = await new Promise<Blob | null>((resolve) =>
+    canvas.toBlob((b) => resolve(b), "image/png")
+  );
 
-      if (blob) {
-        const url = URL.createObjectURL(blob);
-        generatedArray.push({
-          url,
-          name: `sellova_${selectedCategory}_${cul}.png`,
-        });
-      }
+  if (blob) {
+    const url = URL.createObjectURL(blob);
+    generatedArray.push({
+      url,
+      name: `sellova_single_${selectedCategory}.png`,
+    });
+  }
+}
+
+else if (avatarMode === "triple") {
+  // ===== سه عکس با فرهنگ‌ها =====
+  for (const cul of CULTURE_LIST) {
+    const bgImg = await loadImage(layers.background);
+    const poseImg = layers.pose ? await loadImage(layers.pose) : null;
+    const dressImg = layers.dress ? await loadImage(layers.dress) : null;
+
+    const faceImg = useOwnAvatar
+      ? await loadImage(ownAvatarFile!)
+      : await loadImage(layers.face);
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+    applyGlobalLighting(ctx, canvas.width, canvas.height);
+
+    poseImg && ctx.drawImage(poseImg, 0, 0, canvas.width, canvas.height);
+    dressImg && ctx.drawImage(dressImg, 0, 0, canvas.width, canvas.height);
+
+    const faceW = Math.floor(canvas.width * 0.3);
+    const faceH = Math.floor((faceImg.height / faceImg.width) * faceW);
+    const faceX = Math.floor((canvas.width - faceW) / 2);
+    const faceY = Math.floor(canvas.height * 0.18);
+
+    ctx.drawImage(faceImg, faceX, faceY, faceW, faceH);
+    drawChinShadow(ctx, faceX, faceY, faceW, faceH);
+
+    const prodW = Math.floor(canvas.width * 0.35);
+    const prodH = Math.floor((productImg.height / productImg.width) * prodW);
+    const prodX = canvas.width - prodW - 40;
+    const prodY = canvas.height - prodH - 40;
+
+    ctx.drawImage(productImg, prodX, prodY, prodW, prodH);
+
+    applyCultureGrading(ctx, canvas.width, canvas.height, cul);
+
+    const blob = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob((b) => resolve(b), "image/png")
+    );
+
+    if (blob) {
+      const url = URL.createObjectURL(blob);
+      generatedArray.push({
+        url,
+        name: `sellova_${selectedCategory}_${cul}.png`,
+      });
     }
+  }
+}
+
+else if (avatarMode === "video5" || avatarMode === "video10") {
+  // ===== ویدیو =====
+  const resVideo = await fetch("/api/avatar-ai/video", {
+    method: "POST",
+    body: JSON.stringify({
+      length: avatarMode === "video5" ? 5 : 10,
+      prompt,
+      category: selectedCategory,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  const dataVideo = await resVideo.json();
+
+  if (dataVideo.url) {
+    generatedArray.push({
+      url: dataVideo.url,
+      name: `sellova_video_${avatarMode}.mp4`,
+    });
+  }
+}
+setCredits(c => c - requiredCredits);
+
+// ---- ذخیره لاگ ساخت ----
+await fetch("/api/log", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    type: avatarMode === "single"
+      ? "avatar-single"
+      : avatarMode === "triple"
+      ? "avatar-triple"
+      : avatarMode === "video5"
+      ? "avatar-video5"
+      : "avatar-video10",
+
+    creditsUsed: requiredCredits,
+    prompt: prompt,
+    promptTranslated: translatedPrompt,
+    outputs: generatedArray.map(o => o.url),
+    createdAt: Date.now(),
+  }),
+});
+
+setOutputs(generatedArray);
 
     setOutputs(generatedArray);
   } catch (err) {
@@ -596,6 +731,21 @@ const productImg = await loadImage(URL.createObjectURL(productFile));
           </div>
 
           <label className="label">{t.faceSelectionLabel}</label>
+          {/* انتخاب نوع خروجی آواتار */}
+<div style={{ marginTop: 12 }}>
+  <label className="label">نوع خروجی آواتار</label>
+  <select
+    value={avatarMode}
+  onChange={(e) => setAvatarMode(e.target.value as "single" | "triple" | "video5" | "video10")}
+
+    style={{ width: "100%" }}
+  >
+    <option value="single">عکس تکی (8 کردیت)</option>
+    <option value="triple">سه عکس با فرهنگ مختلف (24 کردیت)</option>
+    <option value="video5">ویدیو 5 ثانیه (35 کردیت)</option>
+    <option value="video10">ویدیو 10 ثانیه (45 کردیت)</option>
+  </select>
+</div>
           <div className="controls-row">
             <input type="file" accept="image/*" onChange={onOwnAvatarUpload} />
             <span className="small-muted">{t.faceUploadHelp}</span>

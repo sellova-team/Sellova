@@ -232,68 +232,108 @@ export default function ProductStudio() {
     );
   };
 
-  const generate = async () => {
-    setBusy(true);
-    setOut(null);
-    try {
-      const { w, h } = SIZE_MAP[platform];
-      if (!canvasRef.current) canvasRef.current = document.createElement("canvas");
-      const c = canvasRef.current!;
-      c.width = w;
-      c.height = h;
-      const ctx = c.getContext("2d")!;
+ const generate = async () => {
+  // --- 1) هشدار به کاربر قبل از کم کردن کردیت ---
+  const confirmCost = window.confirm(
+    "This action will cost 5 credits. Do you want to continue?"
+  );
+  if (!confirmCost) return;
 
-      const off = document.createElement("canvas");
-      off.width = w;
-      off.height = h;
-      const o = off.getContext("2d")!;
-      o.fillStyle = "#0e1422";
-      o.fillRect(0, 0, w, h);
-      (o as any).fillStyle = BG_PALETTES[bg];
-      (o as any).fillRect(0, 0, w, h);
-      ctx.drawImage(off, 0, 0);
+  // --- 2) گرفتن UID کاربر ---
+  const uid = localStorage.getItem("uid");
+  if (!uid) {
+    alert("User not logged in.");
+    return;
+  }
 
-      const img = await loadImage(file ? file : "/watch.png");
-      const scale = Math.min(w / img.width, h / img.height);
-      const dw = Math.floor(img.width * scale);
-      const dh = Math.floor(img.height * scale);
-      const dx = Math.floor((w - dw) / 2);
-      const dy = Math.floor((h - dh) / 2);
-      drawSoftShadow(
-        ctx,
-        dx,
-        dy + Math.floor(dh * 0.92),
-        dw,
-        Math.floor(dh * 0.06)
-      );
-      ctx.drawImage(img, dx, dy, dw, dh);
+  // --- 3) درخواست به API برای کم کردن کردیت ---
+  const creditRes = await fetch("/api/credits/use", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      uid,
+      service: "simple_image", // ⭐ این صفحه عکس ساده است → 5 کردیت
+    }),
+  });
 
-      applyGlobalLighting(ctx, w, h);
-      applyStyleGrading(ctx, w, h, style);
+  const creditData = await creditRes.json();
 
-      if (platform === "amazon") {
-        ctx.save();
-        ctx.globalCompositeOperation = "overlay";
-        ctx.fillStyle = "rgba(255,255,255,0.06)";
-        ctx.fillRect(0, 0, w, h);
-        ctx.restore();
-      }
+  if (!creditData.ok) {
+    alert(creditData.error || "Not enough credits.");
+    return;
+  }
 
-      const blob = await new Promise<Blob | null>((res) =>
-        c.toBlob((b) => res(b), "image/png")
-      );
-      if (blob)
-        setOut({
-          url: URL.createObjectURL(blob),
-          name: `sellova_${platform}.png`,
-        });
-    } catch (e) {
-      console.error(e);
-      alert("Generation failed. Please try again.");
-    } finally {
-      setBusy(false);
+  // اگر owner بود:
+  if (creditData.newCredit === "unlimited") {
+    console.log("Owner user – credit unchanged.");
+  } else {
+    console.log("New credit:", creditData.newCredit);
+  }
+
+  // --- 4) ادامه کار ساخت عکس ---
+  setBusy(true);
+  setOut(null);
+
+  try {
+    const { w, h } = SIZE_MAP[platform];
+    if (!canvasRef.current) canvasRef.current = document.createElement("canvas");
+    const c = canvasRef.current!;
+    c.width = w;
+    c.height = h;
+    const ctx = c.getContext("2d")!;
+
+    const off = document.createElement("canvas");
+    off.width = w;
+    off.height = h;
+    const o = off.getContext("2d")!;
+    o.fillStyle = "#0e1422";
+    o.fillRect(0, 0, w, h);
+    (o as any).fillStyle = BG_PALETTES[bg];
+    (o as any).fillRect(0, 0, w, h);
+    ctx.drawImage(off, 0, 0);
+
+    const img = await loadImage(file ? file : "/watch.png");
+    const scale = Math.min(w / img.width, h / img.height);
+    const dw = Math.floor(img.width * scale);
+    const dh = Math.floor(img.height * scale);
+    const dx = Math.floor((w - dw) / 2);
+    const dy = Math.floor((h - dh) / 2);
+    drawSoftShadow(
+      ctx,
+      dx,
+      dy + Math.floor(dh * 0.92),
+      dw,
+      Math.floor(dh * 0.06)
+    );
+    ctx.drawImage(img, dx, dy, dw, dh);
+
+    applyGlobalLighting(ctx, w, h);
+    applyStyleGrading(ctx, w, h, style);
+
+    if (platform === "amazon") {
+      ctx.save();
+      ctx.globalCompositeOperation = "overlay";
+      ctx.fillStyle = "rgba(255,255,255,0.06)";
+      ctx.fillRect(0, 0, w, h);
+      ctx.restore();
     }
-  };
+
+    const blob = await new Promise<Blob | null>((res) =>
+      c.toBlob((b) => res(b), "image/png")
+    );
+    if (blob)
+      setOut({
+        url: URL.createObjectURL(blob),
+        name: `sellova_${platform}.png`,
+      });
+
+  } catch (e) {
+    console.error(e);
+    alert("Generation failed. Please try again.");
+  } finally {
+    setBusy(false);
+  }
+};
 
   const download = () => {
     if (!out) return;

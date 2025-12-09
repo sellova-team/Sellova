@@ -1,9 +1,12 @@
 "use client";
 
+import { useCredits } from "@/lib/useCredit";
+import { useUserStore } from "@/lib/userStore";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useLang } from "../../lib/lang";
+
 
 /* ---------- Types ---------- */
 type PlatformOpt =
@@ -32,6 +35,7 @@ type EffectOpt =
 
 /* ---------- Component ---------- */
 export default function GenerateVideoPage() {
+  const { uid } = useUserStore();
   const { locale, messages } = useLang();
 
   // platform + length (برای کرِدیت)
@@ -68,6 +72,66 @@ export default function GenerateVideoPage() {
       return length === "5" ? 20 : 30;
     }
   }, [platform, length]);
+
+ const { consumeCredits } = useCredits();
+
+
+const handleGenerate = async () => {
+  const uid = localStorage.getItem("uid");
+  if (!uid) {
+    alert(locale === "fa" ? "ابتدا وارد حساب شوید." : "Please login first.");
+    return;
+  }
+
+  // تعیین نوع سرویس برای API
+  const service =
+    platform === "amazon"
+      ? length === "5"
+        ? "video_avatar_5"
+        : "video_avatar_10"
+      : length === "5"
+      ? "video_simple_5"
+      : "video_simple_10";
+
+  // هشدار قبل از کم کردن کردیت
+  const confirmText =
+    locale === "fa"
+      ? `این عملیات ${creditCost} کردیت هزینه دارد. ادامه می‌دهید؟`
+      : `This action costs ${creditCost} credits. Continue?`;
+
+  if (!confirm(confirmText)) return;
+
+  // مصرف کردیت
+  const result = await consumeCredits(uid, service);
+
+  if (!result.ok) {
+    const err = result.error;
+
+    if (err === "not_enough_credit") {
+      alert(
+        locale === "fa" ? "کردیت کافی نیست." : "Not enough credits."
+      );
+      return;
+    }
+
+    alert(
+      locale === "fa"
+        ? "خطای سرور. دوباره تلاش کنید."
+        : "Server error. Please try again."
+    );
+    return;
+  }
+
+  // اگر کردیت کم شد → ادامه ساخت ویدیو
+  alert(
+    locale === "fa"
+      ? "کردیت با موفقیت کم شد. ساخت ویدیو شروع شد…"
+      : "Credits deducted. Video generation started…"
+  );
+
+  // اینجا بعداً API واقعی ساخت ویدیو اضافه می‌شود
+  setVideoUrl("/demo.mp4");
+};
 
   // پیشنهاد پرامپت
   const makeSuggestion = () => {

@@ -187,7 +187,7 @@ export default function LoginPage() {
           src="/logo.png"
           alt="Sellova"
           width={210}
-          height={56}
+          height={100}
           priority
         />
       </div>
