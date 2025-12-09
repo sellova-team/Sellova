@@ -14,14 +14,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 1) ساخت کاربر در Firebase Auth
+    if (securityWord.length !== 5) {
+      return NextResponse.json(
+        { ok: false, error: "Security word must be exactly 5 characters." },
+        { status: 400 }
+      );
+    }
+
     const userCred = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCred.user;
 
-    // 2) آپدیت نام کاربر
     await updateProfile(user, { displayName: name });
 
-    // 3) ساخت سند Firestore
     await setDoc(doc(db, "users", user.uid), {
       role: "user",
       creditBalance: 30,
@@ -34,6 +38,7 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ ok: true });
+
   } catch (err: any) {
     console.error(err);
     return NextResponse.json(
