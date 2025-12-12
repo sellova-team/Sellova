@@ -12,7 +12,7 @@ export default function AdminPage() {
   const [allowed, setAllowed] = useState(false);
   const [users, setUsers] = useState([]);
 
-  // مرحله 1: چک کردن اینکه کاربر وارد شده باشد
+  // --- مرحله 1: چک کردن ورود و نقش ---
   useEffect(() => {
     const unsub = auth.onAuthStateChanged(async (user) => {
       if (!user) {
@@ -20,7 +20,6 @@ export default function AdminPage() {
         return;
       }
 
-      // مرحله 2: چک کردن نقش ادمین
       const snap = await getDoc(doc(db, "users", user.uid));
       const data: any = snap.data();
 
@@ -37,22 +36,23 @@ export default function AdminPage() {
     return () => unsub();
   }, [router]);
 
-  if (loading) return <p style={{ color: "white" }}>Loading...</p>;
-  if (!allowed) return null;
-
-  // مرحله 3: گرفتن لیست کاربران از API
+  // --- مرحله 2: گرفتن لیست کاربران ---
   useEffect(() => {
+    if (!allowed) return; // فقط وقتی نقش ادمین تایید شد اجرا شود
+
     const loadUsers = async () => {
       const res = await fetch("/api/admin/users");
       const data = await res.json();
 
-      if (data.ok) {
-        setUsers(data.users);
-      }
+      if (data.ok) setUsers(data.users);
     };
 
     loadUsers();
-  }, []);
+  }, [allowed]);
+
+  // --- مرحله 3: خروجی صفحه ---
+  if (loading) return <p style={{ color: "white" }}>Loading...</p>;
+  if (!allowed) return null;
 
   return (
     <div style={{ padding: 20, color: "white" }}>
