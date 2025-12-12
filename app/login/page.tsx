@@ -2,11 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 // Firebase
 import { auth, db } from "@/lib/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
 const fontStack =
@@ -138,14 +142,16 @@ export default function LoginPage() {
     try {
       setLoading(true);
 
-      // ----------------------
-      // 🔵 SIGN UP (Create Account)
-      // ----------------------
+      /** 🔵 SIGN UP */
       if (tab === "signup") {
-        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const userCred = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
         const user = userCred.user;
 
-        // ذخیره در Firestore
         await setDoc(doc(db, "users", user.uid), {
           name,
           email,
@@ -162,17 +168,18 @@ export default function LoginPage() {
         return;
       }
 
-      // ----------------------
-      // 🔵 SIGN IN
-      // ----------------------
+      /** 🔵 SIGN IN */
       if (tab === "signin") {
-        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        const userCred = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
         localStorage.setItem("uid", userCred.user.uid);
         router.push("/dashboard");
         return;
       }
     } catch (err: any) {
-      console.log(err);
       setError("Firebase Error: " + err.message);
     } finally {
       setLoading(false);
@@ -181,20 +188,12 @@ export default function LoginPage() {
 
   return (
     <main style={styles.page}>
-      {/* Logo */}
       <div style={styles.logoWrap}>
-        <Image
-          src="/logo.png"
-          alt="Sellova"
-          width={210}
-          height={100}
-          priority
-        />
+        <Image src="/logo.png" alt="Sellova" width={210} height={100} priority />
       </div>
 
-      {/* Card */}
       <div style={styles.card}>
-        {/* Tabs */}
+        {/* ⭐ Tabs */}
         <div style={styles.tabs}>
           <button
             onClick={() => {
@@ -223,7 +222,7 @@ export default function LoginPage() {
           </button>
         </div>
 
-        {/* Signup fields */}
+        {/* ⭐ Signup */}
         {tab === "signup" && (
           <>
             <label style={styles.label}>Name</label>
@@ -245,7 +244,7 @@ export default function LoginPage() {
           </>
         )}
 
-        {/* Email */}
+        {/* ⭐ Email */}
         <label style={styles.label}>Email</label>
         <input
           style={styles.input}
@@ -254,7 +253,7 @@ export default function LoginPage() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        {/* Password */}
+        {/* ⭐ Password */}
         <label style={styles.label}>Password</label>
         <div style={{ position: "relative" }}>
           <input
@@ -280,12 +279,12 @@ export default function LoginPage() {
           </span>
         </div>
 
-        <button
-          onClick={handleContinue}
-          disabled={loading}
-          style={styles.primary}
-        >
-          {loading ? "Please wait..." : tab === "signin" ? "Sign in" : "Create account"}
+        <button onClick={handleContinue} disabled={loading} style={styles.primary}>
+          {loading
+            ? "Please wait..."
+            : tab === "signin"
+            ? "Sign in"
+            : "Create account"}
         </button>
 
         {error && (
@@ -303,18 +302,16 @@ export default function LoginPage() {
         )}
 
         {tab === "signin" && (
-          <div
-            style={styles.forgot}
-            onClick={() => router.push("/forgot-password")}
-          >
+          <div style={styles.forgot} onClick={() => router.push("/forgot-password")}>
             Forgot password?
           </div>
         )}
 
+        {/* ⭐ FIXED — Next.js Safe Navigation */}
         <div style={{ textAlign: "center", marginTop: 12 }}>
-          <a href="/" style={styles.backLink}>
+          <Link href="/" style={styles.backLink}>
             ← Back to home
-          </a>
+          </Link>
         </div>
       </div>
     </main>
