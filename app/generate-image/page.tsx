@@ -698,7 +698,8 @@ export default function ProductStudio() {
               <textarea
                 className="control"
                 style={{ minHeight: 85, resize: "vertical" }}
-                placeholder={messages.generateImage.placeholder || ""}
+               placeholder=""
+
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
               />
