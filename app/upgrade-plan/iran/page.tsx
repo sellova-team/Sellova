@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 export default function IranPlansPage() {
   const router = useRouter();
+   
 
   const plans = [
     {
@@ -53,6 +54,22 @@ export default function IranPlansPage() {
   const handleSelect = (route: string) => {
     router.push(route);
   };
+
+  const user = { uid: 'test-user-123' };
+
+async function handleFakeBuy(credits: number) {
+  await fetch('/api/fake-purchase', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      uid: user.uid,
+      credits,
+    }),
+  });
+
+  alert('خرید انجام شد');
+}
+
 
   return (
     <div
@@ -158,7 +175,12 @@ export default function IranPlansPage() {
             )}
 
             <button
-              onClick={() => handleSelect(plan.route)}
+              onClick={() => handleFakeBuy(
+    plan.credits.includes('۴۰۰') ? 400 :
+    plan.credits.includes('۵۵۰') ? 550 :
+    plan.credits.includes('۴٬۵۰۰') ? 4500 :
+    30
+  )}
               className="plan-btn"
               style={{
                 marginTop: '20px',
