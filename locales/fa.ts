@@ -42,6 +42,7 @@ export const faMessages = {
     promptLabel: "پرامپت",
     suggest: "پیشنهاد",
     generate: "بساز",
+    generating: "در حال ساخت...",
     createAvatar: "ساخت آواتار",
     download: "دانلود",
     credits: "کردیت مصرفی",
@@ -85,7 +86,16 @@ generateVideo: {
   costWarning: "این عملیات دارای هزینهٔ کردیت است. ادامه می‌دهید؟",
   notEnoughCredit: "کردیت کافی نیست.",
   serverError: "خطای سرور. دوباره تلاش کنید.",
-  success: "ویدیو با موفقیت ساخته شد!"
+  success: "ویدیو با موفقیت ساخته شد!",
+  plan: "پلن فعلی",
+planBasic: "Basic",
+creditsLeft: "کردیت باقی‌مانده",
+
+creditCostLabel: "هزینه کرِدیت",
+videoTypeAmazon: "ویدیو بهینه آمازون",
+videoTypeStandard: "ویدیوی تبلیغاتی معمولی",
+
+generating: "در حال ساخت ویدیو…",
 },
 
 
