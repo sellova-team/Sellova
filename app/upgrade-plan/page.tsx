@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 export default function CountrySelectPage() {
+  const user = { uid: 'test-user-123' };
   const router = useRouter();
   const [country, setCountry] = useState('IR'); // پیش‌فرض ایران
 
@@ -95,4 +96,18 @@ export default function CountrySelectPage() {
       </div>
     </div>
   );
+
+  async function handleBuy() {
+  await fetch('/api/fake-purchase', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      uid: user.uid,
+      credits: 400,
+    }),
+  });
+
+  alert('خرید انجام شد');
+}
+
 }
