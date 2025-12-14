@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
   try {
     const { uid } = await req.json();
 
-    const COST = 5;
+    const COST = 3;
 
     const userRef = doc(db, "users", uid);
     const snap = await getDoc(userRef);
@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
       creditBalance: increment(-COST),
     });
 
+    // فعلاً خروجی نمایشی
     return NextResponse.json({
       ok: true,
       cost: COST,
@@ -31,7 +32,7 @@ export async function POST(req: NextRequest) {
 
   } catch (err) {
     return NextResponse.json(
-      { error: "IMAGE_GENERATE_FAILED" },
+      { error: "ADVISORY_FAILED" },
       { status: 500 }
     );
   }

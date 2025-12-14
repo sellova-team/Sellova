@@ -4,9 +4,12 @@ import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 
 export async function POST(req: NextRequest) {
   try {
-    const { uid } = await req.json();
+    const { uid, duration } = await req.json();
+    // duration: 5 | 10
 
-    const COST = 5;
+    let COST = 0;
+    if (duration === 5) COST = 25;
+    if (duration === 10) COST = 35;
 
     const userRef = doc(db, "users", uid);
     const snap = await getDoc(userRef);
@@ -31,7 +34,7 @@ export async function POST(req: NextRequest) {
 
   } catch (err) {
     return NextResponse.json(
-      { error: "IMAGE_GENERATE_FAILED" },
+      { error: "VIDEO_GENERATE_FAILED" },
       { status: 500 }
     );
   }
