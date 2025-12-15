@@ -42,14 +42,6 @@ export default function IranPlansPage() {
     },
   ];
 
-  const freeCreditPlan = {
-    title: 'کردیت آزاد',
-    credits: '۳۵ کردیت',
-    price: '۱۶۵٬۰۰۰ تومان',
-    route: '/payment/flexible',
-    color: '#f39c12',
-  };
-
   const handleSelect = (route: string) => {
     router.push(route);
   };
@@ -60,10 +52,7 @@ export default function IranPlansPage() {
     await fetch('/api/fake-purchase', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        uid: user.uid,
-        credits,
-      }),
+      body: JSON.stringify({ uid: user.uid, credits }),
     });
     alert('خرید انجام شد');
   }
@@ -81,13 +70,7 @@ export default function IranPlansPage() {
       }}
     >
       <div className="plans-logo-wrap">
-        <Image
-          src="/logo.png"
-          alt="Sellova Logo"
-          width={300}
-          height={190}
-          className="plans-logo-img"
-        />
+        <Image src="/logo.png" alt="Sellova Logo" width={300} height={190} className="plans-logo-img" />
       </div>
 
       <div className="plans-grid">
@@ -106,20 +89,11 @@ export default function IranPlansPage() {
               alignItems: 'center',
               minHeight: '320px',
               boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
-              transition: 'transform 0.3s, box-shadow 0.3s',
               cursor: 'pointer',
               textAlign: 'center',
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.boxShadow = '0 25px 60px rgba(0,0,0,0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 15px 50px rgba(0,0,0,0.5)';
-            }}
           >
-            <h3 className="plan-title" style={{ fontSize: '26px', fontWeight: 700, marginBottom: 15 }}>
+            <h3 className="plan-title" style={{ fontSize: 26, fontWeight: 700, marginBottom: 15 }}>
               {plan.title}
             </h3>
             <p className="plan-credits" style={{ fontSize: 20, marginBottom: 10 }}>
@@ -172,7 +146,7 @@ export default function IranPlansPage() {
         ))}
       </div>
 
-      {/* ===== ۳ کارت زرد کنار هم ===== */}
+      {/* ===== ۳ پنجره زرد کنار هم (حتی موبایل) ===== */}
       <div className="free-plans-row">
         <div className="free-credit">
           <div className="free-credit-text">
@@ -223,7 +197,7 @@ export default function IranPlansPage() {
           justify-content: center;
           gap: 16px;
           margin-top: 40px;
-          flex-wrap: wrap;
+          flex-wrap: nowrap; /* 👈 همیشه کنار هم */
         }
 
         .free-credit {
@@ -235,6 +209,7 @@ export default function IranPlansPage() {
           align-items: center;
           gap: 12px;
           box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+          min-width: 260px;
         }
 
         .free-credit-text p {
@@ -291,8 +266,6 @@ export default function IranPlansPage() {
             padding: 8px 0 !important;
           }
           .free-credit {
-            width: 90% !important;
-            margin-top: 10px !important;
             padding: 10px !important;
           }
           .free-credit-text p {
