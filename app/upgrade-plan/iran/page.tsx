@@ -235,6 +235,19 @@ export default function IranPlansPage() {
           .free-plans-row {
             overflow-x: auto;
           }
+            @media (max-width: 768px) {
+  .free-plans-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .free-plans-row .free-credit {
+    width: auto !important;
+    min-width: 260px;
+  }
+}
+
         }
       `}</style>
     </div>
