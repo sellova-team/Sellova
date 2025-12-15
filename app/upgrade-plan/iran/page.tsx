@@ -130,11 +130,13 @@ export default function IranPlansPage() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.boxShadow = '0 25px 60px rgba(0,0,0,0.6)';
+              e.currentTarget.style.boxShadow =
+                '0 25px 60px rgba(0,0,0,0.6)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 15px 50px rgba(0,0,0,0.5)';
+              e.currentTarget.style.boxShadow =
+                '0 15px 50px rgba(0,0,0,0.5)';
             }}
           >
             <h3 className="plan-title">{plan.title}</h3>
@@ -147,7 +149,9 @@ export default function IranPlansPage() {
               </p>
             )}
 
-            {plan.description && <p className="plan-desc">{plan.description}</p>}
+            {plan.description && (
+              <p className="plan-desc">{plan.description}</p>
+            )}
 
             <button
               onClick={() =>
@@ -169,6 +173,37 @@ export default function IranPlansPage() {
         ))}
       </div>
 
+      {/* پلن آزاد – ۳۵ کردیت */}
+      <div
+        className="free-credit"
+        style={{
+          backgroundColor: freeCreditPlan.color,
+          color: '#fff',
+          borderRadius: '20px',
+          padding: '12px 20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '60px',
+          marginTop: '40px',
+          boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
+          cursor: 'pointer',
+          transition: 'transform 0.3s, box-shadow 0.3s',
+          textAlign: 'center',
+        }}
+        onClick={() => handleSelect(freeCreditPlan.route)}
+      >
+        <div className="free-credit-text" style={{ marginRight: '15px' }}>
+          <p style={{ fontSize: '25px', fontWeight: '700' }}>
+            {freeCreditPlan.title}
+          </p>
+          <p>{freeCreditPlan.credits}</p>
+          <p>{freeCreditPlan.price}</p>
+        </div>
+
+        <button className="free-credit-btn">انتخاب</button>
+      </div>
+
       {/* کارت‌های ویدیو آواتار آزاد */}
       {avatarFreePlans.map((plan, idx) => (
         <div
@@ -183,7 +218,7 @@ export default function IranPlansPage() {
             justifyContent: 'center',
             alignItems: 'center',
             minHeight: '60px',
-            marginTop: idx === 0 ? '40px' : '12px',
+            marginTop: '12px',
             boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
             cursor: 'pointer',
             transition: 'transform 0.3s, box-shadow 0.3s',
@@ -191,7 +226,9 @@ export default function IranPlansPage() {
           }}
         >
           <div className="free-credit-text" style={{ marginRight: '15px' }}>
-            <p style={{ fontSize: '25px', fontWeight: '700' }}>{plan.title}</p>
+            <p style={{ fontSize: '25px', fontWeight: '700' }}>
+              {plan.title}
+            </p>
             <p>{plan.credits}</p>
             <p>{plan.price}</p>
           </div>
@@ -206,14 +243,24 @@ export default function IranPlansPage() {
       ))}
 
       <style jsx>{`
-        /* ⭐ لپ‌تاپ / دسکتاپ – ۴ تا مستطیل بزرگ، زرد زیر دو تای وسط */
+        * {
+          font-family: IRANSans, Vazirmatn, system-ui,
+            -apple-system, BlinkMacSystemFont;
+        }
+
+        /* ⭐ لپ‌تاپ / دسکتاپ */
         .plans-page {
           min-height: 100vh;
           padding: 40px 24px 48px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          background: radial-gradient(900px 600px at 10% 0%, #1b2a5a 0%, #0b1224 45%, #060b17 100%);
+          background: radial-gradient(
+            900px 600px at 10% 0%,
+            #1b2a5a 0%,
+            #0b1224 45%,
+            #060b17 100%
+          );
         }
 
         .plans-logo-wrap {
@@ -234,18 +281,6 @@ export default function IranPlansPage() {
           width: 100%;
           max-width: 1200px;
           margin-bottom: 22px;
-        }
-
-        .plan-card {
-          border-radius: 20px;
-          padding: 26px 20px;
-          min-height: 260px;
-          color: #fff;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          text-align: center;
-          box-shadow: 0 18px 40px rgba(0,0,0,0.35);
         }
 
         .plan-title {
@@ -280,18 +315,15 @@ export default function IranPlansPage() {
           cursor: pointer;
         }
 
-        /* کارت زرد پایین – زیر دو تا وسطی قرار می‌گیره */
         .free-credit {
           margin-top: 6px;
           padding: 14px 20px;
           border-radius: 18px;
-          background: #facc15;
-          color: #1f2937;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 12px;
-          box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
         }
 
         .free-credit-text p {
@@ -309,96 +341,11 @@ export default function IranPlansPage() {
           cursor: pointer;
         }
 
-        /* 📱 موبایل و تبلت – مستطیل‌ها باریک‌تر و متن ریزتر */
+        /* 📱 موبایل – بدون تغییر */
         @media (max-width: 768px) {
-
-          /* کل صفحه بیاد بالا */
-          .plans-page {
-            padding-top: 4px !important;
-          }
-
-          /* لوگو کوچک و بالاتر */
-          .plans-logo-wrap {
-            margin-top: -8px !important;
-            margin-bottom: 2px !important;
-            display: flex;
-            justify-content: center;
-          }
-
-          .plans-logo-img {
-            width: 80px !important;
-            height: auto !important;
-          }
-
-          /* کارت‌ها جمع‌وجور و باریک‌تر */
           .plans-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px !important;
-            margin-top: -28px !important; /* کارت‌ها بالاتر */
-          }
-
-          .plan-card {
-            padding: 12px 10px !important;
-            border-radius: 10px !important;
-            min-height: 180px !important; /* کوتاه‌تر */
-          }
-
-          /* متن‌ها کوچک‌تر */
-          .plan-title {
-            font-size: 16px !important;
-            margin-bottom: 4px !important;
-          }
-
-          .plan-credits {
-            font-size: 13px !important;
-            margin-bottom: 4px !important;
-          }
-
-          .plan-price {
-            font-size: 14px !important;
-            margin-bottom: 4px !important;
-          }
-
-          .plan-desc {
-            font-size: 12px !important;
-          }
-
-          .plan-btn {
-            font-size: 13px !important;
-            padding: 8px 0 !important;
-          }
-
-          /* کارت زرد پایین */
-          .free-credit {
-            width: 90% !important;
-            margin-top: 10px !important;
-            padding: 10px !important;
-          }
-
-          .free-credit-text p {
-            font-size: 14px !important;
-          }
-
-          .free-credit-btn {
-            font-size: 14px !important;
-            padding: 8px 16px !important;
-          }
-
-          @media (max-width: 768px) {
-            .plans-logo-wrap {
-              margin-top: -14px !important; /* لوگو میره بالای بالای صفحه */
-              margin-bottom: 4px !important;
-            }
-
-            .plans-logo-img {
-              width: 120px !important; /* مثل صفحه عکس و ویدیو */
-              height: auto !important;
-            }
-
-            @media (max-width: 768px) {
-              .plans-logo-warp {
-                display: none !important;
-              } 
+            gap: 10px;
           }
         }
       `}</style>
