@@ -46,17 +46,6 @@ export default function IranPlansPage() {
     router.push(route);
   };
 
-  const user = { uid: 'test-user-123' };
-
-  async function handleFakeBuy(credits: number) {
-    await fetch('/api/fake-purchase', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ uid: user.uid, credits }),
-    });
-    alert('خرید انجام شد');
-  }
-
   return (
     <div
       className="plans-page"
@@ -69,10 +58,18 @@ export default function IranPlansPage() {
         padding: '40px 20px',
       }}
     >
+      {/* لوگو */}
       <div className="plans-logo-wrap">
-        <Image src="/logo.png" alt="Sellova Logo" width={300} height={190} className="plans-logo-img" />
+        <Image
+          src="/logo.png"
+          alt="Sellova Logo"
+          width={300}
+          height={190}
+          className="plans-logo-img"
+        />
       </div>
 
+      {/* پلن‌های اصلی */}
       <div className="plans-grid">
         {plans.map((plan, idx) => (
           <div
@@ -89,72 +86,40 @@ export default function IranPlansPage() {
               alignItems: 'center',
               minHeight: '320px',
               boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
-              cursor: 'pointer',
               textAlign: 'center',
             }}
           >
-            <h3 className="plan-title" style={{ fontSize: 26, fontWeight: 700, marginBottom: 15 }}>
-              {plan.title}
-            </h3>
-            <p className="plan-credits" style={{ fontSize: 20, marginBottom: 10 }}>
-              {plan.credits}
-            </p>
-            <p className="plan-price" style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 15 }}>
-              {plan.price}
-            </p>
+            <h3 className="plan-title">{plan.title}</h3>
+            <p className="plan-credits">{plan.credits}</p>
+            <p className="plan-price">{plan.price}</p>
 
             {plan.originalPrice && (
-              <p style={{ textDecoration: 'line-through', opacity: 0.8, fontSize: 16, marginTop: -10 }}>
+              <p style={{ textDecoration: 'line-through', opacity: 0.8 }}>
                 {plan.originalPrice}
               </p>
             )}
 
             {plan.description && (
-              <p className="plan-desc" style={{ fontSize: 16, color: '#f0f0f0', marginBottom: 15 }}>
-                {plan.description}
-              </p>
+              <p className="plan-desc">{plan.description}</p>
             )}
 
-            <button
-              onClick={() =>
-                handleFakeBuy(
-                  plan.credits.includes('۴۰۰')
-                    ? 400
-                    : plan.credits.includes('۵۵۰')
-                    ? 550
-                    : plan.credits.includes('۴٬۵۰۰')
-                    ? 4500
-                    : 30
-                )
-              }
-              className="plan-btn"
-              style={{
-                marginTop: 20,
-                padding: '15px 0',
-                borderRadius: 12,
-                border: 'none',
-                backgroundColor: '#fff',
-                color: plan.color,
-                fontSize: 18,
-                fontWeight: 600,
-                width: '60%',
-              }}
-            >
-              انتخاب
-            </button>
+            <button className="plan-btn">انتخاب</button>
           </div>
         ))}
       </div>
 
-      {/* ===== ۳ پنجره زرد کنار هم (حتی موبایل) ===== */}
+      {/* ===== ۳ پنجره زرد کنار هم ===== */}
       <div className="free-plans-row">
         <div className="free-credit">
           <div className="free-credit-text">
-            <p>کردیت آزاد</p>
+            <p>پلن آزاد</p>
             <p>۳۵ کردیت</p>
-            <p>۱۶۵٬۰۰۰ تومان</p>
+            <p>۱۷۰٬۰۰۰ تومان</p>
           </div>
-          <button className="free-credit-btn" onClick={() => handleSelect('/payment/flexible')}>
+          <button
+            className="free-credit-btn"
+            onClick={() => handleSelect('/payment/flexible')}
+          >
             انتخاب
           </button>
         </div>
@@ -180,7 +145,7 @@ export default function IranPlansPage() {
 
       <style jsx>{`
         * {
-          font-family: Vazirmatn, IRANSans, 'Segoe UI', Tahoma, Arial, sans-serif;
+          font-family: Vazirmatn, IRANSans, Tahoma, Arial, sans-serif;
         }
 
         .plans-grid {
@@ -189,15 +154,48 @@ export default function IranPlansPage() {
           gap: 26px;
           width: 100%;
           max-width: 1200px;
-          margin-bottom: 22px;
+          margin-bottom: 40px;
         }
 
+        .plan-title {
+          font-size: 22px;
+          font-weight: 800;
+          margin-bottom: 10px;
+        }
+
+        .plan-credits {
+          font-size: 18px;
+          margin-bottom: 6px;
+        }
+
+        .plan-price {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        .plan-desc {
+          font-size: 15px;
+          margin-bottom: 12px;
+        }
+
+        .plan-btn {
+          margin-top: 10px;
+          padding: 10px 0;
+          width: 60%;
+          border-radius: 999px;
+          border: none;
+          font-size: 18px;
+          font-weight: 800;
+          cursor: pointer;
+        }
+
+        /* ===== زردها کنار هم ===== */
         .free-plans-row {
           display: flex;
           justify-content: center;
           gap: 16px;
-          margin-top: 40px;
-          flex-wrap: nowrap; /* 👈 همیشه کنار هم */
+          margin-top: 20px;
+          flex-wrap: nowrap;
         }
 
         .free-credit {
@@ -227,53 +225,15 @@ export default function IranPlansPage() {
           cursor: pointer;
         }
 
-        /* موبایل دست نخورده */
+        /* موبایل – استایل اصلی حفظ شده */
         @media (max-width: 768px) {
-          .plans-page {
-            padding-top: 4px !important;
-          }
-          .plans-logo-wrap {
-            margin-top: -8px !important;
-            margin-bottom: 2px !important;
-          }
-          .plans-logo-img {
-            width: 80px !important;
-          }
           .plans-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px !important;
-            margin-top: -28px !important;
+            gap: 10px;
           }
-          .plan-card {
-            padding: 12px 10px !important;
-            border-radius: 10px !important;
-            min-height: 180px !important;
-          }
-          .plan-title {
-            font-size: 16px !important;
-          }
-          .plan-credits {
-            font-size: 13px !important;
-          }
-          .plan-price {
-            font-size: 14px !important;
-          }
-          .plan-desc {
-            font-size: 12px !important;
-          }
-          .plan-btn {
-            font-size: 13px !important;
-            padding: 8px 0 !important;
-          }
-          .free-credit {
-            padding: 10px !important;
-          }
-          .free-credit-text p {
-            font-size: 14px !important;
-          }
-          .free-credit-btn {
-            font-size: 14px !important;
-            padding: 8px 16px !important;
+
+          .free-plans-row {
+            overflow-x: auto;
           }
         }
       `}</style>
