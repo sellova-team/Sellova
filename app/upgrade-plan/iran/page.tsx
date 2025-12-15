@@ -17,16 +17,16 @@ export default function IranPlansPage() {
     },
     {
       title: 'پلن ماهانه',
-      credits: '۴۰۰ کردیت',
-      price: '۸۷۰,۰۰۰ تومان',
+      credits: '۳۵۰ کردیت',
+      price: '۸۹۰٬۰۰۰ تومان',
       description: '🎁 هدیه: ۱ ویدیو ۱۰ ثانیه‌ای یا ۳ ویدیو ۵ ثانیه‌ای با آواتار',
       route: '/payment/monthly',
       color: '#4a90e2',
     },
     {
       title: 'VIP ماهانه',
-      credits: '۵۵۰ کردیت',
-      price: '۱٬۲۳۰٬۰۰۰ تومان',
+      credits: '۵۰۰ کردیت',
+      price: '۱٬۳۰۰٬۰۰۰ تومان',
       description: '🎁 هدیه: ۲ ویدیو ۱۰ ثانیه‌ای یا ۴ ویدیو ۵ ثانیه‌ای با آواتار',
       route: '/payment/vip-monthly',
       color: '#e74c3c',
@@ -43,9 +43,9 @@ export default function IranPlansPage() {
   ];
 
   const freeCreditPlan = {
-    title: 'کردیت آزاد',
+    title: 'پلن آزاد',
     credits: '۳۵ کردیت',
-    price: '۱۶۵٬۰۰۰ تومان',
+    price: '۱۷۰٬۰۰۰ تومان',
     route: '/payment/flexible',
     color: '#f39c12',
   };
@@ -152,10 +152,10 @@ export default function IranPlansPage() {
             <button
               onClick={() =>
                 handleFakeBuy(
-                  plan.credits.includes('۴۰۰')
-                    ? 400
-                    : plan.credits.includes('۵۵۰')
-                    ? 550
+                  plan.credits.includes('۳۵۰')
+                    ? 350
+                    : plan.credits.includes('۵۰۰')
+                    ? 500
                     : plan.credits.includes('۴٬۵۰۰')
                     ? 4500
                     : 30
