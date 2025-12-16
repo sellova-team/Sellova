@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -10,6 +11,8 @@ import { auth, db } from "@/lib/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -142,6 +145,9 @@ export default function LoginPage() {
     try {
       setLoading(true);
 
+      // ✅ FIX FOR MOBILE
+      await setPersistence(auth, browserLocalPersistence);
+
       /** 🔵 SIGN UP */
       if (tab === "signup") {
         const userCred = await createUserWithEmailAndPassword(
@@ -193,7 +199,6 @@ export default function LoginPage() {
       </div>
 
       <div style={styles.card}>
-        {/* ⭐ Tabs */}
         <div style={styles.tabs}>
           <button
             onClick={() => {
@@ -222,13 +227,11 @@ export default function LoginPage() {
           </button>
         </div>
 
-        {/* ⭐ Signup */}
         {tab === "signup" && (
           <>
             <label style={styles.label}>Name</label>
             <input
               style={styles.input}
-              placeholder="Your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -236,7 +239,6 @@ export default function LoginPage() {
             <label style={styles.label}>Security word (5 letters)</label>
             <input
               style={styles.input}
-              placeholder="ex: apple"
               value={securityWord}
               maxLength={5}
               onChange={(e) => setSecurityWord(e.target.value.toLowerCase())}
@@ -244,59 +246,27 @@ export default function LoginPage() {
           </>
         )}
 
-        {/* ⭐ Email */}
         <label style={styles.label}>Email</label>
         <input
           style={styles.input}
-          placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        {/* ⭐ Password */}
         <label style={styles.label}>Password</label>
-        <div style={{ position: "relative" }}>
-          <input
-            style={styles.input}
-            type={showPass ? "text" : "password"}
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <span
-            style={{
-              position: "absolute",
-              right: 12,
-              top: 15,
-              cursor: "pointer",
-              color: "#777",
-              fontSize: 18,
-            }}
-            onClick={() => setShowPass(!showPass)}
-          >
-            {showPass ? "👁️" : "👁️‍🗨️"}
-          </span>
-        </div>
+        <input
+          style={styles.input}
+          type={showPass ? "text" : "password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
         <button onClick={handleContinue} disabled={loading} style={styles.primary}>
-          {loading
-            ? "Please wait..."
-            : tab === "signin"
-            ? "Sign in"
-            : "Create account"}
+          {loading ? "Please wait..." : tab === "signin" ? "Sign in" : "Create account"}
         </button>
 
         {error && (
-          <div
-            style={{
-              color: "#b91c1c",
-              fontSize: 15,
-              marginTop: 10,
-              textAlign: "center",
-              fontWeight: 700,
-            }}
-          >
+          <div style={{ color: "#b91c1c", marginTop: 10, textAlign: "center" }}>
             {error}
           </div>
         )}
@@ -307,7 +277,6 @@ export default function LoginPage() {
           </div>
         )}
 
-        {/* ⭐ FIXED — Next.js Safe Navigation */}
         <div style={{ textAlign: "center", marginTop: 12 }}>
           <Link href="/" style={styles.backLink}>
             ← Back to home
