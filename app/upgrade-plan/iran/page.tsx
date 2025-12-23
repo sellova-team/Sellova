@@ -11,23 +11,29 @@ export default function IranPlansPage() {
       title: 'پلن رایگان',
       credits: '۳۰ کردیت',
       price: 'رایگان',
-      description: 'تست برای شروع شامل فیلم نمی‌شود',
+      description: 'تست اولیه – شامل ویدیو آواتار نمی‌شود',
       route: '/payment/free',
       color: '#6c757d',
     },
     {
       title: 'پلن ماهانه',
-      credits: '۴۰۰ کردیت',
-      price: '۸۷۰,۰۰۰ تومان',
-      description: '',
+      credits: '۳۵۰ کردیت',
+      price: '۸۹۰٬۰۰۰ تومان',
+      description: `🎁 هدیه:
+• ۱ ویدیو آواتار ۱۰ ثانیه‌ای
+یا
+• ۳ ویدیو آواتار ۵ ثانیه‌ای`,
       route: '/payment/monthly',
       color: '#4a90e2',
     },
     {
       title: 'VIP ماهانه',
-      credits: '۵۵۰ کردیت',
-      price: '۱٬۲۳۰٬۰۰۰ تومان',
-      description: '',
+      credits: '۵۰۰ کردیت',
+      price: '۱٬۳۰۰٬۰۰۰ تومان',
+      description: `🎁 هدیه:
+• ۲ ویدیو آواتار ۱۰ ثانیه‌ای
+یا
+• ۴ ویدیو آواتار ۵ ثانیه‌ای`,
       route: '/payment/vip-monthly',
       color: '#e74c3c',
     },
@@ -36,9 +42,27 @@ export default function IranPlansPage() {
       credits: '۴٬۵۰۰ کردیت',
       originalPrice: '۱۲٬۵۰۰٬۰۰۰ تومان',
       price: '۶٬۵۰۰٬۰۰۰ تومان',
-      description: 'تخفیف ۴۸٪ به مدت محدود',
+      description: `🎁 هدیه ویژه:
+• ۶ ویدیو آواتار ۱۰ ثانیه‌ای
+• ۱۰ ویدیو آواتار ۵ ثانیه‌ای`,
       route: '/payment/yearly',
       color: '#27ae60',
+    },
+    {
+      title: 'Avatar Video Pro',
+      credits: '۱۶ واحد آواتار',
+      price: '۳٬۲۰۰٬۰۰۰ تومان',
+      description: `🎥 فقط مخصوص ویدیو آواتار
+• هر ویدیو ۵ ثانیه‌ای = ۱ واحد
+• هر ویدیو ۱۰ ثانیه‌ای = ۲ واحد
+
+مثال استفاده:
+• ۸ ویدیو ۱۰ ثانیه‌ای
+یا
+• ۱۶ ویدیو ۵ ثانیه‌ای
+یا ترکیبی دلخواه`,
+      route: '/payment/avatar-pro',
+      color: '#f59e0b',
     },
   ];
 
@@ -87,6 +111,7 @@ export default function IranPlansPage() {
               minHeight: '320px',
               boxShadow: '0 15px 50px rgba(0,0,0,0.5)',
               textAlign: 'center',
+              whiteSpace: 'pre-line',
             }}
           >
             <h3 className="plan-title">{plan.title}</h3>
@@ -103,16 +128,21 @@ export default function IranPlansPage() {
               <p className="plan-desc">{plan.description}</p>
             )}
 
-            <button className="plan-btn">انتخاب</button>
+            <button
+              className="plan-btn"
+              onClick={() => handleSelect(plan.route)}
+            >
+              انتخاب
+            </button>
           </div>
         ))}
       </div>
 
-      {/* ===== ۳ پنجره زرد کنار هم ===== */}
+      {/* پلن‌های آزاد */}
       <div className="free-plans-row">
         <div className="free-credit">
           <div className="free-credit-text">
-            <p>پلن آزاد</p>
+            <p>پلن کردیت آزاد</p>
             <p>۳۵ کردیت</p>
             <p>۱۷۰٬۰۰۰ تومان</p>
           </div>
@@ -127,7 +157,7 @@ export default function IranPlansPage() {
         <div className="free-credit">
           <div className="free-credit-text">
             <p>ویدیو آواتار ۵ ثانیه‌ای</p>
-            <p>بدون کردیت</p>
+            <p>بدون مصرف کردیت</p>
             <p>۲۹۰٬۰۰۰ تومان</p>
           </div>
           <button className="free-credit-btn">انتخاب</button>
@@ -136,7 +166,7 @@ export default function IranPlansPage() {
         <div className="free-credit">
           <div className="free-credit-text">
             <p>ویدیو آواتار ۱۰ ثانیه‌ای</p>
-            <p>بدون کردیت</p>
+            <p>بدون مصرف کردیت</p>
             <p>۳۹۰٬۰۰۰ تومان</p>
           </div>
           <button className="free-credit-btn">انتخاب</button>
@@ -150,10 +180,10 @@ export default function IranPlansPage() {
 
         .plans-grid {
           display: grid;
-          grid-template-columns: repeat(4, minmax(220px, 1fr));
+          grid-template-columns: repeat(5, minmax(220px, 1fr));
           gap: 26px;
           width: 100%;
-          max-width: 1200px;
+          max-width: 1400px;
           margin-bottom: 40px;
         }
 
@@ -176,6 +206,7 @@ export default function IranPlansPage() {
         .plan-desc {
           font-size: 15px;
           margin-bottom: 12px;
+          line-height: 1.6;
         }
 
         .plan-btn {
@@ -189,7 +220,6 @@ export default function IranPlansPage() {
           cursor: pointer;
         }
 
-        /* ===== زردها کنار هم ===== */
         .free-plans-row {
           display: flex;
           justify-content: center;
@@ -225,7 +255,6 @@ export default function IranPlansPage() {
           cursor: pointer;
         }
 
-        /* موبایل – استایل اصلی حفظ شده */
         @media (max-width: 768px) {
           .plans-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -235,19 +264,10 @@ export default function IranPlansPage() {
           .free-plans-row {
             overflow-x: auto;
           }
-            @media (max-width: 768px) {
-  .free-plans-row {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
 
-  .free-plans-row .free-credit {
-    width: auto !important;
-    min-width: 260px;
-  }
-}
-
+          .free-credit {
+            min-width: 260px;
+          }
         }
       `}</style>
     </div>
