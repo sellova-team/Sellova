@@ -19,10 +19,10 @@ export default function IranPlansPage() {
       title: 'پلن ماهانه',
       credits: '۳۵۰ کردیت',
       price: '۸۹۰٬۰۰۰ تومان',
-      description: `🎁 هدیه:
+      description: `❌ ویدیو آواتار با کردیت فعال نیست
+🎁 فقط هدیه (یکی از این دو):
 • ۱ ویدیو آواتار ۱۰ ثانیه‌ای
-یا
-• ۳ ویدیو آواتار ۵ ثانیه‌ای`,
+• یا ۳ ویدیو آواتار ۵ ثانیه‌ای`,
       route: '/payment/monthly',
       color: '#4a90e2',
     },
@@ -30,10 +30,10 @@ export default function IranPlansPage() {
       title: 'VIP ماهانه',
       credits: '۵۰۰ کردیت',
       price: '۱٬۳۰۰٬۰۰۰ تومان',
-      description: `🎁 هدیه:
+      description: `❌ ویدیو آواتار با کردیت فعال نیست
+🎁 فقط هدیه (یکی از این دو):
 • ۲ ویدیو آواتار ۱۰ ثانیه‌ای
-یا
-• ۴ ویدیو آواتار ۵ ثانیه‌ای`,
+• یا ۴ ویدیو آواتار ۵ ثانیه‌ای`,
       route: '/payment/vip-monthly',
       color: '#e74c3c',
     },
@@ -42,9 +42,10 @@ export default function IranPlansPage() {
       credits: '۴٬۵۰۰ کردیت',
       originalPrice: '۱۲٬۵۰۰٬۰۰۰ تومان',
       price: '۶٬۵۰۰٬۰۰۰ تومان',
-      description: `🎁 هدیه ویژه:
+      description: `❌ ویدیو آواتار با کردیت فعال نیست
+🎁 هدیه انتخابی (فقط یکی):
 • ۶ ویدیو آواتار ۱۰ ثانیه‌ای
-• ۱۰ ویدیو آواتار ۵ ثانیه‌ای`,
+• یا ۱۰ ویدیو آواتار ۵ ثانیه‌ای`,
       route: '/payment/yearly',
       color: '#27ae60',
     },
@@ -52,15 +53,14 @@ export default function IranPlansPage() {
       title: 'Avatar Video Pro',
       credits: '۱۶ واحد آواتار',
       price: '۳٬۲۰۰٬۰۰۰ تومان',
-      description: `🎥 فقط مخصوص ویدیو آواتار
+      description: `🎥 پلن اختصاصی ویدیو آواتار
 • هر ویدیو ۵ ثانیه‌ای = ۱ واحد
 • هر ویدیو ۱۰ ثانیه‌ای = ۲ واحد
 
 مثال استفاده:
 • ۸ ویدیو ۱۰ ثانیه‌ای
-یا
-• ۱۶ ویدیو ۵ ثانیه‌ای
-یا ترکیبی دلخواه`,
+• یا ۱۶ ویدیو ۵ ثانیه‌ای
+• یا ترکیبی دلخواه`,
       route: '/payment/avatar-pro',
       color: '#f59e0b',
     },
@@ -124,9 +124,7 @@ export default function IranPlansPage() {
               </p>
             )}
 
-            {plan.description && (
-              <p className="plan-desc">{plan.description}</p>
-            )}
+            <p className="plan-desc">{plan.description}</p>
 
             <button
               className="plan-btn"
@@ -140,11 +138,15 @@ export default function IranPlansPage() {
 
       {/* پلن‌های آزاد */}
       <div className="free-plans-row">
+        {/* پلن کردیت آزاد */}
         <div className="free-credit">
           <div className="free-credit-text">
             <p>پلن کردیت آزاد</p>
             <p>۳۵ کردیت</p>
             <p>۱۷۰٬۰۰۰ تومان</p>
+            <p style={{ fontSize: '14px', fontWeight: 600 }}>
+              ❌ شامل ویدیو آواتار نمی‌شود
+            </p>
           </div>
           <button
             className="free-credit-btn"
@@ -154,22 +156,30 @@ export default function IranPlansPage() {
           </button>
         </div>
 
+        {/* ویدیو آواتار آزاد ۵ ثانیه‌ای */}
         <div className="free-credit">
           <div className="free-credit-text">
-            <p>ویدیو آواتار ۵ ثانیه‌ای</p>
+            <p>ویدیو آواتار آزاد ۵ ثانیه‌ای</p>
+            <p>۱ ویدیو آواتار</p>
             <p>بدون مصرف کردیت</p>
             <p>۲۹۰٬۰۰۰ تومان</p>
           </div>
-          <button className="free-credit-btn">انتخاب</button>
+          <button className="free-credit-btn">
+            انتخاب
+          </button>
         </div>
 
+        {/* ویدیو آواتار آزاد ۱۰ ثانیه‌ای */}
         <div className="free-credit">
           <div className="free-credit-text">
-            <p>ویدیو آواتار ۱۰ ثانیه‌ای</p>
+            <p>ویدیو آواتار آزاد ۱۰ ثانیه‌ای</p>
+            <p>۱ ویدیو آواتار</p>
             <p>بدون مصرف کردیت</p>
             <p>۳۹۰٬۰۰۰ تومان</p>
           </div>
-          <button className="free-credit-btn">انتخاب</button>
+          <button className="free-credit-btn">
+            انتخاب
+          </button>
         </div>
       </div>
 
