@@ -10,7 +10,7 @@ export default function HomePage() {
         background: "#fff",
         display: "flex",
         justifyContent: "center",
-        padding: "clamp(12px, 3vw, 24px)",
+        padding: "clamp(12px, 2vw, 24px)",
       }}
     >
       <div
@@ -18,7 +18,7 @@ export default function HomePage() {
           width: "clamp(320px, 92vw, 850px)",
           textAlign: "center",
           display: "grid",
-          gap: "clamp(18px, 2.5vw, 28px)",
+          gap: "clamp(14px, 2vw, 26px)",
         }}
       >
         {/* تیتر */}
@@ -57,7 +57,7 @@ export default function HomePage() {
         </div>
 
         {/* دکمه Login → بزرگ، واضح، حرفه‌ای */}
-        <div style={{ marginTop: "4px" }}>
+        <div>
           <Link
             href="/login"
             style={{
