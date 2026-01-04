@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { ChangeEvent } from "react";
 import { useLang } from "../../lib/lang";
 import { enMessages } from "../../locales/en";
 import { faMessages } from "../../locales/fa";
@@ -196,7 +197,7 @@ const [avatarMode, setAvatarMode] = useState<"single" | "triple" | "video5" | "v
     const form = new FormData();
   
     if (ownAvatarFile) form.append("avatar", ownAvatarFile);
-    if (productFile) form.append("product", productFile);
+    if (productFile) form.append("productk", productFile);
     if (selectedFace) form.append("faceId", selectedFace);
     
     form.append("category", selectedCategory);
@@ -293,10 +294,10 @@ const translatedPrompt = translateData.text || prompt;
   }, [selectedCategory]);
 
   // ---------- UPLOADS ----------
-  const onProductUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+ const onProductUpload = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) setProductFile(e.target.files[0]);
   };
-  const onOwnAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+ const onOwnAvatarUpload = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setOwnAvatarFile(e.target.files[0]);
       setUseOwnAvatar(true);
