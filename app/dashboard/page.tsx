@@ -4,7 +4,7 @@ import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import React, { CSSProperties, useEffect, useState } from "react";
 import Link from "next/link";
-import { useLang } from "../../lib/lang";
+import { useLang, Locale } from "../../lib/lang";
 
 const ICONS = {
   upload: "/assets/icons/upload.png",
@@ -19,7 +19,20 @@ const ICONS = {
   slides: "/assets/icons/promo-slides.png",
   guideCenter: "/assets/icons/guide-center.png",
   academyInsight: "/assets/icons/academy-insight.png",
+  golden: "/assets/icons/crown.png",
 };
+
+const LANGS = [
+  { code: "en", label: "🇬🇧 English" },
+  { code: "fa", label: "🇮🇷 فارسی" },
+  { code: "tr", label: "🇹🇷 Türkçe" },
+  { code: "ur", label: "🇵🇰 Urdu" },
+  { code: "ar", label: "🇸🇦 Arabic" },
+  { code: "az", label: "🇦🇿 Azerbaijani" },
+  { code: "ar-eg", label: "🇪🇬 Arabic (Egypt)" },
+  { code: "uz", label: "🇺🇿 Uzbek" },
+  { code: "kk", label: "🇰🇿 Kazakh" },
+];
 
 const styles: { [k: string]: CSSProperties } = {
   page: {
@@ -149,6 +162,8 @@ export default function DashboardPage() {
 
   const [isMobile, setIsMobile] = useState(false);
 
+  const [openLang, setOpenLang] = useState(false);
+
   const [role, setRole] = useState("");
 const [credit, setCredit] = useState<number | null>(null);
 const [loadingUser, setLoadingUser] = useState(true);
@@ -187,14 +202,11 @@ const [plan, setPlan] = useState("");
   loadUser();
 }, []);
 
-  const toggleLang = () => {
-    setLocale(locale === "en" ? "fa" : "en");
-  };
-
   const localizedItems = [
     { href: "/guide", title: messages.dashboard.cards.uploadGuide, iconSrc: ICONS.upload },
     { href: "/generate-image", title: messages.dashboard.cards.generateImage, iconSrc: ICONS.image },
     { href: "/generate-video", title: messages.dashboard.cards.generateVideo, iconSrc: ICONS.video },
+    { href: "/golden-plan", title: messages.dashboard.cards.goldenPlan, iconSrc: ICONS.golden },
     { href: "/avatar", title: messages.dashboard.cards.createAvatar, iconSrc: ICONS.avatar },
     { href: "/hashtags", title: messages.dashboard.cards.captionsHashtags, iconSrc: ICONS.captions },
     { href: "/advisory-consultation", title: messages.dashboard.cards.advisoryAnalysis, iconSrc: ICONS.advisory },
@@ -213,14 +225,52 @@ const [plan, setPlan] = useState("");
       className="dash-page"
     >
       <div style={styles.langBar} className="dash-lang-bar">
-        <button
-          style={styles.langButton}
-          className="dash-lang-btn"
-          onClick={toggleLang}
-        >
-          {locale === "en" ? "🇮🇷 فارسی" : "🇬🇧 English"}
-        </button>
+  <div style={{ position: "relative" }}>
+
+    <button
+      style={styles.langButton}
+      onClick={() => setOpenLang(!openLang)}
+    >
+      🌍 {LANGS.find(l => l.code === locale)?.label || "Language"}
+    </button>
+
+    {openLang && (
+      <div
+        style={{
+          position: "absolute",
+          top: 45,
+          right: 0,
+          background: "#fff",
+          borderRadius: 10,
+          overflow: "hidden",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+          zIndex: 999,
+          width: 200,
+        }}
+      >
+        {LANGS.map((l) => (
+          <div
+            key={l.code}
+            onClick={() => {
+              setLocale(l.code as Locale);
+              setOpenLang(false);
+            }}
+            style={{
+              padding: "10px",
+              cursor: "pointer",
+              fontSize: 14,
+              borderBottom: "1px solid #eee",
+              background: locale === l.code ? "#f2f2f2" : "#fff",
+            }}
+          >
+            {l.label}
+          </div>
+        ))}
       </div>
+    )}
+
+  </div>
+</div>
 
       <div style={styles.logoWrap} className="dash-logo-wrap">
         <img

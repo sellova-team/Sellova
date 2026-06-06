@@ -11,12 +11,29 @@ import React, {
 // و فولدر locales کنار lib قرار دارد، مسیرش می‌شود ../locales
 import { enMessages } from "../locales/en";
 import { faMessages } from "../locales/fa";
+import { trMessages } from "@/locales/tr";
 
-export type Locale = "en" | "fa";
+export type Locale =
+  | "en"
+  | "fa"
+  | "tr"
+  | "ur"
+  | "ar"
+  | "az"
+  | "ar-eg"
+  | "uz"
+  | "kk";
 
 const allMessages = {
   en: enMessages,
   fa: faMessages,
+  tr: trMessages,
+  ur: enMessages,
+  ar: enMessages,
+  az: enMessages,
+  "ar-eg": enMessages,
+  uz: enMessages,
+  kk: enMessages,
 };
 
 type LangContextType = {

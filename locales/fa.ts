@@ -10,6 +10,7 @@ export const faMessages = {
       generateImage: "ساخت تصویر",
       generateVideo: "ساخت ویدئو",
       createAvatar: "ساخت آواتار",
+      goldenPlan: "پلن طلایی",
       captionsHashtags: "کپشن و هشتگ",
       advisoryAnalysis: "مشاوره و آنالیز",
       upgradePlan: "ارتقای پلن",
@@ -164,6 +165,34 @@ avatar: {
   footerAmazon: "Basic • 500 کرِدیت • آمازون لایف‌استایل • ۳ عکس = ۳۰ کرِدیت",
   footerStandard: "Basic • 500 کرِدیت • ۳ عکس = ۱۸ کرِدیت",
   amazonVideoBanner: "پیش‌نمایش ویدئوی تبلیغاتی آمازون • بهینه‌شده برای تبدیل",
+},
+
+ // --- GoldenPlan ---
+goldenPlan: {
+  title: "پلن طلایی",
+  subtitle: "تبلیغ سینمایی هوش مصنوعی + موزیک ویدیوی برند",
+
+  uploadProduct: "آپلود تصویر محصول",
+  productName: "نام محصول",
+
+  uploadLogo: "آپلود لوگو",
+  brandName: "نام برند",
+
+  musicLanguage: "زبان موسیقی",
+  musicPackage: "پکیج موسیقی",
+
+  outputSize: "ابعاد خروجی",
+
+  specialInstructions: "توضیحات ویژه",
+
+  generatedVideo: "ویدیوی تولید شده",
+
+  preview: "پیش نمایش ویدیو",
+
+  generateButton: "ساخت ویدیوی طلایی",
+
+  package1: "1 موزیک ویدیو - 300 اعتبار",
+  package2: "2 موزیک ویدیو - 600 اعتبار",
 },
 
   // --- Hashtags & Captions ---

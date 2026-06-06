@@ -59,7 +59,7 @@ export default function HomePage() {
         {/* دکمه Login → بزرگ، واضح، حرفه‌ای */}
         <div>
           <Link
-            href="/login"
+            href="/dashboard"
             style={{
               display: "block",
               width: "clamp(200px, 40vw, 280px)",

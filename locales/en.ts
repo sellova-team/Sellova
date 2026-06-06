@@ -10,6 +10,7 @@ export const enMessages = {
       generateImage: "Generate image",
       generateVideo: "Generate video",
       createAvatar: "Create avatar",
+      goldenPlan: "Golden Plan",
       captionsHashtags: "Captions & hashtags",
       advisoryAnalysis: "Advisory & analysis",
       upgradePlan: "Upgrade plan",
@@ -164,6 +165,34 @@ avatar: {
   amazonVideoBanner: "Amazon Promo Video Preview • Conversion Optimized",
 },
 
+// ---GoldenPlan ---
+goldenPlan: {
+  title: "Golden Plan",
+  subtitle: "Cinematic AI Commercial + Brand Music Video",
+
+  uploadProduct: "Upload Product Image",
+  productName: "Product Name",
+
+  uploadLogo: "Upload Logo",
+  brandName: "Brand Name",
+
+  musicLanguage: "Music Language",
+  musicPackage: "Music Package",
+
+  outputSize: "Output Size",
+
+  specialInstructions: "Special Instructions",
+
+  generatedVideo: "Generated Video",
+
+  preview: "Video Preview",
+
+  generateButton: "Generate Golden Video",
+
+  package1: "1 Music Video - 300 Credits",
+  package2: "2 Music Videos - 600 Credits",
+},
+
   // --- Hashtags & Captions ---
   hashtags: {
     title: "Generate Hashtags & Captions",
@@ -185,6 +214,7 @@ avatar: {
     captionPlaceholder: "Your caption will appear here...",
     suggestCaptionButton: "Caption",
     generateAllButton: "Generate All",
+  
   },
 
   // --- Advisory & Analysis ---
