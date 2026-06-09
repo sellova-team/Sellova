@@ -27,7 +27,13 @@ export default function GuidePage() {
         }}
       >
         <img
-  src={locale === "fa" ? "/guidance-fa.png" : "/guidance.png"}
+ src={
+  locale === "fa"
+    ? "/guidance-fa.png"
+    : locale === "tr"
+    ? "/guidance-tr.png"
+    : "/guidance.png"
+}
   alt="Upload guide"
   style={{
     width: "80%", // 👈 عرض رو کمتر کردیم
