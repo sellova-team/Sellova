@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useLang } from "../../lib/lang";
+import { trMessages } from "@/locales/tr";
 
 type Slide = {
   id: string;
@@ -33,10 +34,14 @@ export default function AcademyInsightPage() {
       locale: "en",
     };
 
-  const slides = useMemo(
-    () => (t.locale === "fa" ? slidesFA() : slidesEN()),
-    [t.locale]
-  );
+  const slides = useMemo(() => {
+     if (t.locale === "tr") return trMessages.academyInsight.slides;
+
+    return t.locale ==="fa" ? slidesFA() : slidesEN();
+  }, [t.locale]);
+   
+
+console.log(messages);
 
   const [idx, setIdx] = useState(0);
   const count = slides.length;

@@ -4,6 +4,7 @@ import React, {
   createContext,
   useContext,
   useState,
+  useEffect,
   ReactNode,
 } from "react";
 
@@ -46,12 +47,21 @@ const LangContext = createContext<LangContextType | undefined>(undefined);
 
 export function LangProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>("en"); // پیش‌فرض: انگلیسی
+  useEffect(() => {
+  const saved = localStorage.getItem("locale") as Locale | null;
+  if (saved) setLocale(saved);
+}, []);
 
-  const value: LangContextType = {
-    locale,
-    messages: allMessages[locale],
-    setLocale,
-  };
+useEffect(() => {
+   localStorage.setItem("locale", locale);
+}, [locale]);
+  const fallbackLocale: Locale = "en";
+
+const value: LangContextType = {
+  locale,
+  messages: allMessages[locale] || allMessages[fallbackLocale],
+  setLocale,
+};
 
   return (
     <LangContext.Provider value={value}>

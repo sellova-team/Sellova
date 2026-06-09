@@ -2,87 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useLang } from "../../lib/lang";
-
-// متن‌های داخلی مخصوص همین صفحه (بدون وابستگی به locales)
-const supportTexts = {
-  en: {
-    title: "Support",
-    subtitle:
-      "Tell us what you need help with and we’ll get back to you as soon as possible.",
-    formTitle: "Contact support",
-    formDescription: "Send us a short message about your issue.",
-    nameLabel: "Full name",
-    namePlaceholder: "Enter your name",
-    emailLabel: "Email address",
-    emailPlaceholder: "Enter your email",
-    topicLabel: "Topic",
-    topicTechnical: "Technical issue / Bug",
-    topicBilling: "Billing / Subscription",
-    topicOther: "Other / General question",
-    messageLabel: "Message",
-    messagePlaceholder: "Type your message here…",
-    sendButton: "Send message",
-    alertSent: "Your message was sent. We'll get back to you soon.",
-    alertRequired: "Please fill in your name, email and message.",
-    faqTitle: "Frequently Asked Questions",
-    faqIntro:
-      "Here are a few quick answers for the most common questions from Sellova users:",
-    faq1Q: "How can I create ad images and videos with my products?",
-    faq1A:
-      "Go to the Image & Video Creator pages from the main menu, upload your product and follow the on-screen steps.",
-    faq2Q: "How do I upgrade or change my subscription?",
-    faq2A:
-      "Open the Settings page, check your current plan, then use the Upgrade Plan page to change it.",
-    faq3Q: "Can I download the content I generate?",
-    faq3A:
-      "Yes. On the image / video pages you can click the Download button after generation.",
-    extraTitle: "Still need help?",
-    extraText:
-      "Use the form on the left and describe your case in detail so we can respond faster.",
-  },
-  fa: {
-    title: "پشتیبانی",
-    subtitle:
-      "بگویید در چه زمینه‌ای کمک می‌خواهید تا در سریع‌ترین زمان راهنمایی‌تان کنیم.",
-    formTitle: "ارتباط با پشتیبانی",
-    formDescription: "یک توضیح کوتاه درباره مشکل خود برای ما بنویسید.",
-    nameLabel: "نام و نام خانوادگی",
-    namePlaceholder: "نام خود را وارد کنید",
-    emailLabel: "ایمیل",
-    emailPlaceholder: "ایمیل خود را وارد کنید",
-    topicLabel: "موضوع",
-    topicTechnical: "مشکل فنی / باگ",
-    topicBilling: "صورتحساب / اشتراک",
-    topicOther: "سایر موارد / سوال عمومی",
-    messageLabel: "متن پیام",
-    messagePlaceholder: "سوال یا مشکل خود را اینجا بنویسید…",
-    sendButton: "ارسال پیام",
-    alertSent: "پیام شما ارسال شد. به‌زودی پاسخ می‌دهیم.",
-    alertRequired: "لطفاً نام، ایمیل و متن پیام را وارد کنید.",
-    faqTitle: "سوالات متداول",
-    faqIntro:
-      "چند پاسخ سریع برای سوال‌هایی که معمولاً کاربران سللووا می‌پرسند:",
-    faq1Q: "چطور می‌توانم از محصولم عکس و ویدیوی تبلیغاتی بسازم؟",
-    faq1A:
-      "به صفحات ساخت تصویر و ویدیو بروید، عکس محصول را آپلود کنید و مراحل روی صفحه را دنبال کنید.",
-    faq2Q: "چطور می‌توانم اشتراکم را ارتقا یا تغییر دهم؟",
-    faq2A:
-      "از منوی بالا به صفحه تنظیمات بروید و از بخش ارتقای پلن، پلن مناسب را انتخاب کنید.",
-    faq3Q: "آیا می‌توانم محتوایی که می‌سازم را دانلود کنم؟",
-    faq3A:
-      "بله، در صفحات ساخت تصویر و ویدیو، بعد از ساخت خروجی، روی دکمه دانلود کلیک کنید.",
-    extraTitle: "هنوز سوال دارید؟",
-    extraText:
-      "فرم سمت چپ را پر کنید و با جزئیات برای ما بنویسید تا دقیق‌تر و سریع‌تر راهنمایی کنیم.",
-  },
-};
+import { useLang } from "@/lib/lang";
 
 export default function SupportPage() {
-  // مهم‌ترین خط‌ها
-  const { messages } = useLang();
-  const t = messages.support as any;
 
+  const { messages, locale } = useLang();
+
+  console.log("LANG CHECK:", locale, messages?.support?.title);
+  console.log("locale:", locale);
+  console.log("support:", messages.support);
+  const t = messages.support;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [topic, setTopic] = useState<"technical" | "billing" | "other">("technical");
@@ -97,6 +26,7 @@ export default function SupportPage() {
     setMessage("");
   };
 
+  console.log("SUPPORT FILE LOADED")
   return (
     <main
       style={{

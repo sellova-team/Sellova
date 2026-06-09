@@ -345,7 +345,11 @@ support: {
   faq3A: "Yes. On image / video pages, after generation you can click the Download button under each result.",
   extraTitle: "Still need help?",
   extraText: "Use the form on the left and describe your case in detail (platform, type of content, and your goals). This helps us give you more precise advice.",
+  
+  alertRequired: "Please fill in your name, email and message.",
+
 },
+
 
 // --- Promo slides ---
 promo: {

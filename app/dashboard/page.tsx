@@ -23,15 +23,15 @@ const ICONS = {
 };
 
 const LANGS = [
-  { code: "en", label: "🇬🇧 English" },
-  { code: "fa", label: "🇮🇷 فارسی" },
-  { code: "tr", label: "🇹🇷 Türkçe" },
-  { code: "ur", label: "🇵🇰 Urdu" },
-  { code: "ar", label: "🇸🇦 Arabic" },
-  { code: "az", label: "🇦🇿 Azerbaijani" },
-  { code: "ar-eg", label: "🇪🇬 Arabic (Egypt)" },
-  { code: "uz", label: "🇺🇿 Uzbek" },
-  { code: "kk", label: "🇰🇿 Kazakh" },
+   { code: "en", label: "English", flag: "/flags/en.jpg" },
+  { code: "fa", label: "فارسی", flag: "/flags/fa.jpg" },
+  { code: "tr", label: "Türkçe", flag: "/flags/tr.jpg" },
+  { code: "ur", label: "Urdu", flag: "/flags/ur.jpg" },
+  { code: "ar", label: "Arabic", flag: "/flags/sa.jpg" },
+  { code: "az", label: "Azerbaijani", flag: "/flags/az.jpg" },
+  { code: "ar-eg", label: "Egypt", flag: "/flags/eg.jpg" },
+  { code: "uz", label: "Uzbek", flag: "/flags/uz.jpg" },
+  { code: "kk", label: "Kazakh", flag: "/flags/kz.jpg" },
 ];
 
 const styles: { [k: string]: CSSProperties } = {
@@ -98,15 +98,21 @@ const styles: { [k: string]: CSSProperties } = {
     right: 60,
   },
   langButton: {
-    borderRadius: 999,
-    border: "1px solid rgba(255,255,255,.6)",
-    background: "rgba(255,255,255,.15)",
-    color: "#fff",
-    fontSize: 18,
-    padding: "6px 16px",
-    cursor: "pointer",
-    backdropFilter: "blur(4px)",
-  },
+  display: "flex",
+  alignItems: "center",
+  gap: 8,
+  borderRadius: 999,
+  border: "1px solid rgba(255,255,255,.25)",
+  background: "rgba(255,255,255,.12)",
+  color: "#fff",
+  fontSize: 14,
+  padding: "8px 14px",
+  cursor: "pointer",
+  backdropFilter: "blur(10px)",
+  boxShadow: "0 8px 20px rgba(0,0,0,.25)",
+  transition: "all .2s ease",
+  fontWeight: 600,
+},
 };
 
 type TileProps = {
@@ -235,39 +241,50 @@ const [plan, setPlan] = useState("");
     </button>
 
     {openLang && (
+  <div
+    style={{
+      position: "absolute",
+      top: 45,
+      right: 0,
+      background: "#fff",
+      borderRadius: 10,
+      overflow: "hidden",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+      zIndex: 999,
+      width: 200,
+    }}
+  >
+    {LANGS.map((l) => (
       <div
+        key={l.code}
+        onClick={() => {
+          setLocale(l.code as Locale);
+          setOpenLang(false);
+        }}
         style={{
-          position: "absolute",
-          top: 45,
-          right: 0,
-          background: "#fff",
-          borderRadius: 10,
-          overflow: "hidden",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-          zIndex: 999,
-          width: 200,
+          padding: "10px 12px",
+          cursor: "pointer",
+          fontSize: 14,
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          borderBottom: "1px solid #eee",
+          background: locale === l.code ? "#eef2ff" : "#fff",
+          fontWeight: locale === l.code ? 700 : 500,
         }}
       >
-        {LANGS.map((l) => (
-          <div
-            key={l.code}
-            onClick={() => {
-              setLocale(l.code as Locale);
-              setOpenLang(false);
-            }}
-            style={{
-              padding: "10px",
-              cursor: "pointer",
-              fontSize: 14,
-              borderBottom: "1px solid #eee",
-              background: locale === l.code ? "#f2f2f2" : "#fff",
-            }}
-          >
-            {l.label}
-          </div>
-        ))}
+       <img
+  src={l.flag}
+  width={20}
+  height={20}
+  style={{ borderRadius: 3 }}
+/>
+
+        <span>{l.label}</span>
       </div>
-    )}
+    ))}
+  </div>
+)}
 
   </div>
 </div>
