@@ -1,0 +1,598 @@
+.page{
+min-height:100vh;
+
+background:
+radial-gradient(circle at top,
+rgba(0,120,255,.18),
+transparent 35%),
+#02030a;
+
+color:white;
+
+padding:20px 35px 50px;
+
+overflow-x:hidden;
+
+position: relative;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+text-align:center;
+
+position:relative;
+
+margin-bottom:30px;
+}
+
+.crown{
+width:50px;
+
+display:block;
+
+margin:0 auto -20px;
+
+filter:
+drop-shadow(0 0 10px #3b82f6)
+drop-shadow(0 0 25px #3b82f6);
+}
+
+.logo{
+width:300px;
+
+max-width:120vw;
+
+display:block;
+
+margin:-60px auto 0;
+}
+
+.title{
+margin-top:-35px;
+
+font-size:14px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+color:white;
+}
+
+.subtitle{
+color:#d6e2ff;
+
+font-size:10px;
+
+letter-spacing:2px;
+
+margin-top:4px;
+}
+
+.waveGlow{
+   display:none;
+}
+
+.topMusic{
+   width: 85px;
+
+   display: block;
+
+   margin: 10 auto 0;
+
+   filter: 
+     drop-shadow(0 0 10px #3b82f6)
+}
+/* ================= SECTIONS ================= */
+
+.section{
+width:95%;
+
+margin:20px auto;
+
+border-radius:26px;
+
+border:1px solid rgba(70,120,255,.25);
+
+background:
+linear-gradient(
+180deg,
+rgba(4,10,35,.95),
+rgba(2,5,20,.96)
+);
+
+backdrop-filter:blur(12px);
+
+box-shadow:
+0 0 30px rgba(0,80,255,.15),
+inset 0 0 25px rgba(0,80,255,.05);
+
+padding-right: 80px;
+padding:8px;
+}
+
+.sectionHeader{
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+margin-bottom:24px;
+}
+
+.number{
+width:34px;
+
+height:34px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:700;
+
+background:
+linear-gradient(
+180deg,
+#2f8cff,
+#2158ff
+);
+
+box-shadow:
+0 0 20px #2563ff;
+}
+
+.sectionHeader h2{
+margin:0;
+
+font-size:18px;
+}
+
+.sectionHeader span{
+color:#8ca0d8;
+
+font-size:11px;
+}
+
+/* ================= BRAND ================= */
+
+.brandContent{
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:30px;
+}
+
+.leftSide{
+width: 1000px;
+flex:none;
+}
+
+.rightSide{
+  position: relative;
+width:230px;
+
+display:flex;
+
+justify-content:center;
+align-items: center;
+}
+
+.musicIcon{
+width:200px;
+
+border-radius: .24px;
+
+opacity:.92;
+
+mix-blend-mode:screen;
+
+filter:
+drop-shadow(0 0 15px #2563ff)
+drop-shadow(0 0 35px #7c3aed);
+
+transition:.3s;
+
+}
+
+.row{
+display:flex;
+
+gap:18px;
+
+margin-bottom:18px;
+}
+
+.row .field{
+  width: 415px;
+  flex:none;
+}
+.field{
+flex:1;
+
+display:flex;
+min-width: 0;
+flex-direction:column;
+}
+
+.field label{
+margin-bottom:8px;
+
+color:#c8d6ff;
+
+font-size:13px;
+}
+
+.field input{
+height:38px;
+
+border-radius:14px;
+
+border:1px solid rgba(120,160,255,.18);
+
+background:
+rgba(4,8,30,.85);
+
+color:white;
+
+padding:0 16px;
+
+outline:none;
+}
+
+.field textarea{
+height:50px;
+width: 1250px;
+resize:none;
+
+border-radius:14px;
+
+border:1px solid rgba(120,160,255,.18);
+
+background:
+rgba(4,8,30,.85);
+
+color:white;
+
+padding:14px;
+
+outline:none;
+}
+
+/* ================= STYLES ================= */
+
+.styleGrid{
+display:grid;
+
+grid-template-columns:
+repeat(6,1fr);
+
+gap:18px;
+}
+
+.styleCard{
+height:72px;
+
+border-radius:20px;
+
+border:1px solid rgba(120,160,255,.15);
+
+background:
+rgba(5,10,30,.8);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+cursor:pointer;
+
+transition:.25s;
+
+gap:8px;
+padding-top: 8px;
+}
+
+.styleCard:hover{
+transform:translateY(-4px);
+
+border-color:#3b82f6;
+
+box-shadow:
+0 0 25px rgba(59,130,246,.4);
+}
+
+.styleCard img{
+width:42px;
+height:42px;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+.styleCard span{
+font-size:12px;
+margin-top: -2px;
+color:white;
+}
+
+.generateBtn{
+display:block;
+
+margin:18px auto 0;
+
+width:240px;
+
+height:48px;
+
+border:none;
+
+border-radius:18px;
+
+color:white;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+90deg,
+#0f6fff,
+#8b2cf5
+);
+
+box-shadow:
+0 0 25px rgba(80,120,255,.5),
+0 0 50px rgba(139,44,245,.35);
+}
+
+/* ================= PLAYER ================= */
+
+.playerArea{
+display:flex;
+
+gap:24px;
+
+align-items:center;
+}
+
+
+.coverCard{
+width:95px;
+
+border-radius:20px;
+
+padding:8px;
+
+border:1px solid rgba(120,160,255,.15);
+
+background:
+rgba(5,10,30,.85);
+}
+
+.coverCard img{
+width:100%;
+}
+
+.coverCard h3{
+margin-top:12px;
+}
+
+.wavePlayer{
+flex:1;
+}
+
+.fakeWave{
+height:8px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+90deg,
+#00a2ff,
+#7c3aed,
+#00a2ff
+);
+
+opacity:.9;
+
+box-shadow:
+0 0 12px #00aaff,
+0 0 25px #7c3aed
+}
+
+.controls{
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:12px;
+
+margin-top:12px;
+}
+
+.controls button{
+width:54px;
+
+height:54px;
+
+border:none;
+
+border-radius:50%;
+
+color:white;
+
+background:#07132d;
+}
+
+.playBtn{
+width:52px !important;
+
+height:52px !important;
+
+background:
+linear-gradient(
+180deg,
+#0f6fff,
+#7c3aed
+) !important;
+
+box-shadow:
+0 0 25px rgba(80,120,255,.6);
+}
+
+.downloadArea{
+width:260px;
+}
+
+.downloadBtn{
+width:100%;
+
+height:34px;
+
+border:none;
+
+border-radius:18px;
+
+color:white;
+
+font-size:10px;
+
+font-weight:700;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+90deg,
+#0f6fff,
+#8b2cf5
+);
+
+box-shadow:
+0 0 25px rgba(80,120,255,.5),
+0 0 50px rgba(139,44,245,.35);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:900px){
+
+.row{
+flex-direction:column;
+}
+
+.brandContent{
+flex-direction:column;
+}
+
+.playerArea{
+flex-direction:column;
+}
+
+.styleGrid{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.generateBtn{
+width:180px;
+height:38px;
+font-size: 12px;
+}
+
+.downloadArea{
+width:100%;
+}
+
+.logo{
+width:280px;
+}
+
+.waveGlow{
+width:90%;
+}
+}
+
+.backBtn{
+  position:absolute;
+
+  top:20px;
+  left:20px;
+
+  height:38px;
+
+  padding:0 18px;
+
+  border-radius:12px;
+
+  border:1px solid rgba(100,150,255,.2);
+
+  background:rgba(5,10,30,.85);
+
+  color:white;
+
+  cursor:pointer;
+}
+
+.waveBars{
+  width:100%;
+  height:100%;
+
+  background:
+  repeating-linear-gradient(
+    90deg,
+    #28a8ff 0px,
+    #28a8ff 3px,
+    transparent 3px,
+    transparent 10px
+  );
+
+  animation:waveMove 1.2s linear infinite;
+}
+
+@keyframes waveMove{
+  from{
+    background-position:0 0;
+  }
+  to{
+    background-position:120px 0;
+  }
+}
+
+.musicGlow{
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(37,99,255,.35),
+    transparent 70%
+  );
+
+  filter:blur(35px);
+
+  z-index:0;
+}

@@ -348,6 +348,12 @@ export default function ProductStudio() {
   const goAvatar = () => {
     window.location.href = "/avatar";
   };
+  const goLogo = () => {
+    window.location.href = "/brand-overlay";
+  };
+  const goCaption = () => {
+    window.location.href ="/hashtags";
+  };
 
   return (
     <div className="wrap" dir={locale === "fa" ? "rtl" : "ltr"}>
@@ -712,23 +718,34 @@ export default function ProductStudio() {
               </button>
             </div>
 
-            <div className="btnRow">
-              <button
-                className="btn btnPrimary"
-                onClick={generate}
-                disabled={busy}
-              >
-                {busy
-                  ? messages.generateImage.generating || "Generating..."
-                  : messages.generateImage.generate}
-              </button>
-              <button className="btn btnDark" onClick={goAvatar}>
-                {messages.generateImage.createAvatar}
-              </button>
-              <button className="btn" onClick={download} disabled={!out}>
-                {messages.generateImage.download}
-              </button>
-            </div>
+          <div className="btnRow">
+  <button
+    className="btn btnPrimary"
+    onClick={generate}
+    disabled={busy}
+  >
+    {busy
+      ? messages.generateImage.generating || "Generating..."
+      : messages.generateImage.generate}
+  </button>
+
+  <button className="btn btnDark" onClick={goAvatar}>
+    {messages.generateImage.createAvatar}
+  </button>
+
+ <button className="btn btnDark" onClick={goLogo}>
+  {messages.generateImage.addLogo}
+</button>
+
+<button className="btn btnDark" onClick={goCaption}>
+  {messages.generateImage.captionHashtag}
+</button>
+
+  <button className="btn" onClick={download} disabled={!out}>
+    {messages.generateImage.download}
+  </button>
+</div>
+
 
             <div className="hint">
               {messages.generateImage.hint || ""}

@@ -13,11 +13,13 @@ export const trMessages = {
       captionsHashtags: "Açıklamalar & hashtagler",
       advisoryAnalysis: "Danışmanlık & analiz",
       upgradePlan: "Plan yükselt",
+      sellerHelp: "Satıcı Desteği", 
       settings: "Ayarlar",
       brandOverlay: "Marka kaplaması",
       promoSlides: "Tanıtım slaytları",
       sellovaGuide: "Sellova rehberi",
       academyInsight: "Akademi içgörüsü",
+      musicAi: "Müzik Oluştur",
     },
   },
 
@@ -32,6 +34,24 @@ export const trMessages = {
     backHome: "← Ana sayfaya dön",
   },
 
+  // --- Seller Help ---
+sellerHelp: {
+  title: "Satıcı Yardım Merkezi",
+  subtitle: "İşinizi Sellova ile daha akıllıca büyütün.",
+
+  infoTitle: "Sellova Satıcılara Nasıl Yardımcı Olur",
+
+  benefit1: "Yapay zeka ile profesyonel ürün görselleri oluşturun",
+  benefit2: "Saniyeler içinde tanıtım videoları hazırlayın",
+  benefit3: "Etkileyici açıklamalar ve hashtag'ler oluşturun",
+  benefit4: "Akademi İçgörüleri ile pazarlama stratejileri öğrenin",
+  benefit5: "Satışlarınızı artırmak için uzman tavsiyeleri alın",
+
+  sellovaGuide: "Sellova Rehberi",
+  academyInsight: "Akademi İçgörüsü",
+  advisoryAnalysis: "Danışmanlık ve Analiz",
+},
+
   // --- Generate Image ---
   generateImage: {
     title: "Yapay Zeka Ürün Fotoğraf Stüdyosu",
@@ -43,6 +63,8 @@ export const trMessages = {
     suggest: "Öner",
     generate: "Oluştur",
     generating: "Oluşturuluyor...",
+    addLogo: "Logo Ekle",
+    captionHashtag: "Başlık ve Etiketler",
     createAvatar: "Avatar oluştur",
     download: "İndir",
     credits: "Kullanılan kredi",
@@ -83,6 +105,8 @@ export const trMessages = {
     creditCostLabel: "Kredi maliyeti",
     videoTypeAmazon: "Amazon optimize video",
     videoTypeStandard: "Standart tanıtım videosu",
+   addLogo: "Logo Ekle",
+   captionHashtag: "Başlık ve Etiketler",
     generating: "Video oluşturuluyor...",
   },
 
@@ -134,6 +158,8 @@ export const trMessages = {
     requiredCreditsAmazonVideo: "• Amazon video önizlemesi.",
     outputsLabel: "Çıktılar",
     downloadButton: "İndir",
+    addLogo: "Logo Ekle",
+    captionHashtag: "Başlık ve Etiketler",
     noOutputsYet: "Henüz çıktı yok. Oluştur butonuna basın.",
 
     alertNoProduct: "Lütfen ürün görseli yükleyin.",
@@ -146,6 +172,37 @@ export const trMessages = {
     footerStandard: "Basic • 500 kredi • 3 görsel = 18 kredi",
     amazonVideoBanner: "Amazon Video Önizleme • Dönüşüm odaklı",
   },
+
+   // --- music ---
+   music: {
+  title: "Yapay Zeka Müzik Oluşturucu",
+  subtitle: "Markanız için özel müzik oluşturun",
+
+  brandInfo: "Marka Bilgileri",
+  brandName: "Marka Adı",
+  businessType: "İş Türü",
+
+  description: "Markanızı ve müzik tarzınızı açıklayın",
+
+  language: "Dil Seçimi",
+  style: "Müzik Tarzı",
+
+  luxury: "Lüks",
+  cinematic: "Sinematik",
+  modern: "Modern",
+  electronic: "Elektronik",
+  corporate: "Kurumsal",
+  emotional: "Duygusal",
+
+  generate: "Müzik Oluştur",
+
+  resultTitle: "Oluşturulan Müzik",
+  preview: "Müzik Önizleme Alanı",
+
+  download: "Müziği İndir",
+
+  credits: "Maliyet: 50 Kredi",
+},
 
   // --- Golden Plan ---
   goldenPlan: {

@@ -244,6 +244,14 @@ const translatedPrompt = translateData.text || prompt;
       setTimeout(() => URL.revokeObjectURL(url), 1200);
     }, "image/png");
   };
+ 
+  const goLogo = () => {
+     window.location.href = "/brand-overlay";
+  };
+
+  const goCaption = () => {
+     window.location.href = "/hashtags";
+  };
 
   // ---------- i18n ----------
   const { messages } = useLang();
@@ -820,16 +828,25 @@ setOutputs(generatedArray);
 
           <div className="controls-row" style={{ marginTop: 16, justifyContent: "space-between" }}>
   
-  {/* دکمه ساخت معمولی */}
-  <button className="btn" onClick={generateOutputs} disabled={generating}>
-    {generating ? t.generatingButton : t.generateButton}
-  </button>
+ <button className="btn" onClick={generateOutputs} disabled={generating}>
+  {generating ? t.generatingButton : t.generateButton}
+</button>
 
-  
-  {/* نمایش تعداد کردیت‌های مورد نیاز */}
-  <div className="small-muted">
-    {t.requiredCreditsPrefix} {requiredCredits}
-  </div>
+{/* دکمه افزودن لوگو */}
+<button className="btn" onClick={goLogo}>
+  {t.addLogo}
+</button>
+
+{/* دکمه کپشن و هشتگ */}
+<button className="btn" onClick={goCaption}>
+  {t.captionHashtag}
+</button>
+
+{/* نمایش تعداد کردیت‌های مورد نیاز */}
+<div className="small-muted">
+  {t.requiredCreditsPrefix} {requiredCredits}
+</div>
+
 
 </div>
 

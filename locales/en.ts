@@ -13,12 +13,14 @@ export const enMessages = {
       goldenPlan: "Golden Plan",
       captionsHashtags: "Captions & hashtags",
       advisoryAnalysis: "Advisory & analysis",
+      sellerHelp: "Seller Assistance",
       upgradePlan: "Upgrade plan",
       settings: "Settings",
       brandOverlay: "Brand overlay",
       promoSlides: "Promo slides",
       sellovaGuide: "Sellova guide",
       academyInsight: "Academy insight",
+      musicAi: "Music AI",
     },
   },
 
@@ -33,6 +35,24 @@ export const enMessages = {
     backHome: "← Back to home",
   },
 
+    // --- Seller Help ---
+sellerHelp: {
+  title: "Seller Help Center",
+  subtitle: "Grow your business smarter with Sellova.",
+
+  infoTitle: "How Sellova Helps Sellers",
+
+  benefit1: "Create professional product images with AI",
+  benefit2: "Generate promotional videos in seconds",
+  benefit3: "Write engaging captions and hashtags",
+  benefit4: "Learn marketing strategies through Academy Insights",
+  benefit5: "Get expert advice to improve your sales performance",
+
+  sellovaGuide: "Sellova Guide",
+  academyInsight: "Academy Insight",
+  advisoryAnalysis: "Advisory & Analysis",
+}, 
+
   // --- Generate Image ---
 generateImage: {
   title: "AI Product Photo Studio",
@@ -45,6 +65,8 @@ generateImage: {
   generate: "Generate",
   createAvatar: "Create Avatar",
   download: "Download",
+ addLogo: "Add Logo",
+ captionHashtag: "Caption & Hashtag",
   credits: "Credits used",
 
   // Messages
@@ -91,6 +113,8 @@ generateVideo: {
   generate: "Generate video",
   generating: "Generating video…",
   previewCaption: "This is a preview of your AI-generated video.",
+  addLogo: "Add Logo",
+  captionHashtag: "Caption & Hashtag",
 
   costWarning: "This action costs credits. Continue?",
   notEnoughCredit: "Not enough credits.",
@@ -151,6 +175,8 @@ avatar: {
   requiredCreditsAmazonVideo: "• Amazon promo video preview frame.",
   outputsLabel: "Outputs",
   downloadButton: "Download",
+ addLogo: "Add Logo",
+ captionHashtag: "Caption & Hashtag",
   noOutputsYet: "No outputs yet. Click Generate.",
 
   // Alerts & footer text (برای ژنریشن)
@@ -191,6 +217,37 @@ goldenPlan: {
 
   package1: "1 Music Video - 300 Credits",
   package2: "2 Music Videos - 600 Credits",
+},
+
+// --- music ---
+music: {
+  title: "Music AI Generator",
+  subtitle: "Create custom brand music with artificial intelligence",
+
+  brandInfo: "Brand Information",
+  brandName: "Brand Name",
+  businessType: "Business Type",
+
+  description: "Describe your brand and music style...",
+
+  language: "Select Language",
+  style: "Music Style",
+
+  luxury: "Luxury",
+  cinematic: "Cinematic",
+  modern: "Modern",
+  electronic: "Electronic",
+  corporate: "Corporate",
+  emotional: "Emotional",
+
+  generate: "Generate Music",
+
+  resultTitle: "Generated Music",
+  preview: "Music Preview Area",
+
+  download: "Download Music",
+
+  credits: "Cost: 50 Credits",
 },
 
   // --- Hashtags & Captions ---

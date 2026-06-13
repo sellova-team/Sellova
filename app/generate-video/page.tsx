@@ -63,6 +63,14 @@ export default function GenerateVideoPage() {
     a.remove();
   };
 
+  const goLogo = () => {
+     window.location.href = "/brand-overlay";
+  };
+
+  const goCaption = () => {
+    window.location.href = "/hashtags";
+  };
+
   // محاسبهٔ کردیت‌ها
   const creditCost = React.useMemo(() => {
     const isAmazon = platform === "amazon";
@@ -228,18 +236,35 @@ const handleGenerate = async () => {
               <div className="uploadTitle">
                 {messages.generateVideo.uploadTitle}
               </div>
-              <div className="actionsRow">
-                <Link
-                  href="/avatar"
-                  className="btn btnGhost"
-                  aria-label="Choose an avatar"
-                >
-                  {messages.generateVideo.chooseAvatar}
-                </Link>
-                <span className="muted">
-                  {messages.generateVideo.orContinue}
-                </span>
-              </div>
+             <div className="actionsRow">
+  <Link
+    href="/avatar"
+    className="btn btnGhost"
+    aria-label="Choose an avatar"
+  >
+    {messages.generateVideo.chooseAvatar}
+  </Link>
+
+  <button
+    type="button"
+    className="btn btnGhost"
+    onClick={goLogo}
+  >
+    {messages.generateVideo.addLogo}
+  </button>
+
+  <button
+    type="button"
+    className="btn btnGhost"
+    onClick={goCaption}
+  >
+    {messages.generateVideo.captionHashtag}
+  </button>
+
+  <span className="muted">
+    {messages.generateVideo.orContinue}
+  </span>
+</div>
             </div>
           </div>
 

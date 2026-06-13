@@ -14,11 +14,13 @@ export const faMessages = {
       captionsHashtags: "کپشن و هشتگ",
       advisoryAnalysis: "مشاوره و آنالیز",
       upgradePlan: "ارتقای پلن",
+      sellerHelp: "کمک به فروشنده ها",
       settings: "تنظیمات",
       brandOverlay: "افزودن لوگو",
       promoSlides: "اسلایدهای تبلیغاتی",
       sellovaGuide: "راهنمای سلوا",
       academyInsight: "بینش آکادمی",
+      musicAi: "ساخت موزیک",
     },
   },
 
@@ -33,6 +35,24 @@ export const faMessages = {
     backHome: "← بازگشت به صفحه اصلی",
   },
 
+   // --- Seller Help ---
+ sellerHelp: {
+  title: "مرکز کمک به فروشنده‌ها",
+  subtitle: "کسب‌وکار خود را با Sellova هوشمندتر رشد دهید.",
+
+  infoTitle: "سلوا چگونه به فروشندگان کمک می‌کند",
+
+  benefit1: "ایجاد تصاویر حرفه‌ای محصولات با هوش مصنوعی",
+  benefit2: "ساخت ویدیوهای تبلیغاتی در چند ثانیه",
+  benefit3: "تولید کپشن‌ها و هشتگ‌های جذاب",
+  benefit4: "یادگیری استراتژی‌های بازاریابی از طریق بینش آکادمی",
+  benefit5: "دریافت مشاوره تخصصی برای افزایش فروش",
+
+  sellovaGuide: "راهنمای سلوا",
+  academyInsight: "بینش آکادمی",
+  advisoryAnalysis: "مشاوره و تحلیل",
+},
+
   // --- Generate Image ---
   generateImage: {
     title: "استودیوی عکس محصول با هوش مصنوعی",
@@ -46,6 +66,8 @@ export const faMessages = {
     generating: "در حال ساخت...",
     createAvatar: "ساخت آواتار",
     download: "دانلود",
+    addLogo: "افزودن لوگو",
+    captionHashtag: "کپشن و هشتگ",
     credits: "کردیت مصرفی",
   hint: "",
 
@@ -95,7 +117,8 @@ creditsLeft: "کردیت باقی‌مانده",
 creditCostLabel: "هزینه کرِدیت",
 videoTypeAmazon: "ویدیو بهینه آمازون",
 videoTypeStandard: "ویدیوی تبلیغاتی معمولی",
-
+ addLogo: "افزودن لوگو",
+ captionHashtag: "کپشن و هشتگ",
 generating: "در حال ساخت ویدیو…",
 },
 
@@ -153,6 +176,8 @@ avatar: {
   requiredCreditsAmazonVideo: " • فریم پیش‌نمایش ویدئوی تبلیغاتی آمازون.",
   outputsLabel: "خروجی‌ها",
   downloadButton: "دانلود",
+  addLogo: "افزودن لوگو",
+  captionHashtag: "کپشن و هشتگ",
   noOutputsYet: "هنوز خروجی‌ای ندارید. روی دکمه‌ی ساخت کلیک کنید.",
 
   // Alerts & footer text
@@ -193,6 +218,37 @@ goldenPlan: {
 
   package1: "1 موزیک ویدیو - 300 اعتبار",
   package2: "2 موزیک ویدیو - 600 اعتبار",
+},
+
+// --- music ---
+music: {
+  title: "ساخت موزیک با هوش مصنوعی",
+  subtitle: "موزیک اختصاصی برند خود را تولید کنید",
+
+  brandInfo: "اطلاعات برند",
+  brandName: "نام برند",
+  businessType: "نوع فعالیت",
+
+  description: "توضیحات برند و سبک موزیک را وارد کنید",
+
+  language: "انتخاب زبان",
+  style: "سبک موسیقی",
+
+  luxury: "لوکس",
+  cinematic: "سینمایی",
+  modern: "مدرن",
+  electronic: "الکترونیک",
+  corporate: "شرکتی",
+  emotional: "احساسی",
+
+  generate: "ساخت موزیک",
+
+  resultTitle: "موزیک تولید شده",
+  preview: "پیش نمایش موزیک",
+
+  download: "دانلود موزیک",
+
+  credits: "هزینه: 50 کردیت",
 },
 
   // --- Hashtags & Captions ---

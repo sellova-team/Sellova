@@ -20,7 +20,7 @@ const ICONS = {
   guideCenter: "/assets/icons/guide-center.png",
   academyInsight: "/assets/icons/academy-insight.png",
   golden: "/assets/icons/crown.png",
-  music: "/assets/icons/music.png",
+  sellerHelp: "/assets/icons/seller-help.png",
 
 };
 
@@ -239,7 +239,7 @@ const [plan, setPlan] = useState("");
   { href: "/golden-plan", title: messages.dashboard.cards.goldenPlan, iconSrc: ICONS.golden },
 
   { href: "/avatar", title: messages.dashboard.cards.createAvatar, iconSrc: ICONS.avatar },
-  { href: "/music", title: messages.dashboard.cards.musicAi, iconSrc: ICONS.music },
+
   { href: "/upgrade-plan", title: messages.dashboard.cards.upgradePlan, iconSrc: ICONS.upgrade },
   { href: "/settings", title: messages.dashboard.cards.settings, iconSrc: ICONS.settings },
 ];
