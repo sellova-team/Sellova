@@ -102,7 +102,14 @@ create unique AI music for your brand
 
 <div className={styles.field}>
 <label>Language</label>
-<input placeholder="English" />
+
+<select>
+  <option>English</option>
+  <option>Persian</option>
+  <option>Turkish</option>
+  <option>Arabic</option>
+  <option>Urdu</option>
+</select>
 </div>
 
 </div>
@@ -188,20 +195,38 @@ GENERATE MUSIC
 
 <div className={styles.coverCard}>
 
+<div className={styles.logoRow}>
+  <img
+src="/assets/icons/music/luxury.png"
+className={styles.miniCrown}
+alt="crown"
+/>
+
 <img
 src="/logo1.png"
+className={styles.coverLogo}
 alt="cover"
 />
 
-<h3>Sellova Music</h3>
+</div>
+
 
 </div>
 
 <div className={styles.wavePlayer}>
 
 <div className={styles.fakeWave}>
-   <div className={styles.waveBars}></
-   div>
+  {Array.from({ length: 60 }).map((_,i) => (
+    <span
+     key={i} 
+     className={styles.bar} 
+     style={{
+      animationDelay: `${i * 0.08}s` ,
+      height: `${[20,45,80,35,70,55,90,40,65.30][i % 10]}px`
+     }}
+  />
+  ))}
+ 
 </div>
 
 <div className={styles.controls}>

@@ -5,15 +5,13 @@ background:
 radial-gradient(circle at top,
 rgba(0,120,255,.18),
 transparent 35%),
-#02030a;
+#020612;
 
 color:white;
 
-padding:20px 35px 50px;
+padding:20px 40px 50px;
 
 overflow-x:hidden;
-
-position: relative;
 }
 
 /* ================= HEADER ================= */
@@ -27,11 +25,11 @@ margin-bottom:30px;
 }
 
 .crown{
-width:50px;
+width:70px;
 
 display:block;
 
-margin:0 auto -20px;
+margin:0 auto -10px;
 
 filter:
 drop-shadow(0 0 10px #3b82f6)
@@ -39,23 +37,23 @@ drop-shadow(0 0 25px #3b82f6);
 }
 
 .logo{
-width:300px;
+width:420px;
 
-max-width:120vw;
+max-width:90vw;
 
 display:block;
 
-margin:-60px auto 0;
+margin:-70 auto 0;
 }
 
 .title{
-margin-top:-35px;
+margin-top:-60px;
 
-font-size:14px;
+font-size:22px;
 
 font-weight:700;
 
-letter-spacing:3px;
+letter-spacing:4px;
 
 color:white;
 }
@@ -63,31 +61,20 @@ color:white;
 .subtitle{
 color:#d6e2ff;
 
-font-size:10px;
+font-size:14px;
 
-letter-spacing:2px;
+letter-spacing:3px;
 
-margin-top:4px;
+margin-top:8px;
 }
 
-.waveGlow{
-   display:none;
-}
 
-.topMusic{
-   width: 85px;
-
-   display: block;
-
-   margin: 10 auto 0;
-
-   filter: 
-     drop-shadow(0 0 10px #3b82f6)
-}
 /* ================= SECTIONS ================= */
 
 .section{
-width:95%;
+width:100%;
+
+box-sizing: border-box;
 
 margin:20px auto;
 
@@ -108,8 +95,7 @@ box-shadow:
 0 0 30px rgba(0,80,255,.15),
 inset 0 0 25px rgba(0,80,255,.05);
 
-padding-right: 80px;
-padding:8px;
+padding:24px;
 }
 
 .sectionHeader{
@@ -123,9 +109,9 @@ margin-bottom:24px;
 }
 
 .number{
-width:34px;
+width:42px;
 
-height:34px;
+height:42px;
 
 border-radius:50%;
 
@@ -151,13 +137,13 @@ box-shadow:
 .sectionHeader h2{
 margin:0;
 
-font-size:18px;
+font-size:24px;
 }
 
 .sectionHeader span{
 color:#8ca0d8;
 
-font-size:11px;
+font-size:13px;
 }
 
 /* ================= BRAND ================= */
@@ -173,35 +159,23 @@ gap:30px;
 }
 
 .leftSide{
-width: 1000px;
-flex:none;
+flex:1;
 }
 
 .rightSide{
-  position: relative;
-width:230px;
+width:250px;
 
 display:flex;
 
 justify-content:center;
-align-items: center;
 }
 
 .musicIcon{
-width:200px;
-
-border-radius: .24px;
-
-opacity:.92;
-
-mix-blend-mode:screen;
+width:220px;
 
 filter:
 drop-shadow(0 0 15px #2563ff)
 drop-shadow(0 0 35px #7c3aed);
-
-transition:.3s;
-
 }
 
 .row{
@@ -212,15 +186,11 @@ gap:18px;
 margin-bottom:18px;
 }
 
-.row .field{
-  width: 415px;
-  flex:none;
-}
 .field{
 flex:1;
 
 display:flex;
-min-width: 0;
+
 flex-direction:column;
 }
 
@@ -233,7 +203,7 @@ font-size:13px;
 }
 
 .field input{
-height:38px;
+height:52px;
 
 border-radius:14px;
 
@@ -249,9 +219,28 @@ padding:0 16px;
 outline:none;
 }
 
+.field > select{
+height:52px;
+
+border-radius:14px;
+
+border:1px solid rgba(120,160,255,.18);
+
+background:rgba(4,8,30,.85);
+
+color:white;
+
+padding:0 16px;
+
+outline:none;
+
+width:100%;
+}
+
 .field textarea{
-height:50px;
-width: 1250px;
+height:100px;
+width: 100%;
+
 resize:none;
 
 border-radius:14px;
@@ -268,42 +257,144 @@ padding:14px;
 outline:none;
 }
 
-/* ================= STYLES ================= */
-
 .styleGrid{
 display:grid;
 
 grid-template-columns:
 repeat(6,1fr);
 
-gap:18px;
+gap:20px;
+
+padding: 0 18px;
 }
 
 .styleCard{
-height:72px;
+height:140px;
 
 border-radius:20px;
 
-border:1px solid rgba(120,160,255,.15);
+border:1px solid
+ rgba(120,160,255,.15);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+text-align: center;
+ cursor: pointer;
+ transition: .25s;
+}
 
-background:
-rgba(5,10,30,.8);
+.downloadArea{
+width:420px;
+display: flex;
+justify-content: center;
+margin-right: 80px;
+margin-top: -70px;
+}
 
-display:flex;
+.downloadBtn{
+width: 200PX;
+height: 50px;
 
-flex-direction:column;
+border:none;
 
-align-items:center;
+border-radius:22px;
 
-justify-content:center;
+color:white;
+
+font-size:17px;
+
+font-weight:700;
 
 cursor:pointer;
 
-transition:.25s;
+letter-spacing: 1px;
 
-gap:8px;
-padding-top: 8px;
+background:
+linear-gradient(
+90deg,
+#00e5ff,
+#00a3ff,
+#0077ff 
+
+);
+
+box-shadow:
+0 0 20px #00e5ff,
+0 0 40px #00cfff,
+0 0 80px rgba(0,229,255,.8),
+inset 0 0 20px rgba(255,255,255,.15);
+cursor: pointer;
 }
+
+/* ================= MOBILE ================= */
+
+@media (max-width:900px){
+
+.row{
+flex-direction:column;
+}
+
+.brandContent{
+flex-direction:column;
+}
+
+.playerArea{
+flex-direction:column;
+}
+
+.styleGrid{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.generateBtn{
+width:100%;
+}
+
+.downloadArea{
+width:100%;
+}
+
+.logo{
+width:280px;
+}
+
+.waveGlow{
+width:none;
+}
+}
+
+.backBtn{
+  
+  position: absolute;
+
+  top:40px;
+  left:40px;
+
+  z-index: 9999;
+
+  height:60px;
+
+  padding: 0 40px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(100,150,255,.25);
+
+  background: rgba(5,10,30,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(59,130,246,.3);
+  
+}
+
+
 
 .styleCard:hover{
 transform:translateY(-4px);
@@ -311,30 +402,36 @@ transform:translateY(-4px);
 border-color:#3b82f6;
 
 box-shadow:
-0 0 25px rgba(59,130,246,.4);
+0 0 18px rgba(37,99,255,.35),
+0 0 35px   rgba(124,58,237,.15);
 }
 
 .styleCard img{
-width:42px;
-height:42px;
-object-fit:contain;
-margin-bottom:15px;
+width:80px;
+height: 80px;
+
+object-fit: contain;
+margin-bottom:6px;
+
+filter: 
+drop-shadow(0 0 10px #2563ff)
+drop-shadow(0 0 20px #7c3aed)
 }
 
 .styleCard span{
-font-size:12px;
-margin-top: -2px;
+font-size:14px;
+
 color:white;
 }
 
 .generateBtn{
 display:block;
 
-margin:18px auto 0;
+margin:10px auto 0;
 
-width:240px;
+width:340px;
 
-height:48px;
+height:60px;
 
 border:none;
 
@@ -372,14 +469,19 @@ align-items:center;
 
 
 .coverCard{
-width:95px;
-
-border-radius:20px;
-
-padding:8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+width:280px;
+height: 50px;
+border-radius:120px;
+margin-top: -30px;
+padding-top:10px;
 
 border:1px solid rgba(120,160,255,.15);
-
+position: relative;
+overflow: hidden;
 background:
 rgba(5,10,30,.85);
 }
@@ -388,44 +490,61 @@ rgba(5,10,30,.85);
 width:100%;
 }
 
+.coverLogo{
+ width: 140px !important;
+ height: auto !important;
+}
+
 .coverCard h3{
 margin-top:12px;
 }
 
 .wavePlayer{
 flex:1;
+margin-top: -20px;
 }
 
 .fakeWave{
-height:8px;
-
-border-radius:20px;
-
-background:
-linear-gradient(
-90deg,
-#00a2ff,
-#7c3aed,
-#00a2ff
-);
-
-opacity:.9;
-
-box-shadow:
-0 0 12px #00aaff,
-0 0 25px #7c3aed
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px;
+  background: transparent;
 }
 
-.controls{
+.bar{
+  width: 3px;
+  height: 20px;
+  border-radius: 3px;
+
+  background: linear-gradient(
+    180deg,
+    #00d9ff,
+    #7c3aed,
+    #ff4fd8,
+    #00ffa8,
+    #ffe600
+  );
+
+  box-shadow: 
+    0 0 6px #00d9ff,
+    0 0 12px #7c3aed,
+    0 0 18px rgba(255,79,216,.6);
+
+    animation: bounce 1.2s infinite ease-in-out;
+}
+
+  .controls{
 display:flex;
 
-justify-content:center;
 
 align-items:center;
+justify-content: center;
+gap:4px;
 
-gap:12px;
-
-margin-top:12px;
+margin-top:8px;
 }
 
 .controls button{
@@ -441,11 +560,10 @@ color:white;
 
 background:#07132d;
 }
-
 .playBtn{
-width:52px !important;
+width:50px !important;
 
-height:52px !important;
+height:50px !important;
 
 background:
 linear-gradient(
@@ -458,141 +576,34 @@ box-shadow:
 0 0 25px rgba(80,120,255,.6);
 }
 
-.downloadArea{
-width:260px;
+.miniCrown{
+width: 55px !important;
+height: 55px !important;
+
+filter:
+drop-shadow(0 0 8px #2563ff)
+drop-shadow(0 0 20px #2563ff);
 }
 
-.downloadBtn{
-width:100%;
+.logoRow{
+  display:flex;
 
-height:34px;
-
-border:none;
-
-border-radius:18px;
-
-color:white;
-
-font-size:10px;
-
-font-weight:700;
-
-cursor:pointer;
-
-background:
-linear-gradient(
-90deg,
-#0f6fff,
-#8b2cf5
-);
-
-box-shadow:
-0 0 25px rgba(80,120,255,.5),
-0 0 50px rgba(139,44,245,.35);
+  align-items: center;
+  justify-content: center;
+  gap:4px;
+  width: 100%;
+  margin-top: -20px;
 }
 
-/* ================= MOBILE ================= */
-
-@media (max-width:900px){
-
-.row{
-flex-direction:column;
-}
-
-.brandContent{
-flex-direction:column;
-}
-
-.playerArea{
-flex-direction:column;
-}
-
-.styleGrid{
-grid-template-columns:
-repeat(2,1fr);
-}
-
-.generateBtn{
-width:180px;
-height:38px;
-font-size: 12px;
-}
-
-.downloadArea{
-width:100%;
-}
-
-.logo{
-width:280px;
-}
-
-.waveGlow{
-width:90%;
-}
-}
-
-.backBtn{
-  position:absolute;
-
-  top:20px;
-  left:20px;
-
-  height:38px;
-
-  padding:0 18px;
-
-  border-radius:12px;
-
-  border:1px solid rgba(100,150,255,.2);
-
-  background:rgba(5,10,30,.85);
-
-  color:white;
-
-  cursor:pointer;
-}
-
-.waveBars{
-  width:100%;
-  height:100%;
-
-  background:
-  repeating-linear-gradient(
-    90deg,
-    #28a8ff 0px,
-    #28a8ff 3px,
-    transparent 3px,
-    transparent 10px
-  );
-
-  animation:waveMove 1.2s linear infinite;
-}
-
-@keyframes waveMove{
-  from{
-    background-position:0 0;
+@keyframes bounce{
+  0%,100%{
+   transform: scaleY(0.3);
+   opacity: 0.5;
   }
-  to{
-    background-position:120px 0;
+
+  50%{
+   transform:scaleY(1);
+   opacity: 1;
   }
 }
 
-.musicGlow{
-  position:absolute;
-
-  width:220px;
-  height:220px;
-
-  border-radius:50%;
-
-  background:
-  radial-gradient(
-    circle,
-    rgba(37,99,255,.35),
-    transparent 70%
-  );
-
-  filter:blur(35px);
-
-  z-index:0;
-}
