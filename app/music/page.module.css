@@ -25,11 +25,11 @@ margin-bottom:30px;
 }
 
 .crown{
-width:70px;
+width:40px;
 
 display:block;
 
-margin:0 auto -10px;
+margin:0 auto -20px;
 
 filter:
 drop-shadow(0 0 10px #3b82f6)
@@ -37,19 +37,19 @@ drop-shadow(0 0 25px #3b82f6);
 }
 
 .logo{
-width:420px;
+width:250px;
 
 max-width:90vw;
 
 display:block;
 
-margin:-70 auto 0;
+margin:-60 auto 0;
 }
 
 .title{
-margin-top:-60px;
+margin-top:-50px;
 
-font-size:22px;
+font-size:12px;
 
 font-weight:700;
 
@@ -61,7 +61,7 @@ color:white;
 .subtitle{
 color:#d6e2ff;
 
-font-size:14px;
+font-size:9px;
 
 letter-spacing:3px;
 
@@ -76,7 +76,7 @@ width:100%;
 
 box-sizing: border-box;
 
-margin:20px auto;
+margin:12px auto;
 
 border-radius:26px;
 
@@ -95,7 +95,7 @@ box-shadow:
 0 0 30px rgba(0,80,255,.15),
 inset 0 0 25px rgba(0,80,255,.05);
 
-padding:24px;
+padding:18px;
 }
 
 .sectionHeader{
@@ -103,15 +103,15 @@ display:flex;
 
 align-items:center;
 
-gap:16px;
+gap:10px;
 
-margin-bottom:24px;
+margin-bottom:6px;
 }
 
 .number{
-width:42px;
+width:35px;
 
-height:42px;
+height:35px;
 
 border-radius:50%;
 
@@ -137,13 +137,13 @@ box-shadow:
 .sectionHeader h2{
 margin:0;
 
-font-size:24px;
+font-size:15px;
 }
 
 .sectionHeader span{
 color:#8ca0d8;
 
-font-size:13px;
+font-size:10px;
 }
 
 /* ================= BRAND ================= */
@@ -168,10 +168,11 @@ width:250px;
 display:flex;
 
 justify-content:center;
+margin-top: -30px;
 }
 
 .musicIcon{
-width:220px;
+width:160px;
 
 filter:
 drop-shadow(0 0 15px #2563ff)
@@ -199,11 +200,11 @@ margin-bottom:8px;
 
 color:#c8d6ff;
 
-font-size:13px;
+font-size:12px;
 }
 
 .field input{
-height:52px;
+height:38px;
 
 border-radius:14px;
 
@@ -216,11 +217,13 @@ color:white;
 
 padding:0 16px;
 
+font-size: 11px;
+
 outline:none;
 }
 
 .field > select{
-height:52px;
+height:38px;
 
 border-radius:14px;
 
@@ -234,11 +237,13 @@ padding:0 16px;
 
 outline:none;
 
+font-size: 11px;
+
 width:100%;
 }
 
 .field textarea{
-height:100px;
+height:50px;
 width: 100%;
 
 resize:none;
@@ -252,9 +257,14 @@ rgba(4,8,30,.85);
 
 color:white;
 
-padding:14px;
+padding:12px;
 
 outline:none;
+}
+
+.field textarea::placeholder{
+  font-size: 11px;
+  color: #8ca0d8;
 }
 
 .styleGrid{
@@ -263,13 +273,13 @@ display:grid;
 grid-template-columns:
 repeat(6,1fr);
 
-gap:20px;
+gap:10px;
 
 padding: 0 18px;
 }
 
 .styleCard{
-height:140px;
+height:60px;
 
 border-radius:20px;
 
@@ -293,8 +303,8 @@ margin-top: -70px;
 }
 
 .downloadBtn{
-width: 200PX;
-height: 50px;
+width: 150PX;
+height: 35px;
 
 border:none;
 
@@ -302,7 +312,7 @@ border-radius:22px;
 
 color:white;
 
-font-size:17px;
+font-size:13px;
 
 font-weight:700;
 
@@ -369,14 +379,14 @@ width:none;
   
   position: absolute;
 
-  top:40px;
-  left:40px;
+  top:20px;
+  left:20px;
 
   z-index: 9999;
 
-  height:60px;
+  height:30px;
 
-  padding: 0 40px;
+  padding: 0 30px;
 
   border-radius: 16px;
 
@@ -387,7 +397,7 @@ width:none;
   align-items: center;
   justify-content: center;
   color:white;
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 0 15px rgba(59,130,246,.3);
@@ -407,8 +417,8 @@ box-shadow:
 }
 
 .styleCard img{
-width:80px;
-height: 80px;
+width:30px;
+height: 30px;
 
 object-fit: contain;
 margin-bottom:6px;
@@ -419,7 +429,7 @@ drop-shadow(0 0 20px #7c3aed)
 }
 
 .styleCard span{
-font-size:14px;
+font-size:10px;
 
 color:white;
 }
@@ -429,9 +439,9 @@ display:block;
 
 margin:10px auto 0;
 
-width:340px;
+width:140px;
 
-height:60px;
+height:35px;
 
 border:none;
 
@@ -439,7 +449,7 @@ border-radius:18px;
 
 color:white;
 
-font-size:18px;
+font-size:12px;
 
 font-weight:700;
 
@@ -475,24 +485,25 @@ align-items:center;
   align-items: center;
 width:280px;
 height: 50px;
-border-radius:120px;
+/*border-radius:120px;
 margin-top: -30px;
-padding-top:10px;
+padding-top:10px;*/
 
-border:1px solid rgba(120,160,255,.15);
+/*border:1px solid rgba(120,160,255,.15);*/
 position: relative;
 overflow: hidden;
-background:
-rgba(5,10,30,.85);
+/*background:
+rgba(5,10,30,.85);*/
 }
 
-.coverCard img{
+/*.coverCard img{
 width:100%;
-}
+}*/
 
 .coverLogo{
- width: 140px !important;
+ width: 170px !important;
  height: auto !important;
+ filter: blur ;
 }
 
 .coverCard h3{
@@ -505,7 +516,7 @@ margin-top: -20px;
 }
 
 .fakeWave{
-  height: 30px;
+  height: 12px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -548,9 +559,9 @@ margin-top:8px;
 }
 
 .controls button{
-width:54px;
+width:30px;
 
-height:54px;
+height:30px;
 
 border:none;
 
@@ -561,9 +572,9 @@ color:white;
 background:#07132d;
 }
 .playBtn{
-width:50px !important;
+width:25px !important;
 
-height:50px !important;
+height:25px !important;
 
 background:
 linear-gradient(
@@ -577,12 +588,14 @@ box-shadow:
 }
 
 .miniCrown{
-width: 55px !important;
-height: 55px !important;
+width: 50px !important;
+height: auto !important;
+display: block;
+transform: translateY(-8px);
 
 filter:
-drop-shadow(0 0 8px #2563ff)
-drop-shadow(0 0 20px #2563ff);
+drop-shadow(0 0 8px #3b82f6)
+drop-shadow(0 0 20px #3b82f6);
 }
 
 .logoRow{
@@ -590,9 +603,12 @@ drop-shadow(0 0 20px #2563ff);
 
   align-items: center;
   justify-content: center;
-  gap:4px;
+  gap:0px;
   width: 100%;
-  margin-top: -20px;
+  margin-top: -27px;
+  position: relative;
+  z-index: 2;
+  margin-left: 15px;
 }
 
 @keyframes bounce{
@@ -605,5 +621,27 @@ drop-shadow(0 0 20px #2563ff);
    transform:scaleY(1);
    opacity: 1;
   }
+}
+
+.logoGlow{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+
+top:120px;
+
+width:350px;
+height:60px;
+
+background:radial-gradient(
+ellipse,
+rgba(0,180,255,.6),
+rgba(124,58,237,.4),
+transparent 70%
+);
+
+filter:blur(25px);
+
+pointer-events:none;
 }
 

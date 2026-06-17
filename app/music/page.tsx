@@ -66,6 +66,9 @@ AI MUSIC STUDIO
 create unique AI music for your brand
 </p>
 
+<div className={styles.logoGlow}>
+
+</div>
 
 <div className={styles.waveGlow}></div>
 
@@ -222,7 +225,7 @@ alt="cover"
      className={styles.bar} 
      style={{
       animationDelay: `${i * 0.08}s` ,
-      height: `${[20,45,80,35,70,55,90,40,65.30][i % 10]}px`
+      height: `${[5,18,46,20,30,23,43,16,34.20][i % 10]}px`
      }}
   />
   ))}
