@@ -506,5 +506,63 @@ sellovaGuide: {
     meta: "This page is educational and uses no credits.",
     locale: "en",
   },
-};
 
+
+ // --- Music ---
+ Music: {
+  title: "AI Music Studio",
+  subtitle: "Create unique AI music for your brand",
+  backDashboard: "Back to Dashboard",
+  brandInfo: "Brand Information",
+  brandName: "Brand Name",
+  businessType: "Business Type",
+  description: "Describe your brand and music style...",
+  language: "Language",
+
+  style: "Choose Music Style",
+ descriptionLabel: "Description",
+ styleSubtitle: "select your music style",
+ brandSubtitle:"Tell us about your brand",
+  luxury: "Luxury",
+  cinematic: "Cinematic",
+  modern: "Modern",
+  electronic: "Electronic",
+  corporate: "Corporate",
+  emotional: "Emotional",
+  jazz: "Jazz",
+  classical: "Classical",
+  rock: "Rock",
+  pop: "Pop",
+  hiphop: "Hip Hop",
+
+  generate: "Generate Music",
+  generating: "Generating Music...",
+ 
+  resultTitle: "Generated Music",
+  resultSubtitle: "Your AI music is ready",
+
+  preview: "Music Preview",
+
+  download: "Download Music",
+
+  credits: "Cost: 50 Credits",
+
+  owner: "Sellova Owner",
+  unlimitedCredits: "Credits: Unlimited",
+
+  aiPowered: "AI Powered",
+  aiPoweredDesc: "Advanced AI Technology",
+
+  highQuality: "High Quality",
+  highQualityDesc: "320kbps Premium Audio",
+
+  royaltyFree: "Royalty Free",
+  royaltyFreeDesc: "Commercial Use Allowed",
+
+  instantDownload: "Instant Download",
+  instantDownloadDesc: "Fast & Secure",
+
+  comingSoon: "Coming Soon",
+  comingSoonDesc: "Custom lyrics, instruments and more"
+},
+};

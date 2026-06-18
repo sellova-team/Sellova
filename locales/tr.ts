@@ -560,4 +560,63 @@ sellerHelp: {
   ],
 },
 
+ // --- Music ---
+ Music: {
+  title: "Yapay Zeka Müzik Stüdyosu",
+  subtitle: "Markanız için benzersiz yapay zeka müziği oluşturun",
+  backDashboard: "Kontrol Paneline Dön",
+  brandInfo: "Marka Bilgileri",
+  brandName: "Marka Adı",
+  businessType: "İşletme Türü",
+  description: "Markanızı ve istediğiniz müzik tarzını açıklayın...",
+  language: "Dil",
+
+  style: "Müzik Tarzı Seç",
+  descriptionLabel: "Açıklama",
+  styleSubtitle: "Müzik tarzınızı seçin",
+  brandSubtitle: "Markanız hakkında bilgi verin",
+
+  luxury: "Lüks",
+  cinematic: "Sinematik",
+  modern: "Modern",
+  electronic: "Elektronik",
+  corporate: "Kurumsal",
+  emotional: "Duygusal",
+  jazz: "Caz",
+  rock: "Rock",
+  classical: "Klasik",
+  pop: "Pop",
+  hiphop: "Hip Hop",
+
+  generate: "Müzik Oluştur",
+  generating: "Müzik Oluşturuluyor...",
+
+  resultTitle: "Oluşturulan Müzik",
+  resultSubtitle: "Yapay zeka müziğiniz hazır",
+
+  preview: "Müzik Önizleme",
+
+  download: "Müziği İndir",
+
+  credits: "Maliyet: 50 Kredi",
+
+  owner: "Sellova Sahibi",
+  unlimitedCredits: "Kredi: Sınırsız",
+
+  aiPowered: "Yapay Zeka Destekli",
+  aiPoweredDesc: "Gelişmiş Yapay Zeka Teknolojisi",
+
+  highQuality: "Yüksek Kalite",
+  highQualityDesc: "320kbps Premium Ses",
+
+  royaltyFree: "Telifsiz",
+  royaltyFreeDesc: "Ticari Kullanıma Uygun",
+
+  instantDownload: "Anında İndir",
+  instantDownloadDesc: "Hızlı ve Güvenli",
+
+  comingSoon: "Yakında",
+  comingSoonDesc: "Özel şarkı sözleri, enstrümanlar ve daha fazlası"
+},
+
 };

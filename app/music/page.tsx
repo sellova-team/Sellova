@@ -2,43 +2,49 @@
 
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
+import { useLang } from "@/lib/lang";
 
-const musicStyles = [
-{
-name: "Classical",
-icon: "/assets/icons/music/classical.png",
-},
-{
-name: "Cinematic",
-icon: "/assets/icons/music/cinematic.png",
-},
-{
-name: "Corporate",
-icon: "/assets/icons/music/corporate music.png",
-},
-{
-name: "Electronic",
-icon: "/assets/icons/music/electronic.png",
-},
-{
-name: "Jazz",
-icon: "/assets/icons/music/jazz.png",
-},
-{
-name: "Rock",
-icon: "/assets/icons/music/rock.png",
-},
-];
+
+
 
 export default function MusicPage() {
   const router = useRouter();
+  const { messages } = useLang();
+
+  const musicStyles = [
+{
+name: messages.Music.classical,
+icon: "/assets/icons/music/classical.png",
+},
+{
+name: messages.Music.cinematic,
+icon: "/assets/icons/music/cinematic.png",
+},
+{
+name: messages.Music.corporate,
+icon: "/assets/icons/music/corporate music.png",
+},
+{
+name: messages.Music.electronic,
+icon: "/assets/icons/music/electronic.png",
+},
+{
+ 
+name: messages.Music.jazz,
+icon: "/assets/icons/music/jazz.png",
+},
+{
+name: messages.Music.rock,
+icon: "/assets/icons/music/rock.png",
+},
+];
 return (
 <div className={styles.page}>
     <button
   className={styles.backBtn}
   onClick={() => router.push("/dashboard")}
 >
-  ← Back To Dashboard
+  ←{messages.Music.backDashboard}
 </button>   
    
 
@@ -59,11 +65,11 @@ className={styles.logo}
 />
 
 <h1 className={styles.title}>
-AI MUSIC STUDIO
+{messages.Music.title}
 </h1>
 
 <p className={styles.subtitle}>
-create unique AI music for your brand
+{messages.Music.subtitle}
 </p>
 
 <div className={styles.logoGlow}>
@@ -76,14 +82,14 @@ create unique AI music for your brand
 
 {/* BRAND */}
 
-<div className={styles.section}>
+<div className={`${styles.section} ${styles.brandSection}`}>
 
 <div className={styles.sectionHeader}>
 <div className={styles.number}>1</div>
 
 <div>
-<h2>BRAND INFORMATION</h2>
-<span>Tell us about your brand</span>
+<h2>{messages.Music.brandInfo}</h2>
+<span>{messages.Music.brandSubtitle}</span>
 </div>
 </div>
 
@@ -94,17 +100,17 @@ create unique AI music for your brand
 <div className={styles.row}>
 
 <div className={styles.field}>
-<label>Brand Name</label>
+<label>{messages.Music.brandName}</label>
 <input placeholder="Sellova" />
 </div>
 
 <div className={styles.field}>
-<label>Business Type</label>
+<label>{messages.Music.businessType}</label>
 <input placeholder="E-Commerce" />
 </div>
 
 <div className={styles.field}>
-<label>Language</label>
+<label>{messages.Music.language}</label>
 
 <select>
   <option>English</option>
@@ -118,9 +124,9 @@ create unique AI music for your brand
 </div>
 
 <div className={styles.field}>
-<label>Description</label>
+<label>{messages.Music.descriptionLabel}</label>
 <textarea
-placeholder="Describe your brand and music style..."
+placeholder={messages.Music.description}
 />
 </div>
 
@@ -150,8 +156,8 @@ className={styles.musicIcon}
 <div className={styles.number}>2</div>
 
 <div>
-<h2>CHOOSE MUSIC STYLE</h2>
-<span>Select your music style</span>
+<h2>{messages.Music.style}</h2>
+<span>{messages.Music.styleSubtitle}</span>
 </div>
 </div>
 
@@ -173,48 +179,37 @@ alt={style.name}
 </div>
 ))}
 
+<button
+className={styles.generateBtn}>
+{ messages.Music.generate}
+</button>
 </div>
 
-<button className={styles.generateBtn}>
-GENERATE MUSIC
-</button>
+
 
 </div>
 
 {/* PLAYER */}
 
-<div className={styles.section}>
+<div className={`${styles.section} ${styles.brandSection}`}>
 
 <div className={styles.sectionHeader}>
 <div className={styles.number}>3</div>
 
 <div>
-<h2>GENERATED MUSIC</h2>
-<span>Your AI music is ready</span>
+<h2>{messages.Music.resultTitle}</h2>
+<span>{messages.Music.resultSubtitle}</span>
 </div>
 </div>
 
 <div className={styles.playerArea}>
 
-<div className={styles.coverCard}>
-
-<div className={styles.logoRow}>
-  <img
-src="/assets/icons/music/luxury.png"
-className={styles.miniCrown}
-alt="crown"
-/>
 
 <img
-src="/logo1.png"
-className={styles.coverLogo}
+src="/assets/icons/music.png"
 alt="cover"
+className={styles.coverImage}
 />
-
-</div>
-
-
-</div>
 
 <div className={styles.wavePlayer}>
 
@@ -249,7 +244,7 @@ alt="cover"
 <div className={styles.downloadArea}>
 
 <button className={styles.downloadBtn}>
-DOWNLOAD MUSIC
+{messages.Music.download}
 </button>
 
 </div>

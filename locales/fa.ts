@@ -509,4 +509,64 @@ sellovaGuide: {
     locale: "fa",
   },
   
+    // --- Music ---
+Music: {
+  title: "استودیوی موزیک هوش مصنوعی",
+  subtitle: "برای برند خود موزیک اختصاصی تولید کنید",
+   backDashboard: "بازگشت به داشبورد",
+  brandInfo: "اطلاعات برند",
+  brandName: "نام برند",
+  businessType: "نوع کسب‌وکار",
+  description: "برند و سبک موسیقی مورد نظر خود را توضیح دهید...",
+  language: "زبان",
+
+  style: "انتخاب سبک موسیقی",
+  descriptionLabel: "توضیحات",
+  styleSubtitle: "سبک موسیقی خود را انتخاب کنید",
+  brandSubtitle: "درباره برند خود توضیح دهید",
+  luxury: "لوکس",
+  cinematic: "سینمایی",
+  modern: "مدرن",
+  electronic: "الکترونیک",
+  corporate: "شرکتی",
+  emotional: "احساسی",
+  jazz: "جاز",
+  classical: "کلاسیک",
+  rock: "راک",
+  pop: "پاپ",
+  hiphop: "هیپ هاپ",
+
+  generate: "ساخت موزیک",
+  generating: "در حال ساخت موزیک...",
+
+  resultTitle: "موزیک تولید شده",
+  resultSubtitle: "موزیک هوش مصنوعی شما آماده است",
+
+  preview: "پیش نمایش موزیک",
+
+  download: "دانلود موزیک",
+
+  credits: "هزینه: ۵۰ کردیت",
+
+  
+
+  owner: "مدیر سلوا",
+  unlimitedCredits: "کردیت: نامحدود",
+
+  aiPowered: "قدرت گرفته از هوش مصنوعی",
+  aiPoweredDesc: "فناوری پیشرفته هوش مصنوعی",
+
+  highQuality: "کیفیت بالا",
+  highQualityDesc: "صدای پریمیوم 320kbps",
+
+  royaltyFree: "بدون حق امتیاز",
+  royaltyFreeDesc: "مناسب استفاده تجاری",
+
+  instantDownload: "دانلود فوری",
+  instantDownloadDesc: "سریع و امن",
+
+  comingSoon: "به زودی",
+  comingSoonDesc: "متن ترانه، سازهای اختصاصی و امکانات بیشتر"
+},
+
 };
