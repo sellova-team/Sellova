@@ -68,7 +68,7 @@ export default function HomePage() {
   <Image src="/assets/icons/ai/ai-image.png" width={190} height={160}  alt="ai image" />
   <Image src="/assets/icons/ai/ai-avatar.png" width={200} height={130}  alt="ai avatar" />
   <Image src="/assets/icons/ai/ai-video.png" width={190} height={160} alt="ai video" />
-  <Image src="/assets/icons/ai/ai-music.png" width={190} height={15.ts0} alt="ai music" />
+  <Image src="/assets/icons/ai/ai-music.png" width={190} height={150} alt="ai music" />
 </div>
 <div className="featureBar">
 
