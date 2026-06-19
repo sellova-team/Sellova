@@ -131,6 +131,8 @@ export default function LoginPage() {
 
   const handleContinue = async () => {
     setError(null);
+    router.push("/dashboard");
+    router;
 
     if (!email || !password) {
       setError("Please enter email and password.");
