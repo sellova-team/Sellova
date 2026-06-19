@@ -1,103 +1,450 @@
-/* ====== پس‌زمینه سورمه‌ای کامل روی کل سایت ====== */
-html,
-body {
+/* ===== RESET ===== */
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background: #0b1e3d; /* سورمه‌ای کامل */
-  overflow-x: hidden; /* جلوگیری از اسکرول چپ راست */
+  overflow-x: hidden;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* ظرف کلی سایت – روی دسکتاپ */
+/* ===== BACKGROUND DEFAULT ===== */
+body {
+  background: #050510;
+}
+
+/* ===== APP SHELL ===== */
 .app-shell {
   width: 100%;
   margin: 0 auto;
   padding: 16px;
-  background: transparent; /* دیگه سفید نیست */
 }
 
-/* لپ‌تاپ کوچیک */
-@media (max-width: 1366px) {
-  .app-shell {
-    padding: 0 8px;
-  }
+/* ===== SELLOVA HOME PAGE ===== */
+.heroPage{
+  min-height:100vh;
+  overflow:hidden;
+  color:white;
+position: relative;
+  background: #000;
 }
 
-/* ====== موبایل ====== */
-@media (max-width: 768px) {
-  .app-shell {
-    padding: 0; /* بدون حاشیه اضافی */
-    max-width: 100%;
-  }
-
-  img,
-  video {
-    max-width: 100%;
-    height: auto;
-  }
-}
-/* ONLY MOBILE FIXES */
-@media (max-width: 768px) {
-  /* لوگو را کوچک‌تر و بالاتر می‌برد */
-  .pg .logo {
-    width: 100px !important; /* ۴ سایز کوچک‌تر */
-    height: auto !important;
-    margin-top: -8px !important; /* لوگو می‌رود بالاتر */
-    display: block;
-  }
-
-  /* فاصله عنوان با لوگو */
-  .pg .title {
-    margin-top: -18px !important;
-    margin-bottom: 22px !important;
-    font-size: 18px !important; /* کمی کوچک‌تر، خواناتر */
-    line-height: 1.2;
-  }
-
-  @media (max-width: 768px) {
-  .plans-logo-img {
-    width: 95px !important; /* دقیقا مثل صفحات عکس/ویدیو */
-    height: auto !important;
-    margin-top: -6px !important; /* میره بالای صفحه */
-    display: block;
-  }
-
-  .plans-logo-wrap {
-    margin-top: 0 !important;
-    margin-bottom: 8px !important; /* نزدیک به کارت‌ها */
-  }
+/* ===== NAVBAR ===== */
+.navbar{
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
 }
 
-/* --- MOBILE FIX FOR SUPPORT PAGE ONLY --- */
-@media (max-width: 768px) {
-
-  /* لوگوی صفحه ساپورت */
-  .support-logo-header img {
-    width: 80px !important; /* خیلی کوچیک */
-    height: auto !important;
-    margin-top: 0 !important;
-  }
-
-  /* هدر کامل بچسبه بالا */
-  .support-logo-header {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    margin-bottom: 6px !important;
-  }
-
-  /* تیتر Support بیاد نزدیک لوگو */
-  .support-logo-header h1 {
-    margin-top: 2px !important;
-    font-size: 20px !important;
-  }
-
-  /* توضیح زیر تیتر نزدیک‌تر */
-  .support-logo-header p {
-    margin-top: 2px !important;
-    font-size: 12px !important;
-    line-height: 1.5 !important;
-  }
+.menu{
+  display:flex;
+  gap:35px;
 }
+
+.menu a{
+  color:#d5d5e6;
+  text-decoration:none;
+  font-size:15px;
+}
+
+/* ===== BUTTONS ===== */
+.navButtons{
+  display:flex;
+  gap:14px;
+}
+
+.loginBtn{
+  color:white;
+  text-decoration:none;
+  padding:12px 24px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:14px;
+}
+
+.startBtn{
+  text-decoration:none;
+  padding:12px 24px;
+  border-radius:14px;
+  background:linear-gradient(90deg,#7b3cff,#a855f7);
+  color:white;
+  font-weight:700;
+}
+
+/* ===== HERO ===== */
+.heroSection{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  min-height:calc(100vh - 90px);
+  padding:0 70px;
+  z-index: 10;
+}
+
+.heroSecti::after{
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  right: 150px;
+  top: 150px;
+  background: rgba(168,85,247,.25);
+
+  filter: blur(180px);
+  border-radius: 50%;
+  z-index: 0;
+
+}
+
+.heroSection::before{
+  content:"";
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  right:280px;
+  top:260px;
+
+  border-radius:50%;
+
+  background:rgba(255,190,60,.15);
+
+  filter:blur(90px);
+
+  z-index:0;
+  pointer-events:none;
+}
+
+ 
+
+
+.leftSide{
+  max-width:620px;
+  z-index: 20;
+}
+
+.aiTag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  font-size:12px;
+}
+
+.leftSide h1{
+  margin-top:2px;
+  margin-bottom:8px;
+  font-size:63px;
+  font-weight:800;
+  line-height:0.95;
+}
+
+.leftSide h1 span{
+  color:#c400ff;
+}
+
+.leftSide p{
+  color:#cfcfe6;
+  font-size:20px;
+  line-height:1.8;
+}
+
+.heroButtons{
+  margin-top:35px;
+  display:flex;
+  gap:16px;
+}
+
+.startCreating{
+  background:#8b5cf6;
+  color:white;
+  text-decoration:none;
+  padding:18px 30px;
+  border-radius:16px;
+  font-weight:700;
+}
+
+.watchBtn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.15);
+  color:white;
+  padding:18px 30px;
+  border-radius:16px;
+}
+
+/* ===== RIGHT SIDE ===== */
+.rightSide{
+  position:relative;
+ min-height: 700px;
+ z-index:100;
+}
+
+.crown{
+  pointer-events: none;
+  position: absolute;
+  top: -1900px;
+  right: -900px;
+  width: 2800px !important;
+  height: auto;
+  opacity: 1;
+  z-index:0;
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 75%,
+    transparent 100%
+  );
+}
+
+.orbit{
+  position:absolute;
+  width:650px;
+  height:650px;
+  border-radius:50%;
+  border:1px solid rgba(170,120,255,.2);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.crownWrap{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:3;
+}
+
+.crownWrap img{
+  filter: drop-shadow(0 0 25px rgba(255,208,0,.3));
+}
+
+/* ===== CARDS ===== */
+.card{
+  position:absolute;
+  width:160px;
+  height:160px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+
+.card img{
+  width:65px;
+  height:65px;
+  object-fit:contain;
+}
+
+.card span{
+  font-weight:700;
+}
+
+/* positions */
+.imageCard{ top:70px; left:120px; }
+.videoCard{ top:90px; right:80px; }
+.avatarCard{ bottom:100px; left:110px; }
+.musicCard{ bottom:80px; right:90px; }
+
+.logoWrap{
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2PX;
+}
+
+.logoSub{
+  margin:0;
+  padding: 0;
+  margin-top: -80px;
+  margin-bottom: 50px;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: .85;
+  line-height: 1;
+}
+
+.crown{
+  position: absolute;
+  right:-280px;
+  top:-400px;
+
+  width:2300px;
+  height: auto;
+
+  z-index: 0;
+}
+
+.leftSide{
+  position: relative;
+  z-index: 20;
+}
+
+.navbar{
+  position: relative;
+  z-index: 20;
+}
+
+.rightSide{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.avatarCard{
+  position: absolute;
+
+  left:980px;
+  top: 400px;
+  bottom: 120px;
+  width: 130px;
+  height: auto;
+
+  transform: rotate(-15deg);
+
+  z-index: 30;
+}
+
+.imageCard{
+  position: absolute;
+
+  left:950px;
+  top:200px;
+
+  width:140px;
+  height:auto;
+
+  transform: rotate(-20deg)
+
+  rotateY(25DEG);
+
+  z-index: 999;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 140px;
+  padding: o;
+  margin: 0;
+}
+
+.iconImage {
+  
+  height: 140px;
+  object-fit: contain;
+  display: block;
+ margin-left: 10PX;
+ margin-right: 10PX;
+}
+.icon{
+  width: 100PX;
+}
+.iconRow {
+  display: flex;
+  
+  justify-content: center;
+  gap: 0px;
+  margin-top: 15px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: auto;
+}
+
+.bottomBar {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.barItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-size: 12px;
+  width: 80px;
+}
+
+.barItem img {
+  width: 40px;
+  height: 40px;
+}
+
+.barItem:hover {
+  transform: translateY(-3px);
+  transition: 0.2s;
+}
+
+.featureBar {
+  position: absolute;
+  width: 1100px;
+  left: 50%;
+  bottom: -200px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap:15px;
+
+  padding: 8px ;
+  border-radius: 18px;
+
+  background: rgba(10,10,25,0.85);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(6px);
+  transform: translateX(-20%);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 12px;
+ flex-direction: row;
+ width: 620px;
+}
+
+.featureItem:hover {
+  background: rgba(168, 85, 247, 0.12);
+  
+}
+
+.featureItem p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+.featureItem span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}
+
+.featureItem div{
+  width: 120px;
+}
+
+.featureItem image{
+  width: 80px !important;
+  height: 80px !important;
 }

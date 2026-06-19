@@ -1,84 +1,136 @@
-// app/page.tsx
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#fff",
-        display: "flex",
-        justifyContent: "center",
-        padding: "clamp(12px, 2vw, 24px)",
-      }}
-    >
-      <div
-        style={{
-          width: "clamp(320px, 92vw, 850px)",
-          textAlign: "center",
-          display: "grid",
-          gap: "clamp(14px, 2vw, 26px)",
-        }}
-      >
-        {/* تیتر */}
-        <h1
-          style={{
-            margin: 0,
-            fontWeight: 800,
-            lineHeight: 1.25,
-            fontSize: "clamp(22px, 4vw, 34px)",
-          }}
-        >
-          AI Solutions for Advertising
-        </h1>
+    <main className="heroPage">
 
-        {/* عکس کوچیک‌تر (دیگه کل صفحه نیست) */}
-        <div
-          style={{
-            width: "clamp(260px, 65vw, 500px)",
-            margin: "0 auto",
-          }}
-        >
+      {/* Navbar */}
+
+      <nav className="navbar">
+
+        <div className="logoWrap">
           <Image
-            src="/homepage.png"
+            src="/logo1.png"
             alt="Sellova"
-            width={500}
-            height={400}
+            width={450}
+            height={280}
             priority
-            style={{
-              width: "100%",
-              height: "auto",
-              borderRadius: 12,
-              objectFit: "cover",
-              display: "block",
-            }}
           />
+          <p className="logoSub">
+            AI POWERED ADVERTISING
+          </p>
         </div>
 
-        {/* دکمه Login → بزرگ، واضح، حرفه‌ای */}
-        <div>
-          <Link
-            href="/dashboard"
-            style={{
-              display: "block",
-              width: "clamp(200px, 40vw, 280px)",
-              margin: "0 auto",
-              textDecoration: "none",
-              textAlign: "center",
-              background: "#0ea5e9",
-              color: "#fff",
-              fontWeight: 800,
-              fontSize: "clamp(18px, 2.4vw, 22px)",
-              padding: "clamp(14px, 2.6vw, 18px) 0",
-              borderRadius: 12,
-              boxShadow: "0 6px 16px rgba(0,0,0,0.15)",
-            }}
-          >
+        <div className="menu">
+          <a>Features</a>
+          <a>Solutions</a>
+          <a>Templates</a>
+          <a>Pricing</a>
+          <a>Resources</a>
+        </div>
+
+        <div className="navButtons">
+          <Link href="/login" className="loginBtn">
             Login
           </Link>
+
+          <Link href="/dashboard" className="startBtn">
+            Get Started
+          </Link>
         </div>
-      </div>
+
+      </nav>
+
+      {/* Hero */}
+
+      <section className="heroSection">
+
+        {/* Left */}
+
+        <div className="leftSide"
+  
+      >
+
+          <h1>
+            AI Advertising
+            <span> Suite</span>
+          </h1>
+
+          
+
+          <p>
+            Create stunning ads, images, videos, avatars,
+            music and marketing content in minutes with AI.
+          </p>
+
+        <div className="iconRow">
+  <Image src="/assets/icons/ai/ai-image.png" width={190} height={160}  alt="ai image" />
+  <Image src="/assets/icons/ai/ai-avatar.png" width={200} height={130}  alt="ai avatar" />
+  <Image src="/assets/icons/ai/ai-video.png" width={190} height={160} alt="ai video" />
+  <Image src="/assets/icons/ai/ai-music.png" width={190} height={15.ts0} alt="ai music" />
+</div>
+<div className="featureBar">
+
+  <div className="featureItem">
+    <Image src="/assets/icons/ai/lightning.png" width={56} height={56} alt="fast" />
+    <div>
+      <p>Lightning Fast</p>
+      <span>Generate content in seconds</span>
+    </div>
+  </div>
+
+  <div className="featureItem">
+    <Image src="/assets/icons/ai/powered.png" width={66} height={66} alt="ai" />
+    <div>
+      <p>AI Powered</p>
+      <span>Advanced AI models</span>
+    </div>
+  </div>
+
+  <div className="featureItem">
+    <Image src="/assets/icons/ai/commercial.png" width={76} height={76} alt="commercial" />
+    <div>
+      <p>Commercial Use</p>
+      <span>Use anywhere, anytime</span>
+    </div>
+  </div>
+
+  <div className="featureItem">
+    <Image src="/assets/icons/ai/cloud.png" width={66} height={66} alt="cloud" />
+    <div>
+      <p>Cloud Storage</p>
+      <span>All your files in one place</span>
+    </div>
+  </div>
+
+  <div className="featureItem">
+    <Image src="/assets/icons/ai/support.png" width={66} height={66} alt="support" />
+    <div>
+      <p>24/7 Support</p>
+      <span>We’re here to help you</span>
+    </div>
+  </div>
+
+</div>
+
+        </div>
+
+        {/* Right */}
+
+  <div className="rightSide">
+    <Image
+    src="/assets/icons/ai/crown.png"
+    alt="Crown"
+    width={720}
+    height={720}
+    className="crown"
+    />
+  </div>
+
+ 
+      </section>
+
     </main>
   );
 }
