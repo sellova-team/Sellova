@@ -1,0 +1,66 @@
+.page{
+  min-height:100vh;
+  background:#000005;
+}
+
+.logoWrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:-40px;
+
+  position: relative;
+  left: -550px;
+}
+
+.logoSub{
+  margin-top:-40px;
+  color:white;
+  font-size:11px;
+  letter-spacing:3px;
+  opacity:.85;
+}
+
+.cubeWrap{
+    position: absolute;
+    left:700px;
+    top: 90px;
+}
+
+.cube{
+    width: 500px;
+    height: auto;
+}
+
+.guideWrap{
+    position: absolute;
+    right: 700px;
+    top:90px;
+}
+
+.guideImage{
+    width: 400px;
+    height: auto;
+}
+
+.backBtn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+
+  padding: 12px 22px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+}
+
+.backBtn:hover {
+  background: rgba(168,85,247,0.15);
+}

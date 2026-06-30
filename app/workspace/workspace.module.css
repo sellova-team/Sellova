@@ -1,0 +1,164 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  background: #05060a;
+  color: white;
+  font-family: sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: rgba(10, 10, 20, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #a855f7;
+  margin-bottom: 30px;
+}
+
+.nav a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.active {
+  background: rgba(168, 85, 247, 0.2);
+  color: white !important;
+}
+
+.bottomBox {
+  margin-top: 20px;
+}
+
+.plan {
+  color: #facc15;
+  margin-bottom: 10px;
+}
+
+.upgrade {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #7c3aed, #00e5ff);
+  color: white;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+/* HEADER */
+.header h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.header h2 {
+  font-size: 42px;
+  margin: 10px 0;
+}
+
+.header p {
+  color: #aaa;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.card {
+  background: rgba(20, 20, 35, 0.7);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 18px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.features {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.features span {
+  font-size: 12px;
+  background: rgba(255,255,255,0.05);
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #ccc;
+}
+
+/* BUTTONS */
+.btnPurple,
+.btnBlue,
+.btnOrange {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btnPurple {
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+}
+
+.btnBlue {
+  background: linear-gradient(90deg, #2563eb, #00e5ff);
+}
+
+.btnOrange {
+  background: linear-gradient(90deg, #f97316, #ef4444);
+}
+
+/* ICON ROW */
+.iconRow {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.iconRow img {
+  width: 40px;
+  height: 40px;
+}

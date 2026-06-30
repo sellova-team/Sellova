@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="appBody">
         <LangProvider>
           <div className="app-shell">
             {children}
