@@ -1,290 +1,142 @@
-
-"use client";
-
-import { useRouter } from "next/navigation";
-import Image from "next/image";
+import styles from "./login.module.css";
 import Link from "next/link";
-import { useState } from "react";
-
-// Firebase
-import { auth, db } from "@/lib/firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  setPersistence,
-  browserLocalPersistence,
-} from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-
-const fontStack =
-  'IRANSans, Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
-
-const styles: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: "#0b1e3d",
-    display: "grid",
-    placeItems: "center",
-    padding: 24,
-    fontFamily: fontStack,
-    position: "relative",
-  },
-  logoWrap: {
-    position: "absolute",
-    top: 0,
-    left: "50%",
-    transform: "translateX(-50%)",
-    zIndex: 5,
-  },
-  card: {
-    width: "100%",
-    maxWidth: 520,
-    background: "#ffffff",
-    borderRadius: 16,
-    boxShadow: "0 14px 40px rgba(0,0,0,.28)",
-    padding: 24,
-    marginTop: 80,
-  },
-  tabs: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: 8,
-    background: "#eef3f7",
-    borderRadius: 12,
-    padding: 6,
-    marginBottom: 20,
-  },
-  tabBtn: {
-    height: 50,
-    borderRadius: 10,
-    background: "transparent",
-    color: "#0b1e3d",
-    fontWeight: 800,
-    fontSize: 18,
-    border: "none",
-    cursor: "pointer",
-  },
-  tabBtnActive: {
-    background: "#0ea5e9",
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: 900,
-  },
-  label: {
-    display: "block",
-    fontSize: 18,
-    color: "#334155",
-    margin: "8px 4px 6px",
-    fontWeight: 800,
-  },
-  input: {
-    width: "100%",
-    height: 50,
-    borderRadius: 10,
-    border: "1px solid #e2e8f0",
-    padding: "0 14px",
-    outline: "none",
-    marginBottom: 14,
-    fontFamily: fontStack,
-    fontSize: 17,
-  },
-  primary: {
-    width: "100%",
-    height: 52,
-    borderRadius: 12,
-    border: "none",
-    background: "#0ea5e9",
-    color: "#fff",
-    fontWeight: 900,
-    fontSize: 18,
-    cursor: "pointer",
-    marginTop: 6,
-    boxShadow: "0 6px 14px rgba(14,165,233,.35)",
-  },
-  backLink: {
-    color: "#5b6475",
-    fontSize: 16,
-    textDecoration: "none",
-  },
-  forgot: {
-    color: "#0ea5e9",
-    fontSize: 15,
-    marginTop: 10,
-    textAlign: "center",
-    cursor: "pointer",
-    fontWeight: 700,
-  },
-};
 
 export default function LoginPage() {
-  const router = useRouter();
-  const [tab, setTab] = useState<"signin" | "signup">("signin");
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [securityWord, setSecurityWord] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPass, setShowPass] = useState(false);
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleContinue = async () => {
-    setError(null);
-    router.push("/dashboard");
-    router;
-
-    if (!email || !password) {
-      setError("Please enter email and password.");
-      return;
-    }
-
-    if (tab === "signup" && securityWord.length !== 5) {
-      setError("Security word must be exactly 5 letters.");
-      return;
-    }
-
-    try {
-      setLoading(true);
-
-      // ✅ FIX FOR MOBILE
-      await setPersistence(auth, browserLocalPersistence);
-
-      /** 🔵 SIGN UP */
-      if (tab === "signup") {
-        const userCred = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-
-        const user = userCred.user;
-
-        await setDoc(doc(db, "users", user.uid), {
-          name,
-          email,
-          securityWord,
-          role: "user",
-          creditBalance: 30,
-          monthlyQuota: 0,
-          monthlyUsed: 0,
-          lastReset: new Date().toISOString(),
-        });
-
-        localStorage.setItem("uid", user.uid);
-        router.push("/dashboard");
-        return;
-      }
-
-      /** 🔵 SIGN IN */
-      if (tab === "signin") {
-        const userCred = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        localStorage.setItem("uid", userCred.user.uid);
-        router.push("/dashboard");
-        return;
-      }
-    } catch (err: any) {
-      setError("Firebase Error: " + err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <main style={styles.page}>
-      <div style={styles.logoWrap}>
-        <Image src="/logo.png" alt="Sellova" width={210} height={100} priority />
-      </div>
+    <div className={styles.loginPage}>
 
-      <div style={styles.card}>
-        <div style={styles.tabs}>
-          <button
-            onClick={() => {
-              setTab("signin");
-              setError(null);
-            }}
-            style={{
-              ...styles.tabBtn,
-              ...(tab === "signin" ? styles.tabBtnActive : {}),
-            }}
-          >
-            Sign in
-          </button>
+      <div className={styles.card}>
 
-          <button
-            onClick={() => {
-              setTab("signup");
-              setError(null);
-            }}
-            style={{
-              ...styles.tabBtn,
-              ...(tab === "signup" ? styles.tabBtnActive : {}),
-            }}
-          >
-            Create account
-          </button>
+        {/* Logo */}
+
+        <div className={styles.logoArea}>
+          <img
+            src="/logo.png"
+            alt="Sellova"
+            className={styles.logo}
+          />
+
+          <h1>Welcome Back</h1>
+
+          <p>
+            Sign in to continue your creative journey
+          </p>
         </div>
 
-        {tab === "signup" && (
-          <>
-            <label style={styles.label}>Name</label>
+        {/* FORM */}
+
+        <div className={styles.form}>
+
+          {/* EMAIL */}
+
+          <label>Email</label>
+
+          <div className={styles.inputBox}>
+
+            <span className={styles.icon}>✉</span>
+
             <input
-              style={styles.input}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              type="email"
+              placeholder="Enter your email"
             />
 
-            <label style={styles.label}>Security word (5 letters)</label>
+          </div>
+
+
+          {/* PASSWORD */}
+
+          <label>Password</label>
+
+          <div className={styles.inputBox}>
+
+            <span className={styles.icon}>🔒</span>
+
             <input
-              style={styles.input}
-              value={securityWord}
-              maxLength={5}
-              onChange={(e) => setSecurityWord(e.target.value.toLowerCase())}
+              type="password"
+              placeholder="Enter your password"
             />
-          </>
-        )}
 
-        <label style={styles.label}>Email</label>
-        <input
-          style={styles.input}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+            <span className={styles.eye}>
+              👁
+            </span>
 
-        <label style={styles.label}>Password</label>
-        <input
-          style={styles.input}
-          type={showPass ? "text" : "password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button onClick={handleContinue} disabled={loading} style={styles.primary}>
-          {loading ? "Please wait..." : tab === "signin" ? "Sign in" : "Create account"}
-        </button>
-
-        {error && (
-          <div style={{ color: "#b91c1c", marginTop: 10, textAlign: "center" }}>
-            {error}
           </div>
-        )}
 
-        {tab === "signin" && (
-          <div style={styles.forgot} onClick={() => router.push("/forgot-password")}>
-            Forgot password?
+
+          {/* OPTIONS */}
+
+          <div className={styles.options}>
+
+            <label className={styles.remember}>
+
+              <input type="checkbox" />
+
+              Remember me
+
+            </label>
+
+            <a href="#">
+              Forgot Password?
+            </a>
+
           </div>
-        )}
 
-        <div style={{ textAlign: "center", marginTop: 12 }}>
-          <Link href="/" style={styles.backLink}>
-            ← Back to home
+
+          {/* LOGIN */}
+
+          <Link
+            href="/workspace"
+            className={styles.loginButton}
+          >
+           Start Sellova →
           </Link>
+
+
+          {/* Divider */}
+
+          <div className={styles.divider}>
+
+            <span></span>
+
+            <p>OR</p>
+
+            <span></span>
+
+          </div>
+
+
+          {/* GOOGLE */}
+
+          <button className={styles.googleButton}>
+
+            <img
+              src="/assets/icons/google.png"
+              alt=""
+            />
+
+            Continue with Google
+
+          </button>
+
+
+          {/* Register */}
+
+          <p className={styles.register}>
+
+            Don't have an account?
+
+            <Link href="/register">
+
+              Create Account
+
+            </Link>
+
+          </p>
+
         </div>
+
       </div>
-    </main>
+
+    </div>
   );
 }

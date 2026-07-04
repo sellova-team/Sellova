@@ -1,5 +1,140 @@
 // locales/tr.ts
 export const trMessages = {
+
+  // --- Workspace ---
+  workspace: {
+  title: "AI Çalışma Alanınızı Seçin",
+  subtitle: "İşletmeniz, markanız ve içerikleriniz için güçlü AI araçları",
+
+  menu: {
+    workspace: "Çalışma Alanı",
+    ads: "Sellova Ads",
+    branding: "Sellova Branding",
+    studio: "Sellova Studio",
+    settings: "Ayarlar",
+    guide: "Sellova Rehberi",
+    academy: "Akademi",
+    upgrade: "Planı Yükselt",
+  },
+
+  header: {
+    welcome: "Sellova'ya Hoş Geldiniz ✨",
+    title: "AI Çalışma Alanınızı Seçin",
+    subtitle: "İşletmeniz, markanız ve içerikleriniz için güçlü AI araçları"
+  },
+
+  ads: {
+    title: "Sellova Ads",
+    subtitle: "AI Reklam Paketi",
+   feature1: "Profesyonel Yapay Zeka Ürün Görselleri",
+feature2: "Profesyonel Yapay Zeka Reklam Videoları",
+feature3: "Yapay Zeka Avatarlı Ürün Fotoğrafları",
+feature4: "Yapay Zeka Avatarlı Reklam Videoları",
+feature5: "Markanıza Özel Yapay Zeka Müziği",
+feature6: "Yapay Zeka Altyazı ve Hashtag",
+feature7: "Sayfa Performans Analizi",
+feature8: "Sinematik Ürün Reklamları",
+    button: "Sellova Ads'e Gir →"
+  },
+
+  branding: {
+    title: "Sellova Branding",
+    subtitle: "AI Kişisel Marka Paketi",
+    feature1: "Kişiselleştirilmiş Marka Stratejisi",
+feature2: "Yaratıcı İçerik Fikirleri",
+feature3: "Yapay Zeka Pazarlama Danışmanı",
+feature4: "Rakip Analizi",
+feature5: "Sosyal Medya Büyüme Analizi",
+feature6: "Markanıza Özel Marka Dili",
+feature7: "İçerik Takvimi Planlaması",
+feature8: "İşinizi Büyütme Önerileri",
+
+    button: "Branding'e Gir →"
+  },
+
+  studio: {
+    title: "Sellova Studio",
+    subtitle: "AI İçerik Stüdyosu",
+    feature1: "Uzun Videoları Sınırsız Short'a Dönüştürün",
+feature2: "YouTube Shorts, Instagram Reels ve Hikayeler",
+feature3: "Yapay Zeka Video Klipleri ve Profesyonel Küçük Resimler",
+feature4: "Tüm Sosyal Medya Platformları İçin Yeniden Boyutlandırma",
+feature5: "Farklı En Boy Oranlarında Dışa Aktarma",
+feature6: "Hızlı Yapay Zeka Video İşleme",
+feature7: "TikTok, Facebook ve YouTube'a Hazır",
+feature8: "Sınırsız İçerik Yeniden Üretimi",
+    button: "Studio'ya Gir →"
+  },
+
+  info: {
+    adsTitle: "Yapay Zeka ile Profesyonel Ürün Reklamları",
+    adsText: "Sellova Ads; ürün görselleri, reklam videoları, avatar pazarlaması, sinematik ürün tanıtımları, tanıtım slaytları ve reklam içerikleri oluşturmanıza yardımcı olur.",
+
+    brandingTitle: "AI ile Kişisel Markanızı Oluşturun",
+    brandingText: "Yapay zeka destekli strateji, içerik planlama ve hedef kitle analizleri ile güçlü bir kişisel marka oluşturun ve sosyal medyada büyüyün.",
+
+    studioTitle: "Profesyonel AI Video Düzenleme Stüdyosu",
+    studioText: "Uzun videoları kısa viral içeriklere dönüştürün. Altyazılar, podcast klipleri, küçük resimler ve sosyal medya içeriklerini saniyeler içinde oluşturun."
+  }
+},
+
+// --- StudioPage ---
+  studioPage: {
+  header: {
+    title: "AI İçerik Stüdyosu",
+    subtitle: "Tek bir videoyu sınırsız içeriğe dönüştürün",
+    welcome: "Hoş geldin, Shabnam 👋",
+    activePlan: "Aktif Plan",
+    upgrade: "Planı Yükselt",
+  },
+
+  upload: {
+    title: "Yükle",
+    drag: "Videonuzu sürükleyip buraya bırakın",
+    info: "Maksimum boyut: 20 GB • Maksimum süre: 2 saat",
+    safe: "Videonuz güvenli ve şifrelenmiştir. Verilerinizi asla paylaşmayız.",
+  },
+
+  steps: {
+    upload: "Yükle",
+    customize: "Özelleştir",
+    generate: "Oluştur",
+    results: "Sonuçlar",
+  },
+
+  content: {
+    title: "İçerik Oluştur",
+
+    instagramReels: "Instagram Reels",
+    youtubeShorts: "YouTube Shorts",
+    tiktokVideos: "TikTok Videoları",
+    instagramStories: "Instagram Hikayeleri",
+    facebookPosts: "Facebook Gönderileri",
+    socialPosts: "Sosyal Medya Gönderileri",
+    videoClips: "Video Klipleri",
+
+    option10: "10 sn",
+    option30: "30 sn",
+    option1m: "1 dk",
+    option2m: "2 dk",
+
+    generate: "İçerik Oluştur →",
+  },
+
+  progress: {
+    title: "Oluşturulan İçerikler",
+    subtitle:
+      "Tüm içeriklerinizi oluştururken arkanıza yaslanın. Her şey hazır olduğunda size bildirim gönderilecektir.",
+
+    viewAll: "Tüm Sonuçları Gör",
+
+    ready: "Hazır",
+    generating: "Oluşturuluyor...",
+    more: "+ daha fazla",
+  }
+},
+
+
   // --- Dashboard ---
   dashboard: {
     welcome: "Sellova Gösterge Paneline hoş geldiniz",

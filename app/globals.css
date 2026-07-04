@@ -103,7 +103,8 @@ NAVBAR
     justify-content:space-between;
 
     padding:0 70px;
-
+    position: relative;
+     z-index: 1000;
 }
 
 .logoBox{
@@ -163,13 +164,18 @@ NAVBAR
 
 .navButtons{
 
-    position: absolute;
-    top: 35PX;
-    right:100PX;
+    position: static;
     display: flex;
     align-items: center;
     gap: 12PX;
+    z-index: 1001;
+    margin-left: auto;
+  
+}
 
+.startBtn {
+    position:  relative;
+   
 }
 
 .language{
@@ -1221,19 +1227,6 @@ line-height: 1.15;
     background-attachment: fixed;
 }
 
-.rocket {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 70px;
-  z-index: 100;
-
-  cursor: pointer;
-  transition: 0.3s;
-}
-
 
 .featureBox,
 .whyaBox {
@@ -1272,3 +1265,4 @@ line-height: 1.15;
   line-height: 1.6;
   color: rgba(255,255,255,0.7);
 }
+

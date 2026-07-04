@@ -24,21 +24,22 @@ export default function Home() {
           </p>
 
         </div>
-     </nav>
+  
         
-        <nav className="navButtons">
+        <div className="navButtons">
 
          
          
 
           <Link
-            href="/workspace"
+            href="/login"
             className="startBtn">
           
 
             Get Started →
 
           </Link>
+          </div>
 
 
       </nav>
@@ -79,7 +80,7 @@ export default function Home() {
 <section className="featuresBar">
 
 <div className="featureItem">
-    <Image src="/assets/icons/ai/lightning.png" alt="" width={34} height={34}/>
+    <Image src="/assets/icons/ai/lightning1.png" alt="" width={34} height={34}/>
     <div>
       <h4>Super Fast</h4>
       <p>Generate content in seconds</p>
@@ -102,7 +103,7 @@ export default function Home() {
     </div>
   </div>
 <div className="featureItem">
-    <Image src="/assets/icons/ai/cloud.png" alt="" width={34} height={34}/>
+    <Image src="/assets/icons/ai/cloud1.png" alt="" width={34} height={34}/>
     <div>
       <h4>Cloud Storage</h4>
       <p>All files in one place</p>
@@ -129,7 +130,7 @@ export default function Home() {
         <div className="heroRight">
 
           <Image
-            src="/assets/icons/ai/crown.png"
+            src="/assets/icons/ai/crown3.png"
             alt="Sellova Crown"
             width={4500}
             height={4500}
@@ -138,11 +139,11 @@ export default function Home() {
           />
 <Image src="/assets/icons/ai/ai-image.png" alt="" width={120} height={120} className="card imageCard" />
 
-<Image src="/assets/icons/ai/ai-avatar.png" alt="" width={120} height={120} className="card avatarCard" />
+<Image src="/assets/icons/ai/ai-avatar1.png" alt="" width={120} height={120} className="card avatarCard" />
 
 <Image src="/assets/icons/ai/ai-video.png" alt="" width={120} height={120} className="card videoCard" />
 
-<Image src="/assets/icons/ai/ai-music.png" alt="" width={120} height={120} className="card musicCard" />
+<Image src="/assets/icons/ai/ai-music1.png" alt="" width={120} height={120} className="card musicCard" />
 
 <Image src="/assets/icons/ai/ai-personal-brand.png" alt="" width={120} height={120} className="card brandCard" />
 
@@ -166,13 +167,13 @@ export default function Home() {
     <div className="whyGrid">
 
       <div className="whyItem">
-        <Image src="/assets/icons/ai/lightning.png" alt="" width={52} height={53}/>
+        <Image src="/assets/icons/ai/lightning1.png" alt="" width={52} height={53}/>
         <h3>Lightning Fast</h3>
         <p>Create content in seconds</p>
       </div>
 
       <div className="whyItem">
-        <Image src="/assets/icons/ai/permium-quality.png" alt="" width={58} height={58}/>
+        <Image src="/assets/icons/ai/permium-quality1.png" alt="" width={58} height={58}/>
         <h3>Premium Quality</h3>
         <p>High quality realistic AI</p>
       </div>
@@ -184,7 +185,7 @@ export default function Home() {
       </div>
 
       <div className="whyItem">
-        <Image src="/assets/icons/ai/music.png" alt="" width={58} height={58}/>
+        <Image src="/assets/icons/ai/music1.png" alt="" width={58} height={58}/>
         <h3>Brand Music</h3>
         <p>Custom AI music</p>
       </div>
@@ -196,7 +197,7 @@ export default function Home() {
       </div>
 
       <div className="whyItem">
-        <Image src="/assets/icons/ai/safe&sequr.png" alt="" width={58} height={58}/>
+        <Image src="/assets/icons/ai/safe&sequr1.png" alt="" width={58} height={58}/>
         <h3>Safe & Secure</h3>
         <p>100% secure cloud</p>
       </div>
@@ -230,19 +231,19 @@ export default function Home() {
       </div>
 
       <div className="industryItem">
-        <Image src="/assets/icons/ai/beatuy.png" alt="" width={60} height={60}/>
+        <Image src="/assets/icons/ai/beatuy1.png" alt="" width={60} height={60}/>
         <h3>Beauty</h3>
         <p>Cosmetics & Skincare</p>
       </div>
 
       <div className="industryItem">
-        <Image src="/assets/icons/ai/bear.png" alt="" width={60} height={60}/>
+        <Image src="/assets/icons/ai/bear1.png" alt="" width={60} height={60}/>
         <h3>Toys</h3>
         <p>Kids & Baby</p>
       </div>
 
       <div className="industryItem">
-        <Image src="/assets/icons/ai/sofa.png" alt="" width={60} height={60}/>
+        <Image src="/assets/icons/ai/sofa1.png" alt="" width={60} height={60}/>
         <h3>Home Decor</h3>
         <p>Furniture & Home</p>
       </div>
@@ -254,7 +255,7 @@ export default function Home() {
       </div>
 
       <div className="industryItem">
-        <Image src="/assets/icons/ai/bag.png" alt="" width={60} height={60}/>
+        <Image src="/assets/icons/ai/bag1.png" alt="" width={60} height={60}/>
         <h3>Bags</h3>
         <p>Leather Goods</p>
       </div>
@@ -282,7 +283,7 @@ export default function Home() {
       stunning ads, videos and marketing content with Sellova.
     </p>
 
-    <Link href="/workspace"
+    <Link href="/login"
     className="ctaButton">
       Get Started Now →
       </Link>
@@ -336,10 +337,3 @@ export default function Home() {
   );
 }
 
-<Image
-  src="/assets/icons/ai/rocket.png"
-  className="rocket"
-  width={70}
-  height={70}
-  alt="rocket"
-/>

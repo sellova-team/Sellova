@@ -46,11 +46,19 @@ type LangContextType = {
 const LangContext = createContext<LangContextType | undefined>(undefined);
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>("en"); // پیش‌فرض: انگلیسی
-  useEffect(() => {
+const [locale, _setLocale] = useState<Locale>("en");
+useEffect(() => {
   const saved = localStorage.getItem("locale") as Locale | null;
-  if (saved) setLocale(saved);
+
+  if (saved) {
+    setLocale(saved);
+  }
 }, []);
+
+const setLocale = (newLocale: Locale) => {
+  console.log("SET LOCALE:", newLocale);
+  _setLocale(newLocale);
+};
 
 useEffect(() => {
    localStorage.setItem("locale", locale);
@@ -63,6 +71,7 @@ const value: LangContextType = {
   setLocale,
 };
 
+console.log("LangProvider locale",locale);
   return (
     <LangContext.Provider value={value}>
       {children}

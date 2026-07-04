@@ -1,6 +1,142 @@
 // locales/en.ts
 
 export const enMessages = {
+
+ // --- Workspace ---
+workspace: {
+  title: "Choose Your AI Workspace",
+  subtitle: "Powerful AI tools for your business, brand and content.",
+
+  menu: {
+    workspace: "Workspace",
+    ads: "Sellova Ads",
+    branding: "Sellova Branding",
+    studio: "Sellova Studio",
+    settings: "Settings",
+    guide: "Sellova Guide",
+    academy: "Academy",
+    upgrade: "Upgrade Plan",
+  },
+
+  header: {
+    welcome: "Welcome to Sellova ✨",
+    title: "Choose Your AI Workspace",
+    subtitle: "Powerful AI tools for your business, brand and content."
+  },
+
+  ads: {
+    title: "Sellova Ads",
+    subtitle: "AI Advertising Suite",
+   feature1: "Professional AI Product Images",
+feature2: "Professional AI Product Videos",
+feature3: "AI Product Photos with Human Models",
+feature4: "AI Product Videos with Human Models",
+feature5: "Custom AI Brand Music",
+feature6: "AI Captions & Hashtags",
+feature7: "AI Page Performance Analysis",
+feature8: "Cinematic Product Commercials",
+    button: "Enter Sellova Ads →"
+  },
+
+  branding: {
+    title: "Sellova Branding",
+    subtitle: "AI Personal Branding Suite",
+    feature1: "Personalized Brand Strategy",
+feature2: "Creative Content Ideas",
+feature3: "AI Marketing Consultant",
+feature4: "Competitor Analysis",
+feature5: "Social Media Growth Analysis",
+feature6: "Custom Brand Voice",
+feature7: "Content Calendar Planning",
+feature8: "Business Growth Recommendations",
+    button: "Open Branding →"
+  },
+
+  studio: {
+    title: "Sellova Studio",
+    subtitle: "AI Content Studio",
+    feature1: "Convert Long Videos to Unlimited Shorts",
+feature2: "YouTube Shorts, Instagram Reels & Stories",
+feature3: "AI Video Clips & Professional Thumbnails",
+feature4: "Resize Videos for Every Social Platform",
+feature5: "Export in Multiple Aspect Ratios",
+feature6: "Fast AI Video Processing",
+feature7: "Ready for TikTok, Facebook & YouTube",
+feature8: "Unlimited Content Repurposing",
+
+    button: "Open Studio →"
+  },
+
+  info: {
+    adsTitle: "Create Stunning AI Product Ads",
+    adsText: "Sellova Ads helps online sellers generate professional product images, AI videos, avatar marketing, cinematic product showcases, promotional slides, captions and advertising creatives in minutes. Every tool is designed to increase engagement, improve conversions and save hours of manual work while keeping your brand identity consistent across every campaign.",
+
+    brandingTitle: "Build Your Personal Brand with AI",
+    brandingText: "Create a powerful personal brand using AI-powered strategy, content planning, audience insights, post generation, profile optimization and branding recommendations. Sellova Branding helps creators, coaches, freelancers and business owners build authority, attract customers and grow consistently across social media platforms.",
+
+    studioTitle: "Professional AI Video Editing Studio",
+    studioText: "Transform long videos into short-form viral content with AI. Automatically generate captions, subtitles, podcast clips, thumbnails, reels, YouTube Shorts, TikTok videos and social-ready content while maintaining professional quality."
+  }
+},
+
+
+ // --- StudioPage ---
+studioPage: {
+  header: {
+    title: "AI Content Studio",
+    subtitle: "Turn one video into unlimited content",
+    welcome: "Welcome, Shabnam 👋",
+    activePlan: "Active Plan",
+    upgrade: "Upgrade",
+  },
+
+  upload: {
+    title: "Upload",
+    drag: "Drag & Drop your video here",
+    info: "Max size: 20GB • Max time: 2 hours",
+    safe: "Your video is safe & encrypted. We never share your data.",
+  },
+
+  steps: {
+    upload: "Upload",
+    customize: "Customize",
+    generate: "Generate",
+    results: "Results",
+  },
+
+  content: {
+    title: "Create Content",
+
+    instagramReels: "Instagram Reels",
+    youtubeShorts: "YouTube Shorts",
+    tiktokVideos: "TikTok Videos",
+    instagramStories: "Instagram Stories",
+    facebookPosts: "Facebook Posts",
+    socialPosts: "Social Posts",
+    videoClips: "Video Clips",
+
+    option10: "10s",
+    option30: "30s",
+    option1m: "1 min",
+    option2m: "2 min",
+
+    generate: "Generate Content →",
+  },
+
+  progress: {
+    title: "Content Being Generated",
+    subtitle:
+      "Sit back while we create all your content. You'll be notified when everything is ready.",
+
+    viewAll: "View All Results",
+
+    ready: "Ready",
+    generating: "Generating...",
+    more: "+ more",
+  }
+},
+
+
   // --- Dashboard ---
   dashboard: {
     welcome: "Welcome to Sellova Dashboard",
