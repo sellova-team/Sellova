@@ -8,11 +8,9 @@ import React, {
   ReactNode,
 } from "react";
 
-// دقت کن: چون lang.tsx داخل فولدر lib است
-// و فولدر locales کنار lib قرار دارد، مسیرش می‌شود ../locales
 import { enMessages } from "../locales/en";
 import { faMessages } from "../locales/fa";
-import { trMessages } from "@/locales/tr";
+import { trMessages } from "../locales/tr";
 
 export type Locale =
   | "en"
@@ -29,6 +27,8 @@ const allMessages = {
   en: enMessages,
   fa: faMessages,
   tr: trMessages,
+
+  // fallback languages
   ur: enMessages,
   ar: enMessages,
   az: enMessages,
@@ -46,32 +46,37 @@ type LangContextType = {
 const LangContext = createContext<LangContextType | undefined>(undefined);
 
 export function LangProvider({ children }: { children: ReactNode }) {
-const [locale, _setLocale] = useState<Locale>("en");
-useEffect(() => {
-  const saved = localStorage.getItem("locale") as Locale | null;
+  const [locale, setLocaleState] = useState<Locale>("en");
 
-  if (saved) {
-    setLocale(saved);
-  }
-}, []);
+  // 🧠 load saved language
+  useEffect(() => {
+    const saved = localStorage.getItem("locale") as Locale | null;
+    if (saved) {
+      setLocaleState(saved);
+    }
+  }, []);
 
-const setLocale = (newLocale: Locale) => {
-  console.log("SET LOCALE:", newLocale);
-  _setLocale(newLocale);
-};
+  // 🧠 change language
+  const setLocale = (newLocale: Locale) => {
+    console.log("SET LOCALE:", newLocale);
+    setLocaleState(newLocale);
+  };
 
-useEffect(() => {
-   localStorage.setItem("locale", locale);
-}, [locale]);
+  // 🧠 save language
+  useEffect(() => {
+    localStorage.setItem("locale", locale);
+  }, [locale]);
+
   const fallbackLocale: Locale = "en";
 
-const value: LangContextType = {
-  locale,
-  messages: allMessages[locale] || allMessages[fallbackLocale],
-  setLocale,
-};
+  const value: LangContextType = {
+    locale,
+    messages: allMessages[locale] || allMessages[fallbackLocale],
+    setLocale,
+  };
 
-console.log("LangProvider locale",locale);
+  console.log("LangProvider locale:", locale);
+
   return (
     <LangContext.Provider value={value}>
       {children}

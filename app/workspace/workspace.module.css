@@ -248,9 +248,12 @@
 
     margin:0;
 
-    font-size:18px;
+    font-size:21px;
+    font-weight: 700;
 
-    color:white;
+    color:#ffffff;
+    margin: 0;
+    margin-bottom: 8px;
 
 }
 
@@ -260,7 +263,11 @@
 
     color:#a9abc2;
 
-    font-size:12px;
+    font-size:13px;
+    font-weight: 400;
+    opacity: 0.65;
+    line-height: 1.5;
+    margin-bottom: 14px;
 
 }
 
@@ -568,4 +575,12 @@
     font-size: 14px;
     line-height: 1.65;
     font-weight: 400;
+}
+
+.cardMainText {
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffc857;
+    text-shadow: 0 0 10px rgba(255, 200, 87, 0.35);
+    margin-bottom: 6px;
 }

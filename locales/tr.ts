@@ -3,7 +3,7 @@ export const trMessages = {
 
   // --- Workspace ---
   workspace: {
-  title: "AI Çalışma Alanınızı Seçin",
+  title: "Sellova sizin için ne oluştursun?",
   subtitle: "İşletmeniz, markanız ve içerikleriniz için güçlü AI araçları",
 
   menu: {
@@ -19,12 +19,14 @@ export const trMessages = {
 
   header: {
     welcome: "Sellova'ya Hoş Geldiniz ✨",
-    title: "AI Çalışma Alanınızı Seçin",
+    title: "Sellova sizin için ne oluştursun?",
     subtitle: "İşletmeniz, markanız ve içerikleriniz için güçlü AI araçları"
   },
 
   ads: {
+   
     title: "Sellova Ads",
+     adstitle: "Ürünlerini daha hızlı sat",
     subtitle: "AI Reklam Paketi",
    feature1: "Profesyonel Yapay Zeka Ürün Görselleri",
 feature2: "Profesyonel Yapay Zeka Reklam Videoları",
@@ -38,7 +40,9 @@ feature8: "Sinematik Ürün Reklamları",
   },
 
   branding: {
+   
     title: "Sellova Branding",
+     brandingtitle: "Kişisel markanı oluştur",
     subtitle: "AI Kişisel Marka Paketi",
     feature1: "Kişiselleştirilmiş Marka Stratejisi",
 feature2: "Yaratıcı İçerik Fikirleri",
@@ -53,7 +57,9 @@ feature8: "İşinizi Büyütme Önerileri",
   },
 
   studio: {
+   
     title: "Sellova Studio",
+     studiotitle: "Videoları içeriğe dönüştür",
     subtitle: "AI İçerik Stüdyosu",
     feature1: "Uzun Videoları Sınırsız Short'a Dönüştürün",
 feature2: "YouTube Shorts, Instagram Reels ve Hikayeler",

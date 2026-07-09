@@ -11,6 +11,9 @@ export default function WorkspacePage() {
   const { locale, messages, setLocale } = useLang();
   const [openLang, setOpenLang] = useState(false);
 
+  console.log("LANG:,locale");
+  console.log("WORKSPACE TITLE:", messages.workspace.title)
+
   const t = messages.workspace;
 
   return (
@@ -173,7 +176,12 @@ export default function WorkspacePage() {
 
     <div className={styles.cardContent}>
 
+
       <h3>{t.ads.title}</h3>
+
+      <div className={styles.cardMainText}>
+        {t.ads.adstitle}
+      </div>
 
       <p className={styles.subTitle}>
         {t.ads.subtitle}
@@ -248,6 +256,10 @@ export default function WorkspacePage() {
 
       <h3>{t.branding.title}</h3>
 
+      <div className={styles.cardMainText}>
+        {t.branding.brandingtitle}
+      </div>
+
       <p className={styles.subTitle}>
         {t.branding.subtitle}
       </p>
@@ -319,6 +331,10 @@ export default function WorkspacePage() {
     <div className={styles.cardContent}>
 
       <h3>{t.studio.title}</h3>
+      
+       <div className={styles.cardMainText}>
+        {t.studio.studiotitle}
+      </div>
 
       <p className={styles.subTitle}>
         {t.studio.subtitle}

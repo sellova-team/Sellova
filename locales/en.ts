@@ -4,7 +4,7 @@ export const enMessages = {
 
  // --- Workspace ---
 workspace: {
-  title: "Choose Your AI Workspace",
+  title: "what should Sellova creat for you ?",
   subtitle: "Powerful AI tools for your business, brand and content.",
 
   menu: {
@@ -20,12 +20,14 @@ workspace: {
 
   header: {
     welcome: "Welcome to Sellova ✨",
-    title: "Choose Your AI Workspace",
+    title: "what should Sellova creat for you",
     subtitle: "Powerful AI tools for your business, brand and content."
   },
 
   ads: {
+   
     title: "Sellova Ads",
+     adstitle: "Sell Products Faster",
     subtitle: "AI Advertising Suite",
    feature1: "Professional AI Product Images",
 feature2: "Professional AI Product Videos",
@@ -39,7 +41,9 @@ feature8: "Cinematic Product Commercials",
   },
 
   branding: {
+    
     title: "Sellova Branding",
+    brandingtitle: "Build Your Personal Brand",
     subtitle: "AI Personal Branding Suite",
     feature1: "Personalized Brand Strategy",
 feature2: "Creative Content Ideas",
@@ -53,7 +57,9 @@ feature8: "Business Growth Recommendations",
   },
 
   studio: {
+    
     title: "Sellova Studio",
+    studiotitle: "Turn Videos into Content",
     subtitle: "AI Content Studio",
     feature1: "Convert Long Videos to Unlimited Shorts",
 feature2: "YouTube Shorts, Instagram Reels & Stories",
