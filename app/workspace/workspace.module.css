@@ -14,29 +14,6 @@
     overflow:hidden;
 }
 
-/* ================= SIDEBAR ================= */
-
-.sidebar{
-
-    width:200px;
-
-    flex-shrink:0;
-
-    background:#000102;
-
-    backdrop-filter:blur(18px);
-
-    border-right:1px solid rgba(0, 0, 0, .03);
-    box-shadow: 0 20px 45pxrgba(0,0,0,.9);
-
-    padding:22px 18px;
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
 .logoBox{
 
     display:flex;
@@ -49,9 +26,9 @@
 
 .logoImg{
 
-    width:150px;
+    width:220px;
 
-    height:100px;
+    height:160px;
 }
 
 .nav{
@@ -71,7 +48,7 @@
 
     text-decoration:none;
 
-    padding:12px 14px;
+    padding:10px;
 
     border-radius:14px;
 
@@ -172,19 +149,20 @@
 
     display:flex;
 
-    gap:24px;
+    gap:20px;
 
     justify-content:center;
 
     align-items:flex-start;
+    flex-wrap: wrap;
 
 }
 
 .card{
 
-    width:350px;
+    width:330px;
 
-    min-height:610px;
+    min-height:560px;
 
     border-radius:24px;
 
@@ -221,7 +199,7 @@
 
     width:100%;
 
-    height:200px;
+    height:150px;
 
     object-fit:cover;
 
@@ -234,7 +212,7 @@
 
 .cardContent{
 
-    padding:22px;
+    padding:15px;
 
     display:flex;
 
@@ -248,7 +226,7 @@
 
     margin:0;
 
-    font-size:21px;
+    font-size:17px;
     font-weight: 700;
 
     color:#ffffff;
@@ -305,9 +283,9 @@
 
 .feature img{
 
-    width:18px;
+    width:16px;
 
-    height:18px;
+    height:16px;
     flex-shrink: 0;
 
 }
@@ -583,4 +561,229 @@
     color: #ffc857;
     text-shadow: 0 0 10px rgba(255, 200, 87, 0.35);
     margin-bottom: 6px;
+}
+
+.musicImage{
+
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+
+    border-radius:22px 22px 0 0;
+
+    filter:
+    drop-shadow(0 0 18px rgba(255,0,153,.55))
+    drop-shadow(0 0 35px rgba(230,0,255,.25));
+}
+
+.btnMusic{
+
+    width:100%;
+    height:44px;
+
+    border:none;
+    border-radius:16px;
+
+    color:white;
+    font-size:14px;
+    font-weight:700;
+
+    cursor:pointer;
+
+   .musicImage{
+
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+
+    border-radius:22px 22px 0 0;
+
+    filter:
+    drop-shadow(0 0 18px rgba(255,0,153,.55))
+    drop-shadow(0 0 35px rgba(230,0,255,.25));
+}
+
+    transition:.3s;
+}
+
+
+.btnMusic:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 35px rgba(255,0,153,.65);
+
+}
+
+.btnMusic{
+
+    width:100%;
+    height:44px;
+
+    border:none;
+    border-radius:16px;
+
+    margin-top:-6px;
+
+    color:white;
+
+    font-size:14px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        90deg,
+        #ff0099,
+        #e600ff
+    );
+
+    box-shadow:
+    0 0 18px rgba(255,0,153,.55),
+    0 0 35px rgba(230,0,255,.35);
+
+    transition:.3s;
+}
+
+
+.btnMusic:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 35px rgba(255,0,153,.8),
+    0 0 60px rgba(230,0,255,.5);
+
+}
+
+.menuButton{
+
+    position:absolute;
+
+    top:0px;
+
+    right:100px;
+
+    width:42px;
+
+    height:38px;
+
+    border-radius:12px;
+
+    background:#080812;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+.menuBox{
+
+    position:relative;
+
+}
+
+
+.menuButton{
+
+    width:45px;
+    height:45px;
+
+    border-radius:14px;
+
+    background:#080812;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.menuButton:hover{
+
+    border-color:#9d5cff;
+
+    box-shadow:
+    0 0 20px rgba(157,92,255,.45);
+
+}
+
+
+.menuDropdown{
+
+    position:absolute;
+
+    top:55px;
+
+    right:0;
+
+    width:230px;
+
+    background:#090b16;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    padding:12px;
+
+    box-shadow:
+    0 0 35px rgba(0,0,0,.5);
+
+    z-index:100;
+
+}
+
+
+.menuDropdown a{
+
+    display:block;
+
+    padding:12px;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    transition:.25s;
+
+}
+
+
+.menuDropdown a:hover{
+
+    background:rgba(157,92,255,.15);
+
+    color:#c9a8ff;
+
+}
+
+
+.menuLine{
+
+    height:1px;
+
+    background:rgba(255,255,255,.1);
+
+    margin:10px 0;
+
 }

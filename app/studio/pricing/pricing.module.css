@@ -1,0 +1,383 @@
+/* ================= PAGE ================= */
+
+.page{
+    width:100%;
+    min-height:100vh;
+    padding-bottom: 30px;
+
+    background:url("/assets/icons/edit/price/1.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:#fff;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+
+    width:1320px;
+    height:120px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+   margin-top: 80px !important;
+    margin-left: 60px;
+}
+
+
+
+.buttons{
+
+    display:flex;
+    gap:11px;
+}
+
+
+.start{
+
+    width:150px;
+    height:42px;
+    margin-right: 150px;
+    border:none;
+    margin-top: 50px;
+    border-radius:12px;
+
+    background:linear-gradient(90deg,#ff5a00,#ff8a00);
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.startBtn{
+    transition: all .3s ease;
+}
+
+.startBtn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255,120,0,.45);
+    background:#ff8c1a;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+    margin-top:-40px;
+
+    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.badge{
+
+    padding:5px 16px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,106,0,.35);
+
+    color:#ff7a00;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+
+    background:rgba(255,106,0,.08);
+}
+
+.hero h1{
+
+    font-size:30px;
+
+    line-height:45px;
+
+    font-weight:700;
+
+    margin:0;
+}
+
+.hero span{
+
+    color:#ff6a00;
+}
+
+.hero p{
+
+    margin-top:24px;
+
+    color:#bdbdbd;
+
+    font-size:33px;
+
+    line-height:38px;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+
+    width:900px !important;
+   
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-top:50px;
+}
+/* ================= PRICE CARDS ================= */
+
+.card,
+.cardActive{
+    width:550px;
+    height:auto;
+    display: flex;
+    box-sizing:border-box;
+    flex-direction: column;
+
+    padding:24px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,120,30,.28);
+
+    background:rgba(8,8,8,.88);
+}
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff6a00;
+}
+
+.cardActive{
+
+   border: 1px solid #ff6a00;
+    
+    box-shadow:
+        0 0 18px rgba(255,106,0,.45),
+        0 0 55px rgba(255,106,0,.18);
+
+    transform:translateY(-6px);
+}
+
+/* ================= POPULAR ================= */
+
+.popular{
+
+    position:absolute;
+
+    top:-18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:linear-gradient(90deg,#ff5d00,#ff8900);
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    padding:9px 22px;
+
+    border-radius:25px;
+}
+
+/* ================= TITLES ================= */
+
+.card h3,
+.cardActive h3{
+
+    text-align:center;
+
+    color:#ff7a00;
+
+    font-size:23px;
+
+    font-weight:700;
+
+    margin-top:18px;
+}
+
+.card p,
+.cardActive p{
+
+    color:#c9c9c9;
+
+    text-align:center;
+
+    font-size:17px;
+
+    line-height:30px;
+
+    margin-top:-20px;
+    margin-bottom: 15px;
+}
+
+/* ================= PRICE ================= */
+
+.priceBox{
+
+    margin-top:20px;
+
+    display:flex;
+
+    align-items:center;
+    flex-direction: column;
+    gap:15px;
+}
+
+.priceBox img{
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:contain;
+}
+
+.priceBox h2{
+
+    margin:auto;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    color:#fff;
+}
+
+.priceBox span{
+
+    color:#bfbfbf;
+
+    font-size:14px;
+}
+
+/* ================= BUTTON ================= */
+
+.card button,
+.cardActive button{
+
+    width:100%;
+
+    height:44px;
+
+    margin-top:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:16pxpx;
+
+    font-weight:700;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    background:linear-gradient(90deg,#ff5d00,#ff8900);
+}
+
+.card button:hover,
+.cardActive button:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:0 0 25px rgba(255,110,20,.45);
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+
+    margin-top:15px;
+
+    display:grid;
+    grid-template-columns: 1fr 1fr ;
+
+    flex-direction:column;
+
+    gap:8px  16px;
+}
+
+.feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#efefef;
+
+    font-size:12px;
+    line-height: 18px;
+}
+
+.feature img{
+
+    width:24px;
+
+    height:24px;
+}
+
+/* ================= FOOT BOX ================= */
+
+.bottomCard{
+
+    margin-top:455px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    color:#cfcfcf;
+
+    font-size:17px;
+
+    background:rgba(255,255,255,.02);
+}
+
+.bottomText{
+    white-space: nowrap;
+    font-size: 15px;
+    margin-top: 70px !important;
+}

@@ -72,6 +72,24 @@ feature8: "Sınırsız İçerik Yeniden Üretimi",
     button: "Studio'ya Gir →"
   },
 
+  music: {
+  title: "Sellova Music",
+  musictitle: "Yapay Zeka Müzik Stüdyosu",
+  subtitle:
+    "Yapay zeka ile saniyeler içinde şarkılar, jingle'lar ve marka müzikleri oluşturun.",
+
+  feature1: "AI Şarkı Oluşturucu",
+  feature2: "Kendi Sesinle Şarkı",
+  feature3: "Marka Jingle'ı",
+  feature4: "Arka Plan Müziği",
+  feature5: "Şarkı Sözü Oluşturucu",
+  feature6: "1 Dakikalık Şarkılar",
+  feature7: "Farklı Müzik Türleri",
+  feature8: "Ticari Kullanım",
+
+  button: "Sellova Music'e Gir",
+},
+
   info: {
     adsTitle: "Yapay Zeka ile Profesyonel Ürün Reklamları",
     adsText: "Sellova Ads; ürün görselleri, reklam videoları, avatar pazarlaması, sinematik ürün tanıtımları, tanıtım slaytları ve reklam içerikleri oluşturmanıza yardımcı olur.",
@@ -82,6 +100,86 @@ feature8: "Sınırsız İçerik Yeniden Üretimi",
     studioTitle: "Profesyonel AI Video Düzenleme Stüdyosu",
     studioText: "Uzun videoları kısa viral içeriklere dönüştürün. Altyazılar, podcast klipleri, küçük resimler ve sosyal medya içeriklerini saniyeler içinde oluşturun."
   }
+},
+
+ // --- setting ---
+settings: {
+  title: "Ayarlar",
+
+  subtitle: "Sellova hesabınızı ve hesap güvenliğinizi yönetin.",
+
+  account: "Hesabım",
+
+  support: "Destek",
+
+  supportText:
+    "Herhangi bir sorunuz veya yardıma ihtiyacınız varsa, aşağıdaki e-posta adresi üzerinden Sellova destek ekibiyle iletişime geçebilirsiniz.",
+
+  supportNote:
+    "Destek ekibimiz, e-postanıza 24–48 iş saati içerisinde aynı e-posta adresiniz üzerinden yanıt verecektir.",
+
+  fullName: "Ad Soyad",
+
+  email: "E-posta Adresi",
+
+  password: "Yeni Şifre",
+
+  confirmPassword: "Şifreyi Onayla",
+
+  save: "Değişiklikleri Kaydet",
+},
+
+
+ // --- about ---
+about: {
+
+title:"Sellova Hakkında",
+
+intro:
+"Sellova, işletmelerin, içerik üreticilerinin ve profesyonellerin güçlü içerikler oluşturmasına, markalarını geliştirmesine ve daha hızlı büyümesine yardımcı olan yapay zeka destekli yaratıcı bir platformdur.",
+
+
+whatTitle:
+"Sellova Nedir?",
+
+whatText:
+"Sellova, birçok yapay zeka teknolojisini tek bir çalışma alanında birleştirir. Kullanıcılar farklı araçlara ihtiyaç duymadan reklam, video, marka stratejileri ve müzik oluşturabilir.",
+
+
+adsTitle:
+"Sellova Ads",
+
+adsText:
+"Yapay zeka ile profesyonel ürün reklamları oluşturun. Ürün görselleri, videolar, sinematik reklamlar, avatar reklamları ve sosyal medya içerikleri hazırlayın.",
+
+
+brandingTitle:
+"Sellova Branding",
+
+brandingText:
+"Yapay zeka desteğiyle kişisel markanızı geliştirin. Sellova; uzmanlar, doktorlar, eğitmenler ve girişimciler için içerik planlama, rakip analizi ve büyüme desteği sağlar.",
+
+
+studioTitle:
+"Sellova Studio",
+
+studioText:
+"Uzun videoları kısa içeriklere dönüştürün. Reels, Shorts, açıklamalar, kapaklar ve sosyal medya içerikleri oluşturun.",
+
+
+musicTitle:
+"Sellova Music",
+
+musicText:
+"Yapay zeka ile özel müzikler, marka şarkıları, jingle ve kendi sesinizle içerikler oluşturun.",
+
+
+visionTitle:
+"Vizyonumuz",
+
+visionText:
+"Amacımız yapay zekای پیشرفته را برای همه قابل دسترس کنیم. Sellova به کسب‌وکارها کمک می‌کند در دنیای دیجیتال رشد کنند."
+
 },
 
 // --- StudioPage ---
@@ -453,56 +551,6 @@ sellerHelp: {
     logoAlt: "Logo",
   },
 
-  // --- Settings ---
-  settings: {
-    title: "Hesap ayarları",
-    fullNameLabel: "Ad soyad",
-    fullNamePlaceholder: "Adınızı girin",
-    emailLabel: "E-posta",
-    emailPlaceholder: "E-posta girin",
-    passwordLabel: "Şifre",
-    passwordPlaceholder: "Yeni şifre",
-    subscriptionLabel: "Abonelik",
-    languageLabel: "Dil",
-    saveButton: "Kaydet",
-    supportButton: "Destek",
-    saveAlertTitle: "Kaydedildi!",
-    saveAlertNameLabel: "Ad",
-    saveAlertEmailLabel: "E-posta",
-    saveAlertLanguageLabel: "Dil",
-  },
-
-  // --- Support ---
-  support: {
-    title: "Destek",
-    subtitle: "Sorununuzu yazın, size yardımcı olalım.",
-    formTitle: "Destek ile iletişim",
-    formDescription: "Sorununuzu kısa yazın.",
-    nameLabel: "Ad soyad",
-    namePlaceholder: "Adınızı girin",
-    emailLabel: "E-posta",
-    emailPlaceholder: "E-posta girin",
-    topicLabel: "Konu",
-    topicTechnical: "Teknik sorun",
-    topicBilling: "Ödeme / abonelik",
-    topicOther: "Diğer",
-    messageLabel: "Mesaj",
-    messagePlaceholder: "Sorununuzu yazın...",
-    sendButton: "Gönder",
-    responseNote: "24–48 saat içinde dönüş yapılır.",
-    alertSent: "Mesaj gönderildi!",
-    faqTitle: "Sık sorulan sorular",
-    faqIntro: "En çok sorulan sorular:",
-    faq1Q: "Nasıl görsel/video oluştururum?",
-    faq1A: "Ürün yükle → platform seç → oluştur.",
-    faq2Q: "Aboneliği nasıl değiştiririm?",
-    faq2A: "Ayarlar bölümünden.",
-    faq3Q: "İndirilebilir mi?",
-    faq3A: "Evet, indir butonu var.",
-    extraTitle: "Hâlâ yardıma mı ihtiyacın var?",
-    extraText: "Detaylı yaz, yardımcı olalım.",
-    alertRequired: "Lütfen tüm alanları doldurun",
-  },
 
   // --- Promo ---
   promo: {

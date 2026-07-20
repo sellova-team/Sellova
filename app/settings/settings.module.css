@@ -1,0 +1,165 @@
+.page{
+    min-height:100vh;
+    width:100%;
+    padding:20px 20px;
+    background:#070b1d;
+    color:#fff;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.header p{
+    color:#9ca6d4;
+    font-size:14px;
+}
+
+.container{
+    width:100%;
+    max-width:1250px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:310px 1fr;
+    gap:35px;
+    align-items:start;
+}
+
+.supportCard{
+    background:rgba(20,27,48,.9);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:25px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 35px rgba(72,99,255,.12);
+    position:sticky;
+    top:20px;
+}
+
+.supportCard h2{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.supportText{
+    line-height:1.5;
+    color:#c8d0f4;
+    margin-bottom:30px;
+}
+
+.emailBox{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    background:#1b2442;
+    padding:18px;
+    border-radius:14px;
+    font-size:14px;
+    font-weight:600;
+    color:#8fc3ff;
+    margin-bottom:25px;
+    word-break:break-all;
+}
+
+.supportNote{
+    color:#aeb7db;
+    line-height:1.5;
+}
+
+.accountCard{
+    background:rgba(20,27,48,.9);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:45px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 35px rgba(72,99,255,.12);
+}
+
+.accountCard h2{
+    font-size:22px;
+    margin-bottom:35px;
+}
+
+.formGroup{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:25px;
+}
+
+.formGroup label{
+    font-size:16px;
+    margin-bottom:10px;
+    color:#dbe2ff;
+}
+
+.formGroup input{
+    width:100%;
+    height:58px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#1b2442;
+    color:#fff;
+    font-size:16px;
+    padding:0 18px;
+    transition:.3s;
+    outline:none;
+}
+
+.formGroup input::placeholder{
+    color:#7985b8;
+}
+
+.formGroup input:focus{
+    border-color:#6c63ff;
+    box-shadow:0 0 18px rgba(108,99,255,.35);
+}
+
+.saveButton{
+    width:100%;
+    height:58px;
+    margin-top:20px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(90deg,#4F8CFF,#7C4DFF);
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.saveButton:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 28px rgba(124,77,255,.45);
+}
+
+@media (max-width:1000px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .supportCard{
+        position:static;
+    }
+
+    .accountCard{
+        padding:30px;
+    }
+
+    .page{
+        padding:25px;
+    }
+
+    .header h1{
+        font-size:34px;
+    }
+
+}

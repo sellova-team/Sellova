@@ -1,0 +1,288 @@
+
+.container{
+    min-height:100vh;
+    background-image:url("/assets/icons/edit/login/1.png");
+    background-size:95%;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding-left:90px;
+    color:#fff;
+}
+
+.registerBox{
+
+    width:420px;
+
+    background:rgba(0,0,0,.72);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid #ff7b00;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:
+    0 0 25px rgba(255,120,0,.45);
+    margin-top: 15px;
+    margin-bottom: 35px;
+
+}
+
+.logoBox{
+
+    display:flex;
+    justify-content:center;
+    margin-bottom:-13px;
+
+}
+
+.logo{
+
+    object-fit:contain;
+    margin-top: -10px;
+
+}
+
+.title{
+
+    text-align:center;
+    font-size:21px;
+    font-weight:600;
+    margin-bottom:0;
+    gap: 12px;
+}
+
+.subtitle{
+
+    text-align:center;
+    color:#bcbcbc;
+    font-size:13px;
+    margin-bottom:25px;
+
+}
+
+.label{
+
+    display:block;
+    margin-bottom:8px;
+    margin-top:15px;
+    font-size:12px;
+
+}
+
+.input{
+
+    width:100%;
+    height:42px;
+
+    background:#111;
+
+    border:1px solid #ff7b00;
+
+    border-radius:12px;
+
+    padding:0 16px;
+
+    color:white;
+
+    font-size:13px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.input::placeholder{
+
+    color:#808080;
+
+}
+
+.input:focus{
+
+    border-color:#ff9d00;
+
+    box-shadow:0 0 15px rgba(255,145,0,.45);
+
+}
+
+.checkBox{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin-top:20px;
+
+    font-size:13px;
+
+    color:#cfcfcf;
+
+    line-height:1.5;
+
+}
+
+.checkBox input{
+
+    margin-top:4px;
+
+    accent-color:#ff7b00;
+
+}
+
+.checkBox a{
+
+    color:#ff8a00;
+
+    text-decoration:none;
+
+}
+
+.checkBox a:hover{
+
+    text-decoration:underline;
+
+}
+
+.createButton{
+
+    width:100%;
+
+    height:45px;
+
+    margin-top:25px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(90deg,#ff6400,#ff9500);
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.createButton:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:
+    0 0 15px #ff7800,
+    0 0 35px rgba(255,130,0,.55);
+
+}
+
+.or{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin:24px 0;
+
+    color:#9f9f9f;
+    font-size: 12px;
+
+}
+
+.or span{
+
+    flex:1;
+
+    height:1px;
+
+    background:#444;
+
+}
+
+.google{
+
+    width:100%;
+
+    height:40px;
+
+    background:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    font-size:14px;
+
+    color:#222;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.google:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:0 0 15px rgba(255,140,0,.4);
+
+}
+
+.googleIcon{
+
+    font-size:22px;
+
+}
+
+.loginText{
+
+    margin-top:24px;
+
+    text-align:center;
+
+    color:#cfcfcf;
+
+    font-size:14px;
+
+}
+
+.loginText a{
+
+    color:#ff8800;
+
+    margin-left:6px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.loginText a:hover{
+
+    text-decoration:underline;
+
+}

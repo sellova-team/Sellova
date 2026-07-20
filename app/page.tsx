@@ -14,14 +14,12 @@ export default function Home() {
           <Image
             src="/logo.png"
             alt="Sellova"
-            width={340}
-            height={220}
+            width={280}
+            height={200}
             priority
           />
 
-          <p className="logoSub">
-            AI POWERED ADVERTISING
-          </p>
+         
 
         </div>
   

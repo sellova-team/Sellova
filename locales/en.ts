@@ -73,6 +73,25 @@ feature8: "Unlimited Content Repurposing",
     button: "Open Studio →"
   },
 
+  music: {
+  title: "Sellova Music",
+  musictitle: "AI Music Studio",
+  subtitle:
+    "Create original songs, jingles and brand music with AI in seconds.",
+
+  feature1: "AI Song Generator",
+  feature2: "Your Voice Singing",
+  feature3: "Brand Jingles",
+  feature4: "Background Music",
+  feature5: "Lyrics Generator",
+  feature6: "1 Minute Songs",
+  feature7: "Multiple Music Styles",
+  feature8: "Commercial License",
+
+  button: "Open Music",
+},
+
+
   info: {
     adsTitle: "Create Stunning AI Product Ads",
     adsText: "Sellova Ads helps online sellers generate professional product images, AI videos, avatar marketing, cinematic product showcases, promotional slides, captions and advertising creatives in minutes. Every tool is designed to increase engagement, improve conversions and save hours of manual work while keeping your brand identity consistent across every campaign.",
@@ -83,6 +102,85 @@ feature8: "Unlimited Content Repurposing",
     studioTitle: "Professional AI Video Editing Studio",
     studioText: "Transform long videos into short-form viral content with AI. Automatically generate captions, subtitles, podcast clips, thumbnails, reels, YouTube Shorts, TikTok videos and social-ready content while maintaining professional quality."
   }
+},
+
+// --- setting ---
+settings: {
+  title: "Settings",
+
+  subtitle: "Manage your Sellova account and security.",
+
+  account: "My Account",
+
+  support: "Support",
+
+  supportText:
+    "If you have any questions or need assistance, please contact our support team using the email below.",
+
+  supportNote:
+    "Our support team will reply to your email within 24–48 business hours.",
+
+  fullName: "Full Name",
+
+  email: "Email Address",
+
+  password: "New Password",
+
+  confirmPassword: "Confirm Password",
+
+  save: "Save Changes",
+},
+
+// --- about ---
+about: {
+
+  title: "About Sellova",
+
+  intro:
+  "Sellova is an AI-powered creative platform designed to help businesses, creators, and professionals create powerful content, build their brand, and grow faster.",
+
+
+  whatTitle:
+  "What is Sellova?",
+
+  whatText:
+  "Sellova combines multiple artificial intelligence technologies into one simple workspace. Instead of using many different tools, users can create advertisements, videos, branding strategies, and music in one place.",
+
+
+  adsTitle:
+  "Sellova Ads",
+
+  adsText:
+  "Create professional product advertisements using AI. Generate product images, videos, cinematic commercials, avatar advertisements, and social media content.",
+
+
+  brandingTitle:
+  "Sellova Branding",
+
+  brandingText:
+  "Build a strong personal brand with AI support. Sellova helps professionals, doctors, experts, and entrepreneurs plan content, analyze competitors, and grow their audience.",
+
+
+  studioTitle:
+  "Sellova Studio",
+
+  studioText:
+  "Transform long videos into short-form content. Create reels, shorts, captions, covers, and social media-ready videos automatically.",
+
+
+  musicTitle:
+  "Sellova Music",
+
+  musicText:
+  "Create unique AI-generated music, brand songs, jingles, and custom audio using your own voice.",
+
+
+  visionTitle:
+  "Our Vision",
+
+  visionText:
+  "Our mission is to make advanced artificial intelligence accessible for everyone. Sellova helps businesses compete, create, and grow in the modern digital world."
+
 },
 
 
@@ -488,66 +586,6 @@ music: {
     productAlt: "Product",
     logoAlt: "Logo",
   },
-
-  // --- Settings ---
-  settings: {
-    title: "Account Settings",
-
-    fullNameLabel: "Full Name",
-    fullNamePlaceholder: "Enter your name",
-
-    emailLabel: "Email Address",
-    emailPlaceholder: "Enter your email",
-
-    passwordLabel: "Password",
-    passwordPlaceholder: "Enter new password",
-
-    subscriptionLabel: "Subscription Type",
-
-    languageLabel: "Language",
-
-    saveButton: "Save Changes",
-    supportButton: "Go to Support",
-
-    saveAlertTitle: "Settings Saved!",
-    saveAlertNameLabel: "Name",
-    saveAlertEmailLabel: "Email",
-    saveAlertLanguageLabel: "Language",
-  },
-
- // --- support ---
-support: {
-  title: "Support",
-  subtitle: "Tell us what you need help with and we’ll get back to you.",
-  formTitle: "Contact support",
-  formDescription: "Send us a short message about your issue. Attachments and advanced features can be added later via the web app.",
-  nameLabel: "Full name",
-  namePlaceholder: "Enter your name",
-  emailLabel: "Email address",
-  emailPlaceholder: "Enter your email",
-  topicLabel: "Topic",
-  topicTechnical: "Technical issue / Bug",
-  topicBilling: "Billing / Subscription",
-  topicOther: "Other / General question",
-  messageLabel: "Message",
-  messagePlaceholder: "Describe your question or problem…",
-  sendButton: "Send message",
-  responseNote: "We usually respond within 24–48 hours (business days).",
-  alertSent: "Your message has been sent! We will contact you soon.",
-  faqTitle: "Frequently asked questions",
-  faqIntro: "Here are a few quick answers for the most common questions.",
-  faq1Q: "How can I create ad images and videos with my products?",
-  faq1A: "Go to the Image & Video Creator pages from the main menu, upload your product photo, choose your platform, and click Generate.",
-  faq2Q: "How do I upgrade or change my subscription?",
-  faq2A: "Open the Settings page, look at your current plan, and use the upgrade option (coming soon in the web app).",
-  faq3Q: "Can I download the content I generate?",
-  faq3A: "Yes. On image / video pages, after generation you can click the Download button under each result.",
-  extraTitle: "Still need help?",
-  extraText: "Use the form on the left and describe your case in detail (platform, type of content, and your goals). This helps us give you more precise advice.",
-  
-  alertRequired: "Please fill in your name, email and message.",
-
-},
 
 
 // --- Promo slides ---

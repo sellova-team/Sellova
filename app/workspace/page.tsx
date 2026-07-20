@@ -10,6 +10,7 @@ export default function WorkspacePage() {
   const router = useRouter();
   const { locale, messages, setLocale } = useLang();
   const [openLang, setOpenLang] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   console.log("LANG:,locale");
   console.log("WORKSPACE TITLE:", messages.workspace.title)
@@ -18,54 +19,18 @@ export default function WorkspacePage() {
 
   return (
     <div className={styles.container}>
+<div className={styles.topBar}>
 
-      <aside className={styles.sidebar}>
+  <div className={styles.logoBox}>
+    <img 
+      src="/logo.png" 
+      className={styles.logoImg}
+    />
+  </div>
 
-        <div className={styles.logoBox}>
-          <img src="/logo.png" className={styles.logoImg} />
-        </div>
+</div>
 
-        <nav className={styles.nav}>
-
-          <a href="/workspace">
-            {t.menu.workspace}
-          </a>
-
-          <a href="/dashboard">
-            {t.menu.ads}
-          </a>
-
-          <a href="/branding">
-            {t.menu.branding}
-          </a>
-
-          <a href="/studio">
-            {t.menu.studio}
-          </a>
-
-          <a href="/settings">
-            {t.menu.settings}
-          </a>
-
-          <a href="/Guide-sellova">
-            {t.menu.guide}
-          </a>
-
-          <a href="/academy-insight">
-            {t.menu.academy}
-          </a>
-
-          <a
-            href="/upgrade-plan"
-            className={styles.upgradeLink}
-          >
-            {t.menu.upgrade}
-          </a>
-
-        </nav>
-
-      </aside>
-
+     
       <main className={styles.main}>
 
         <div className={styles.wrapper}>
@@ -155,7 +120,61 @@ export default function WorkspacePage() {
 
             )}
 
-          </div>
+<div className={styles.menuBox}>
+
+  <button
+    className={styles.menuButton}
+    onClick={() => setOpenMenu(!openMenu)}
+  >
+    ☰
+  </button>
+
+
+  {openMenu && (
+
+    <div className={styles.menuDropdown}>
+
+      <a href="/dashboard">
+        Sellova Ads
+      </a>
+
+      <a href="/branding">
+        Sellova Branding
+      </a>
+
+      <a href="/studio">
+        Sellova Studio
+      </a>
+
+      <a href="/music">
+        Sellova Music
+      </a>
+
+
+     <a
+     onClick={() => {
+      router.push("/settings");
+      setOpenMenu(false);
+     }}
+     style={{ cursor: "pointer" }}
+     >
+      {t.menu.settings}
+     </a>
+
+
+      <a href="/about">
+        About Us
+      </a>
+
+
+    </div>
+
+  )}
+
+</div>
+
+
+    </div>
 
 <div className={styles.header}>
   <h1>{t.header.welcome}</h1>
@@ -395,8 +414,83 @@ export default function WorkspacePage() {
 
   </div>
 
-</div>
 
+{/* MUSIC */}
+
+<div className={`${styles.card} ${styles.musicCard}`}>
+
+  <img
+    src="/assets/icons/music/1.png"
+    className={styles.musicImage}
+  />
+
+  <div className={styles.cardContent}>
+
+    <h3>{t.music.title}</h3>
+
+    <div className={styles.cardMainText}>
+      {t.music.musictitle}
+    </div>
+
+    <p className={styles.subTitle}>
+      {t.music.subtitle}
+    </p>
+
+    <div className={styles.features}>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/edit.png" />
+        <span>{t.music.feature1}</span>
+      </div>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/avatar.png" />
+        <span>{t.music.feature2}</span>
+      </div>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/rocket.png" />
+        <span>{t.music.feature3}</span>
+      </div>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/ads.png" />
+        <span>{t.music.feature4}</span>
+      </div>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/edit.png" />
+        <span>{t.music.feature5}</span>
+      </div>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/avatar.png" />
+        <span>{t.music.feature6}</span>
+      </div>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/rocket.png" />
+        <span>{t.music.feature7}</span>
+      </div>
+
+      <div className={styles.feature}>
+        <img src="/assets/icons/work/ads.png" />
+        <span>{t.music.feature8}</span>
+      </div>
+
+    </div>
+
+    <button
+      className={styles.btnMusic}
+      onClick={() => router.push("/music")}
+    >
+      {t.music.button}
+    </button>
+
+  </div>
+
+</div>
+</div>
 </div>
 
 <div className={styles.infoSection}>
@@ -421,9 +515,9 @@ export default function WorkspacePage() {
 
 </div>
 
-      </main>
-
+ </main>
     </div>
 
+  
   );
 }
