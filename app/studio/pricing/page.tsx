@@ -1,8 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./pricing.module.css";
 import Link from "next/link";
+import { useLang } from "../../../lib/lang";
 
 export default function PricingPage() {
+  const { messages } = useLang();
+  const t = messages.pricing;
+
   return (
     <main className={styles.page}>
 
@@ -14,19 +20,17 @@ export default function PricingPage() {
           <Image
             src="/logo.png"
             alt="Sellova"
-            width={225}
-            height={180}
+            width={190}
+            height={160}
           />
         </div>
 
-
         <div className={styles.buttons}>
-         
-       <Link href="/studio">
-  <button className={styles.start}>
-    Start Free
-  </button>
-</Link>
+          <Link href="/studio">
+            <button className={styles.start}>
+              {t.header.startFree}
+            </button>
+          </Link>
         </div>
 
       </header>
@@ -36,13 +40,13 @@ export default function PricingPage() {
       <section className={styles.hero}>
 
         <div className={styles.badge}>
-          ⚡ Simple Pricing. Powerful Results.
+          {t.hero.badge}
         </div>
 
         <h1>
-          Choose the Plan
+          {t.hero.title1}
           <br />
-          That Fits <span>You Best</span>
+          {t.hero.title2} <span>{t.hero.highlight}</span>
         </h1>
 
       </section>
@@ -55,36 +59,35 @@ export default function PricingPage() {
 
         <div className={styles.card}>
 
-          <h3>FREE</h3>
+          <h3>{t.free.title}</h3>
 
-          <p>Try Sellova and experience the power of AI.</p>
+          <p>{t.free.description}</p>
+
           <div className={styles.priceBox}>
- <div className={styles.features}>
-  <div className={styles.feature}>✓ 10 Min Upload</div>
-  <div className={styles.feature}>✓ 3 Shorts</div>
 
-  <div className={styles.feature}>✓ Standard AI</div>
-  <div className={styles.feature}>✓ Watermark</div>
+            <div className={styles.features}>
+              <div className={styles.feature}>✓ {t.free.upload}</div>
+              <div className={styles.feature}>✓ {t.free.shorts}</div>
 
-  <div className={styles.feature}>✓ 720p Export</div>
-  <div className={styles.feature}>✓ Free Trial</div>
-</div>
+              <div className={styles.feature}>✓ {t.free.ai}</div>
+              <div className={styles.feature}>✓ {t.free.watermark}</div>
+
+              <div className={styles.feature}>✓ {t.free.export}</div>
+              <div className={styles.feature}>✓ {t.free.trial}</div>
+            </div>
 
             <div>
-
-              <h2>$0</h2>
-
-              <span>Free Trial</span>
-
+              <h2>{t.free.price}</h2>
+              <span>{t.free.period}</span>
             </div>
 
           </div>
 
           <Link href="/studio">
-  <button className={styles.startBtn}>
-    Start Free →
-  </button>
-</Link>
+            <button className={styles.startBtn}>
+              {t.free.button}
+            </button>
+          </Link>
 
         </div>
 
@@ -93,46 +96,39 @@ export default function PricingPage() {
         <div className={styles.cardActive}>
 
           <div className={styles.popular}>
-            MOST POPULAR
+            {t.starter.popular}
           </div>
 
-          <h3>STARTER</h3>
+          <h3>{t.starter.title}</h3>
 
-         <p className={styles.planDescription}>
-  Perfect for creators growing their content.
-</p>
+          <p className={styles.planDescription}>
+            {t.starter.description}
+          </p>
 
+          <div className={styles.features}>
+            <div className={styles.feature}>✓ {t.starter.upload}</div>
+            <div className={styles.feature}>✓ {t.starter.shorts}</div>
 
-<div className={styles.features}>
-  <div className={styles.feature}>✓ 3 Hours Upload</div>
-  <div className={styles.feature}>✓ 30 Shorts</div>
+            <div className={styles.feature}>✓ {t.starter.images}</div>
+            <div className={styles.feature}>✓ {t.starter.covers}</div>
 
-  <div className={styles.feature}>✓ 20 Images</div>
-  <div className={styles.feature}>✓ 20 Covers</div>
+            <div className={styles.feature}>✓ {t.starter.music}</div>
+            <div className={styles.feature}>✓ {t.starter.export}</div>
 
-  <div className={styles.feature}>✓ 10 Music</div>
-  <div className={styles.feature}>✓ 1080p Export</div>
-
-  <div className={styles.feature}>✓ No Watermark</div>
-  <div className={styles.feature}>✓ Priority</div>
-</div>
-
+            <div className={styles.feature}>✓ {t.starter.watermark}</div>
+            <div className={styles.feature}>✓ {t.starter.priority}</div>
+          </div>
 
           <div className={styles.priceBox}>
 
-
-           
             <div>
-
-              <h2>$5.99</h2>
-
-              <span>per month</span>
-
+              <h2>{t.starter.price}</h2>
+              <span>{t.starter.period}</span>
             </div>
 
           </div>
 
-          <button>Get Started</button>
+          <button>{t.starter.button}</button>
 
         </div>
 
@@ -140,51 +136,42 @@ export default function PricingPage() {
 
         <div className={styles.card}>
 
-          <h3>VIP</h3>
+          <h3>{t.vip.title}</h3>
 
-          <p>
-            Maximum power for serious creators.
-          </p>
+          <p>{t.vip.description}</p>
 
-      <div className={styles.features}>
-  <div className={styles.feature}>✓ 5 Hours Upload</div>
-  <div className={styles.feature}>✓ 70 Shorts</div>
+          <div className={styles.features}>
+            <div className={styles.feature}>✓ {t.vip.upload}</div>
+            <div className={styles.feature}>✓ {t.vip.shorts}</div>
 
-  <div className={styles.feature}>✓ 60 Images</div>
-  <div className={styles.feature}>✓ 60 Covers</div>
+            <div className={styles.feature}>✓ {t.vip.images}</div>
+            <div className={styles.feature}>✓ {t.vip.covers}</div>
 
-  <div className={styles.feature}>✓ 30 Music</div>
-  <div className={styles.feature}>✓ 4K Export</div>
+            <div className={styles.feature}>✓ {t.vip.music}</div>
+            <div className={styles.feature}>✓ {t.vip.export}</div>
 
-  <div className={styles.feature}>✓ No Watermark</div>
-  <div className={styles.feature}>✓ Premium AI</div>
-</div>
+            <div className={styles.feature}>✓ {t.vip.watermark}</div>
+            <div className={styles.feature}>✓ {t.vip.premium}</div>
+          </div>
+
           <div className={styles.priceBox}>
 
-          
-
             <div>
-
-              <h2>$12.99</h2>
-
-              <span>per month</span>
-
+              <h2>{t.vip.price}</h2>
+              <span>{t.vip.period}</span>
             </div>
 
           </div>
 
-          <button>Go VIP</button>
+          <button>{t.vip.button}</button>
 
         </div>
 
-       
       </section>
 
-      <p>
-          All plans include AI-powered tools to turn your long videos
-          
-          into viral Shorts, Reels, TikToks and Stories.
-        </p>
+      <p className={styles.bottomText}>
+        {t.footer.text}
+      </p>
 
     </main>
   );

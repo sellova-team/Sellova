@@ -1,11 +1,16 @@
 .container{
+    width: 100%;
+    max-width: none;
+    overflow: hidden;
+    padding: 20px 5px;
+    box-sizing: border-box;
     display:flex;
     min-height:100vh;
    background: 
     radial-gradient(
        circle at top,
-       #000000 0%
-       #000000 55%
+       #000000 0%,
+       #000000 55%,
        #000000 100%
     );
     
@@ -20,7 +25,8 @@
 
     justify-content:center;
 
-    margin-bottom:28px;
+    margin-bottom:3S8px;
+    margin-left: 50px;
 
 }
 
@@ -28,64 +34,7 @@
 
     width:220px;
 
-    height:160px;
-}
-
-.nav{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-    margin-top: 40px;
-
-}
-
-.nav a{
-
-    color:#b6b6c9;
-
-    text-decoration:none;
-
-    padding:10px;
-
-    border-radius:14px;
-
-    font-size:12px;
-
-    transition:.3s;
-
-}
-
-.nav a:hover{
-
-    background:#171926;
-
-    color:white;
-
-}
-
-.upgradeLink{
-
-    margin-top:16px;
-
-    color:#ffc507 !important;
-
-    font-weight:800;
-
-}
-
-/* ================= MAIN ================= */
-
-.main{
-
-    flex:1;
-
-    padding:30px 35px;
-
-    overflow:visible;
-
+    height:120px;
 }
 
 /* ================= HEADER ================= */
@@ -107,6 +56,7 @@
     font-size:20px;
 
     margin:0;
+    margin-left: -180px;
 
 }
 
@@ -115,6 +65,7 @@
     font-size:28px;
     font-weight:800;
     letter-spacing:-0.5px;
+    margin-left: -180px;
 
     background:linear-gradient(
         90deg,
@@ -140,6 +91,7 @@
     color:#9b9bb3;
 
     font-size:14px;
+    margin-left: -190px;
 
 }
 
@@ -147,9 +99,12 @@
 
 .cards{
 
-    display:flex;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
 
-    gap:20px;
+    gap:16px;
+    width: 110%;
+    margin-left: -120px;
 
     justify-content:center;
 
@@ -160,7 +115,8 @@
 
 .card{
 
-    width:330px;
+    width:90%;
+    min-width: 0;
 
     min-height:560px;
 
@@ -197,7 +153,7 @@
 
 .cardImage{
 
-    width:100%;
+    width:80%;
 
     height:150px;
 
@@ -255,8 +211,8 @@
 
     display:flex;
 
-   flex-direction: column
-   ;
+   flex-direction: column;
+
     gap:10px;
 
     margin-top:20px;
@@ -355,16 +311,17 @@
 
 .infoSection{
     margin-top:22px;
+    margin-left: -150px;
     display:flex;
     flex-direction:column;
-    gap:18px;
+    gap:10px;
 }
 
 .infoCard{
     background:#000102;;
     border:1px solid rgba(255,255,255,.06);
-    border-radius:15px;
-    padding:12px 18px;
+    border-radius:12px;
+    padding:10px 14px;
 }
 
 .infoCard h3{
@@ -441,6 +398,7 @@
     display:flex;
     justify-content:flex-end;
     margin-bottom:20px;
+    margin-right:50px ;
 }
 
 .languageBtn{
@@ -480,7 +438,7 @@
 
     position:absolute;
 
-    top:42px;
+    top:32px;
 
     right:0;
 
@@ -565,10 +523,11 @@
 
 .musicImage{
 
-    width:100%;
-    height:200px;
+    width:90%;
+    height:180px;
     object-fit:cover;
     display:block;
+    margin: 8px auto 20px;
 
     border-radius:22px 22px 0 0;
 

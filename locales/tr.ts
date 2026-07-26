@@ -219,8 +219,8 @@ visionText:
 
     option10: "10 sn",
     option30: "30 sn",
+    option45: "45 sn",
     option1m: "1 dk",
-    option2m: "2 dk",
 
     generate: "İçerik Oluştur →",
   },
@@ -238,6 +238,281 @@ visionText:
   }
 },
 
+
+// --- editVideo ---
+editVideo: {
+
+  header: {
+    back: "Geri",
+    upgrade: "Planı Yükselt",
+    activePlan: "Aktif Plan",
+    starter: "Başlangıç",
+  },
+
+
+  left: {
+    title: "Video Önizleme",
+    description:
+      "Videonuzu inceleyin ve dışa aktarmadan önce tüm detayları düzenleyin.",
+
+    reel: "Instagram Reels",
+    videoInfo:
+      "Yapay zeka tarafından oluşturulan video düzenlemeye hazır",
+
+    changeVideo: "Videoyu Değiştir",
+
+    coverTitle: "Kapak Görseli",
+
+    aiGenerated: "AI ile Oluştur",
+    uploadOwn: "Kendi Görselimi Yükle",
+
+    upload: "Yükle",
+    more: "Daha Fazla",
+  },
+
+
+  music: {
+
+    title: "Müzik",
+
+    description:
+      "Yapay zeka müziği oluşturun veya kendi müziğinizi videonuza ekleyin.",
+
+    instrumental: "Enstrümantal",
+
+    instrumentalDesc:
+      "Vokalsiz müzik",
+
+    vocals: "Vokalli",
+
+    vocalsDesc:
+      "Yapay zeka ile oluşturulan şarkı sesi",
+
+
+    notice:
+      "Müzik stilini seçin.\nAI ile şarkı sözleri oluşturun.\nMüziğinizi kişiselleştirin.",
+
+
+    mode: "Ruh Hali",
+
+    style: "Stil",
+
+    lyrics: "Şarkı Sözleri",
+
+    aiHelp:
+      "AI ile şarkı sözü oluştur",
+
+    lyricsPlaceholder:
+      "Şarkınızın konusunu veya sözlerinizi yazın...",
+
+
+    language: "Dil",
+
+    singer: "Şarkıcı",
+
+    female: "Kadın",
+
+    male: "Erkek",
+
+
+    addMusic:
+      "Videoya müzik ekle",
+
+    downloadMusic:
+      "Müziği İndir",
+
+  },
+
+
+  options: {
+
+    energetic: "Enerjik",
+
+    calm: "Sakin",
+
+    cinematic: "Sinematik",
+
+    happy: "Mutlu",
+
+    relaxing: "Rahatlatıcı",
+
+    epic: "Epik",
+
+    dark: "Karanlık",
+
+    inspirational: "İlham Verici",
+
+    romantic: "Romantik",
+
+    suspense: "Gerilim",
+
+    dreamy: "Rüya Gibi",
+
+
+    pop: "Pop",
+
+    rock: "Rock",
+
+    electronic: "Elektronik",
+
+    hiphop: "Hip Hop",
+
+    lofi: "Lo-Fi",
+
+    acoustic: "Akustik",
+
+    corporate: "Kurumsal",
+
+    jazz: "Caz",
+
+    orchestra: "Orkestra",
+
+    classical: "Klasik",
+
+  },
+
+
+  customize: {
+
+    title: "Videoyu Özelleştir",
+
+    description:
+      "Metinleri, yazı tiplerini, düzenleri ve renkleri düzenleyin.",
+
+    aiEditor:
+      "AI Düzenleyici",
+
+    styles:
+      "Stiller",
+
+    themes:
+      "Temalar",
+
+
+    textTitle:
+      "Metin",
+
+    addLine:
+      "Satır Ekle",
+
+
+    textStyle:
+      "Metin Stili",
+
+    layout:
+      "Düzen",
+
+
+    horizontal:
+      "Yatay Konum",
+
+    vertical:
+      "Dikey Konum",
+
+  },
+
+
+  footer: {
+
+    starter:
+      "Başlangıç Planı",
+
+    video:
+      "Video Süresi",
+
+    clips:
+      "Klipler",
+
+    covers:
+      "Kapak Görselleri",
+
+    music:
+      "Müzik",
+
+    download:
+      "İndir",
+
+    generate:
+      "Video Oluştur",
+
+  },
+
+},
+
+// --- pricing ---
+pricing: {
+  header: {
+    startFree: "Ücretsiz Başla",
+  },
+
+  hero: {
+    badge: "⚡ Basit Fiyatlandırma. Güçlü Sonuçlar.",
+    title1: "Size En Uygun",
+    title2: "Planı",
+    highlight: "Seçin",
+  },
+
+  free: {
+    title: "ÜCRETSİZ",
+    description: "Sellova'yı deneyin ve yapay zekânın gücünü keşfedin.",
+
+    upload: "10 Dakika Yükleme",
+    shorts: "3 Kısa Video",
+    ai: "Standart Yapay Zekâ",
+    watermark: "Filigranlı",
+    export: "720p Dışa Aktarma",
+    trial: "Ücretsiz Deneme",
+
+    price: "$0",
+    period: "Ücretsiz Deneme",
+
+    button: "Ücretsiz Başla →",
+  },
+
+  starter: {
+    popular: "EN POPÜLER",
+    title: "BAŞLANGIÇ",
+    description: "İçerik üreticileri için mükemmel seçim.",
+
+    upload: "3 Saat Yükleme",
+    shorts: "30 Kısa Video",
+    images: "20 Görsel",
+    covers: "20 Kapak",
+    music: "10 Müzik",
+    export: "1080p Dışa Aktarma",
+    watermark: "Filigransız",
+    priority: "Öncelikli Destek",
+
+    price: "$5.99",
+    period: "aylık",
+
+    button: "Başlayın",
+  },
+
+  vip: {
+    title: "VIP",
+    description: "Profesyonel içerik üreticileri için maksimum güç.",
+
+    upload: "5 Saat Yükleme",
+    shorts: "70 Kısa Video",
+    images: "60 Görsel",
+    covers: "60 Kapak",
+    music: "30 Müzik",
+    export: "4K Dışa Aktarma",
+    watermark: "Filigransız",
+    premium: "Premium Yapay Zekâ",
+
+    price: "$12.99",
+    period: "aylık",
+
+    button: "VIP'e Geç",
+  },
+
+  footer: {
+    text:
+      "Tüm planlar, uzun videolarınızı viral Shorts, Reels, TikTok ve Stories içeriklerine dönüştürmek için Sellova'nın yapay zekâ araçlarını içerir.",
+  },
+},
 
   // --- Dashboard ---
   dashboard: {
@@ -412,36 +687,7 @@ sellerHelp: {
     amazonVideoBanner: "Amazon Video Önizleme • Dönüşüm odaklı",
   },
 
-   // --- music ---
-   music: {
-  title: "Yapay Zeka Müzik Oluşturucu",
-  subtitle: "Markanız için özel müzik oluşturun",
-
-  brandInfo: "Marka Bilgileri",
-  brandName: "Marka Adı",
-  businessType: "İş Türü",
-
-  description: "Markanızı ve müzik tarzınızı açıklayın",
-
-  language: "Dil Seçimi",
-  style: "Müzik Tarzı",
-
-  luxury: "Lüks",
-  cinematic: "Sinematik",
-  modern: "Modern",
-  electronic: "Elektronik",
-  corporate: "Kurumsal",
-  emotional: "Duygusal",
-
-  generate: "Müzik Oluştur",
-
-  resultTitle: "Oluşturulan Müzik",
-  preview: "Müzik Önizleme Alanı",
-
-  download: "Müziği İndir",
-
-  credits: "Maliyet: 50 Kredi",
-},
+  
 
   // --- Golden Plan ---
   goldenPlan: {
@@ -739,7 +985,7 @@ sellerHelp: {
       id: "platforms-tr",
       title: "Platform kurallari",
       body:
-        "Sosyal medyada daha yaratici olabilirsin ama Amazon gibi platformlarda sade olmalisin.",
+        "Sosyal medyada daha yaratici olabilirsin ama Amazon gibi platformlarda sade olmalisin",
       tips: [
         "Instagram/TikTok: yaratici ve metinli tasarim",
         "YouTube: dikkat cekici thumbnail",
@@ -750,62 +996,254 @@ sellerHelp: {
 },
 
  // --- Music ---
- Music: {
-  title: "Yapay Zeka Müzik Stüdyosu",
-  subtitle: "Markanız için benzersiz yapay zeka müziği oluşturun",
-  backDashboard: "Kontrol Paneline Dön",
-  brandInfo: "Marka Bilgileri",
-  brandName: "Marka Adı",
-  businessType: "İşletme Türü",
-  description: "Markanızı ve istediğiniz müzik tarzını açıklayın...",
-  language: "Dil",
+ music: {
+  badge: "YAPAY ZEKA MÜZİK OLUŞTURUCU",
 
-  style: "Müzik Tarzı Seç",
-  descriptionLabel: "Açıklama",
-  styleSubtitle: "Müzik tarzınızı seçin",
-  brandSubtitle: "Markanız hakkında bilgi verin",
+  title1: "Fikrini",
+  title2: "müziğe dönüştür",
 
-  luxury: "Lüks",
-  cinematic: "Sinematik",
-  modern: "Modern",
-  electronic: "Elektronik",
-  corporate: "Kurumsal",
-  emotional: "Duygusal",
-  jazz: "Caz",
-  rock: "Rock",
-  classical: "Klasik",
-  pop: "Pop",
-  hiphop: "Hip Hop",
+  subtitle:
+    "Videoların, podcast'lerin, oyunların ve daha fazlası için benzersiz, telifsiz müzik oluştur. Sadece istediğin atmosferi tarif et.",
 
-  generate: "Müzik Oluştur",
-  generating: "Müzik Oluşturuluyor...",
+  tags: {
+    chill: "Sakin",
+    cinematic: "Sinematik",
+    energetic: "Enerjik",
+    sad: "Hüzünlü",
+    dark: "Karanlık",
+  },
 
-  resultTitle: "Oluşturulan Müzik",
-  resultSubtitle: "Yapay zeka müziğiniz hazır",
+  features: {
+    aiSongGenerator: "Yapay Zeka Şarkı Oluşturucu",
+    yourVoiceSinging: "Kendi Sesinle Şarkı",
+    backgroundMusic: "Arka Plan Müziği",
+    cinematicSoundtracks: "Sinematik Müzikler",
+    brandJingles: "Marka Jingle'ları",
+    royaltyFreeMusic: "Telifsiz Müzik",
+  },
 
-  preview: "Müzik Önizleme",
+  buttons: {
+    getStarted: "Başlayın",
+    startCreating: "✨ Müzik Oluşturmaya Başla",
+  },
+},
 
-  download: "Müziği İndir",
+// --- musicCreate ---
+musicCreate: {
+  header: {
+    welcome: "Tekrar hoş geldin, {{name}} 👋",
+    free: "Ücretsiz",
+    upgrade: "Planı Yükselt",
+  },
 
-  credits: "Maliyet: 50 Kredi",
+  language: {
+    title: "1. Dil",
+    options: {
+      english: "English",
+      persian: "Farsça (فارسی)",
+      arabic: "Arapça (العربية)",
+      turkish: "Türkçe",
+      azerbaijani: "Azerice (Azərbaycan)",
+      kurdish: "Kürtçe (Kurdî)",
+      urdu: "Urduca (اردو)",
+      armenian: "Ermenice (Հայերեն)",
+      kazakh: "Kazakça (Қазақша)",
+      tajik: "Tacikçe (Тоҷикӣ)",
+      spanish: "İspanyolca (Español)",
+    },
+  },
 
-  owner: "Sellova Sahibi",
-  unlimitedCredits: "Kredi: Sınırsız",
+  duration: {
+    title: "2. Müzik Süresi",
+    sec30: "30 sn",
+    sec45: "45 sn",
+    min1: "1 dk",
+  },
 
-  aiPowered: "Yapay Zeka Destekli",
-  aiPoweredDesc: "Gelişmiş Yapay Zeka Teknolojisi",
+  style: {
+    title: "3. Stil",
+    all: "Tümü",
+    less: "Daha Az",
 
-  highQuality: "Yüksek Kalite",
-  highQualityDesc: "320kbps Premium Ses",
+    pop: "Pop",
+    rock: "Rock",
+    lofi: "Lo-fi",
+    jazz: "Jazz",
+    hipHop: "Hip Hop",
+    trap: "Trap",
+    ambient: "Ambient",
+    classical: "Klasik",
+    house: "House",
+    electronic: "Elektronik",
+  },
 
-  royaltyFree: "Telifsiz",
-  royaltyFreeDesc: "Ticari Kullanıma Uygun",
+  mood: {
+    title: "4. Ruh Hali",
+    all: "Tümü",
+    less: "Daha Az",
 
-  instantDownload: "Anında İndir",
-  instantDownloadDesc: "Hızlı ve Güvenli",
+    happy: "Mutlu",
+    epic: "Epik",
+    sad: "Hüzünlü",
+    dark: "Karanlık",
+    dreamy: "Hayalperest",
+    romantic: "Romantik",
+    hopeful: "Umut Dolu",
+    relaxing: "Rahatlatıcı",
+    calm: "Sakin",
+    energetic: "Enerjik",
+  },
 
-  comingSoon: "Yakında",
-  comingSoonDesc: "Özel şarkı sözleri, enstrümanlar ve daha fazlası"
+  prompt: {
+    title: "Müziğinizi Tanımlayın",
+
+    placeholder: `Örnek:
+
+Umut ve aşk hakkında kadın vokalli sinematik, duygusal bir şarkı.`,
+
+    askAI: "✨ Sellova AI'ya Sor",
+  },
+
+  singer: {
+    title: "Şarkıcı",
+    withSinger: "Şarkıcı ile",
+    musicOnly: "Sadece Müzik",
+  },
+
+  voice: {
+    title: "Ses",
+    female: "Kadın",
+    male: "Erkek",
+    myVoice: "Kendi Sesim",
+    upload: "Ses Yükle",
+  },
+
+  ai: {
+    title: "Sellova AI",
+
+    message:
+      "👋 Merhaba! Nasıl bir şarkı istediğini söyle, senin için mükemmel istemi hazırlayayım.",
+
+    placeholder:
+      "Örnek: Umut hakkında duygusal ve sinematik bir şarkı oluştur...",
+
+    generate: "İstem Oluştur",
+  },
+
+  preview: {
+    viewAll: "Tümünü Gör",
+
+    title: "Arka Plan Müziği Önizlemesi",
+
+    exampleTitle: "Arka Plan İlham Örnekleri",
+
+    text: `Müzik oluşturmak sadece ilk adımdır. Güzel bir görsel sunum, izleyicilerin ilgisini daha uzun süre korur ve içeriğinizin her platformda daha profesyonel görünmesini sağlar.
+
+Sellova; reklamlar, YouTube videoları, Instagram Reels, TikTok, podcast'ler, sunumlar, ürün tanıtımları, oyunlar, kısa filmler, sinematik projeler, ticari tanıtımlar, eğitim içerikleri ve daha birçok yaratıcı amaç için özgün yapay zekâ müzikleri oluşturmanıza olanak tanır.
+
+Müziğinizi oluşturduktan sonra, herhangi bir video düzenleme programını kullanarak bunu basit arka plan görselleri, hareketli arka planlar veya kısa videolarla birleştirip dakikalar içinde etkileyici içerikler oluşturabilirsiniz.
+
+Pahalı kameralara, profesyonel stüdyolara veya ileri düzey düzenleme becerilerine ihtiyacınız yoktur. Temiz ve sade bir arka plan bile kaliteli yapay zekâ müziğiyle birleştiğinde şık ve etkileyici bir müzik videosu oluşturabilir.
+
+Müziğinizin ruh haline uygun görseller seçmek, projenizin duygusal etkisini artırır ve hedef kitlenizle daha güçlü bir bağ kurmanıza yardımcı olur.
+
+İster dinlendirici müzikler, ister motivasyon parçaları, elektronik ritimler, sinematik eserler, meditasyon sesleri, çocuk şarkıları, kurumsal arka plan müzikleri veya reklam sesleri üretin; basit görseller çoğu zaman çalışmanızı tamamlamak için yeterlidir.
+
+Sellova; müzik üretimini hızlı, kolay ve herkes için erişilebilir hale getirmek amacıyla geliştirildi. Böylece içerik üreticileri, pazarlamacılar, işletmeler, müzisyenler, eğitmenler ve yaratıcı profesyoneller karmaşık yazılımları öğrenmek yerine üretmeye daha fazla zaman ayırabilir.
+
+Aşağıdaki örnekler yalnızca ilham vermek amacıyla sunulmuştur. Yapay zekâ ile oluşturulan müzikleri görsel olarak zenginleştirmek için kullanılabilecek basit arka plan fikirlerini göstermektedir.
+
+Müziğinizi indirdikten sonra kendi görsellerinizi, illüstrasyonlarınızı, marka materyallerinizi veya kişisel videolarınızı kullanabilir ve her projenizde tam yaratıcı özgürlüğün tadını çıkarabilirsiniz.
+
+Aşağıdaki örnekleri inceleyin, yeni fikirler keşfedin ve sosyal medya, web siteleri, çevrim içi reklamlar, YouTube, podcast'ler ve dijital pazarlama kampanyaları için profesyonel müzik içerikleri oluşturmaya başlayın.`,
+  },
+},
+
+// --- musicPricing ---
+musicPricing: {
+  badge: "YAPAY ZEKA İLE MÜZİK OLUŞTURMA",
+
+  title1: "Her İçerik Üreticisi İçin",
+  title2: "Uygun Planlar",
+
+  subtitle1: "Saniyeler içinde benzersiz ve telifsiz müzik ile vokaller oluşturun.",
+  subtitle2: "İçerik üreticileri, pazarlamacılar ve markalar için mükemmel.",
+
+  plans: {
+    free: {
+      title: "ÜCRETSİZ",
+      description: "Hemen Deneyin",
+
+      price: "$0",
+      period: "/ay",
+
+      features: [
+        "3 şarkı",
+        "20 saniyelik önizleme",
+        "Sınırlı müzik türleri",
+        "Standart kalite",
+        "Filigranlı",
+      ],
+
+      button: "Ücretsiz Başlayın",
+    },
+
+    starter: {
+      popular: "EN POPÜLER",
+
+      title: "BAŞLANGIÇ",
+      description: "İçerik Üretici Planı",
+
+      price: "$3.9",
+      period: "/ay",
+
+      features: [
+        "Ayda 12 şarkı",
+        "Şarkı başına 45 saniye",
+        "Birden fazla müzik türü",
+        "Yüksek kalite",
+        "Filigransız indirme",
+      ],
+
+      button: "Oluşturmaya Başla",
+    },
+
+    pro: {
+      title: "PRO",
+      description: "Profesyonel İçerik Üretici",
+
+      price: "$7.9",
+      period: "/ay",
+
+      features: [
+        "Ayda 20 şarkı",
+        "Şarkı başına 1 dakika",
+        "Kendi sesinizle 3 şarkı",
+        "Sınırsız müzik türü",
+        "Çok yüksek kalite",
+      ],
+
+      button: "Pro'ya Geç",
+    },
+
+    signature: {
+      title: "SIGNATURE",
+      description: "Ses Sanatçısı Planı",
+
+      price: "$4.5",
+      period: "/ay",
+
+      features: [
+        "Kendi sesinizle 3 şarkı",
+        "Şarkı başına 1 dakika",
+        "Yapay zekâ vokalleri",
+        "Stüdyo kalitesi",
+        "Ticari kullanım",
+      ],
+
+      button: "Signature'a Geç",
+    },
+  },
 },
 
 };

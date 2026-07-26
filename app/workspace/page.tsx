@@ -142,7 +142,7 @@ export default function WorkspacePage() {
         Sellova Branding
       </a>
 
-      <a href="/studio">
+      <a href="/studio/studio">
         Sellova Studio
       </a>
 
@@ -186,8 +186,11 @@ export default function WorkspacePage() {
 
   {/* ADS */}
 
-  <div className={styles.card}>
-
+<div
+  className={styles.card}
+  onClick={() => router.push("/ads/dashboard")}
+  style={{ cursor: "pointer" }}
+>
     <img
       src="/assets/icons/work/sellova-ads.png"
       className={styles.adsImage}
@@ -253,8 +256,7 @@ export default function WorkspacePage() {
 
       <button
         className={styles.btnPurple}
-        onClick={() => window.location.href = "/dashboard"}
-      >
+       onClick={() => window.location.href = "/ads/dashboard"}      >
         {t.ads.button}
       </button>
 
@@ -405,7 +407,7 @@ export default function WorkspacePage() {
 
       <button
         className={styles.btnOrange}
-        onClick={() => router.push("/studio")}
+        onClick={() => router.push("/studio/studio")}
       >
         {t.studio.button}
       </button>

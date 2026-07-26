@@ -76,32 +76,32 @@
 .accountCard{
     background:rgba(20,27,48,.9);
     border:1px solid rgba(255,255,255,.08);
-    border-radius:22px;
-    padding:45px;
+    border-radius:18px;
+    padding:35px;
     backdrop-filter:blur(18px);
-    box-shadow:0 0 35px rgba(72,99,255,.12);
+    box-shadow:0 0 25px rgba(72,99,255,.12);
 }
 
 .accountCard h2{
-    font-size:22px;
-    margin-bottom:35px;
+    font-size:15px;
+    margin-bottom:28px;
 }
 
 .formGroup{
     display:flex;
     flex-direction:column;
-    margin-bottom:25px;
+    margin-bottom:22px;
 }
 
 .formGroup label{
-    font-size:16px;
+    font-size:13px;
     margin-bottom:10px;
     color:#dbe2ff;
 }
 
 .formGroup input{
     width:100%;
-    height:58px;
+    height:38px;
     border-radius:14px;
     border:1px solid rgba(255,255,255,.08);
     background:#1b2442;
@@ -123,8 +123,8 @@
 
 .saveButton{
     width:100%;
-    height:58px;
-    margin-top:20px;
+    height:48px;
+    margin-top:10px;
     border:none;
     border-radius:16px;
     background:linear-gradient(90deg,#4F8CFF,#7C4DFF);

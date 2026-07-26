@@ -2,7 +2,7 @@
 
 .page{
     width:100%;
-    min-height:100vh;
+    min-height:110vh;
     padding-bottom: 30px;
 
     background:url("/assets/icons/edit/price/1.png");
@@ -34,10 +34,9 @@
 .logo{
     display:flex;
     align-items:center;
-   margin-top: 80px !important;
-    margin-left: 60px;
+    margin-top:20px !important;
+    margin-left:40px;
 }
-
 
 
 .buttons{
@@ -51,9 +50,9 @@
 
     width:150px;
     height:42px;
-    margin-right: 150px;
+    margin-right: 40px;
     border:none;
-    margin-top: 50px;
+    margin-top: 0px;
     border-radius:12px;
 
     background:linear-gradient(90deg,#ff5a00,#ff8a00);
@@ -78,16 +77,12 @@
 /* ================= HERO ================= */
 
 .hero{
-
-    margin-top:-40px;
-
+    margin-top:-80px;
     text-align:center;
-
     display:flex;
     flex-direction:column;
     align-items:center;
 }
-
 .badge{
 
     padding:5px 16px;
@@ -107,7 +102,7 @@
 
 .hero h1{
 
-    font-size:30px;
+    font-size:25px;
 
     line-height:45px;
 
@@ -122,29 +117,20 @@
 }
 
 .hero p{
-
-    margin-top:24px;
-
+    margin-top:10px;
     color:#bdbdbd;
-
-    font-size:33px;
-
-    line-height:38px;
+    font-size:22px;
+    line-height:30px;
 }
 
 /* ================= CARDS ================= */
 
 .cards{
-
-    width:900px !important;
-   
+    width:1080px;
     display:flex;
-
     justify-content:center;
-
     gap:18px;
-
-    margin-top:50px;
+    margin-top:25px;
 }
 /* ================= PRICE CARDS ================= */
 
@@ -236,8 +222,8 @@
 
     line-height:30px;
 
-    margin-top:-20px;
-    margin-bottom: 15px;
+    margin-top:8px;
+    margin-bottom: 18px;
 }
 
 /* ================= PRICE ================= */
@@ -355,7 +341,7 @@
 
 .bottomCard{
 
-    margin-top:455px;
+    margin-top:50px;
 
     border:1px solid rgba(255,255,255,.08);
 
@@ -377,7 +363,9 @@
 }
 
 .bottomText{
-    white-space: nowrap;
-    font-size: 15px;
-    margin-top: 70px !important;
+    margin-top: 15px;
+    white-space:nowrap;
+    font-size:15px;
+   
+    
 }

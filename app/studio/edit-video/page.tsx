@@ -2,7 +2,7 @@
 
 import styles from "./edit-video.module.css";
 import { useRouter } from "next/navigation";
-import { useLang } from "../../lib/lang";
+import { useLang } from "../../../lib/lang";
 import { useState } from "react";
 
 export default function EditVideoPage() {
@@ -42,7 +42,7 @@ export default function EditVideoPage() {
 
             <button
               className={styles.upgradeBtn}
-              onClick={() => router.push("/upgrade-plan")}
+              onClick={() => router.push("/studio/pricing")}
             >
               👑 {t.header.upgrade}
             </button>

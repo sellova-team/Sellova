@@ -221,8 +221,8 @@ studioPage: {
 
     option10: "10s",
     option30: "30s",
+    option45: "45s",
     option1m: "1 min",
-    option2m: "2 min",
 
     generate: "Generate Content →",
   },
@@ -240,6 +240,174 @@ studioPage: {
   }
 },
 
+ // --- editVideo ---
+editVideo: {
+  header: {
+    back: "Back",
+    upgrade: "Upgrade Plan",
+    activePlan: "Active Plan",
+    starter: "Starter",
+  },
+
+  left: {
+    title: "Video Preview",
+    description: "Review your generated video and customize every detail before exporting.",
+    reel: "Instagram Reel",
+    videoInfo: "AI generated video ready for editing",
+    changeVideo: "Change Video",
+    coverTitle: "Cover Image",
+    aiGenerated: "AI Generated",
+    uploadOwn: "Upload Your Own",
+    upload: "Upload",
+    more: "More",
+  },
+
+  music: {
+    title: "Music",
+    description: "Generate AI music or use your own soundtrack.",
+    instrumental: "Instrumental",
+    instrumentalDesc: "Music without vocals",
+    vocals: "Vocals",
+    vocalsDesc: "AI generated singing",
+    notice:
+      "Choose a music style.\nGenerate lyrics with AI.\nCustomize your soundtrack.",
+    mode: "Mood",
+    style: "Style",
+    lyrics: "Lyrics",
+    aiHelp: "Generate lyrics with AI",
+    lyricsPlaceholder: "Describe your song or write your lyrics...",
+    language: "Language",
+    singer: "Singer",
+    female: "Female",
+    male: "Male",
+    addMusic: "Add music to video",
+    downloadMusic: "Download Music",
+  },
+
+  options: {
+    energetic: "Energetic",
+    calm: "Calm",
+    cinematic: "Cinematic",
+    happy: "Happy",
+    relaxing: "Relaxing",
+    epic: "Epic",
+    dark: "Dark",
+    inspirational: "Inspirational",
+    romantic: "Romantic",
+    suspense: "Suspense",
+    dreamy: "Dreamy",
+
+    pop: "Pop",
+    rock: "Rock",
+    electronic: "Electronic",
+    hiphop: "Hip-Hop",
+    lofi: "Lo-Fi",
+    acoustic: "Acoustic",
+    corporate: "Corporate",
+    jazz: "Jazz",
+    orchestra: "Orchestra",
+    classical: "Classical",
+  },
+
+  customize: {
+    title: "Customize Video",
+    description: "Edit text, fonts, layouts and colors.",
+    aiEditor: "AI Editor",
+    styles: "Styles",
+    themes: "Themes",
+    textTitle: "Text",
+    addLine: "Add Line",
+    textStyle: "Text Style",
+    layout: "Layout",
+    horizontal: "Horizontal Position",
+    vertical: "Vertical Position",
+  },
+
+  footer: {
+    starter: "Starter Plan",
+    video: "Video Time",
+    clips: "Clips",
+    covers: "Cover Images",
+    music: "Music",
+    download: "Download",
+    generate: "Generate Video",
+  },
+},
+
+ // --- pricing ---
+pricing: {
+  header: {
+    startFree: "Start Free",
+  },
+
+  hero: {
+    badge: "⚡ Simple Pricing. Powerful Results.",
+    title1: "Choose the Plan",
+    title2: "That Fits",
+    highlight: "You Best",
+  },
+
+  free: {
+    title: "FREE",
+    description: "Try Sellova and experience the power of AI.",
+
+    upload: "10 Min Upload",
+    shorts: "3 Shorts",
+    ai: "Standard AI",
+    watermark: "Watermark",
+    export: "720p Export",
+    trial: "Free Trial",
+
+    price: "$0",
+    period: "Free Trial",
+
+    button: "Start Free →",
+  },
+
+  starter: {
+    popular: "MOST POPULAR",
+    title: "STARTER",
+    description: "Perfect for creators growing their content.",
+
+    upload: "3 Hours Upload",
+    shorts: "30 Shorts",
+    images: "20 Images",
+    covers: "20 Covers",
+    music: "10 Music",
+    export: "1080p Export",
+    watermark: "No Watermark",
+    priority: "Priority",
+
+    price: "$5.99",
+    period: "per month",
+
+    button: "Get Started",
+  },
+
+  vip: {
+    title: "VIP",
+    description: "Maximum power for serious creators.",
+
+    upload: "5 Hours Upload",
+    shorts: "70 Shorts",
+    images: "60 Images",
+    covers: "60 Covers",
+    music: "30 Music",
+    export: "4K Export",
+    watermark: "No Watermark",
+    premium: "Premium AI",
+
+    price: "$12.99",
+    period: "per month",
+
+    button: "Go VIP",
+  },
+
+  footer: {
+    text:
+      "All plans include AI-powered tools to turn your long videos into viral Shorts, Reels, TikToks and Stories.",
+  },
+},
 
   // --- Dashboard ---
   dashboard: {
@@ -459,36 +627,6 @@ goldenPlan: {
   package2: "2 Music Videos - 600 Credits",
 },
 
-// --- music ---
-music: {
-  title: "Music AI Generator",
-  subtitle: "Create custom brand music with artificial intelligence",
-
-  brandInfo: "Brand Information",
-  brandName: "Brand Name",
-  businessType: "Business Type",
-
-  description: "Describe your brand and music style...",
-
-  language: "Select Language",
-  style: "Music Style",
-
-  luxury: "Luxury",
-  cinematic: "Cinematic",
-  modern: "Modern",
-  electronic: "Electronic",
-  corporate: "Corporate",
-  emotional: "Emotional",
-
-  generate: "Generate Music",
-
-  resultTitle: "Generated Music",
-  preview: "Music Preview Area",
-
-  download: "Download Music",
-
-  credits: "Cost: 50 Credits",
-},
 
   // --- Hashtags & Captions ---
   hashtags: {
@@ -689,60 +827,255 @@ sellovaGuide: {
 
 
  // --- Music ---
- Music: {
-  title: "AI Music Studio",
-  subtitle: "Create unique AI music for your brand",
-  backDashboard: "Back to Dashboard",
-  brandInfo: "Brand Information",
-  brandName: "Brand Name",
-  businessType: "Business Type",
-  description: "Describe your brand and music style...",
-  language: "Language",
+ music: {
+  badge: "AI MUSIC GENERATOR",
 
-  style: "Choose Music Style",
- descriptionLabel: "Description",
- styleSubtitle: "select your music style",
- brandSubtitle:"Tell us about your brand",
-  luxury: "Luxury",
-  cinematic: "Cinematic",
-  modern: "Modern",
-  electronic: "Electronic",
-  corporate: "Corporate",
-  emotional: "Emotional",
-  jazz: "Jazz",
-  classical: "Classical",
-  rock: "Rock",
-  pop: "Pop",
-  hiphop: "Hip Hop",
+  title1: "Turn your idea",
+  title2: "into music",
 
-  generate: "Generate Music",
-  generating: "Generating Music...",
- 
-  resultTitle: "Generated Music",
-  resultSubtitle: "Your AI music is ready",
+  subtitle:
+    "Create unique, royalty-free music for your videos, podcasts, games and more. Just describe your vibe.",
 
-  preview: "Music Preview",
+  tags: {
+    chill: "Chill",
+    cinematic: "Cinematic",
+    energetic: "Energetic",
+    sad: "Sad",
+    dark: "Dark",
+  },
 
-  download: "Download Music",
+  features: {
+    aiSongGenerator: "AI Song Generator",
+    yourVoiceSinging: "Your Voice Singing",
+    backgroundMusic: "Background Music",
+    cinematicSoundtracks: "Cinematic Soundtracks",
+    brandJingles: "Brand Jingles",
+    royaltyFreeMusic: "Royalty-Free Music",
+  },
 
-  credits: "Cost: 50 Credits",
-
-  owner: "Sellova Owner",
-  unlimitedCredits: "Credits: Unlimited",
-
-  aiPowered: "AI Powered",
-  aiPoweredDesc: "Advanced AI Technology",
-
-  highQuality: "High Quality",
-  highQualityDesc: "320kbps Premium Audio",
-
-  royaltyFree: "Royalty Free",
-  royaltyFreeDesc: "Commercial Use Allowed",
-
-  instantDownload: "Instant Download",
-  instantDownloadDesc: "Fast & Secure",
-
-  comingSoon: "Coming Soon",
-  comingSoonDesc: "Custom lyrics, instruments and more"
+  buttons: {
+    getStarted: "Get Started",
+    startCreating: "✨ Start Creating Music",
+  },
 },
+
+ // --- musicCreate ---
+
+ musicCreate: {
+  header: {
+    welcome: "Welcome back, {{name}} 👋",
+    free: "Free",
+    upgrade: "Upgrade",
+  },
+
+  language: {
+    title: "1. Language",
+    options: {
+      english: "English",
+      persian: "Persian (فارسی)",
+      arabic: "Arabic (العربية)",
+      turkish: "Turkish (Türkçe)",
+      azerbaijani: "Azerbaijani (Azərbaycan)",
+      kurdish: "Kurdish (Kurdî)",
+      urdu: "Urdu (اردو)",
+      armenian: "Armenian (Հայերեն)",
+      kazakh: "Kazakh (Қазақша)",
+      tajik: "Tajik (Тоҷикӣ)",
+      spanish: "Spanish (Español)",
+    },
+  },
+
+  duration: {
+    title: "2. Music Length",
+    sec30: "30 sec",
+    sec45: "45 sec",
+    min1: "1 min",
+  },
+
+  style: {
+    title: "3. Style",
+    all: "All",
+    less: "Less",
+
+    pop: "Pop",
+    rock: "Rock",
+    lofi: "Lo-fi",
+    jazz: "Jazz",
+    hipHop: "Hip Hop",
+    trap: "Trap",
+    ambient: "Ambient",
+    classical: "Classical",
+    house: "House",
+    electronic: "Electronic",
+  },
+
+  mood: {
+    title: "4. Mood",
+    all: "All",
+    less: "Less",
+
+    happy: "Happy",
+    epic: "Epic",
+    sad: "Sad",
+    dark: "Dark",
+    dreamy: "Dreamy",
+    romantic: "Romantic",
+    hopeful: "Hopeful",
+    relaxing: "Relaxing",
+    calm: "Calm",
+    energetic: "Energetic",
+  },
+
+  prompt: {
+    title: "Describe your music",
+
+    placeholder: `Example:
+
+A cinematic emotional song with female vocals about hope and love.`,
+
+    askAI: "✨ Ask Sellova AI",
+  },
+
+  singer: {
+    title: "Singer",
+    withSinger: "With Singer",
+    musicOnly: "Music Only",
+  },
+
+  voice: {
+    title: "Voice",
+    female: "Female",
+    male: "Male",
+    myVoice: "My Own Voice",
+    upload: "Upload Voice",
+  },
+
+  ai: {
+    title: "Sellova AI",
+
+    message:
+      "👋 Hi! Tell me what kind of song you want and I'll help you write the perfect prompt.",
+
+    placeholder:
+      "Example: Create an emotional cinematic song about hope...",
+
+    generate: "Generate Prompt",
+  },
+
+  preview: {
+    viewAll: "View all",
+
+    title: "Background Music Preview",
+
+    exampleTitle: "Example Background Inspirations",
+
+    text: `Creating music is only the first step. A beautiful visual presentation helps your audience stay engaged and makes your content look more professional across every platform.
+
+Sellova allows you to generate original AI music for advertisements, YouTube videos, Instagram Reels, TikTok, podcasts, presentations, product showcases, games, short films, cinematic projects, business promotions, educational content, and many other creative purposes.
+
+After generating your music, you can combine it with simple background images, animated backgrounds, or short videos using any video editing software to create attractive content within minutes.
+
+You do not need expensive cameras, professional studios, or advanced editing skills. Even a clean static background can produce an elegant and engaging music video when paired with high-quality AI-generated music.
+
+Choosing visuals that match the mood of your soundtrack can significantly improve the emotional impact of your project and create a stronger connection with your audience.
+
+Whether you create relaxing music, motivational tracks, electronic beats, cinematic scores, meditation sounds, children's songs, business background music, or promotional audio, simple visuals are often enough to make the final result feel complete.
+
+Sellova focuses on making music creation fast, simple, and accessible, allowing creators, marketers, businesses, musicians, educators, and content creators to spend more time creating instead of learning complicated software.
+
+The examples below are provided as creative inspiration only. They demonstrate the type of simple backgrounds that work well with AI-generated music and help transform audio into attractive visual content.
+
+You are free to use your own images, illustrations, brand assets, or personal videos after downloading your generated music, giving you complete creative freedom for every project.
+
+Explore the examples below, discover new ideas, and start creating professional music content that is ready for social media, websites, online advertising, YouTube, podcasts, digital marketing campaigns, and many other creative platforms.`,
+  }
+  
+},
+
+ // --- musicPricing ---
+musicPricing: {
+  badge: "AI MUSIC GENERATION",
+
+  title1: "Plans Built for",
+  title2: "Every Creator",
+
+  subtitle1: "Create unique, royalty-free music & vocals in seconds.",
+  subtitle2: "Perfect for creators, marketers, and brands.",
+
+  plans: {
+    free: {
+      title: "FREE",
+      description: "Try It Out",
+      price: "$0",
+      period: "/month",
+
+      features: [
+        "3 songs",
+        "20 sec preview",
+        "Limited styles",
+        "Standard quality",
+        "Watermarked",
+      ],
+
+      button: "Get Started Free",
+    },
+
+    starter: {
+      popular: "MOST POPULAR",
+
+      title: "STARTER",
+      description: "Creator Plan",
+
+      price: "$3.9",
+      period: "/month",
+
+      features: [
+        "12 songs / month",
+        "45 sec per song",
+        "Multiple music styles",
+        "High quality",
+        "Download without watermark",
+      ],
+
+      button: "Start Creating",
+    },
+
+    pro: {
+      title: "PRO",
+      description: "Content Creator Pro",
+
+      price: "$7.9",
+      period: "/month",
+
+      features: [
+        "20 songs / month",
+        "1 minute per song",
+        "3 songs with your own voice",
+        "Unlimited styles",
+        "Very high quality",
+      ],
+
+      button: "Go Pro",
+    },
+
+    signature: {
+      title: "SIGNATURE",
+      description: "Voice Artist Plan",
+
+      price: "$4.5",
+      period: "/month",
+
+      features: [
+        "3 songs with your own voice",
+        "1 minute per song",
+        "AI voice songs",
+        "Studio quality",
+        "Commercial use",
+      ],
+
+      button: "Go Signature",
+    },
+  },
+},
+
 };

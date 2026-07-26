@@ -1,8 +1,7 @@
-
 "use client";
 import styles from "./studio.module.css";
 import { useRouter } from "next/navigation";
-import { useLang, Locale } from "../../lib/lang";
+import { useLang, Locale } from "../../../lib/lang";
 import { useState, useRef, useEffect } from "react";
 
 export default function StudioPage() {
@@ -96,7 +95,7 @@ export default function StudioPage() {
 
             <button
               className={styles.upgradeBtn}
-              onClick={() => router.push("/pricing")}
+              onClick={() => router.push("/studio/pricing")}
             >
               {t.header.upgrade}
             </button>
@@ -155,7 +154,7 @@ export default function StudioPage() {
           </div>
         </div>
 
-        {/* RIGHT */}
+ {/* RIGHT */}
 
         <div className={styles.right}>
           <h2 className={styles.title}>
@@ -201,71 +200,95 @@ export default function StudioPage() {
               },
             ].map((item, i) => (
 <div className={styles.itemRow} key={i}>
+
   <div className={styles.leftSide}>
+
     <img
       src={item.icon}
       className={styles.smallIcon}
     />
 
     <div className={styles.textBlock}>
+
       <span className={styles.name}>
         {item.name}
       </span>
+
     </div>
+
   </div>
 
+
   <div className={styles.timeBox}>
+
     <select>
+
       <option>{t.content.option10}</option>
       <option>{t.content.option30}</option>
       <option>{t.content.option45}</option>
       <option>{t.content.option1m}</option>
-     
+
     </select>
+
   </div>
 
+
+
   <div className={styles.rightSide}>
+
+
    <button
-  className={styles.btn}
-  onClick={() => {
-    const newCounts = [...counts];
-    newCounts[i]++;
-    setCounts(newCounts);
-  }}
->
-  +
-</button>
+    className={styles.btn}
+    onClick={() => {
+      const newCounts = [...counts];
+      newCounts[i]++;
+      setCounts(newCounts);
+    }}
+   >
+    +
+   </button>
+
 
 
     <span className={styles.count}>
       {counts[i]}
     </span>
 
+
+
    <button
-  className={styles.btn}
-  onClick={() => {
-    const newCounts = [...counts];
-    if (newCounts[i] > 1) {
-      newCounts[i]--;
-      setCounts(newCounts);
-    }
-  }}
->
-  -
-</button>
+    className={styles.btn}
+    onClick={() => {
+      const newCounts = [...counts];
+      if (newCounts[i] > 1) {
+        newCounts[i]--;
+        setCounts(newCounts);
+      }
+    }}
+   >
+    -
+   </button>
+
+
 
   </div>
+
+
 </div>
 ))}
 </div>
 
-<button className={styles.generateBtn}>
+
+<button
+ className={styles.generateBtn}
+ onClick={() => router.push("/studio/edit-video")}
+>
   {t.content.generate}
 </button>
 
+
 </div>
 </main>
-
 {/* ================= BOTTOM ================= */}
 
 <div className={styles.bottom}>
@@ -309,6 +332,7 @@ export default function StudioPage() {
     },
   ].map((item, i) => (
     <div className={styles.row} key={i}>
+
       <div className={styles.left}>
         <img
           src={item.icon}
@@ -326,54 +350,113 @@ export default function StudioPage() {
         </div>
       </div>
 
+
       <div className={styles.center}>
+
 {item.name === t.content.instagramReels && (
   <>
-    <img src="/assets/generated/instagram reels/1.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram reels/2.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram reels/3.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram reels/4.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram reels/5.png" className={styles.thumb} />
+    {[1,2,3,4,5].map((n)=>(
+      <div key={n} className={styles.clipBox}>
+        <img
+          src={`/assets/generated/instagram reels/${n}.png`}
+          className={styles.thumb}
+        />
+
+        <button
+          className={styles.editBtn}
+          onClick={() => router.push("/studio/edit-video")}
+        >
+          Edit Video
+        </button>
+      </div>
+    ))}
   </>
 )}
+
 
 {item.name === t.content.youtubeShorts && (
   <>
-    <img src="/assets/generated/youtube shorts/1.png" className={styles.thumb} />
-    <img src="/assets/generated/youtube shorts/2.png" className={styles.thumb} />
-    <img src="/assets/generated/youtube shorts/3.png" className={styles.thumb} />
-    <img src="/assets/generated/youtube shorts/4.png" className={styles.thumb} />
-    <img src="/assets/generated/youtube shorts/5.png" className={styles.thumb} />
+    {[1,2,3,4,5].map((n)=>(
+      <div key={n} className={styles.clipBox}>
+        <img
+          src={`/assets/generated/youtube shorts/${n}.png`}
+          className={styles.thumb}
+        />
+
+        <button
+          className={styles.editBtn}
+          onClick={() => router.push("/studio/edit-video")}
+        >
+          Edit Video
+        </button>
+      </div>
+    ))}
   </>
 )}
+
 
 {item.name === t.content.tiktokVideos && (
   <>
-    <img src="/assets/generated/tiktok/1.png" className={styles.thumb} />
-    <img src="/assets/generated/tiktok/2.png" className={styles.thumb} />
-    <img src="/assets/generated/tiktok/3.png" className={styles.thumb} />
-    <img src="/assets/generated/tiktok/4.png" className={styles.thumb} />
+    {[1,2,3,4].map((n)=>(
+      <div key={n} className={styles.clipBox}>
+        <img
+          src={`/assets/generated/tiktok/${n}.png`}
+          className={styles.thumb}
+        />
+
+        <button
+          className={styles.editBtn}
+          onClick={() => router.push("/studio/edit-video")}
+        >
+          Edit Video
+        </button>
+      </div>
+    ))}
   </>
 )}
+
 
 {item.name === t.content.instagramStories && (
   <>
-    <img src="/assets/generated/instagram stories/1.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram stories/2.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram stories/3.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram stories/4.png" className={styles.thumb} />
-    <img src="/assets/generated/instagram stories/5.png" className={styles.thumb} />
+    {[1,2,3,4,5].map((n)=>(
+      <div key={n} className={styles.clipBox}>
+        <img
+          src={`/assets/generated/instagram stories/${n}.png`}
+          className={styles.thumb}
+        />
+
+        <button
+          className={styles.editBtn}
+          onClick={() => router.push("/studio/edit-video")}
+        >
+          Edit Video
+        </button>
+      </div>
+    ))}
   </>
 )}
 
+
 {item.name === t.content.socialPosts && (
   <>
-    <img src="/assets/generated/facebook/1.png" className={styles.thumb} />
-    <img src="/assets/generated/facebook/2.png" className={styles.thumb} />
-    <img src="/assets/generated/facebook/3.png" className={styles.thumb} />
-    <img src="/assets/generated/facebook/4.png" className={styles.thumb} />
+    {[1,2,3,4].map((n)=>(
+      <div key={n} className={styles.clipBox}>
+        <img
+          src={`/assets/generated/facebook/${n}.png`}
+          className={styles.thumb}
+        />
+
+        <button
+          className={styles.editBtn}
+          onClick={() => router.push("/studio/edit-video")}
+        >
+          Edit Video
+        </button>
+      </div>
+    ))}
   </>
 )}
+
 
 <div className={styles.generating}>
   {t.progress.generating}
@@ -382,13 +465,17 @@ export default function StudioPage() {
 <div className={styles.more}>
   {t.progress.more}
 </div>
+
 </div>
+
 
 <div className={styles.arrow}>
   ›
 </div>
+
 </div>
 ))}
+
 </div>
 </div>
 );
