@@ -1,0 +1,1208 @@
+/* =========================
+   PAGE
+========================= */
+
+.page {
+  position: relative;
+
+  min-height: 100vh;
+  padding: 16px 26px 18px;
+
+  overflow-x: hidden;
+
+  color: #ffffff;
+  background: #010107;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: relative;
+  z-index: 5;
+
+  min-height: 84px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.headerLogo {
+  display: block;
+  width: 170px;
+  height: 95px;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.backButton {
+  height: 42px;
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #eeeeF4;
+  background: rgba(5, 7, 16, 0.75);
+  border: 1px solid rgba(164, 65, 226, 0.35);
+  border-radius: 18px;
+
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.backButton:hover {
+  border-color: #b33ff0;
+  background: rgba(93, 28, 172, 0.15);
+}
+
+.brandHeader {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+
+  width: 280px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transform: translateX(-50%);
+}
+
+.brandHeader h1 {
+  margin: -2px 0 2px;
+
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.brandHeader p {
+  margin: 0;
+
+  color: #d7d7df;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.headerActions button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin-top: 20px; 
+  margin-right: 37px;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+
+  font-family: inherit;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.headerActions button:hover {
+  background: rgba(151, 55, 224, 0.13);
+}
+
+.headerActions .profileButton {
+  color: #ffffff;
+  background: linear-gradient(145deg, #a23be9, #4c0db6);
+  border: 1px solid rgba(219, 111, 255, 0.55);
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.heroImage {
+  position: absolute;
+  top: 67px;
+  right: -25px;
+  z-index: 1;
+
+  width: 45%;
+  height: 420px;
+
+  overflow: hidden;
+  background: #010107;
+  pointer-events: none;
+}
+
+.heroImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  pointer-events: none;
+  box-shadow:
+    inset 35px 0 30px #010107,
+    inset -35px 0 30px #010107,
+    inset 0 25px 25px #010107,
+    inset 0 -25px 25px #010107;
+}
+
+.armImage {
+  z-index: 1;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: normal;
+}
+
+/* =========================
+   SHARED CARD
+========================= */
+
+.card {
+  position: relative;
+  z-index: 3;
+  margin-top:5px ;
+
+  background:
+    linear-gradient(
+      120deg,
+      #020511,
+      #010209
+    );
+
+  border: 1px solid rgba(126, 43, 199, 0.35);
+  border-radius: 9px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.sectionHeading > span {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  background: linear-gradient(145deg, #bb46ef, #4c10be);
+  border: 1px solid rgba(228, 126, 255, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(164, 56, 234, 0.38);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sectionHeading h2 {
+  margin: 0 0 2px;
+
+  color: #f4f4f8;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sectionHeading p {
+  margin: 0;
+
+  color: #a0a2af;
+  font-size: 10px;
+}
+
+
+/* =========================
+   BRAND INFORMATION
+========================= */
+
+.brandCard {
+  width: 65%;
+  min-height: 0;
+  padding: 9px 18px 8px;
+  margin-top: 5px;
+}
+
+.brandFields {
+  margin-top: 7px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.brandFields label,
+.descriptionField {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.brandFields label > span,
+.descriptionField > span {
+  color: #e1e1e8;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.brandFields input,
+.brandFields select,
+.descriptionField textarea {
+  width: 100%;
+
+  color: #e9e9ef;
+  background: #01030a;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 5px;
+
+  font-family: inherit;
+  font-size: 9px;
+  outline: none;
+}
+
+.brandFields input,
+.brandFields select {
+  height: 27px;
+  padding: 0 10px;
+}
+
+.brandFields input:focus,
+.brandFields select:focus,
+.descriptionField textarea:focus {
+  border-color: rgba(177, 54, 239, 0.65);
+}
+
+.descriptionField {
+  position: relative;
+  margin-top: 7px;
+}
+
+.descriptionField textarea {
+  height: 34px;
+  padding: 7px 10px 9px;
+
+  resize: none;
+}
+
+.descriptionField small {
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+
+  color: #757989;
+  font-size: 9px;
+}
+
+
+/* =========================
+   MUSIC STYLES
+========================= */
+
+.styleCard {
+  width: 65%;
+  min-height: 0;
+  margin-top: 8px;
+  padding: 8px 18px 9px;
+}
+
+.musicStyles {
+  margin-top: 6px;
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.musicStyle,
+.activeMusicStyle {
+  position: relative;
+
+  height: 58px;
+  padding: 5px;
+  
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  color: #e8e8ed;
+  background: #01030a;
+  border: 1px solid rgba(130, 49, 196, 0.35);
+  border-radius: 6px;
+
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.musicStyle > span,
+.activeMusicStyle > span {
+  color: #bf48f2;
+  font-size: 18px;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(186, 63, 242, 0.75);
+}
+
+.musicStyle strong,
+.activeMusicStyle strong {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.activeMusicStyle {
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 129, 46, 0.19),
+      rgba(74, 19, 137, 0.22)
+    );
+
+  border-color: #f0a130;
+  box-shadow:
+    0 0 16px rgba(233, 111, 38, 0.28),
+    inset 0 0 15px rgba(117, 37, 203, 0.13);
+}
+
+.activeMusicStyle > small {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+  width: 17px;
+  height: 17px;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  background: #f2a221;
+  border-radius: 50%;
+  box-shadow: 0 0 9px rgba(255, 157, 31, 0.6);
+
+  font-size: 8px;
+}
+
+.generateButton {
+  width: 190px;
+  height: 31px;
+  margin: 5px auto -19px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  color: #ffffff;
+  background: linear-gradient(
+    90deg,
+    #f09537,
+    #9e33e9,
+    #5612dc
+  );
+
+  border: 1px solid rgba(255, 200, 95, 0.75);
+  border-radius: 5px;
+  box-shadow: 0 0 14px rgba(176, 51, 218, 0.4);
+
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.generateButton:hover {
+  filter: brightness(1.13);
+}
+
+
+/* =========================
+   GENERATED MUSIC
+========================= */
+
+.generatedCard {
+  width: 100%;
+  min-height: 88px;
+  margin-top: 13px;
+  padding: 7px 18px;
+
+  display: grid;
+  grid-template-columns: 1.45fr 0.45fr 1fr;
+  align-items: center;
+  gap: 22px;
+}
+
+.generatedInfo {
+  min-width: 0;
+}
+
+.songInfo {
+  min-width: 0;
+  margin-top: 7px;
+
+  display: grid;
+  grid-template-columns: 54px 145px minmax(100px, 1fr);
+  align-items: center;
+  gap: 11px;
+}
+
+.songCover {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  color: #d54fff;
+  background:
+    radial-gradient(
+      circle,
+      rgba(156, 52, 224, 0.35),
+      rgba(10, 8, 25, 0.95)
+    );
+
+  border: 1px solid rgba(164, 57, 226, 0.42);
+  border-radius: 6px;
+  box-shadow: inset 0 0 15px rgba(121, 31, 201, 0.23);
+
+  font-size: 28px;
+}
+
+.songInfo h3 {
+  margin: 0 0 6px;
+
+  font-size: 10px;
+}
+
+.songMeta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #c6c7cf;
+  font-size: 9px;
+}
+
+.songMeta small {
+  padding: 3px 6px;
+
+  color: #c75aef;
+  background: rgba(91, 28, 147, 0.2);
+  border: 1px solid rgba(141, 49, 197, 0.23);
+  border-radius: 9px;
+
+  font-size: 9px;
+  text-transform: capitalize;
+}
+
+.waveform,
+.miniWave {
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.waveform span,
+.miniWave span {
+  width: 2px;
+
+  background: linear-gradient(
+    180deg,
+    #f44edf,
+    #7c24f0
+  );
+
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(199, 55, 239, 0.65);
+}
+
+.musicControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.musicControls button {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  background: #01030a;
+  border: 1px solid rgba(139, 49, 200, 0.3);
+  border-radius: 50%;
+
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.musicControls .mainPlayButton {
+  width: 39px;
+  height: 39px;
+
+  background: linear-gradient(145deg, #8729f4, #4813ad);
+  border-color: #bd5fff;
+  box-shadow: 0 0 17px rgba(122, 37, 221, 0.55);
+
+  font-size: 16px;
+}
+
+.musicActions h3 {
+  margin: 0 0 7px;
+
+  font-size: 10px;
+}
+
+.musicActions > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+
+.musicActions button {
+  height: 49px;
+  padding: 4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  color: #ddddE5;
+  background: #01030a;
+  border: 1px solid rgba(134, 45, 193, 0.3);
+  border-radius: 5px;
+
+  font-family: inherit;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.musicActions button span {
+  color: #df54f6;
+  font-size: 16px;
+}
+
+
+/* =========================
+   INFORMATION GRID
+========================= */
+
+.informationGrid {
+  margin-top: 9px;
+
+  display: grid;
+  grid-template-columns: 0.95fr 1fr 1fr 1.1fr;
+  gap: 7px;
+}
+
+.infoCard {
+  position: relative;
+
+  min-width: 0;
+  min-height: 148px;
+  padding: 10px 12px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(67, 25, 130, 0.1),
+      transparent 40%
+    ),
+    #020511;
+
+  border: 1px solid rgba(121, 47, 178, 0.33);
+  border-radius: 6px;
+}
+
+.infoCard h2,
+.bottomInformation h2 {
+  margin: 0 0 9px;
+
+  color: #d85bf8;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.infoCard p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 7px;
+
+  color: #b1b3bd;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.miniWave {
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+
+  width: 95px;
+  height: 28px;
+}
+
+.infoCard ul {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.infoCard li {
+  margin-bottom: 7px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #c0c1ca;
+  font-size: 9px;
+}
+
+.infoCard li span,
+.perfectList b,
+.featuresCard b {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #dc61f5;
+  border: 1px solid #b747e8;
+  border-radius: 50%;
+
+  font-size: 9px;
+}
+
+.headphoneIcon {
+  position: absolute;
+  right: 5px;
+  bottom: -18px;
+
+  color: rgba(183, 49, 230, 0.38);
+  font-size: 95px;
+}
+
+.supportedStyles {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.supportedStyles > div {
+  min-width: 0;
+  height: 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  background: #01030a;
+  border: 1px solid rgba(125, 42, 181, 0.3);
+  border-radius: 4px;
+}
+
+.supportedStyles span {
+  color: #d24eef;
+  font-size: 17px;
+}
+
+.supportedStyles small {
+  font-size: 9px;
+  text-align: center;
+}
+
+.perfectList {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px 12px;
+}
+
+.perfectList > span,
+.featuresCard > div > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #bebfc8;
+  font-size: 9px;
+}
+
+.bagIcon {
+  position: absolute;
+  right: 8px;
+  bottom: -20px;
+
+  color: rgba(203, 56, 224, 0.3);
+  font-size: 88px;
+}
+
+
+/* =========================
+   BOTTOM INFORMATION
+========================= */
+
+.bottomInformation {
+  margin-top: 7px;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.78fr 1.45fr;
+  gap: 7px;
+}
+
+.howItWorks,
+.featuresCard,
+.faqCard {
+  min-width: 0;
+  min-height: 125px;
+  padding: 10px 12px;
+
+  background: #020511;
+  border: 1px solid rgba(121, 47, 178, 0.33);
+  border-radius: 6px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns:
+    1fr 18px
+    1fr 18px
+    1fr 18px
+    1fr 18px
+    1fr;
+  align-items: center;
+  gap: 3px;
+}
+
+.steps > div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.steps > div > span {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  color: #dc56f4;
+  border: 1px solid rgba(201, 68, 240, 0.65);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(162, 45, 222, 0.22);
+
+  font-size: 15px;
+}
+
+.steps small {
+  color: #b7b8c2;
+  font-size: 9px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.steps b {
+  color: #ac45d9;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.featuresCard > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+.faqCard details {
+  margin-bottom: 6px;
+
+  background: #01030a;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 4px;
+}
+
+.faqCard summary {
+  padding: 7px 8px;
+
+  color: #d7d8df;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.faqCard details p {
+  margin: 0;
+  padding: 0 8px 7px;
+
+  color: #9598a6;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.finalCta {
+  position: relative;
+
+  min-height: 61px;
+  margin-top: 7px;
+  padding: 10px 320px 10px 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      #070518,
+      #020511 38%,
+      #01030a
+    );
+
+  border: 1px solid rgba(150, 49, 199, 0.45);
+  border-radius: 7px;
+}
+
+.finalCta h2 {
+  margin: 0 0 3px;
+
+  font-size: 14px;
+}
+
+.finalCta p {
+  max-width: 550px;
+  margin: 0;
+
+  color: #b6b7c1;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.finalCta > button {
+  position: absolute;
+  left: 54%;
+  z-index: 3;
+
+  width: 170px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: #ffffff;
+  background: linear-gradient(90deg, #f1a23a, #9f36e6, #5516dd);
+  border: 1px solid rgba(255, 204, 96, 0.75);
+  border-radius: 5px;
+  box-shadow: 0 0 14px rgba(166, 55, 224, 0.38);
+
+  font-family: inherit;
+  font-size: 10;
+  cursor: pointer;
+}
+
+.rocketImage {
+  position: absolute;
+  right: 16px;
+  bottom: -39px;
+
+  width: 220px;
+  height: 115px;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media (max-width: 1200px) {
+  .page {
+    padding: 13px 18px 16px;
+  }
+
+  .brandCard,
+  .styleCard {
+    width: 67%;
+  }
+
+  .heroImage {
+    right: 5px;
+    width: 34%;
+    height: 320px;
+  }
+
+  .brandFields {
+    gap: 8px;
+  }
+
+  .musicStyles {
+    gap: 6px;
+  }
+
+  .generatedCard {
+    grid-template-columns: 1.4fr 0.4fr 1fr;
+    gap: 10px;
+  }
+
+  .songInfo {
+    grid-template-columns: 48px 112px minmax(75px, 1fr);
+    gap: 7px;
+  }
+
+  .musicActions button {
+    font-size: 8px;
+  }
+
+  .informationGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bottomInformation {
+    grid-template-columns: 1fr;
+  }
+
+  .finalCta {
+    padding-right: 220px;
+  }
+
+  .rocketImage {
+    width: 190px;
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+  .brandHeader {
+    position: static;
+    transform: none;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .heroImage {
+    display: none;
+  }
+
+  .brandCard,
+  .styleCard {
+    width: 100%;
+  }
+
+  .musicStyles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .generatedCard {
+    grid-template-columns: 1fr;
+  }
+
+  .informationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .steps b {
+    display: none;
+  }
+
+  .finalCta {
+    padding: 14px;
+  }
+
+  .finalCta > button {
+    position: static;
+    flex-shrink: 0;
+  }
+
+  .rocketImage {
+    display: none;
+  }
+}
+/* =========================
+   COMPACT VOICE AND DURATION
+========================= */
+
+.compactOptions {
+  margin-top: 7px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.compactOptionGroup {
+  min-width: 0;
+}
+
+.compactOptionGroup h3 {
+  margin: 0 0 4px;
+
+  color: #e7e7ed;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.compactButtons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.compactButton,
+.activeCompactButton {
+  min-width: 0;
+  height: 30px;
+  padding: 0 7px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #d9dae2;
+  background: #01030a;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.activeCompactButton {
+  color: #ffffff;
+  background: rgba(111, 30, 181, 0.2);
+  border-color: #c146ee;
+  box-shadow: inset 0 0 10px rgba(153, 40, 217, 0.12);
+}
+
+.compactButton > span,
+.activeCompactButton > span {
+  color: #d44ff3;
+  font-size: 13px;
+}
+
+.compactButton b,
+.activeCompactButton b {
+  margin-left: auto;
+
+  color: #dc55f5;
+  font-size: 9px;
+}
+
+.compactButton em,
+.activeCompactButton em {
+  margin-left: auto;
+  padding: 2px 4px;
+
+  color: #ecd9f8;
+  background: rgba(107, 31, 161, 0.3);
+  border-radius: 7px;
+
+  font-size: 8px;
+  font-style: normal;
+}
+
+.compactCredit {
+  margin-top: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+
+  color: #bfc1cb;
+  font-size: 8px;
+}
+
+.compactCredit span {
+  color: #d04df2;
+  font-size: 10px;
+}
+
+
+.headerLeft .backButton {
+  position: static;
+  margin: 0;
+  flex-shrink: 0;
+}

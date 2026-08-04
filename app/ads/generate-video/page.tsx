@@ -1,906 +1,1569 @@
 "use client";
 
-import { useCredits } from "@/lib/useCredit";
-import { useUserStore } from "@/lib/userStore";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { useLang } from "../../lib/lang";
+import { useState } from "react";
+
+import {
+  FaInstagram,
+  FaTiktok,
+  FaFacebookF,
+  FaYoutube,
+  FaShopify,
+  FaAmazon,
+  FaStore,
+} from "react-icons/fa";
+
+import { useLang } from "../../../lib/lang";
+import styles from "./generate-video.module.css";
 
 
-/* ---------- Types ---------- */
-type PlatformOpt =
-  | "instagram-post"
-  | "instagram-reels"
-  | "tiktok"
-  | "youtube"
-  | "custom"
-  | "amazon";
-type LengthOpt = "5" | "10";
-type MotionOpt = "static" | "pan" | "orbit-slow" | "orbit-medium";
-type LightOpt =
-  | "studio-softbox"
-  | "three-point"
-  | "warm-sunset"
-  | "cool-studio"
-  | "dramatic-spot";
-type EffectOpt =
-  | "auto"
-  | "none"
-  | "smoke-soft"
-  | "sparks-subtle"
-  | "steam"
-  | "bokeh"
-  | "light-streaks";
-
-/* ---------- Component ---------- */
 export default function GenerateVideoPage() {
-  const { uid } = useUserStore();
   const { locale, messages } = useLang();
+  const t = messages.generateVideo;
 
-  // platform + length (برای کرِدیت)
-  const [platform, setPlatform] = React.useState<PlatformOpt>("instagram-post");
-  const [length, setLength] = React.useState<LengthOpt>("5");
+  const [platform, setPlatform] =
+    useState("instagramStory");
 
-  // کنترل‌های حرکت، نور، افکت
-  const [motion, setMotion] = React.useState<MotionOpt>("orbit-slow");
-  const [lighting, setLighting] = React.useState<LightOpt>("studio-softbox");
-  const [effects, setEffects] = React.useState<EffectOpt>("auto");
+  const [selectedStyle, setSelectedStyle] =
+    useState("luxury");
 
-  // پرامپت
-  const [prompt, setPrompt] = React.useState("");
+  const [prompt, setPrompt] = useState("");
 
-  // ✅ آدرس ویدیو برای دانلود
-  const [videoUrl, setVideoUrl] = React.useState<string | null>(null);
+  const [showAllStyles, setShowAllStyles] =
+    useState(false);
 
-  const downloadVideo = () => {
-    const url = videoUrl ?? "/demo.mp4";
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `sellova_${Date.now()}.mp4`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+  const [duration, setDuration] =
+    useState("10");
+
+  const [openFaq, setOpenFaq] =
+    useState<number | null>(null);
+
+
+  const videoFaqs = t.faq.questions;
+
+
+  const videoStyles = [
+    {
+      key: "luxury",
+      label: t.style.options.luxury,
+      icon: "♛",
+    },
+    {
+      key: "modern",
+      label: t.style.options.modern,
+      icon: "◇",
+    },
+    {
+      key: "minimal",
+      label: t.style.options.minimal,
+      icon: "⬡",
+    },
+    {
+      key: "commercial",
+      label: t.style.options.commercial,
+      icon: "▣",
+    },
+    {
+      key: "cinematic",
+      label: t.style.options.cinematic,
+      icon: "◈",
+    },
+    {
+      key: "fashion",
+      label: t.style.options.fashion,
+      icon: "✦",
+    },
+    {
+      key: "beauty",
+      label: t.style.options.beauty,
+      icon: "✧",
+    },
+    {
+      key: "technology",
+      label: t.style.options.technology,
+      icon: "⌁",
+    },
+    {
+      key: "automotive",
+      label: t.style.options.automotive,
+      icon: "◉",
+    },
+    {
+      key: "food",
+      label: t.style.options.food,
+      icon: "♨",
+    },
+    {
+      key: "jewelry",
+      label: t.style.options.jewelry,
+      icon: "♢",
+    },
+    {
+      key: "darkLuxury",
+      label: t.style.options.darkLuxury,
+      icon: "◆",
+    },
+  ];
+
+
+  const platformNames: Record<string, string> = {
+    instagramStory:
+      t.platform.shortNames.instagramStory,
+
+    instagramReels:
+      t.platform.shortNames.instagramReels,
+
+    instagramPost:
+      t.platform.shortNames.instagramPost,
+
+    facebook:
+      t.platform.shortNames.facebook,
+
+    tiktok:
+      t.platform.shortNames.tiktok,
+
+    youtube:
+      t.platform.shortNames.youtube,
+
+    youtubeShorts:
+      t.platform.shortNames.youtubeShorts,
+
+    amazon:
+      t.platform.shortNames.amazon,
   };
 
-  const goLogo = () => {
-     window.location.href = "/brand-overlay";
-  };
 
-  const goCaption = () => {
-    window.location.href = "/hashtags";
-  };
+  const writePromptWithAI = () => {
+    const platformName =
+      platformNames[platform] ||
+      t.platform.shortNames.instagramStory;
 
-  // محاسبهٔ کردیت‌ها
-  const creditCost = React.useMemo(() => {
-    const isAmazon = platform === "amazon";
-    if (isAmazon) {
-      return length === "5" ? 35 : 45;
-    } else {
-      return length === "5" ? 20 : 30;
-    }
-  }, [platform, length]);
-
- const { consumeCredits } = useCredits();
-
-
-const handleGenerate = async () => {
-  const uid = localStorage.getItem("uid");
-  if (!uid) {
-    alert(locale === "fa" ? "ابتدا وارد حساب شوید." : "Please login first.");
-    return;
-  }
-
-  // تعیین نوع سرویس برای API
-  const service =
-    platform === "amazon"
-      ? length === "5"
-        ? "video_avatar_5"
-        : "video_avatar_10"
-      : length === "5"
-      ? "video_simple_5"
-      : "video_simple_10";
-
-  // هشدار قبل از کم کردن کردیت
-  const confirmText =
-    locale === "fa"
-      ? `این عملیات ${creditCost} کردیت هزینه دارد. ادامه می‌دهید؟`
-      : `This action costs ${creditCost} credits. Continue?`;
-
-  if (!confirm(confirmText)) return;
-
-  // مصرف کردیت
-  const result = await consumeCredits(uid, service);
-
-  if (!result.ok) {
-    const err = result.error;
-
-    if (err === "not_enough_credit") {
-      alert(
-        locale === "fa" ? "کردیت کافی نیست." : "Not enough credits."
-      );
-      return;
-    }
-
-    alert(
-      locale === "fa"
-        ? "خطای سرور. دوباره تلاش کنید."
-        : "Server error. Please try again."
+    setPrompt(
+      `${t.prompt.aiTemplateStart} ${duration}-${t.generate.seconds.toLowerCase()} ${selectedStyle} ${t.prompt.aiTemplateMiddle} ${platformName}. ${t.prompt.aiTemplateEnd}`
     );
-    return;
-  }
-
-  // اگر کردیت کم شد → ادامه ساخت ویدیو
-  alert(
-    locale === "fa"
-      ? "کردیت با موفقیت کم شد. ساخت ویدیو شروع شد…"
-      : "Credits deducted. Video generation started…"
-  );
-
-  // اینجا بعداً API واقعی ساخت ویدیو اضافه می‌شود
-  setVideoUrl("/demo.mp4");
-};
-
-  // پیشنهاد پرامپت
-  const makeSuggestion = () => {
-    const parts: string[] = [];
-    const lenText = length === "5" ? "5-second" : "10-second";
-    const platText =
-      platform === "instagram-post"
-        ? "Instagram post (1:1)"
-        : platform === "instagram-reels"
-        ? "Instagram reels (9:16)"
-        : platform === "tiktok"
-        ? "TikTok (9:16)"
-        : platform === "youtube"
-        ? "YouTube (16:9)"
-        : platform === "amazon"
-        ? "Amazon main image video (1:1)"
-        : "custom size";
-
-    parts.push(`Create a ${lenText} product promo video for ${platText}.`);
-
-    const motionMap: Record<MotionOpt, string> = {
-      static: "static camera",
-      pan: "subtle lateral camera pan",
-      "orbit-slow": "slow orbital camera move around the product",
-      "orbit-medium": "medium-speed orbital camera move around the product",
-    };
-    parts.push(motionMap[motion]);
-
-    const lightMap: Record<LightOpt, string> = {
-      "studio-softbox":
-        "studio softbox lighting, soft shadows, controlled highlights",
-      "three-point":
-        "cinematic three-point lighting (key, fill, rim), natural shadow falloff",
-      "warm-sunset": "warm sunset tone, golden highlights, gentle contrast",
-      "cool-studio":
-        "cool neutral studio lighting, color-true, even exposure",
-      "dramatic-spot":
-        "dramatic spotlight with vignette, high contrast, glossy reflections",
-    };
-    parts.push(lightMap[lighting]);
-
-    const fxMap: Record<EffectOpt, string> = {
-      auto:
-        "tasteful automatic micro-effects based on product category (e.g., soft smoke for luxury, bokeh for cosmetics)",
-      none: "no cinematic effects",
-      "smoke-soft": "subtle soft smoke behind the product",
-      "sparks-subtle": "very subtle metallic sparks",
-      steam: "gentle warm steam",
-      bokeh: "creamy background bokeh",
-      "light-streaks": "subtle light streaks for premium motion",
-    };
-    parts.push(fxMap[effects]);
-
-    parts.push(
-      "physically-plausible reflections, parallax-correct shadows, micro-contrast, no geometry warping."
-    );
-
-    setPrompt(parts.join(" "));
   };
+
 
   return (
-    <main className="pg" dir={locale === "fa" ? "rtl" : "ltr"}>
-      {/* ===== Header / Logo ===== */}
-      <header className="hdr" aria-label="Sellova brand">
-      <div className="logoBox">
-        <Image
-          src="/logo.png"
-          alt="Sellova"
-          width={300}
-          height={200}
-          priority
-          className="logo"
-        />
+    <main
+      className={styles.page}
+      dir={locale === "fa" ? "rtl" : "ltr"}
+    >
+
+      {/* SIDEBAR */}
+
+      <aside className={styles.sidebar}>
+
+        <div className={styles.logoBox}>
+
+          <Image
+            src="/logo.png"
+            alt="Sellova"
+            width={125}
+            height={60}
+            className={styles.logo}
+            priority
+          />
+
         </div>
-      </header>
 
-      {/* ===== Title ===== */}
-      <h1 className="title">{messages.generateVideo.title}</h1>
+                {/* MAIN MENU */}
 
-      {/* ===== Two-column layout ===== */}
-      <section className="grid">
-        {/* ---------- Left: Form card ---------- */}
-        <article className="card" aria-labelledby="formTitle">
-          <h2 id="formTitle" className="visuallyHidden">
-            Video generator form
-          </h2>
+        <nav className={styles.sidebarMenu}>
 
-          {/* Upload area */}
-          <div className="uploadWrap">
-            <div className="uploadBox" role="group" aria-label="Upload image">
-              <div className="uploadIcon" aria-hidden>
-                ⬆️
-              </div>
-              <div className="uploadTitle">
-                {messages.generateVideo.uploadTitle}
-              </div>
-             <div className="actionsRow">
-  <Link
-    href="/avatar"
-    className="btn btnGhost"
-    aria-label="Choose an avatar"
-  >
-    {messages.generateVideo.chooseAvatar}
-  </Link>
+          <Link
+           href="/ads/dashboard"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>⌂</span>
+            {t.sidebar.dashboard}
+          </Link>
 
-  <button
-    type="button"
-    className="btn btnGhost"
-    onClick={goLogo}
-  >
-    {messages.generateVideo.addLogo}
-  </button>
 
-  <button
-    type="button"
-    className="btn btnGhost"
-    onClick={goCaption}
-  >
-    {messages.generateVideo.captionHashtag}
-  </button>
+          <Link
+            href="/ads/generate-image"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>▧</span>
+            {t.sidebar.generateImage}
+          </Link>
 
-  <span className="muted">
-    {messages.generateVideo.orContinue}
-  </span>
-</div>
-            </div>
-          </div>
 
-          {/* Video size / platform */}
-          <div className="field">
-            <label htmlFor="platform" className="label">
-              {messages.generateVideo.platformLabel}
-            </label>
-            <select
-              id="platform"
-              className="select"
-              value={platform}
-              onChange={(e) => setPlatform(e.target.value as PlatformOpt)}
-            >
-              <option value="instagram-post">Instagram Post (1:1)</option>
-              <option value="instagram-reels">Instagram Reels (9:16)</option>
-              <option value="tiktok">TikTok (9:16)</option>
-              <option value="youtube">YouTube (16:9)</option>
-              <option value="custom">Custom</option>
-              <option value="amazon">Amazon (1:1)</option>
-            </select>
-            <p className="hint">{messages.generateVideo.sizeHint}</p>
-          </div>
+          <Link
+            href="/ads/generate-video"
+            className={`${styles.menuItem} ${styles.activeItem}`}
+          >
+            <span className={styles.menuIcon}>▣</span>
+            {t.sidebar.generateVideo}
+          </Link>
 
-          {/* Video length */}
-          <div className="field">
-            <span className="label">
-              {messages.generateVideo.lengthLabel}
-            </span>
-            <div className="seg">
-              <label className="segItem">
-                <input
-                  type="radio"
-                  name="len"
-                  value="5"
-                  checked={length === "5"}
-                  onChange={() => setLength("5")}
-                />
-                <span>{messages.generateVideo.seconds5}</span>
-              </label>
-              <label className="segItem">
-                <input
-                  type="radio"
-                  name="len"
-                  value="10"
-                  checked={length === "10"}
-                  onChange={() => setLength("10")}
-                />
-                <span>{messages.generateVideo.seconds10}</span>
-              </label>
-            </div>
-          </div>
 
-          {/* Motion */}
-          <div className="field">
-            <label className="label">
-              {messages.generateVideo.cameraLabel}
-            </label>
-            <select
-              className="select"
-              value={motion}
-              onChange={(e) => setMotion(e.target.value as MotionOpt)}
-            >
-              <option value="static">Static</option>
-              <option value="pan">Subtle pan</option>
-              <option value="orbit-slow">Orbit (slow)</option>
-              <option value="orbit-medium">Orbit (medium)</option>
-            </select>
-          </div>
-         
-{/* Lighting */}
-          <div className="field">
-            <label className="label">Lighting</label>
-            <select
-              className="select"
-              value={lighting}
-              onChange={(e) => setLighting(e.target.value as LightOpt)}
-            >
-              <option value="studio-softbox">Studio softbox</option>
-              <option value="three-point">Three-point</option>
-              <option value="warm-sunset">Warm sunset</option>
-              <option value="cool-studio">Cool studio</option>
-              <option value="dramatic-spot">Dramatic spot</option>
-            </select>
-          </div>
+          <Link
+            href="/ads/avatar"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>♙</span>
+            {t.sidebar.createAvatar}
+          </Link>
 
-          {/* Effects */}
-          <div className="field">
-            <label className="label">
-              {messages.generateVideo.effectsLabel}
-            </label>
-            <select
-              className="select"
-              value={effects}
-              onChange={(e) => setEffects(e.target.value as EffectOpt)}
-            >
-              <option value="auto">Auto</option>
-              <option value="none">None</option>
-              <option value="smoke-soft">Soft smoke</option>
-              <option value="sparks-subtle">Subtle sparks</option>
-              <option value="steam">Steam</option>
-              <option value="bokeh">Bokeh</option>
-              <option value="light-streaks">Light streaks</option>
-            </select>
-            <p className="hint">{messages.generateVideo.effectsHint}</p>
-          </div>
 
-          {/* Prompt + Suggest */}
-          <div className="field">
-            <label htmlFor="prompt" className="label">
-              {messages.generateVideo.promptLabel}
-            </label>
-            <div className="promptRow">
-              <textarea
-                id="prompt"
-                className="textarea"
-                placeholder={messages.generateVideo.promptPlaceholder}
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
-              />
-              <button
-                type="button"
-                className="btn btnLight"
-                aria-label="Suggest prompt"
-                onClick={makeSuggestion}
-              >
-                {messages.generateVideo.suggest}
-              </button>
-            </div>
-          </div>
+          <Link
+            href="/ads/hashtags"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>♧</span>
+            {t.sidebar.captionsHashtags}
+          </Link>
 
-          {/* Plan / credits */}
-          <div className="metaRow">
-            <div className="muted">
-              {messages.generateVideo.plan}:{" "}
-              <b>{messages.generateVideo.planBasic}</b>
-            </div>
-            <div className="muted">
-              {messages.generateVideo.creditsLeft}: <b>23</b>
-            </div>
-          </div>
 
-          {/* Dynamic credit cost line */}
-          <div className="metaRow" style={{ marginTop: 6 }}>
-            <div className="muted">
-              {messages.generateVideo.creditCostLabel}:&nbsp;
-              <b>{creditCost}</b>
-            </div>
-            <div className="muted">
-              {platform === "amazon"
-                ? messages.generateVideo.videoTypeAmazon
-                : messages.generateVideo.videoTypeStandard}
-              &nbsp;•&nbsp;{length}s
-            </div>
-          </div>
+          <Link
+            href="/ads/brand-overlay"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>▱</span>
+            {t.sidebar.brandOverlay}
+          </Link>
 
-          {/* Generate */}
-          <div className="genRow">
-            <button type="button" className="btn btnPrimary btnBlock">
-              {messages.generateVideo.generate}
-            </button>
-          </div>
-        </article>
 
-        {/* ---------- Right: Preview card ---------- */}
-        <aside className="card previewCard" aria-labelledby="previewTitle">
-          <h2 id="previewTitle" className="visuallyHidden">
-            Video preview
-          </h2>
+          <Link
+            href="/ads/promo-slides"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>▣</span>
+            {t.sidebar.promoSlides}
+          </Link>
 
-          <div className="previewFrame">
-            <Image
-              src="/video.png"
-              alt="Generated video preview"
-              width={520}
-              height={640}
-              className="previewImg"
-              priority
-            />
-          </div>
+        </nav>
 
-          <p className="previewCaption">
-            {messages.generateVideo.previewCaption}
+
+        {/* ANALYTICS */}
+
+        <div className={styles.menuSection}>
+
+          <p className={styles.sectionTitle}>
+            {t.sidebar.analyticsTitle}
           </p>
 
-          <div className="genRow">
-            <button
-              type="button"
-              className="btn btnGhost btnBlock"
-              onClick={downloadVideo}
-            >
-              {locale === "fa" ? "دانلود ویدیو" : "Download video"}
-            </button>
+
+          <Link
+            href="/ads/advisory"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>♧</span>
+            {t.sidebar.advisoryAnalysis}
+          </Link>
+
+
+          <Link
+            href="/ads/academy"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>◇</span>
+            {t.sidebar.academyInsight}
+          </Link>
+
+        </div>
+
+
+        {/* ACCOUNT */}
+
+        <div className={styles.menuSection}>
+
+          <p className={styles.sectionTitle}>
+            {t.sidebar.accountTitle}
+          </p>
+
+
+          <Link
+            href="/upgrade-plan"
+            className={styles.goldenItem}
+          >
+            <span className={styles.menuIcon}>♛</span>
+            {t.sidebar.goldenPlan}
+          </Link>
+
+
+          <Link
+            href="/upgrade-plan"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>◇</span>
+            {t.sidebar.upgradePlan}
+          </Link>
+
+
+          <Link
+            href="/settings"
+            className={styles.menuItem}
+          >
+            <span className={styles.menuIcon}>⚙</span>
+            {t.sidebar.settings}
+          </Link>
+
+        </div>
+
+      </aside>
+
+
+      {/* PAGE CONTENT */}
+
+      <section className={styles.content}>
+
+        {/* HEADER */}
+
+        <header className={styles.header}>
+
+          <div className={styles.headerTitle}>
+
+            <h1>
+              {t.header.title}
+              <span> ✨</span>
+            </h1>
+
+            <p>
+              {t.header.subtitle}
+            </p>
+
           </div>
-        </aside>
+
+
+          <div className={styles.headerActions}>
+
+            <div className={styles.creditBox}>
+
+              <span className={styles.creditIcon}>
+                ⚡
+              </span>
+
+              <strong>2,540</strong>
+
+              <small>
+                {t.header.credits}
+              </small>
+
+            </div>
+
+
+            <Link
+              href="/upgrade-plan"
+              className={styles.addCreditsButton}
+            >
+              ＋ {t.header.addCredits}
+            </Link>
+
+
+            <div className={styles.headerProfile}>
+              S
+            </div>
+
+          </div>
+
+        </header>
+
+
+        {/* HOW IT WORKS */}
+
+        <div className={styles.howButtonRow}>
+
+          <Link
+            href="/ads/guide"
+            className={styles.howButton}
+          >
+            ▷ {t.header.howItWorks}
+          </Link>
+
+        </div>
+
+
+        {/* MAIN VIDEO AREA */}
+
+        <section className={styles.videoWorkspace}>
+
+          {/* LEFT PANEL */}
+
+          <div className={styles.leftPanel}>
+
+                      {/* STEP 1 - UPLOAD */}
+
+            <div className={styles.uploadCard}>
+
+              <div className={styles.cardTitle}>
+
+                <span className={styles.stepNumber}>
+                  1
+                </span>
+
+                <h3>
+                  {t.upload.title}
+                </h3>
+
+                <span
+                  className={styles.infoIcon}
+                  title={t.upload.info}
+                >
+                  ⓘ
+                </span>
+
+              </div>
+
+
+              <label className={styles.uploadBox}>
+
+                <div className={styles.uploadIcon}>
+                  ↑
+                </div>
+
+                <strong>
+                  {t.upload.dragDrop}
+                </strong>
+
+                <p>
+                  {t.upload.or}{" "}
+                  <span>
+                    {t.upload.browse}
+                  </span>
+                </p>
+
+                <small>
+                  {t.upload.formats}
+                </small>
+
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg, image/webp"
+                  hidden
+                />
+
+              </label>
+
+            </div>
+
+
+            {/* STEP 2 - PLATFORM */}
+
+            <div className={styles.optionCard}>
+
+              <div className={styles.cardTitle}>
+
+                <span className={styles.stepNumber}>
+                  2
+                </span>
+
+                <h3>
+                  {t.platform.title}
+                </h3>
+
+              </div>
+
+
+              <div className={styles.selectWrapper}>
+
+                <span className={styles.platformIcon}>
+                  ◎
+                </span>
+
+                <select
+                  className={styles.platformSelect}
+                  value={platform}
+                  onChange={(event) =>
+                    setPlatform(event.target.value)
+                  }
+                >
+
+                  <option value="instagramStory">
+                    {t.platform.options.instagramStory}
+                  </option>
+
+                  <option value="instagramReels">
+                    {t.platform.options.instagramReels}
+                  </option>
+
+                  <option value="instagramPost">
+                    {t.platform.options.instagramPost}
+                  </option>
+
+                  <option value="facebook">
+                    {t.platform.options.facebook}
+                  </option>
+
+                  <option value="tiktok">
+                    {t.platform.options.tiktok}
+                  </option>
+
+                  <option value="youtube">
+                    {t.platform.options.youtube}
+                  </option>
+
+                  <option value="youtubeShorts">
+                    {t.platform.options.youtubeShorts}
+                  </option>
+
+                  <option value="amazon">
+                    {t.platform.options.amazon}
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+            {/* STEP 3 - STYLE */}
+
+            <div className={styles.optionCard}>
+
+              <div className={styles.optionCardHeader}>
+
+                <div className={styles.cardTitle}>
+
+                  <span className={styles.stepNumber}>
+                    3
+                  </span>
+
+                  <h3>
+                    {t.style.title}
+                  </h3>
+
+                </div>
+
+
+                <button
+                  type="button"
+                  className={styles.seeAllButton}
+                  onClick={() =>
+                    setShowAllStyles(!showAllStyles)
+                  }
+                >
+                  {showAllStyles
+                    ? t.style.showLess
+                    : t.style.seeAll}
+                </button>
+
+              </div>
+
+
+              <div className={styles.styleButtons}>
+
+                {videoStyles
+                  .slice(
+                    0,
+                    showAllStyles
+                      ? videoStyles.length
+                      : 4
+                  )
+                  .map((style) => (
+
+                    <button
+                      type="button"
+                      key={style.key}
+                      className={`${styles.styleButton} ${
+                        selectedStyle === style.key
+                          ? styles.selectedOption
+                          : ""
+                      }`}
+                      onClick={() =>
+                        setSelectedStyle(style.key)
+                      }
+                    >
+                      <span>
+                        {style.icon}
+                      </span>
+
+                      {style.label}
+                    </button>
+
+                  ))}
+
+              </div>
+
+            </div>
+                        {/* STEP 4 - PROMPT */}
+
+            <div className={styles.optionCard}>
+
+              <div className={styles.cardTitle}>
+
+                <span className={styles.stepNumber}>
+                  4
+                </span>
+
+                <h3>
+                  {t.prompt.title}{" "}
+                  <small>
+                    ({t.prompt.optional})
+                  </small>
+                </h3>
+
+              </div>
+
+
+              <div className={styles.promptRow}>
+
+                <textarea
+                  className={styles.promptBox}
+                  value={prompt}
+                  onChange={(event) =>
+                    setPrompt(event.target.value)
+                  }
+                  placeholder={t.prompt.placeholder}
+                  maxLength={500}
+                />
+
+
+                <button
+                  type="button"
+                  className={styles.suggestButton}
+                  onClick={writePromptWithAI}
+                >
+                  ✨ {t.prompt.askAI}
+                </button>
+
+              </div>
+
+
+              <div className={styles.promptCount}>
+                {prompt.length} / 500
+              </div>
+
+            </div>
+
+
+            {/* GENERATE VIDEO */}
+
+            <div className={styles.generateSection}>
+
+              <button
+                type="button"
+                className={styles.generateButton}
+              >
+                {t.generate.button} ✨
+              </button>
+
+              <p>
+                ⚡ 20 {t.generate.credits}{" "}
+                {duration} {t.generate.seconds}
+              </p>
+
+            </div>
+
+
+            {/* WHY USE AI VIDEO ADS */}
+
+            <div className={styles.whyVideoCard}>
+
+              <h3>
+                {t.benefits.title}
+              </h3>
+
+
+              <div className={styles.whyVideoItems}>
+
+                <div className={styles.whyVideoItem}>
+
+                  <div className={styles.whyVideoIcon}>
+                    ⚡
+                  </div>
+
+                  <h4>
+                    {t.benefits.fasterCreation.title}
+                  </h4>
+
+                  <p>
+                    {t.benefits.fasterCreation.description}
+                  </p>
+
+                </div>
+
+
+                <div className={styles.whyVideoItem}>
+
+                  <div className={styles.whyVideoIcon}>
+                    📈
+                  </div>
+
+                  <h4>
+                    {t.benefits.betterEngagement.title}
+                  </h4>
+
+                  <p>
+                    {t.benefits.betterEngagement.description}
+                  </p>
+
+                </div>
+
+
+                <div className={styles.whyVideoItem}>
+
+                  <div className={styles.whyVideoIcon}>
+                    👁
+                  </div>
+
+                  <h4>
+                    {t.benefits.moreVisibility.title}
+                  </h4>
+
+                  <p>
+                    {t.benefits.moreVisibility.description}
+                  </p>
+
+                </div>
+
+
+                <div className={styles.whyVideoItem}>
+
+                  <div className={styles.whyVideoIcon}>
+                    ＄
+                  </div>
+
+                  <h4>
+                    {t.benefits.lowerCosts.title}
+                  </h4>
+
+                  <p>
+                    {t.benefits.lowerCosts.description}
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              {/* VIDEO DURATION */}
+
+              <div className={styles.durationCard}>
+
+                <h3>
+                  {t.duration.title}
+                </h3>
+
+                <p>
+                  {t.duration.subtitle}
+                </p>
+
+                <div className={styles.durationChoices}>
+
+                  {[
+                    {
+                      value: "5",
+                      label: t.duration.five,
+                    },
+                    {
+                      value: "10",
+                      label: t.duration.ten,
+                    },
+                    {
+                      value: "15",
+                      label: t.duration.fifteen,
+                    },
+                  ].map((time) => (
+
+                    <button
+                      key={time.value}
+                      type="button"
+                      className={
+                        duration === time.value
+                          ? styles.activeDuration
+                          : ""
+                      }
+                      onClick={() =>
+                        setDuration(time.value)
+                      }
+                    >
+                      <span>◷</span>
+
+                      <div>
+                        <strong>
+                          {time.label}
+                        </strong>
+
+                        <small>
+                          {t.duration.seconds}
+                        </small>
+                      </div>
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* END LEFT PANEL */}
+
+          </div>
+                    {/* RIGHT PANEL */}
+
+          <div className={styles.rightPanel}>
+
+            <div className={styles.previewCard}>
+
+              {/* PREVIEW HEADER */}
+
+              <div className={styles.previewHeader}>
+
+                <h3>
+                  {t.preview.title}
+                  <span> ✨</span>
+                </h3>
+
+
+                <div className={styles.previewActions}>
+
+                  <button type="button">
+                    {t.preview.download} ↓
+                  </button>
+
+                  <button type="button">
+                    {t.preview.fullscreen} ⛶
+                  </button>
+
+                  <button type="button">
+                    •••
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              {/* PREVIEW IMAGE */}
+
+              <div className={styles.previewImage}>
+
+                <Image
+                  src="/assets/icons/ADS/video/por.png"
+                  alt={t.preview.imageAlt}
+                  fill
+                  priority
+                  quality={100}
+                  className={styles.perfumeImage}
+                />
+
+
+                {/* VIDEO CONTROLS */}
+
+                <div className={styles.videoControls}>
+
+                  <button
+                    type="button"
+                    className={styles.playButton}
+                    aria-label={t.preview.controls.play}
+                  >
+                    ▶
+                  </button>
+
+
+                  <span className={styles.videoTime}>
+                    0:02 / 0:{duration.padStart(2, "0")}
+                  </span>
+
+
+                  <div className={styles.progressBar}>
+
+                    <div className={styles.progressPlayed}>
+
+                      <span
+                        className={styles.progressHandle}
+                      ></span>
+
+                    </div>
+
+                  </div>
+
+
+                  <button
+                    type="button"
+                    className={styles.controlButton}
+                    aria-label={t.preview.controls.volume}
+                  >
+                    🔊
+                  </button>
+
+
+                  <button
+                    type="button"
+                    className={styles.controlButton}
+                    aria-label={t.preview.controls.settings}
+                  >
+                    ⚙
+                  </button>
+
+
+                  <button
+                    type="button"
+                    className={styles.controlButton}
+                    aria-label={t.preview.controls.fullscreen}
+                  >
+                    ⛶
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              {/* VIDEO INFORMATION */}
+
+              <div className={styles.videoInfo}>
+
+                {/* PLATFORM */}
+
+                <div className={styles.videoInfoItem}>
+
+                  <span>▧</span>
+
+                  <div>
+                    <small>
+                      {t.information.platform}
+                    </small>
+
+                    <strong>
+                      {platformNames[platform]}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                {/* DURATION */}
+
+                <div className={styles.videoInfoItem}>
+
+                  <span>◷</span>
+
+                  <div>
+                    <small>
+                      {t.information.duration}
+                    </small>
+
+                    <strong>
+                      {duration}{" "}
+                      {t.information.seconds}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                {/* STYLE */}
+
+                <div className={styles.videoInfoItem}>
+
+                  <span>♛</span>
+
+                  <div>
+                    <small>
+                      {t.information.style}
+                    </small>
+
+                    <strong>
+                      {
+                        videoStyles.find(
+                          (style) =>
+                            style.key === selectedStyle
+                        )?.label
+                      }
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                {/* OUTPUT */}
+
+                <div className={styles.videoInfoItem}>
+
+                  <span>▣</span>
+
+                  <div>
+                    <small>
+                      {t.information.output}
+                    </small>
+
+                    <strong>
+                      {t.information.oneVideo}
+                    </strong>
+                  </div>
+
+                </div>
+
+
+                {/* COST */}
+
+                <div className={styles.videoInfoItem}>
+
+                  <span>ϟ</span>
+
+                  <div>
+                    <small>
+                      {t.information.cost}
+                    </small>
+
+                    <strong>
+                      20 {t.information.credits}
+                    </strong>
+                  </div>
+
+                </div>
+
+              </div>
+                            {/* AI SUGGESTIONS */}
+
+              <div className={styles.suggestionCards}>
+
+                {/* SUGGESTED CAPTION */}
+
+                <div className={styles.suggestionCard}>
+
+                  <div className={styles.suggestionHeader}>
+
+                    <div>
+                      <span>✨</span>
+
+                      <h3>
+                        {t.suggestions.captionTitle}
+                      </h3>
+                    </div>
+
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigator.clipboard.writeText(
+                          t.suggestions.caption
+                        )
+                      }
+                    >
+                      {t.suggestions.copy}
+                    </button>
+
+                  </div>
+
+
+                  <p>
+                    {t.suggestions.caption}
+                  </p>
+
+                </div>
+
+
+                {/* SUGGESTED HASHTAGS */}
+
+                <div className={styles.suggestionCard}>
+
+                  <div className={styles.suggestionHeader}>
+
+                    <div>
+                      <span>#</span>
+
+                      <h3>
+                        {t.suggestions.hashtagTitle}
+                      </h3>
+                    </div>
+
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigator.clipboard.writeText(
+                          t.suggestions.hashtags.join(" ")
+                        )
+                      }
+                    >
+                      {t.suggestions.copy}
+                    </button>
+
+                  </div>
+
+
+                  <div className={styles.hashtagList}>
+
+                    {t.suggestions.hashtags.map(
+                      (hashtag) => (
+                        <span key={hashtag}>
+                          {hashtag}
+                        </span>
+                      )
+                    )}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* BOTTOM VIDEO CARDS */}
+
+        <section className={styles.bottomVideoCards}>
+
+          {/* BEST VIDEO STYLES */}
+
+          <div className={styles.bestStylesCard}>
+
+            <div className={styles.bottomCardHeader}>
+
+              <h3>
+                {t.bestStyles.title}
+              </h3>
+
+              <button type="button">
+                {t.bestStyles.viewAll}
+              </button>
+
+            </div>
+
+
+            <div className={styles.bestStylesGrid}>
+
+              {/* LUXURY */}
+
+              <div className={styles.bestStyleItem}>
+
+                <div className={styles.bestStyleImage}>
+
+                  <Image
+                    src="/assets/icons/ADS/video/perfiom.png"
+                    alt={t.bestStyles.luxury.title}
+                    fill
+                    className={styles.bestStyleImg}
+                  />
+
+                </div>
+
+                <h4>
+                  {t.bestStyles.luxury.title}
+                </h4>
+
+                <p>
+                  {t.bestStyles.luxury.description}
+                </p>
+
+              </div>
+
+
+              {/* MODERN */}
+
+              <div className={styles.bestStyleItem}>
+
+                <div className={styles.bestStyleImage}>
+
+                  <Image
+                    src="/assets/icons/ADS/video/hedphon.png"
+                    alt={t.bestStyles.modern.title}
+                    fill
+                    className={styles.bestStyleImg}
+                  />
+
+                </div>
+
+                <h4>
+                  {t.bestStyles.modern.title}
+                </h4>
+
+                <p>
+                  {t.bestStyles.modern.description}
+                </p>
+
+              </div>
+                            {/* MINIMAL */}
+
+              <div className={styles.bestStyleItem}>
+
+                <div className={styles.bestStyleImage}>
+
+                  <Image
+                    src="/assets/icons/ADS/video/sofa.png"
+                    alt={t.bestStyles.minimal.title}
+                    fill
+                    className={styles.bestStyleImg}
+                  />
+
+                </div>
+
+                <h4>
+                  {t.bestStyles.minimal.title}
+                </h4>
+
+                <p>
+                  {t.bestStyles.minimal.description}
+                </p>
+
+              </div>
+
+
+              {/* COMMERCIAL */}
+
+              <div className={styles.bestStyleItem}>
+
+                <div className={styles.bestStyleImage}>
+
+                  <Image
+                    src="/assets/icons/ADS/video/car.png"
+                    alt={t.bestStyles.commercial.title}
+                    fill
+                    className={styles.bestStyleImg}
+                  />
+
+                </div>
+
+                <h4>
+                  {t.bestStyles.commercial.title}
+                </h4>
+
+                <p>
+                  {t.bestStyles.commercial.description}
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* SUPPORTED PLATFORMS */}
+
+          <div className={styles.supportedCard}>
+
+            <h3>
+              {t.supportedPlatforms.title}
+            </h3>
+
+
+            <div className={styles.supportedGrid}>
+
+              {/* INSTAGRAM REELS */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.instagramIcon}>
+                  <FaInstagram />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .instagramReels.firstLine
+                  }
+
+                  <br />
+
+                  {
+                    t.supportedPlatforms
+                      .instagramReels.secondLine
+                  }
+                </p>
+
+              </div>
+
+
+              {/* INSTAGRAM STORIES */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.instagramIcon}>
+                  <FaInstagram />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .instagramStories.firstLine
+                  }
+
+                  <br />
+
+                  {
+                    t.supportedPlatforms
+                      .instagramStories.secondLine
+                  }
+                </p>
+
+              </div>
+
+
+              {/* TIKTOK */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.tiktokIcon}>
+                  <FaTiktok />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .tiktok.firstLine
+                  }
+
+                  {t.supportedPlatforms.tiktok.secondLine && (
+                    <>
+                      <br />
+
+                      {
+                        t.supportedPlatforms
+                          .tiktok.secondLine
+                      }
+                    </>
+                  )}
+                </p>
+
+              </div>
+
+
+              {/* FACEBOOK */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.facebookIcon}>
+                  <FaFacebookF />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .facebookAds.firstLine
+                  }
+
+                  <br />
+
+                  {
+                    t.supportedPlatforms
+                      .facebookAds.secondLine
+                  }
+                </p>
+
+              </div>
+
+
+              {/* YOUTUBE */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.youtubeIcon}>
+                  <FaYoutube />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .youtubeShorts.firstLine
+                  }
+
+                  <br />
+
+                  {
+                    t.supportedPlatforms
+                      .youtubeShorts.secondLine
+                  }
+                </p>
+
+              </div>
+                            {/* SHOPIFY */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.shopifyIcon}>
+                  <FaShopify />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .shopifyStores.firstLine
+                  }
+
+                  <br />
+
+                  {
+                    t.supportedPlatforms
+                      .shopifyStores.secondLine
+                  }
+                </p>
+
+              </div>
+
+
+              {/* AMAZON */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.amazonIcon}>
+                  <FaAmazon />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .amazonListings.firstLine
+                  }
+
+                  <br />
+
+                  {
+                    t.supportedPlatforms
+                      .amazonListings.secondLine
+                  }
+                </p>
+
+              </div>
+
+
+              {/* ONLINE STORES */}
+
+              <div className={styles.supportedItem}>
+
+                <span className={styles.storeIcon}>
+                  <FaStore />
+                </span>
+
+                <p>
+                  {
+                    t.supportedPlatforms
+                      .onlineStores.firstLine
+                  }
+
+                  <br />
+
+                  {
+                    t.supportedPlatforms
+                      .onlineStores.secondLine
+                  }
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* LAST ROW */}
+
+        <section className={styles.lastVideoRow}>
+
+          {/* FREQUENTLY ASKED QUESTIONS */}
+
+          <div className={styles.faqCard}>
+
+            <h3>
+              {t.faq.title}
+            </h3>
+
+
+            <div className={styles.faqGrid}>
+
+              {videoFaqs.map(
+                (question, index) => (
+
+                  <div
+                    className={styles.faqItem}
+                    key={`${question}-${index}`}
+                  >
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setOpenFaq(
+                          openFaq === index
+                            ? null
+                            : index
+                        )
+                      }
+                    >
+
+                      <span>
+                        {question}
+                      </span>
+
+                      <strong>
+                        {openFaq === index
+                          ? "−"
+                          : "+"}
+                      </strong>
+
+                    </button>
+
+
+                    {openFaq === index && (
+
+                      <p>
+                        {t.faq.defaultAnswer}
+                      </p>
+
+                    )}
+
+                  </div>
+
+                )
+              )}
+
+            </div>
+
+          </div>
+                    {/* COFFEE CARD */}
+
+          <div className={styles.coffeeVideoCard}>
+
+            <div className={styles.coffeeVideoContent}>
+
+              <h2>
+                {t.coffeeCard.titleFirstLine}
+
+                <br />
+
+                {t.coffeeCard.titleSecondLine}
+              </h2>
+
+
+              <strong>
+                {t.coffeeCard.highlight}
+              </strong>
+
+
+              <p>
+                {t.coffeeCard.description}
+              </p>
+
+
+              <button type="button">
+                {t.coffeeCard.button}
+              </button>
+
+            </div>
+
+
+            <div className={styles.coffeeVideoImage}>
+
+              <Image
+                src="/assets/icons/ADS/video/coffe.png"
+                alt={t.coffeeCard.imageAlt}
+                fill
+                className={styles.coffeeImg}
+              />
+
+            </div>
+
+          </div>
+
+        </section>
+
       </section>
-
-      {/* ===== Styles ===== */}
-       {/* ===== Styles ===== */}
-      <style jsx>{`
-        .pg {
-          min-height: 100vh;
-          padding: 8px 16px 24px; /* دسکتاپ همون قبلی */
-          background: #0b1e3d;
-          color: #111;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          font-family: Inter, "Segoe UI", system-ui, -apple-system, Roboto,
-            Arial, sans-serif;
-        }
-
-        .hdr {
-          margin-top: 0;
-          margin-bottom: 4px;
-          display: flex;
-          justify-content: center;
-        }
-
-        .logo {
-          display: block;
-          image-rendering: -webkit-optimize-contrast;
-          filter: drop-shadow(0 1px 0.5px rgba(0, 0, 0, 0.35));
-        }
-
-        .title {
-          color: #fff;
-          text-align: center;
-          font-size: 30px;
-          font-weight: 700;
-          margin: 8px 0 24px;
-          letter-spacing: 0.2px;
-          position: relative;
-          z-index: 2;
-        }
-
-        .grid {
-          width: 100%;
-          max-width: 1160px;
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 20px;
-          margin-top: 0;
-        }
-
-        @media (min-width: 980px) {
-          .grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-          }
-        }
-
-        .card {
-          background: #fff;
-          border: 1px solid #111;
-          border-radius: 14px;
-          padding: 16px;
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06),
-            0 6px 18px rgba(0, 0, 0, 0.06);
-        }
-
-        .uploadWrap {
-          padding: 6px 2px 8px;
-        }
-
-        .uploadBox {
-          border: 2px dashed #222;
-          border-radius: 12px;
-          padding: 18px 12px 14px;
-          text-align: center;
-          background: #fafcff;
-        }
-          
-        .uploadIcon {
-          width: 34px;
-          height: 34px;
-          border-radius: 10px;
-          display: grid;
-          place-items: center;
-          margin: 0 auto 8px;
-          background: #e9f2ff;
-          color: #0b57d0;
-          font-size: 18px;
-          border: 1px solid #bcd6ff;
-        }
-
-        .uploadTitle {
-          font-weight: 700;
-          color: #0b1e3d;
-          margin-bottom: 6px;
-        }
-
-        .actionsRow {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          margin-top: 2px;
-          flex-wrap: wrap;
-        }
-
-        .field {
-          margin-top: 14px;
-        }
-
-        .label {
-          display: block;
-          font-size: 16px;
-          color: #111;
-          margin-bottom: 6px;
-          font-weight: 700;
-        }
-
-        .hint {
-          margin-top: 6px;
-          font-size: 15px;
-          color: #444;
-        }
-
-        .select {
-          width: 100%;
-          height: 40px;
-          border-radius: 10px;
-          border: 1px solid #111;
-          background: #fff;
-          color: #111;
-          padding: 0 12px;
-          outline: none;
-        }
-
-        .select:focus {
-          box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
-          border-color: #0b57d0;
-        }
-
-        .seg {
-          display: inline-flex;
-          gap: 8px;
-        }
-
-        .segItem {
-          border: 1px solid #111;
-          border-radius: 999px;
-          padding: 6px 10px;
-          cursor: pointer;
-          user-select: none;
-          background: #fff;
-          color: #111;
-          font-size: 16px;
-          font-weight: 600;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .segItem input {
-          appearance: none;
-          width: 12px;
-          height: 12px;
-          border: 2px solid #0b57d0;
-          border-radius: 50%;
-        }
-
-        .segItem input:checked {
-          background: #0b57d0;
-        }
-
-        .segItem:hover {
-          background: #f7faff;
-        }
-
-        .promptRow {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          gap: 8px;
-          align-items: start;
-        }
-
-        .textarea {
-          min-height: 92px;
-          resize: vertical;
-          padding: 10px 12px;
-          border-radius: 10px;
-          border: 1px solid #111;
-          color: #111;
-          background: #fff;
-          outline: none;
-          line-height: 1.5;
-        }
-
-        .textarea:focus {
-          box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
-          border-color: #0b57d0;
-        }
-
-        .btn {
-          height: 40px;
-          border-radius: 10px;
-          padding: 0 14px;
-          font-weight: 700;
-          cursor: pointer;
-          transition: transform 0.05s ease, box-shadow 0.15s ease;
-        }
-
-        .btn:active {
-          transform: translateY(1px);
-        }
-
-        .btnGhost {
-          background: #fff;
-          color: #0b57d0;
-          border: 1px solid #0b57d0;
-        }
-
-        .btnGhost:hover {
-          background: #f0f6ff;
-        }
-
-        .btnLight {
-          background: #f5f7fb;
-          color: #111;
-          border: 1px solid #111;
-        }
-
-        .btnLight:hover {
-          background: #eef2f8;
-        }
-
-        .btnPrimary {
-          background: #1483ff;
-          color: #fff;
-          border: 1px solid #0b57d0;
-          box-shadow: 0 6px 18px rgba(20, 131, 255, 0.25);
-        }
-
-        .btnPrimary:hover {
-          background: #0f74e6;
-        }
-
-        .btnBlock {
-          width: 100%;
-        }
-
-        .metaRow {
-          display: flex;
-          justify-content: space-between;
-          gap: 12px;
-          align-items: center;
-          margin-top: 10px;
-          color: #111;
-          font-size: 16px;
-        }
-
-        .muted {
-          color: #333;
-        }
-
-        .genRow {
-          margin-top: 10px;
-        }
-
-        .previewCard {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          background: #fff;
-          border: 1px solid #111;
-          border-radius: 14px;
-          padding: 16px;
-          box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
-        }
-
-        .previewFrame {
-          border: 1px solid #111;
-          border-radius: 12px;
-          padding: 12px;
-          background: #fff;
-          display: grid;
-          place-items: center;
-          min-height: 420px;
-        }
-
-        .previewImg {
-          width: min(360px, 46vw);
-          height: auto;
-          object-fit: contain;
-          border-radius: 12px;
-          background: #111;
-          display: block;
-        }
-
-        .previewCaption {
-          color: #ffffff;
-          font-size: 16px;
-          text-align: center;
-          margin-top: 4px;
-        }
-
-        .visuallyHidden {
-          position: absolute !important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 0;
-          border: 0;
-          height: 1px;
-          width: 1px;
-          overflow: hidden;
-          white-space: nowrap;
-          clip-path: inset(50%);
-          margin: -1px;
-        }
-
-        /* RTL tweaks */
-        .pg[dir="rtl"] .field,
-        .pg[dir="rtl"] .label,
-        .pg[dir="rtl"] .hint {
-          text-align: right;
-        }
-
-        .pg[dir="rtl"] .actionsRow {
-          flex-direction: row-reverse;
-        }
-
-        .pg[dir="rtl"] .promptRow {
-          direction: rtl;
-          grid-template-columns: 1fr auto;
-        }
-
-        /* 🔹 موبایل — دو سه سایز ریزتر و نزدیک سقف صفحه */
-        @media (max-width: 640px) {ss
-          .pg {
-            padding: 2px 8px 14px; /* تقریباً بچسبه به بالا */
-            font-size: 13px;
-          }
-
-          
-          .hdr {
-            margin: 0;
-            padding: 0;
-            justify-content: center;
-          }
-
-          .logo {
-            width: 90px !important; /* لوگو کوچیک */
-            height: auto !important;
-            margin: 0;
-            transform-origin: top center;
-          }
-
-          .title {
-            font-size: 20px;
-            margin-top: 4px !important;
-            margin-bottom: 24px !importanr;
-            ; /* نزدیک لوگو */
-          }
-
-          .grid {
-            gap: 10px;
-            margin-top: 0;
-            transform: translateY(-24px); /* کل کارت‌ها بالاتر */
-          }
-
-          .card {
-            padding: 10px;
-          }
-
-          .uploadBox {
-            padding: 14px 10px;
-          }
-
-          .uploadIcon {
-            width: 26px;
-            height: 26px;
-            font-size: 14px;
-          }
-
-          .uploadTitle {
-            font-size: 14px;
-          }
-
-          .field {
-            margin-top: 10px;
-          }
-
-          .label {
-            font-size: 12px;
-          }
-
-          .hint {
-            font-size: 11px;
-          }
-
-          .select {
-            height: 34px;
-            font-size: 13px;
-            border-radius: 8px;
-          }
-
-          .segItem {
-            padding: 4px 8px;
-            font-size: 12px;
-          }
-
-          .textarea {
-            min-height: 70px;
-            font-size: 13px;
-          }
-
-          .btn {
-            height: 36px;
-            font-size: 13px;
-            border-radius: 8px;
-          }
-
-          .metaRow {
-            font-size: 12px;
-          }
-
-          .previewCard {
-            padding: 12px;
-          }
-
-          .previewFrame {
-            padding: 8px;
-            min-height: 320px;
-          }
-
-          .previewImg {
-            width: min(280px, 60vw);
-          }
-
-          .previewCaption {
-            font-size: 12px;
-          }
-        }
-      `}</style>
 
     </main>
   );

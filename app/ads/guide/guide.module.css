@@ -1,16 +1,17 @@
 .page{
-  min-height:100vh;
+  min-height:1050px;
   background:#000005;
+  position:relative;
 }
 
 .logoWrap{
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top:-40px;
+  margin-top:-30px;
 
   position: relative;
-  left: -550px;
+  left: -520px;
 }
 
 .logoSub{
@@ -21,20 +22,23 @@
   opacity:.85;
 }
 
-.cubeWrap{
-    position: absolute;
-    left:700px;
-    top: 90px;
-}
+
 
 .cube{
     width: 500px;
     height: auto;
+    
+}
+
+.cubeWrap{
+    position:absolute;
+    right:10px;
+    top:90px;
 }
 
 .guideWrap{
     position: absolute;
-    right: 700px;
+    right: 550px;
     top:90px;
 }
 
@@ -63,4 +67,209 @@
 
 .backBtn:hover {
   background: rgba(168,85,247,0.15);
+}
+
+.textBox{
+
+    position:absolute;
+    left:35px;
+    top:110px;
+
+    width:320px;
+
+    color:rgb(172, 99, 221);
+
+}
+
+.textBox h1{
+
+    font-size:30px;
+
+    line-height:1.2;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.textBox p{
+
+    color:rgba(255,255,255,.75);
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+.rules{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.rules li{
+
+    margin-bottom:16px;
+
+    font-size:14px;
+
+    color:white;
+
+}
+
+.tipBox{
+
+    position:absolute;
+
+    left:35px;
+    
+
+    width:660px;
+    height:60px;
+    font-size: 12px;
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    padding:16px 20px;
+
+    border-radius:16px;
+        background:rgb(2, 0, 8);
+
+
+    margin-top: 600px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.tipIcon{
+
+    width:46px;
+    height:46px;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+
+    background:#2d1458;
+
+}
+
+.tipBox h3{
+
+    color:white;
+
+    margin-bottom:6px;
+
+}
+
+.tipBox p{
+
+    color:#bdbdcf;
+
+    line-height:1.4;
+
+}
+
+.bottomCards{
+
+    position:absolute;
+
+    left:35px;
+    right:35px;
+
+    top:80px;
+  
+    display:flex;
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.infoCard{
+
+    width: 1000px;
+
+    min-height:160px;
+
+    padding:5px;
+
+    border-radius:18px;
+
+    background:rgb(2, 0, 8);
+
+    border:1px solid rgba(255,255,255,.08);
+    margin-left: -40px;
+    margin-top: -10px;
+
+}
+
+.cardItem{
+
+    border-top:1px solid rgb(0, 0, 0);
+
+    padding-top:15px;
+
+    margin-top:20px;
+
+}
+
+
+.infoCard h3{
+
+    color:white;
+
+    font-size:14px;
+
+    margin-bottom:12px;
+    margin-left: 10px;
+
+}
+
+.infoCard p{
+
+    color:#bdbdcf;
+
+    line-height:1.7;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+    margin-left: 10px;
+
+}
+
+
+.cardItem h4{
+
+    color:white;
+
+    margin-bottom:10px;
+
+    font-size:14px;
+    margin-left: 10px;
+
+}
+
+.cardItem p{
+
+    margin:0;
+    font-size: 12px;
+    margin-left: 10px;
+
 }

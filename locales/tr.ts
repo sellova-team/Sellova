@@ -516,26 +516,174 @@ pricing: {
 
   // --- Dashboard ---
   dashboard: {
-    welcome: "Sellova Gösterge Paneline hoş geldiniz",
-    languageLabel: "Dil",
-    cards: {
-      uploadGuide: "Yükleme rehberi",
-      generateImage: "Görsel oluştur",
-      generateVideo: "Video oluştur",
-      createAvatar: "Avatar oluştur",
-      goldenPlan: "Altın Plan",
-      captionsHashtags: "Açıklamalar & hashtagler",
-      advisoryAnalysis: "Danışmanlık & analiz",
-      upgradePlan: "Plan yükselt",
-      sellerHelp: "Satıcı Desteği", 
-      settings: "Ayarlar",
-      brandOverlay: "Marka kaplaması",
-      promoSlides: "Tanıtım slaytları",
-      sellovaGuide: "Sellova rehberi",
-      academyInsight: "Akademi içgörüsü",
-      musicAi: "Müzik Oluştur",
+  welcome: {
+    title: "Tekrar hoş geldin Shabnam! 👋",
+    subtitle: "Bugün ne oluşturmak istiyorsun?",
+  },
+
+  credits: {
+    available: "Kullanılabilir kredi",
+    add: "+ Kredi Ekle",
+  },
+
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+
+    create: "OLUŞTUR",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    promoSlides: "Tanıtım Slaytları",
+
+    analytics: "ANALİZ",
+    advisory: "Danışmanlık ve Analiz",
+
+    learn: "ÖĞREN",
+    academy: "Akademi",
+
+    upgrade: "YÜKSELT",
+    goldenPlan: "Altın Plan",
+
+    settings: "Ayarlar",
+    logout: "Çıkış Yap",
+  },
+
+  cards: {
+    image: {
+      title: "Görsel Oluştur",
+      desc: "Saniyeler içinde etkileyici yapay zekâ ürün reklamları oluşturun.",
+    },
+
+    video: {
+      title: "Video Oluştur",
+      desc: "Fikirlerinizi etkileyici videolara dönüştürün.",
+    },
+
+    avatar: {
+      title: "Avatar Oluştur",
+      desc: "Yapay zekâ avatarları tasarlayın ve mesajınızı konuşturun.",
+    },
+
+    music: {
+      title: "Yapay Zekâ Müziği",
+      desc: "Markanız için özgün müzikler oluşturun.",
+    },
+
+    promo: {
+      title: "Tanıtım Slaytları",
+      desc: "Saniyeler içinde profesyonel reklam slaytları oluşturun.",
     },
   },
+
+  golden: {
+    title: "Altın Plan",
+    badge: "PREMIUM",
+    desc: "Profesyonel reklamlar oluşturmak için gelişmiş yapay zekâ araçlarının ve premium özelliklerin kilidini açın.",
+    button: "👑 Altın Plana Yükselt →",
+  },
+
+  bottom: {
+    branding: {
+      title: "Marka Kimliği",
+      desc: "Logonuzu, sloganınızı ve marka öğelerinizi tüm görsel ve videolara ekleyin.",
+    },
+
+    analysis: {
+      title: "Danışmanlık ve Analiz",
+      desc: "Yapay zekâ analizleriyle reklam performansınızı geliştirin.",
+    },
+
+    academy: {
+      title: "Akademi",
+      desc: "Öğrenin, gelişin ve yapay zekâ reklamcılığında uzmanlaşın.",
+    },
+
+    settings: {
+      title: "Ayarlar",
+      desc: "Hesabınızı ve tercihlerinizi yönetin.",
+    },
+  },
+  
+  features: {
+  title: "Sellova Özelliklerini Keşfedin",
+  viewAll: "Tümünü Gör",
+
+  image: {
+    title: "Lüks Ürün Fotoğrafçılığı",
+    desc: "Ürünlerinizi gelişmiş yapay zekâ ile premium stüdyo kalitesinde reklamlara dönüştürün. Lüks arka planlar, sinematik aydınlatma, gerçekçi yansımalar, doğal gölgeler ve profesyonel kompozisyonlar oluşturun.",
+  },
+
+  video: {
+    title: "Moda ve E-Ticaret Reklamları",
+    desc: "Ayakkabı, kıyafet, çanta, kozmetik ve diğer ürünler için etkileyici reklam videoları oluşturun. Sosyal medya için profesyonel içerikler üretin ve çevrimiçi satışlarınızı artırın.",
+  },
+
+  branding: {
+    title: "Marka Pazarlama Kampanyaları",
+    desc: "Saniyeler içinde eksiksiz pazarlama kampanyaları oluşturun. Instagram gönderileri, hikâyeler, reklam afişleri, sezonluk kampanyalar ve markanızın kimliğini koruyan profesyonel içerikler hazırlayın.",
+  },
+
+  avatar: {
+    title: "Yapay Zekâ Avatar Video Oluşturucu",
+    desc: "Ürünlerinizi ve hizmetlerinizi tanıtan gerçekçi yapay zekâ avatarları oluşturun. Oyunculara, kameralara veya stüdyolara ihtiyaç duymadan profesyonel reklam videoları hazırlayın.",
+  },
+
+  promo: {
+    title: "Yapay Zekâ Müzik ve Ses Oluşturucu",
+    desc: "Yapay zekâ veya kendi sesinizi kullanarak arka plan müzikleri, marka jingle'ları, reklam müzikleri, seslendirmeler ve şarkılar oluşturun. Markanızın kimliğini güçlendirecek benzersiz sesler üretin.",
+  },
+},
+},
+  
+ // --- guidePage ---
+guidePage: {
+  logoSub: "YAPAY ZEKA DESTEKLİ REKLAMCILIK",
+
+  heroTitle1: "Daha İyi Fotoğraflar Yükleyin,",
+  heroTitle2: "Daha İyi Yapay Zeka Sonuçları Alın",
+
+  heroDescription:
+    "Temiz ve yüksek kaliteli ürün fotoğrafları yükleyerek Sellova'nın profesyonel ve etkileyici reklamlar oluşturmasına yardımcı olun.",
+
+  rules: {
+    whiteBackground: "Beyaz veya sade arka plan",
+    centeredProduct: "Ürün görüntünün ortasında olmalı",
+    highResolution: "Yüksek çözünürlüklü fotoğraf",
+    noHands: "El veya insan bulunmamalı",
+    noWatermarks: "Filigran veya logo olmamalı",
+    noBlurry: "Bulanık fotoğraf kullanmayın",
+  },
+
+  tip: {
+    title: "İpucu",
+    description:
+      "Fotoğrafınız ne kadar kaliteli olursa, Sellova o kadar doğru analiz yapar ve daha kaliteli reklamlar üretir.",
+  },
+
+  uploadGuide: {
+    title: "Yapay Zeka ile Görsel Oluşturma İçin Ürün Yükleme Rehberi",
+
+    description:
+      "Bu rehber, satıcıların yapay zeka ile görsel oluşturma, video üretimi, AI avatarları ve reklamlar için yüksek kaliteli ürün fotoğrafları yüklemesine yardımcı olur.",
+
+    requirementTitle: "✔ En İyi Ürün Fotoğrafı Gereksinimleri",
+
+    requirementDescription:
+      "En iyi sonuçlar için her fotoğrafta yalnızca bir ürün, temiz bir arka plan ve yüksek çözünürlüklü görseller kullanın.",
+  },
+
+  categories: {
+    title: "Önerilen Ürün Kategorileri",
+
+    description:
+      "Giyim, Moda, Ayakkabı, Saat, Takı, Kozmetik, Güzellik Ürünleri, Elektronik, Aksesuarlar ve Ev Dekorasyonu.",
+
+    qualityTitle: "★ Fotoğraf Kalitesi Neden Önemlidir?",
+
+    qualityDescription:
+      "Yüksek kaliteli ürün fotoğrafları, Sellova'nın doku, malzeme ve renkleri daha doğru analiz etmesini sağlayarak daha profesyonel reklamlar oluşturmasına yardımcı olur.",
+  },
+},
 
   // --- Login ---
   auth: {
@@ -568,126 +716,1332 @@ sellerHelp: {
 
   // --- Generate Image ---
   generateImage: {
-    title: "Yapay Zeka Ürün Fotoğraf Stüdyosu",
-    uploadLabel: "Ürün görseli yükle",
-    styleLabel: "Fotoğraf stili",
-    bgLabel: "Arka plan",
-    platformLabel: "Platform boyutu",
-    promptLabel: "Prompt",
-    suggest: "Öner",
-    generate: "Oluştur",
-    generating: "Oluşturuluyor...",
-    addLogo: "Logo Ekle",
-    captionHashtag: "Başlık ve Etiketler",
-    createAvatar: "Avatar oluştur",
-    download: "İndir",
-    credits: "Kullanılan kredi",
-    hint: "",
-    costWarning: "Bu işlem 5 kredi gerektirir. Devam edilsin mi?",
-    notEnoughCredit: "Yeterli kredi yok.",
-    serverError: "Sunucu hatası. Tekrar deneyin.",
-    success: "Görsel başarıyla oluşturuldu!",
+  header: {
+    title: "Yapay Zekâ Görsel Oluşturucu",
+    subtitle: "Saniyeler içinde etkileyici ve yüksek kaliteli reklamlar oluşturun.",
+    addCredits: "Kredi Ekle",
+    credits: "Kredi",
+    userName: "Shabnam",
+    userPlan: "Altın Plan",
   },
 
-  // --- Generate Video ---
-  generateVideo: {
-    title: "Yapay zeka ile tanıtım videoları oluştur",
-    uploadTitle: "Ürün görselini yükle",
-    chooseAvatar: "Avatar seç",
-    orContinue: "veya avatarsız devam et",
-    platformLabel: "Video formatı (platform)",
-    sizeHint: "Video için en-boy oranını seç",
-    lengthLabel: "Video süresi",
-    seconds5: "5 saniye",
-    seconds10: "10 saniye",
-    cameraLabel: "Kamera hareketi",
-    lightingLabel: "Aydınlatma",
-    effectsLabel: "Efektler",
-    effectsHint: "Videoyu daha etkileyici yapan sinematik efektler",
-    promptLabel: "Prompt",
-    promptPlaceholder: "Nasıl bir video istediğinizi açıklayın...",
-    suggest: "Öner",
-    generate: "Video oluştur",
-    previewCaption: "Yapay zekayla oluşturulan videonun önizlemesi",
-    costWarning: "Bu işlem kredi gerektirir. Devam edilsin mi?",
-    notEnoughCredit: "Yeterli kredi yok.",
-    serverError: "Sunucu hatası. Tekrar deneyin.",
-    success: "Video başarıyla oluşturuldu!",
-    plan: "Mevcut plan",
-    planBasic: "Temel",
-    creditsLeft: "Kalan kredi",
-    creditCostLabel: "Kredi maliyeti",
-    videoTypeAmazon: "Amazon optimize video",
-    videoTypeStandard: "Standart tanıtım videosu",
-   addLogo: "Logo Ekle",
-   captionHashtag: "Başlık ve Etiketler",
-    generating: "Video oluşturuluyor...",
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    aiImage: "Yapay Zekâ Görseli",
+    aiVideo: "Yapay Zekâ Videosu",
+    avatar: "Avatar",
+    brandOverlay: "Marka Ekleme",
+    promoSlides: "Tanıtım Slaytları",
+    productMockup: "Ürün Mockup'ı",
+    settings: "Ayarlar",
+    goldenPlan: "Altın Plan",
   },
+
+  upload: {
+    title: "Ürün Görselini Yükle",
+    dragDrop: "Görselinizi buraya sürükleyip bırakın",
+    or: "veya",
+    browse: "seçmek için tıklayın",
+    formats: "PNG, JPG ve WEBP — en fazla 10 MB",
+  },
+
+  platform: {
+    title: "Platform Seçin",
+    seeAll: "Tümünü Gör",
+    hide: "Gizle",
+
+    options: {
+      instagram: "Instagram",
+      facebook: "Facebook",
+      tiktok: "TikTok",
+      youtube: "YouTube",
+      instagramStory: "Instagram Hikâyesi",
+      instagramPortrait: "Instagram Dikey Gönderisi",
+      instagramReel: "Instagram Reels",
+      youtubeShorts: "YouTube Shorts",
+      youtubeThumbnail: "YouTube Küçük Resmi",
+      linkedin: "LinkedIn",
+      twitter: "X (Twitter)",
+      pinterest: "Pinterest",
+      snapchat: "Snapchat",
+      googleAds: "Google Reklamları",
+      website: "Web Sitesi",
+      amazon: "Amazon",
+      shopify: "Shopify",
+      etsy: "Etsy",
+      customSize: "Özel Boyut",
+    },
+  },
+
+  imageStyle: {
+    title: "Stil Seçin",
+    seeAll: "Tümünü Gör",
+    hide: "Gizle",
+
+    options: {
+      luxury: "Lüks",
+      minimal: "Minimal",
+      modern: "Modern",
+      cinematic: "Sinematik",
+      premium: "Premium",
+      studio: "Stüdyo",
+      ecommerce: "E-ticaret",
+      whiteBackground: "Beyaz Arka Plan",
+      darkLuxury: "Koyu Lüks",
+      golden: "Altın",
+      fashion: "Moda",
+      jewelry: "Mücevher",
+      cosmetics: "Kozmetik",
+      food: "Yemek",
+      furniture: "Mobilya",
+      realEstate: "Gayrimenkul",
+      technology: "Teknoloji",
+      automotive: "Otomotiv",
+      render3d: "3D Render",
+      flatLay: "Düz Yerleşim",
+      vintage: "Vintage",
+      neon: "Neon",
+      futuristic: "Fütüristik",
+    },
+  },
+
+  prompt: {
+    title: "Görsel Açıklaması",
+    aiPrompt: "Yapay Zekâ Promptu",
+    placeholder: "Oluşturmak istediğiniz görseli açıklayın...",
+  },
+
+  generateButton: "Görsel Oluştur",
+
+  result: {
+    title: "Oluşturulan Görsel",
+    download: "İndir",
+    imageAlt: "Oluşturulan görsel",
+
+    information: {
+      resolution: "Çözünürlük",
+      platform: "Platform",
+      size: "Boyut",
+      style: "Stil",
+      output: "Çıktı",
+      images: "2 Görsel",
+      credits: "Kredi",
+      creditAmount: "7 Kredi",
+    },
+  },
+
+  features: {
+    lightningFast: {
+      title: "Son Derece Hızlı",
+      description:
+        "Saniyeler içinde profesyonel görseller oluşturun ve saatlerce süren düzenleme işlemlerinden tasarruf edin.",
+    },
+
+    highQuality: {
+      title: "Yüksek Kalite",
+      description:
+        "Yapay zekâ motoru, her platforma uygun yüksek çözünürlüklü görseller üretir.",
+    },
+
+    customizableStyles: {
+      title: "Özelleştirilebilir Stiller",
+      description:
+        "Markanıza ve kampanya hedeflerinize uygun çeşitli stiller arasından seçim yapın.",
+    },
+
+    increaseSales: {
+      title: "Satışları Artırın",
+      description:
+        "Etkileyici görsellerle daha fazla müşterinin dikkatini çekin ve satışlarınızı artırın.",
+    },
+  },
+
+  popularStyles: {
+    title: "Popüler Görsel Stilleri",
+    viewAll: "Tüm stilleri gör →",
+
+    luxury: "Lüks",
+    minimal: "Minimal",
+    modern: "Modern",
+    cinematic: "Sinematik",
+    ecommerce: "E-ticaret",
+  },
+
+  perfectFor: {
+    title: "Şunlar İçin İdeal",
+
+    instagram: {
+      title: "Instagram",
+      description: "Gönderiler ve Reels",
+    },
+
+    facebook: {
+      title: "Facebook",
+      description: "Reklamları",
+    },
+
+    ecommerce: {
+      title: "E-ticaret",
+      description: "Mağazaları",
+    },
+
+    amazon: {
+      title: "Amazon",
+      description: "Ürün Listelemeleri",
+    },
+  },
+
+  howItWorks: {
+    title: "Nasıl Çalışır?",
+
+    upload: {
+      title: "Yükle",
+      description: "Ürün görselinizi yükleyin",
+    },
+
+    choose: {
+      title: "Seçin",
+      description: "Platform ve stil seçin",
+    },
+
+    generate: {
+      title: "Oluşturun",
+      description: "Yapay zekâ görselleri oluşturur",
+    },
+
+    download: {
+      title: "İndirin",
+      description: "İndirin ve istediğiniz yerde kullanın",
+    },
+  },
+
+  seo: {
+    title: "Sellova Yapay Zekâ Görselleri Satıcıların Büyümesine Nasıl Yardımcı Olur?",
+
+    description:
+      "Yüksek kaliteli ürün görselleri, çevrim içi satışın en önemli parçalarından biridir. Sellova, satıcıların pahalı fotoğraf ekipmanlarına, stüdyolara veya tasarımcılara ihtiyaç duymadan profesyonel reklam görselleri oluşturmasına yardımcı olur. Basit bir ürün fotoğrafı yükleyerek onu Instagram, web siteleri, pazaryerleri ve çevrim içi mağazalar için uygun, dikkat çekici bir görsele dönüştürebilirsiniz. Sellova, marka kimliğinize ve hedef müşterilerinize uygun farklı stillerde görseller oluşturur. Daha iyi görseller ürünlerinizin dikkat çekmesine, müşteri güveni oluşturmasına ve daha değerli görünmesine yardımcı olur. Profesyonel ürün görselleri tıklamaları, etkileşimi ve satın alma kararlarını artırabilir. Satıcılar ayrıca sadece birkaç dakika içinde birden fazla reklam tasarımı oluşturarak zamandan ve maliyetten tasarruf edebilir. Sellova ile her küçük işletme ürünlerini profesyonel ve köklü bir marka gibi sunabilir.",
+
+    tags: {
+      aiImageGenerator: "Yapay Zekâ Görsel Oluşturucu",
+      productPhotography: "Ürün Fotoğrafçılığı",
+      advertisingImages: "Reklam Görselleri",
+      increaseSales: "Satışları Artırma",
+      socialMediaAds: "Sosyal Medya Reklamları",
+    },
+  },
+
+  coffeeCard: {
+    firstTitle: "Bir Kahve Fiyatına.",
+    secondTitle: "Daha Büyük Bir Markanın",
+    thirdTitle: "Başlangıcı.",
+    button: "Hemen Oluşturmaya Başla →",
+    imageAlt: "Sellova Kahvesi",
+  },
+},
+
+  // --- Generate Video ---
+ generateVideo: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    captionsHashtags: "Açıklama ve Etiketler",
+    brandOverlay: "Marka Ekleme",
+    promoSlides: "Tanıtım Slaytları",
+
+    analyticsTitle: "ANALİZLER",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Eğitim Akademisi",
+
+    accountTitle: "HESAP",
+    goldenPlan: "Altın Plan",
+    upgradePlan: "Planı Yükselt",
+    settings: "Ayarlar",
+  },
+
+  header: {
+    title: "Yapay Zekâ Video Oluşturucu",
+    subtitle:
+      "Ürün görsellerinizi etkileyici tanıtım videolarına dönüştürün.",
+    credits: "Kredi",
+    addCredits: "Kredi Ekle",
+    howItWorks: "Nasıl çalışır?",
+  },
+
+  upload: {
+    title: "Ürün Görselini Yükle",
+    info: "Net bir ürün görseli yükleyin",
+    dragDrop: "Ürün görselinizi buraya sürükleyip bırakın",
+    or: "veya",
+    browse: "seçmek için tıklayın",
+    formats: "PNG, JPG ve WEBP — en fazla 10 MB",
+  },
+
+  platform: {
+    title: "Platform Seçin",
+
+    options: {
+      instagramStory: "Instagram Hikâyesi (9:16)",
+      instagramReels: "Instagram Reels (9:16)",
+      instagramPost: "Instagram Gönderisi (1:1)",
+      facebook: "Facebook Reklamları",
+      tiktok: "TikTok (9:16)",
+      youtube: "YouTube (16:9)",
+      youtubeShorts: "YouTube Shorts (9:16)",
+      amazon: "Amazon Ürün Videosu",
+    },
+
+    shortNames: {
+      instagramStory: "Instagram Hikâyesi",
+      instagramReels: "Instagram Reels",
+      instagramPost: "Instagram Gönderisi",
+      facebook: "Facebook Reklamları",
+      tiktok: "TikTok",
+      youtube: "YouTube",
+      youtubeShorts: "YouTube Shorts",
+      amazon: "Amazon",
+    },
+  },
+
+  style: {
+    title: "Stil Seçin",
+    seeAll: "Tümünü Gör",
+    showLess: "Daha Az Göster",
+
+    options: {
+      luxury: "Lüks",
+      modern: "Modern",
+      minimal: "Minimal",
+      commercial: "Ticari",
+      cinematic: "Sinematik",
+      fashion: "Moda",
+      beauty: "Güzellik",
+      technology: "Teknoloji",
+      automotive: "Otomotiv",
+      food: "Yemek",
+      jewelry: "Mücevher",
+      darkLuxury: "Koyu Lüks",
+    },
+  },
+
+  prompt: {
+    title: "Video Açıklaması",
+    optional: "İsteğe Bağlı",
+    placeholder:
+      "Oluşturmak istediğiniz videoyu açıklayın...",
+    askAI: "Yapay Zekâya Sor",
+
+    aiTemplateStart:
+      "Profesyonel bir",
+    aiTemplateMiddle:
+      "ürün tanıtım videosunu şu platform için oluştur:",
+    aiTemplateEnd:
+      "Ürünü net ve gerçekçi tut; profesyonel aydınlatma, akıcı hareket, etkileyici arka plan ayrıntıları ve yüksek kaliteli ticari sunum kullan.",
+  },
+
+  generate: {
+    button: "Video Oluştur",
+    credits: "Kredi",
+    seconds: "Saniye",
+  },
+
+  benefits: {
+    title: "Neden Yapay Zekâ Video Reklamları Kullanmalısınız?",
+
+    fasterCreation: {
+      title: "Daha Hızlı Oluşturma",
+      description:
+        "Saniyeler içinde profesyonel videolar oluşturun ve saatlerce süren düzenleme işlemlerinden tasarruf edin.",
+    },
+
+    betterEngagement: {
+      title: "Daha Fazla Etkileşim",
+      description:
+        "Yapay zekâ videoları dikkat çekmek ve etkileşimi artırmak için tasarlanır.",
+    },
+
+    moreVisibility: {
+      title: "Daha Fazla Görünürlük",
+      description:
+        "Ürünlerinizi farklı platformlarda tanıtın ve daha geniş bir kitleye ulaşın.",
+    },
+
+    lowerCosts: {
+      title: "Daha Düşük Maliyet",
+      description:
+        "Pahalı ajanslara veya prodüksiyon maliyetlerine ihtiyaç duymadan etkili reklamlar oluşturun.",
+    },
+  },
+
+  duration: {
+    title: "Video Süresi",
+    subtitle: "Video uzunluğunu seçin",
+    seconds: "Saniye",
+
+    five: "5",
+    ten: "10",
+    fifteen: "15",
+  },
+
+  preview: {
+    title: "Video Önizlemesi",
+    download: "İndir",
+    fullscreen: "Tam Ekran",
+    imageAlt: "Parfüm videosu önizlemesi",
+
+    controls: {
+      play: "Videoyu oynat",
+      volume: "Ses",
+      settings: "Video ayarları",
+      fullscreen: "Tam ekran",
+    },
+  },
+
+  information: {
+    platform: "Platform",
+    duration: "Süre",
+    style: "Stil",
+    output: "Çıktı",
+    cost: "Maliyet",
+
+    oneVideo: "1 Video",
+    credits: "Kredi",
+    seconds: "Saniye",
+  },
+
+  suggestions: {
+    captionTitle: "Önerilen Açıklama",
+    hashtagTitle: "Önerilen Etiketler",
+    copy: "Kopyala",
+
+    caption:
+      "Her anı unutulmaz bir izlenime dönüştürün. Her ayrıntıda zarafeti, özgüveni ve lüksü keşfedin.",
+
+    hashtags: [
+      "#Lüks",
+      "#Parfüm",
+      "#Koku",
+      "#ÜrünVideosu",
+      "#PremiumMarka",
+      "#ZarifStil",
+      "#SellovaAI",
+    ],
+  },
+
+  bestStyles: {
+    title: "En İyi Video Stilleri",
+    viewAll: "Tüm stilleri gör →",
+
+    luxury: {
+      title: "Lüks",
+      description:
+        "Premium ürünler ve lüks markalar için idealdir.",
+    },
+
+    modern: {
+      title: "Modern",
+      description:
+        "Teknoloji ürünleri ve modern markalar için idealdir.",
+    },
+
+    minimal: {
+      title: "Minimal",
+      description:
+        "Moda ve yaşam tarzı ürünleri için sade ve temiz bir stil.",
+    },
+
+    commercial: {
+      title: "Ticari",
+      description:
+        "Satış ve reklam için yüksek etkili videolar.",
+    },
+  },
+
+  supportedPlatforms: {
+    title: "Desteklenen Platformlar",
+
+    instagramReels: {
+      firstLine: "Instagram",
+      secondLine: "Reels",
+    },
+
+    instagramStories: {
+      firstLine: "Instagram",
+      secondLine: "Hikâyeler",
+    },
+
+    tiktok: {
+      firstLine: "TikTok",
+      secondLine: "",
+    },
+
+    facebookAds: {
+      firstLine: "Facebook",
+      secondLine: "Reklamları",
+    },
+
+    youtubeShorts: {
+      firstLine: "YouTube",
+      secondLine: "Shorts",
+    },
+
+    shopifyStores: {
+      firstLine: "Shopify",
+      secondLine: "Mağazaları",
+    },
+
+    amazonListings: {
+      firstLine: "Amazon",
+      secondLine: "Ürün Listeleri",
+    },
+
+    onlineStores: {
+      firstLine: "Çevrim İçi",
+      secondLine: "Mağazalar",
+    },
+  },
+
+  faq: {
+    title: "Sıkça Sorulan Sorular",
+
+    questions: [
+      "Yapay zekâ ile video oluşturma nedir?",
+      "Bir video oluşturmak kaç kredi gerektirir?",
+      "Kendi ürün görselimi yükleyebilir miyim?",
+      "Instagram videoları oluşturabilir miyim?",
+      "TikTok videoları oluşturabilir miyim?",
+      "Hangi video stilleri kullanılabilir?",
+      "Videoyu hangi çözünürlükte alacağım?",
+      "Video oluşturmak ne kadar sürer?",
+      "Logomu veya marka renklerimi ekleyebilir miyim?",
+      "Videoları ticari amaçlarla kullanabilir miyim?",
+      "Verilerim ve yüklediğim görseller güvende mi?",
+      "Para iadesi alabilir miyim?",
+    ],
+
+    defaultAnswer:
+      "Sellova, seçtiğiniz platform için profesyonel ürün reklam videolarını hızlı ve kolay bir şekilde oluşturmak üzere yapay zekâ kullanır.",
+  },
+
+  coffeeCard: {
+    titleFirstLine: "Yapay Zekânın Ürünleri",
+    titleSecondLine: "Markalara Dönüştürdüğü Yer",
+    highlight: "Bir Kahve Fiyatına.",
+    description:
+      "Daha Büyük Bir Markanın Başlangıcı.",
+    button: "İlk Videonuzu Oluşturun →",
+    imageAlt: "Sellova kahvesi",
+  },
+},
 
   // --- Avatar ---
   avatar: {
-    title: "Sellova — Avatar Stüdyosu",
-    subtitle:
-      "Kültüre uygun pazarlama görselleri ve Amazon önizleme videoları oluşturun",
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    captionsHashtags: "Açıklama ve Etiketler",
+    brandOverlay: "Marka Katmanı",
+    promoSlides: "Tanıtım Slaytları",
 
-    categoryLabel: "Kategori",
-    women: "Kadınlar",
-    men: "Erkekler",
-    kids: "Çocuklar",
+    analytics: "ANALİZLER",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Sellova Akademi",
 
-    faceSelectionLabel: "Yüz seçimi",
-    faceUploadHelp:
-      "Gerçek bir fotoğrafınızı veya hazır avatarı kullanabilirsiniz. Net, önden çekilmiş bir fotoğraf yükleyin.",
-
-    platformLabel: "Platform",
-    platformHelp:
-      "Amazon Lifestyle: 3 görsel = 30 kredi • 5sn video = 40 kredi • 10sn = 50 kredi",
-
-    platformInstagram: "Instagram (1:1) — 3 görsel = 18 kredi",
-    platformInstagramStory: "Instagram Story (9:16) — 3 görsel = 18 kredi",
-    platformTiktok: "TikTok (9:16) — 3 görsel = 18 kredi",
-    platformYoutube: "YouTube (16:9) — 3 görsel = 18 kredi",
-    platformFacebook: "Facebook (1200×630) — 3 görsel = 18 kredi",
-    platformFacebookCover: "Facebook Kapak — 3 görsel = 18 kredi",
-    platformAmazonLifestyle: "Amazon Lifestyle (2000×2000) — 3 görsel = 30 kredi",
-    platformAmazonVideo5: "Amazon Reklam Videosu — 5sn = 40 kredi",
-    platformAmazonVideo10: "Amazon Reklam Videosu — 10sn = 50 kredi",
-
-    outputVideoLabel: "Çıktı",
-    outputVideoHelp:
-      "Video önizlemesi (tek kare). Tam video sistemi daha sonra eklenecek.",
-
-    outputTypeLabel: "Çıktı türü",
-   outputTypePhoto: "3 farklı kültürel görsel (varyasyon)",
-    outputTypeVideo: "Video (önizleme)",
-
-    productImageLabel: "Ürün görseli",
-    promptLabel: "Prompt (isteğe bağlı)",
-    promptPlaceholder: "İsteğe bağlı yazı girin...",
-
-    generateButton: "Oluştur",
-    generatingButton: "Oluşturuluyor...",
-    requiredCreditsPrefix: "Gerekli kredi:",
-    requiredCreditsAmazonLifestyle: "• Amazon için premium kalite (2000×2000).",
-    requiredCreditsAmazonVideo: "• Amazon video önizlemesi.",
-    outputsLabel: "Çıktılar",
-    downloadButton: "İndir",
-    addLogo: "Logo Ekle",
-    captionHashtag: "Başlık ve Etiketler",
-    noOutputsYet: "Henüz çıktı yok. Oluştur butonuna basın.",
-
-    alertNoProduct: "Lütfen ürün görseli yükleyin.",
-    alertNoFace: "Lütfen yüz seçin veya kendi fotoğrafınızı yükleyin.",
-    alertNoCreditsPrefix: "Yetersiz kredi. Gerekli:",
-    alertNoCreditsSuffix: "Mevcut:",
-    alertGenericError: "Hata oluştu. Tekrar deneyin.",
-
-    footerAmazon: "Basic • 500 kredi • Amazon Lifestyle • 3 görsel = 30 kredi",
-    footerStandard: "Basic • 500 kredi • 3 görsel = 18 kredi",
-    amazonVideoBanner: "Amazon Video Önizleme • Dönüşüm odaklı",
+    account: "HESAP",
+    creditsPlan: "Kredi ve Paket",
+    transactions: "İşlemler",
+    settings: "Ayarlar",
   },
 
-  
+  plan: {
+    title: "Altın Paket",
+    descriptionLine1: "Sınırsız yaratıcılık,",
+    descriptionLine2: "sınırsız büyüme.",
+    upgrade: "Paketi Yükselt",
+  },
+
+  user: {
+    name: "Shabnam",
+    plan: "Altın Paket",
+  },
+
+  header: {
+    title: "Yapay Zekâ Avatar Stüdyosu",
+    subtitle:
+      "Ürünlerinizi ve fikirlerinizi nasıl hayata geçirmek istediğinizi seçin.",
+    credits: "2.540 Kredi",
+    addCredits: "Kredi Ekle",
+  },
+
+  sectionTitle: "Avatar deneyiminizi seçin",
+
+  photoAvatar: {
+    title: "Fotoğraf Avatarı",
+    description:
+      "Yapay zekâ modelleriyle gerçekçi ürün fotoğrafları oluşturun.",
+    imageAlt: "Fotoğraf avatarı oluştur",
+
+    tags: {
+      productPhotos: "Ürün Fotoğrafları",
+      socialPosts: "Sosyal Medya",
+      ecommerce: "E-ticaret",
+    },
+
+    button: "Fotoğraf Avatarı Oluştur",
+  },
+
+  videoAvatar: {
+    title: "Video Avatarı",
+    description:
+      "Ürünleri ve karakterleri etkileyici yapay zekâ videolarına dönüştürün.",
+    imageAlt: "Tilki oyuncağına sarılan küçük kız",
+    playLabel: "Video avatarı oluştur",
+
+    tags: {
+      naturalMotion: "Doğal Hareket",
+      voiceCaption: "Ses ve Altyazı",
+      readyToShare: "Paylaşıma Hazır",
+    },
+
+    button: "Video Avatarı Oluştur",
+  },
+
+  steps: {
+    step1: {
+      title: "Bir format seçin",
+      descriptionLine1: "Hedefinize göre Fotoğraf Avatarı",
+      descriptionLine2: "veya Video Avatarını seçin.",
+    },
+
+    step2: {
+      title: "Ürün veya model yükleyin",
+      descriptionLine1: "Ürün ya da model görselinizi ekleyin",
+      descriptionLine2: "ve ayrıntıları özelleştirin.",
+    },
+
+    step3: {
+      title: "Oluşturun ve indirin",
+      descriptionLine1: "Gerisini yapay zekâya bırakın ve",
+      descriptionLine2: "yüksek kaliteli sonucu indirin.",
+    },
+  },
+
+  guide: {
+    title: "Hangisini seçeceğinizden emin değil misiniz?",
+    description:
+      "Bu kısa rehber doğru seçimi yapmanıza yardımcı olur.",
+
+    photo: {
+      title: "Fotoğraf Avatarı şunlar için uygundur",
+      descriptionLine1: "Ürün katalogları, mağaza listeleri,",
+      descriptionLine2: "sosyal medya ve temiz görseller.",
+    },
+
+    video: {
+      title: "Video Avatarı şunlar için uygundur",
+      descriptionLine1: "Reklamlar, ürün tanıtımları, hikâye anlatımı",
+      descriptionLine2: "ve ilgi çekici kampanyalar.",
+    },
+  },
+},
+
+// --- AvatarAxe ---
+
+avatarAxe: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    captionsHashtags: "Açıklama ve Etiketler",
+    brandOverlay: "Marka Katmanı",
+    promoSlides: "Tanıtım Slaytları",
+    analytics: "ANALİZLER",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Sellova Akademi",
+    account: "HESAP",
+    goldenPlan: "Altın Paket",
+    upgradePlan: "Paketi Yükselt",
+    settings: "Ayarlar",
+  },
+
+  plan: {
+    title: "Altın Paket",
+    description:
+      "Tüm premium özellikleri açın ve yaratıcılığınızı geliştirin.",
+    upgrade: "Şimdi Yükselt",
+  },
+
+  user: {
+    name: "Shabnam",
+    plan: "Altın Paket",
+  },
+
+  header: {
+    title: "Avatar Modeli Oluştur",
+    description:
+      "Ürününüzü yapay zekâyla etkileyici model fotoğraflarına dönüştürün.",
+    credits: "2.540 Kredi",
+    addCredits: "Kredi Ekle",
+  },
+
+  uploadProduct: {
+    title: "Ürün Görselini Yükle",
+    upload: "Sürükleyip bırakın veya yüklemek için tıklayın",
+    formats: "10 MB’a kadar JPG, PNG ve WEBP",
+    imageAlt: "Yüklenen ürün",
+    removeLabel: "Görseli kaldır",
+  },
+
+  uploadModel: {
+    title: "Kendi Modelinizi Yükleyin",
+    optional: "(İsteğe bağlı)",
+    description:
+      "Model olarak görünmek için yüz veya tam boy fotoğrafınızı yükleyin. Bu adımı atlarsanız Sellova sizin için bir yapay zekâ modeli oluşturur.",
+    facePhoto: "Yüz Fotoğrafı Yükle",
+    fullBodyPhoto: "Tam Boy Fotoğraf Yükle",
+  },
+
+  model: {
+    title: "Model",
+
+    options: {
+      woman: "Kadın",
+      man: "Erkek",
+      girl: "Kız Çocuk",
+      boy: "Erkek Çocuk",
+      kids: "Çocuklar",
+      family: "Aile",
+      custom: "Özel Model",
+    },
+  },
+
+  style: {
+    title: "Stil",
+
+    options: {
+      casual: "Günlük Yaşam Tarzı",
+      luxury: "Lüks Moda",
+      studio: "Profesyonel Stüdyo",
+      street: "Sokak Stili",
+      minimal: "Minimal Ürün",
+      outdoor: "Doğal Açık Hava",
+      business: "İş ve Kurumsal",
+      beauty: "Güzellik ve Cilt Bakımı",
+      sport: "Spor ve Fitness",
+      cinematic: "Sinematik",
+    },
+  },
+
+  platform: {
+    title: "Platform",
+
+    options: {
+      instagramPost: "Instagram Gönderisi — 1:1",
+      instagramStory: "Instagram Hikâye — 9:16",
+      instagramReel: "Instagram Reels — 9:16",
+      tiktok: "TikTok — 9:16",
+      facebook: "Facebook Gönderisi — 1:1",
+      amazon: "Amazon Ürünü — 1:1",
+      website: "Web Sitesi ve Online Mağaza",
+    },
+  },
+
+  output: {
+    title: "Çıktı Sayısı",
+
+    options: {
+      onePhoto: "1 Fotoğraf — 10 Kredi",
+threePhotos: "3 Fotoğraf — 26 Kredi",
+creditNotice: "26 kredi kullanılacak",
+    },
+  },
+
+  prompt: {
+    title: "Görsel Açıklaması",
+    optional: "(İsteğe bağlı)",
+    placeholder:
+      "Modelin ürünü nasıl giymesini veya göstermesini istediğinizi açıklayın...",
+  },
+
+  creditNotice: "16 kredi kullanılacak",
+  generateButton: "Avatar Oluştur",
+
+  preview: {
+    title: "Yapay Zekâ Model Önizlemesi",
+    exampleResult: "Örnek Sonuç",
+
+    mainImageAlt: "Ürünü gösteren yapay zekâ modeli",
+    exampleOneAlt: "Birinci yapay zekâ model örneği",
+    exampleTwoAlt: "İkinci yapay zekâ model örneği",
+    exampleThreeAlt: "Üçüncü yapay zekâ model örneği",
+
+    highQuality: "Yüksek Kalite",
+    realisticLighting: "Gerçekçi Işıklandırma",
+    commercialReady: "Reklama Hazır",
+  },
+
+  results: {
+    title: "Yapay Zekâ Açıklaması ve Etiketler",
+    description:
+      "Diliniz ve hedef ülkeniz için otomatik olarak oluşturuldu.",
+
+    caption: {
+      title: "Yapay Zekâ Açıklaması",
+      line1: "Küçüğünüz tarzıyla ışıldasın! ✨",
+      line2: "Süper rahat ve çok havalı.",
+      line3: "Günlük maceralar için mükemmel. 🟢",
+      line4: "#SuperMario #ÇocukModası #GünlükStil",
+      copy: "Açıklamayı Kopyala",
+      regenerate: "Yeniden Oluştur",
+    },
+
+    hashtags: {
+      title: "Etiketler (20)",
+      copy: "Etiketleri Kopyala",
+      regenerate: "Yeniden Oluştur",
+      rate: "Bu sonuca puan verin",
+
+      items: {
+        kidStyle: "#çocukstili",
+        kidsWear: "#çocukgiyim",
+        boysFashion: "#erkekçocukmodası",
+        kidsOutfit: "#çocukkombini",
+        fashionForKids: "#çocukmodası",
+        casualLook: "#günlükstil",
+        kidsOfInstagram: "#instagramçocukları",
+        miniTrend: "#minitrend",
+        kidsTagram: "#çocukdünyası",
+        trendyKids: "#trendçocuklar",
+        comfortableWear: "#rahatgiyim",
+        everydayStyle: "#günlükstil",
+        coolKids: "#havalıçocuklar",
+        superMario: "#supermario",
+        hoodie: "#kapüşonlu",
+        playtime: "#oyunzamanı",
+        kidsModel: "#çocukmodel",
+        smileMore: "#gülümse",
+        styleInspo: "#st ilhamı",
+        activeKids: "#aktifçocuklar",
+      },
+    },
+  },
+
+  howItWorks: {
+    title: "Nasıl Çalışır?",
+    uploadProduct: "1. Ürünü Yükleyin",
+    modelResult: "2. Yapay Zekâ Model Sonucu",
+
+    hoodieAlt: "Kapüşonlu ürün",
+    hoodieResultAlt: "Kapüşonlu giyen model",
+
+    bagAlt: "Siyah çanta ürünü",
+    bagResultAlt: "Siyah çantayı gösteren model",
+
+    dressAlt: "Sarı elbise ürünü",
+    dressResultAlt: "Sarı elbise giyen model",
+  },
+
+  information: {
+    avatarTitle:
+      "E-ticaret ve Sosyal Medya için Yapay Zekâ Avatar Oluşturucu",
+
+    avatarDescription:
+      "Sellova Yapay Zekâ Avatar Oluşturucu; satıcıların sosyal medya, online mağazalar ve reklam kampanyaları için gerçekçi model fotoğrafları oluşturmasına yardımcı olur.",
+
+    howTitle: "Yapay Zekâ Avatarı Nasıl Oluşturulur?",
+
+    howDescription:
+      "Ürün görselini yükleyin, model stilini ve platformu seçin, ardından saniyeler içinde reklama hazır görseller oluşturun.",
+
+    categoriesTitle: "Desteklenen Ürün Kategorileri",
+
+    categoriesDescription:
+      "Giyim, moda, kapüşonlular, elbiseler, ayakkabılar, saatler, mücevherler, çantalar, kozmetik, güzellik ürünleri, aksesuarlar ve e-ticaret ürünleri.",
+
+    whyTitle: "Neden Yapay Zekâ Ürün Modelleri Kullanılmalı?",
+
+    whyDescription:
+      "Farklı kitleler, diller ve ülkeler için profesyonel ürün fotoğraflarını daha hızlı ve daha düşük maliyetle oluşturun.",
+  },
+
+  faq: {
+    title: "Sıkça Sorulan Sorular",
+
+    question1: "Yapay zekâ avatar oluşturucu nedir?",
+    answer1:
+      "Ürün görselinizi ve yapay zekâyı kullanarak gerçekçi model görselleri oluşturur.",
+
+    question2: "Bir avatar kaç krediye mal olur?",
+    answer2:
+      "Gerekli kredi miktarı oluşturulan fotoğraf sayısına bağlıdır.",
+
+    question3: "Kendi yüz fotoğrafımı yükleyebilir miyim?",
+    answer3:
+      "Evet. Yüz fotoğrafınızı veya tam boy fotoğrafınızı yükleyebilirsiniz.",
+
+    question4: "Çocuk modeller oluşturabilir miyim?",
+    answer4:
+      "Evet. Model listesinden kız çocuk, erkek çocuk veya çocuklar seçeneğini kullanın.",
+
+    question5: "E-ticaret görselleri oluşturabilir miyim?",
+    answer5:
+      "Evet. Online mağazalar için ürün fotoğrafları oluşturabilirsiniz.",
+
+    question6: "Instagram içeriği oluşturabilir miyim?",
+    answer6:
+      "Evet. Instagram gönderileri, hikâyeleri ve Reels desteklenir.",
+
+    question7: "TikTok reklamları oluşturabilir miyim?",
+    answer7:
+      "Evet. Platform listesinden TikTok’u seçin.",
+
+    question8: "Hangi görsel formatları destekleniyor?",
+    answer8:
+      "JPG, PNG ve WEBP formatları desteklenmektedir.",
+  },
+},
+
+  // --- AvatarVideo ---
+  avatarVideo: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    avatarVideo: "Avatar Videosu",
+    new: "YENİ",
+    captionsHashtags: "Açıklama ve Etiketler",
+    brandOverlay: "Marka Katmanı",
+    promoSlides: "Tanıtım Slaytları",
+    analytics: "ANALİZLER",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Sellova Akademi",
+    account: "HESAP",
+    creditsPlan: "Kredi ve Paket",
+    transactions: "İşlemler",
+    settings: "Ayarlar",
+  },
+
+  plan: {
+    title: "Altın Paket",
+    description: "Sınırsız yaratıcılık, sınırsız büyüme.",
+    upgrade: "Paketi Yükselt",
+  },
+
+  user: {
+    name: "Shabnam",
+    plan: "Altın Paket",
+  },
+
+  header: {
+    title: "Yapay Zekâ Avatar Video Oluşturucu",
+    description:
+      "Moda, oyuncak, çanta, güzellik ürünleri ve e-ticaret mağazaları için gerçekçi yapay zekâ avatar videoları oluşturun.",
+    credits: "2.540 Kredi",
+    addCredits: "Kredi Ekle",
+  },
+
+  uploadProduct: {
+    title: "Ürün Görselini Yükle",
+    upload: "Sürükleyip bırakın veya yüklemek için tıklayın",
+    formats: "10 MB’a kadar JPG, PNG ve WEBP",
+  },
+
+  chooseAvatar: {
+    title: "Avatarınızı Seçin",
+    optional: "(İsteğe bağlı)",
+    description:
+      "Videoda yer almak için kendi fotoğrafınızı veya tercih ettiğiniz model ya da avatar görselini yükleyin. Bu adımı atlarsanız Sellova sizin için bir yapay zekâ avatarı oluşturur.",
+    upload: "Fotoğrafınızı veya Avatarınızı Yükleyin",
+  },
+
+  avatarStyle: {
+    title: "Avatar Stili",
+
+    options: {
+      luxuryFashion: "Lüks Moda",
+      naturalLifestyle: "Doğal Yaşam Tarzı",
+      professionalPresenter: "Profesyonel Sunucu",
+      productDemonstration: "Ürün Tanıtımı",
+      socialMediaInfluencer: "Sosyal Medya Fenomeni",
+      beautyModel: "Güzellik ve Cilt Bakımı Modeli",
+      kidsToys: "Çocuklar ve Oyuncaklar",
+      friendlyCasual: "Samimi ve Günlük",
+      businessCorporate: "İş ve Kurumsal",
+      sportsFitness: "Spor ve Fitness",
+      cinematicCharacter: "Sinematik Karakter",
+      fantasyCharacter: "Fantastik Karakter",
+      animated3D: "3D Animasyonlu Avatar",
+      cartoon: "Çizgi Avatar",
+      minimalStudio: "Minimal Stüdyo",
+      customAvatar: "Özel Avatar Stili",
+    },
+  },
+
+  platform: {
+    title: "Platform",
+
+    options: {
+      instagramReel: "Instagram Reels — 9:16",
+      instagramStory: "Instagram Hikâye — 9:16",
+      instagramPost: "Instagram Gönderisi — 1:1",
+      tiktok: "TikTok Videosu — 9:16",
+      youtubeShorts: "YouTube Shorts — 9:16",
+      youtubeVideo: "YouTube Videosu — 16:9",
+      facebookReel: "Facebook Reels — 9:16",
+      facebookPost: "Facebook Gönderisi — 1:1",
+      linkedin: "LinkedIn Videosu — 16:9",
+      twitter: "X / Twitter Videosu — 16:9",
+      amazon: "Amazon Ürün Videosu — 16:9",
+      website: "Web Sitesi ve Mağaza — 16:9",
+    },
+  },
+
+  videoLength: {
+    title: "Video Süresi",
+    fiveSeconds: "5 Saniye",
+    tenSeconds: "10 Saniye",
+    oneUnit: "1 Birim",
+    twoUnits: "2 Birim",
+  },
+
+  cinematic: {
+    title: "Sinematik",
+    new: "YENİ",
+    description:
+      "Daha sinematik ışıklandırma, hareket ve kamera geçişleri için etkinleştirin.",
+    toggleLabel: "Sinematik modu aç veya kapat",
+  },
+
+  prompt: {
+    title: "Video Açıklaması",
+    optional: "(İsteğe bağlı)",
+    defaultText:
+      "Ürünü doğal hareketler ve yumuşak, gerçekçi ışıklandırmayla göster.",
+    requiredUnits: "Gerekli Birim",
+    fiveSeconds: "5 Saniye",
+    tenSeconds: "10 Saniye",
+    oneUnit: "1 Birim",
+    twoUnits: "2 Birim",
+  },
+
+  generateButton: "Avatar Videosu Oluştur",
+
+  preview: {
+    title: "Avatar Video Önizlemesi",
+    imageAlt: "Avatar video önizlemesi",
+    download: "İndir",
+    copy: "Kopyala",
+    playLabel: "Önizlemeyi oynat",
+  },
+
+  caption: {
+    title: "Yapay Zekâ Açıklaması",
+    description:
+      "Diliniz ve hedef ülkeniz için otomatik olarak oluşturuldu.",
+
+    line1: "Her sarılma, mutluluk dolu bir an. 🧸💛",
+    line2: "Yumuşak, güvenli ve küçük eller için üretildi.",
+    line3: "Sonsuz maceralar için mükemmel bir arkadaş.",
+    line4: "#SevgiDoluOyuncaklar",
+
+    copy: "Açıklamayı Kopyala",
+    regenerate: "Yeniden Oluştur",
+  },
+
+  hashtags: {
+    title: "Etiketler",
+    description:
+      "Hedef ülkeniz ve kitleniz için optimize edildi.",
+    copy: "Etiketleri Kopyala",
+    regenerate: "Yeniden Oluştur",
+
+    items: {
+      toysForKids: "#çocukoyuncakları",
+      kidsToys: "#oyuncaklar",
+      softToys: "#peluşoyuncak",
+      foxPlush: "#pelüştilki",
+      playtime: "#oyunzamanı",
+      toygram: "#oyuncakdünyası",
+      cuteAndCuddly: "#sevimlioyuncak",
+      kidsFashion: "#çocukdünyası",
+      giftIdeas: "#hediyefikirleri",
+      parenting: "#ebeveynlik",
+      babyToys: "#bebekoyuncakları",
+      earlyLearning: "#erkenöğrenme",
+    },
+  },
+
+  about: {
+    title: "Yapay Zekâ Avatar Video Oluşturucu",
+    description:
+      "Moda, giyim, oyuncak, çanta, güzellik ürünleri ve e-ticaret mağazaları için gerçekçi yapay zekâ avatar videoları oluşturun.",
+
+    realisticModels: "Gerçekçi Modeller",
+    naturalMovement: "Doğal Hareket",
+    highEngagement: "Yüksek Etkileşim",
+    saveTime: "Zaman Tasarrufu",
+  },
+
+  bestFor: {
+    title: "Şunlar İçin Uygun",
+    fashionClothing: "Moda ve Giyim",
+    toysKids: "Çocuk ve Oyuncak Ürünleri",
+    bagsAccessories: "Çanta ve Aksesuarlar",
+    watchesJewelry: "Saat ve Mücevher",
+    beautyProducts: "Güzellik Ürünleri",
+    homeLiving: "Ev ve Yaşam",
+  },
+
+  faq: {
+    title: "Sıkça Sorulan Sorular",
+
+    question1: "Yapay zekâ avatar videosu nedir?",
+    answer1:
+      "Yapay zekâ modelleri ve ürün görseliniz kullanılarak oluşturulan bir videodur.",
+
+    question2: "Kendi fotoğrafımı veya modelimi yükleyebilir miyim?",
+    answer2:
+      "Evet, kendi fotoğrafınızı, tercih ettiğiniz modeli veya avatarı yükleyebilirsiniz. Bu adım isteğe bağlıdır.",
+
+    question3: "Hangi platformlar destekleniyor?",
+    answer3:
+      "Instagram, TikTok, YouTube, Facebook, LinkedIn, Amazon ve web siteleri desteklenmektedir.",
+
+    question4: "Kaç birim gereklidir?",
+    answer4:
+      "5 saniyelik video için bir, 10 saniyelik video için iki birim gereklidir.",
+  },
+
+  howItWorks: {
+    title: "Nasıl Çalışır?",
+    step1: "Ürün ve model görselini yükleyin",
+    step2: "Stil, platform ve video süresini seçin",
+    step3: "Açıklamayı yazın ve videoyu oluşturun",
+    step4: "Videoyu indirin ve paylaşın",
+  },
+},
+
+ // --- MusicAds ---
+ MusicAds: {
+  backToDashboard: "Kontrol Paneline Dön",
+
+  header: {
+    title: "YAPAY ZEKÂ MÜZİK STÜDYOSU",
+    subtitle: "Markanız için benzersiz yapay zekâ müzikleri oluşturun",
+    profileLabel: "Profil",
+  },
+
+  brand: {
+    title: "MARKA BİLGİLERİ",
+    subtitle: "Bize markanızdan bahsedin",
+
+    brandName: "Marka Adı",
+    brandNamePlaceholder: "Marka adınızı girin",
+
+    businessType: "İşletme Türü",
+
+    businessTypes: {
+      ecommerce: "E-Ticaret",
+      fashion: "Moda ve Giyim",
+      beauty: "Güzellik ve Kozmetik",
+      jewelry: "Takı ve Aksesuar",
+      food: "Yemek ve Restoran",
+      technology: "Teknoloji",
+      education: "Eğitim",
+      health: "Sağlık ve Fitness",
+      personal: "Kişisel Marka",
+      other: "Diğer İşletmeler",
+    },
+
+    language: "Dil",
+
+    languages: {
+      english: "İngilizce",
+      persian: "Farsça",
+      turkish: "Türkçe",
+      arabic: "Arapça",
+      spanish: "İspanyolca",
+      french: "Fransızca",
+      german: "Almanca",
+      portuguese: "Portekizce",
+    },
+
+    description: "Açıklama",
+    descriptionPlaceholder: "Markanızı ve istediğiniz müzik tarzını açıklayın...",
+
+    chooseVoice: "Ses Seçin",
+    femaleVoice: "Kadın Sesi",
+    maleVoice: "Erkek Sesi",
+
+    musicDuration: "Müzik Süresi",
+    twentySeconds: "20 Saniye",
+    thirtySeconds: "30 Saniye",
+    tenCredits: "10 Kredi",
+    fifteenCredits: "15 Kredi",
+    creditsWillBeUsed: "kredi kullanılacak",
+  },
+
+  style: {
+    title: "MÜZİK TARZINI SEÇİN",
+    subtitle: "İstediğiniz müzik tarzını seçin",
+
+    styles: {
+      classical: "Klasik",
+      cinematic: "Sinematik",
+      corporate: "Kurumsal",
+      electronic: "Elektronik",
+      jazz: "Caz",
+      rock: "Rock",
+      luxury: "Lüks",
+      epic: "Epik",
+      inspirational: "İlham Verici",
+      modernAds: "Modern Reklamlar",
+    },
+
+    generateButton: "MÜZİK OLUŞTUR",
+  },
+
+  generated: {
+    title: "OLUŞTURULAN MÜZİK",
+    subtitle: "Yapay zekâ müziğiniz hazır",
+    songTitle: "Sellova Yapay Zekâ Müziği",
+
+    previous: "Önceki",
+    play: "Oynat",
+    pause: "Duraklat",
+    next: "Sonraki",
+
+    actions: "İŞLEMLER",
+    download: "İndir",
+    edit: "Düzenle",
+    share: "Paylaş",
+    favorite: "Favorilere Ekle",
+  },
+
+  information: {
+    generatorTitle: "YAPAY ZEKÂ MARKA MÜZİĞİ OLUŞTURUCU",
+
+    generatorTextOne:
+      "Markalar, işletmeler, e-ticaret mağazaları ve reklam kampanyaları için benzersiz yapay zekâ müzikleri oluşturun.",
+
+    generatorTextTwo:
+      "Sellova Yapay Zekâ Müzik Stüdyosu; marka kimliğinize, pazarlama hedeflerinize ve hedef kitlenize uygun özel müzikler oluşturmanıza yardımcı olur.",
+
+    benefitsTitle: "REKLAMLAR İÇİN NEDEN YAPAY ZEKÂ MÜZİĞİ KULLANMALISINIZ?",
+
+    benefits: {
+      brandIdentity: "Tanınabilir bir marka kimliği oluşturun",
+      advertisingPerformance: "Reklam performansını artırın",
+      emotionalEngagement: "Duygusal etkileşim oluşturun",
+      socialMediaContent: "Sosyal medya içeriğini geliştirin",
+      professionalCommercials: "Reklamları daha profesyonel hâle getirin",
+      differentAudiences: "Müziği farklı hedef kitlelere uyarlayın",
+    },
+
+    supportedStylesTitle: "DESTEKLENEN MÜZİK TARZLARI",
+
+    perfectForTitle: "ŞUNLAR İÇİN UYGUN",
+
+    perfectFor: {
+      fashionBrands: "Moda Markaları",
+      beautyProducts: "Güzellik Ürünleri",
+      jewelryStores: "Takı Mağazaları",
+      luxuryAccessories: "Lüks Aksesuarlar",
+      homeDecorBrands: "Ev Dekorasyonu Markaları",
+      kidsProducts: "Çocuk Ürünleri",
+      ecommerceStores: "E-Ticaret Mağazaları",
+      contentCreators: "İçerik Üreticileri",
+      startups: "Girişimler",
+    },
+  },
+
+  howItWorks: {
+    title: "NASIL ÇALIŞIR?",
+
+    steps: {
+      brandInformation: "Marka bilgilerinizi girin",
+      languageAndStyle: "Dil ve müzik tarzını seçin",
+      generateMusic: "Yapay zekâ müziği oluşturun",
+      previewAndDownload: "Ön izleme yapın ve indirin",
+      useInContent: "Reklamlarda ve videolarda kullanın",
+    },
+  },
+
+  features: {
+    title: "MÜZİK ÖZELLİKLERİ",
+
+    items: {
+      aiGenerated: "Yapay Zekâ ile Oluşturulan Müzik",
+      multipleLanguages: "Çoklu Dil Desteği",
+      commercialUse: "Ticari Kullanım",
+      fastGeneration: "Hızlı Oluşturma",
+      brandFocused: "Markaya Özel Ses",
+      marketingReady: "Pazarlamaya Hazır Parçalar",
+      socialMedia: "Sosyal Medya ile Uyumlu",
+      premiumQuality: "Premium Ses Kalitesi",
+    },
+  },
+
+  faq: {
+    title: "SIKÇA SORULAN SORULAR",
+
+    commercialUse: {
+      question: "Oluşturulan müziği ticari olarak kullanabilir miyim?",
+      answer:
+        "Evet, oluşturulan müziği ticari reklam projelerinizde kullanabilirsiniz.",
+    },
+
+    supportedLanguages: {
+      question: "Hangi diller destekleniyor?",
+      answer:
+        "Sellova, uluslararası markalar için birden fazla dili destekler.",
+    },
+
+    brandMusic: {
+      question: "Markam için müzik oluşturabilir miyim?",
+      answer:
+        "Evet, müzik marka kimliğinize göre özelleştirilebilir.",
+    },
+
+    availableStyles: {
+      question: "Hangi müzik tarzları mevcut?",
+      answer:
+        "Sinematik, klasik, kurumsal, elektronik, caz, rock ve daha birçok tarz mevcuttur.",
+    },
+
+    uniqueMusic: {
+      question: "Oluşturulan müzik benzersiz mi?",
+      answer:
+        "Evet, her parça marka bilgileriniz temel alınarak oluşturulur.",
+    },
+
+    productVideos: {
+      question: "Müziği ürün videolarında kullanabilir miyim?",
+      answer:
+        "Evet, müziği ürün videolarında ve sosyal medya içeriklerinde kullanabilirsiniz.",
+    },
+  },
+
+  cta: {
+    title: "Yapay Zekâ ile Profesyonel Marka Müziği Oluşturun",
+
+    description:
+      "Reklamlar, ürün videoları, sosyal medya kampanyaları ve markalı pazarlama içerikleri için benzersiz müzik parçaları oluşturun.",
+
+    button: "Şimdi Oluşturmaya Başla",
+  },
+
+  imageAlt: {
+    logo: "Sellova",
+    hero: "Neon yapay zekâ müziği",
+    rocket: "Roket",
+  },
+},
 
   // --- Golden Plan ---
   goldenPlan: {
