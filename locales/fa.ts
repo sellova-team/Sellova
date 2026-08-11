@@ -565,7 +565,7 @@ pricing: {
     title: "پلن طلایی",
     badge: "ویژه",
     desc: "به ابزارها و قابلیت‌های پیشرفته هوش مصنوعی دسترسی پیدا کنید و تبلیغات حرفه‌ای بسازید.",
-    button: "👑 ارتقاء به پلن طلایی →",
+    button: "👑  پلن طلایی →",
   },
 
   bottom: {
@@ -2033,33 +2033,386 @@ avatarVideo: {
 },
 
  // --- GoldenPlan ---
-goldenPlan: {
-  title: "پلن طلایی",
-  subtitle: "تبلیغ سینمایی هوش مصنوعی + موزیک ویدیوی برند",
+GoldenPlan: {
+  sidebar: {
+    dashboard: "داشبورد",
+    generateImage: "ساخت تصویر",
+    generateVideo: "ساخت ویدیو",
+    createAvatar: "ساخت آواتار",
+    avatarVideo: "ویدیوی آواتار",
+    goldenPlan: "گلدن پلن",
+    newBadge: "جدید",
+    captionsHashtags: "کپشن و هشتگ",
+    brandOverlay: "افزودن برند",
+    promoSlides: "اسلایدهای تبلیغاتی",
+    analytics: "تحلیل‌ها",
+    advisoryAnalysis: "مشاوره و تحلیل",
+    academyInsight: "آکادمی سلوا",
+    account: "حساب کاربری",
+    creditsPlan: "اعتبار و پلن",
+    transactions: "تراکنش‌ها",
+    settings: "تنظیمات",
+  },
 
-  uploadProduct: "آپلود تصویر محصول",
-  productName: "نام محصول",
+  sidebarPlan: {
+    title: "قدرت کامل",
+    subtitle: "گلدن پلن را آزاد کنید",
+    description:
+      "تبلیغات حرفه‌ای بسازید که مشتری جذب کند و برند شما را رشد دهد.",
+    button: "ارتقای پلن",
+    userName: "شبنم مقدم",
+    userPlan: "گلدن پلن",
+  },
 
-  uploadLogo: "آپلود لوگو",
-  brandName: "نام برند",
+  header: {
+    label: "گلدن پلن",
+    title: "سازنده تبلیغات سینمایی با هوش مصنوعی",
+    subtitle:
+      "تجربه‌ای حرفه‌ای از تبلیغات هوش مصنوعی برای برندهای ممتاز.",
+    credits: "۲٬۵۴۰ اعتبار",
+    addCredits: "افزودن اعتبار",
+  },
 
-  musicLanguage: "زبان موسیقی",
-  musicPackage: "پکیج موسیقی",
+  defaults: {
+    brandName: "سلوا",
+    productName: "عطر لوکس",
+    slogan: "ظرافتی فراتر از زمان",
+  },
 
-  outputSize: "ابعاد خروجی",
+  form: {
+    productImage: "تصویر محصول",
+    uploadProduct: "آپلود تصویر محصول",
+    productFormats:
+      "فرمت JPG، PNG یا WEBP تا حجم ۱۰ مگابایت",
 
-  specialInstructions: "توضیحات ویژه",
+    brandLogo: "لوگوی برند",
+    uploadLogo: "آپلود لوگوی برند",
+    logoFormats:
+      "فرمت PNG یا SVG تا حجم ۵ مگابایت",
 
-  generatedVideo: "ویدیوی تولید شده",
+    brandName: "نام برند",
+    productName: "نام محصول",
+    advertisingSlogan: "شعار تبلیغاتی",
+    musicLanguage: "زبان موسیقی",
+    singerVoice: "صدای خواننده",
+    musicStyle: "سبک موسیقی",
+    cinematicEffect: "افکت سینمایی",
+    platform: "پلتفرم",
 
-  preview: "پیش نمایش ویدیو",
+    female: "زن",
+    male: "مرد",
 
-  generateButton: "ساخت ویدیوی طلایی",
+    generateButton: "ساخت تبلیغ گلدن",
+  },
 
-  package1: "1 موزیک ویدیو - 300 اعتبار",
-  package2: "2 موزیک ویدیو - 600 اعتبار",
+  languages: {
+    english: "انگلیسی",
+    persian: "فارسی",
+    turkish: "ترکی",
+    kurdish: "کردی",
+    arabic: "عربی",
+    spanish: "اسپانیایی",
+    german: "آلمانی",
+    kazakh: "قزاقی",
+    turkmen: "ترکمنی",
+    urdu: "اردو",
+    armenian: "ارمنی",
+    tajik: "تاجیکی",
+  },
+
+  musicStyles: {
+    luxury: "لوکس",
+    cinematic: "سینمایی",
+    elegant: "ظریف",
+    modern: "مدرن",
+    dramatic: "دراماتیک",
+    electronic: "الکترونیک",
+
+    indiePop: "ایندی پاپ",
+    dancePop: "دنس پاپ",
+    synthPop: "سینث پاپ",
+    electroPop: "الکترو پاپ",
+
+    indieRock: "ایندی راک",
+    softRock: "سافت راک",
+    alternativeRock: "آلترناتیو راک",
+    popRock: "پاپ راک",
+
+    trap: "ترپ",
+    cinematicTrap: "ترپ سینمایی",
+    afrobeat: "آفروبیت",
+    reggae: "رگی",
+    latin: "لاتین",
+    flamenco: "فلامنکو",
+    salsa: "سالسا",
+    disco: "دیسکو",
+    funk: "فانک",
+    soul: "سول",
+    blues: "بلوز",
+    gospel: "گاسپل",
+
+    house: "هاوس",
+    deepHouse: "دیپ هاوس",
+    progressiveHouse: "پراگرسیو هاوس",
+    techno: "تکنو",
+    edm: "موسیقی رقص الکترونیک",
+    dubstep: "داب‌استپ",
+    drumAndBass: "درام اند بیس",
+
+    chillout: "آرامش‌بخش",
+    dreamy: "رویایی",
+    meditation: "مدیتیشن",
+    natureInspired: "الهام‌گرفته از طبیعت",
+
+    piano: "پیانو",
+    violin: "ویولن",
+    guitar: "گیتار",
+    cinematicPiano: "پیانوی سینمایی",
+    cinematicOrchestra: "ارکستر سینمایی",
+
+    epicTrailer: "تریلر حماسی",
+    suspense: "دلهره‌آور",
+    mystery: "مرموز",
+    action: "اکشن",
+    adventure: "ماجراجویی",
+    happy: "شاد",
+    energetic: "پرانرژی",
+    motivational: "انگیزشی",
+    powerful: "قدرتمند",
+    softEmotional: "احساسی ملایم",
+    wedding: "عروسی",
+
+    beautyCommercial: "تبلیغات زیبایی",
+    fashionRunway: "فشن و کت‌واک",
+    technology: "فناوری",
+    automotive: "خودرو",
+    foodCommercial: "تبلیغات غذا",
+    kidsFamily: "کودک و خانواده",
+
+    persianPop: "پاپ فارسی",
+    persianTraditional: "سنتی ایرانی",
+    turkishPop: "پاپ ترکی",
+    turkishTraditional: "سنتی ترکی",
+    arabicPop: "پاپ عربی",
+    arabicTraditional: "سنتی عربی",
+    kurdishMusic: "موسیقی کردی",
+    armenianMusic: "موسیقی ارمنی",
+    kazakhMusic: "موسیقی قزاقی",
+    turkmenMusic: "موسیقی ترکمنی",
+    tajikMusic: "موسیقی تاجیکی",
+    urduPop: "پاپ اردو",
+  },
+
+  cinematicEffects: {
+    iceReveal: "❄ نمایان‌شدن از یخ",
+    rainLightning: "⚡ باران و رعدوبرق",
+    fireExplosion: "🔥 انفجار آتش",
+    sandstorm: "◌ طوفان شن",
+    underwater: "≋ زیر آب",
+    luxuryStudio: "✦ استودیوی لوکس",
+
+    heavySnowfall: "❄ بارش سنگین برف",
+    frozenGlass: "◈ شیشه یخ‌زده",
+    iceExplosion: "❄ انفجار یخ",
+
+    waterSplash: "💧 پاشش آب",
+    oceanWaves: "≋ موج‌های اقیانوس",
+    waterfallReveal: "💧 نمایان‌شدن با آبشار",
+
+    smokeReveal: "◌ نمایان‌شدن از دود",
+    coloredSmoke: "◉ دود رنگی",
+    fogMist: "≋ مه و بخار",
+
+    fireReveal: "🔥 نمایان‌شدن از آتش",
+    burningBackground: "🔥 پس‌زمینه آتشین",
+    lavaFlow: "◉ جریان گدازه",
+
+    electricEnergy: "⚡ انرژی الکتریکی",
+    neonLightning: "⚡ رعدوبرق نئونی",
+    energyExplosion: "✦ انفجار انرژی",
+
+    goldenParticles: "✦ ذرات طلایی",
+    diamondSparkle: "◇ درخشش الماس",
+    glitterReveal: "✧ نمایان‌شدن با اکلیل",
+    goldDust: "✦ گرد طلایی",
+    luxuryGold: "♕ طلایی لوکس",
+
+    blackGoldStudio: "♕ استودیوی مشکی و طلایی",
+    luxuryMarbleStudio: "◇ استودیوی مرمر لوکس",
+    mirrorStudio: "◫ استودیوی آینه‌ای",
+    spotlightReveal: "◉ نمایان‌شدن با نورافکن",
+    runwayLights: "✦ نورهای کت‌واک",
+    cameraFlash: "✧ فلاش دوربین",
+
+    laserShow: "⚡ نمایش لیزری",
+    neonCity: "◈ شهر نئونی",
+    cyberpunk: "◉ سایبرپانک",
+    hologramReveal: "◇ نمایان‌شدن هولوگرامی",
+
+    spaceGalaxy: "✦ کهکشان فضایی",
+    starfield: "✧ میدان ستاره‌ای",
+    cosmicExplosion: "✦ انفجار کیهانی",
+
+    flowerBloom: "✿ شکوفایی گل",
+    fallingRosePetals: "✿ ریزش گلبرگ‌های رز",
+    autumnLeaves: "🍂 برگ‌های پاییزی",
+    magicalForest: "✦ جنگل جادویی",
+
+    desertReveal: "◌ نمایان‌شدن در صحرا",
+    sandExplosion: "◌ انفجار شن",
+
+    productRotation: "↻ چرخش محصول",
+    cinematicSlowMotion: "◷ حرکت آهسته سینمایی",
+    cinematicZoom: "◎ زوم سینمایی",
+    glassBreak: "◇ شکستن شیشه",
+
+    silkFabricReveal: "≋ نمایان‌شدن با پارچه ابریشمی",
+    luxuryCurtainReveal: "◫ کنار رفتن پرده لوکس",
+    inkTransition: "◉ انتقال با جوهر",
+    paintSplash: "◉ پاشش رنگ",
+
+    minimalShadowStudio: "◐ استودیوی مینیمال با سایه",
+    cleanWhiteStudio: "◯ استودیوی سفید و تمیز",
+    darkCinematicStudio: "● استودیوی سینمایی تیره",
+  },
+
+  platforms: {
+    instagramPost: "پست اینستاگرام (۱:۱)",
+    instagramReels: "ریلز اینستاگرام (۹:۱۶)",
+    instagramStory: "استوری اینستاگرام (۹:۱۶)",
+    instagramLandscape: "اینستاگرام افقی (۱۶:۹)",
+
+    tiktokVideo: "ویدیوی تیک‌تاک (۹:۱۶)",
+
+    facebookPost: "پست فیسبوک (۱:۱)",
+    facebookReels: "ریلز فیسبوک (۹:۱۶)",
+    facebookStory: "استوری فیسبوک (۹:۱۶)",
+    facebookVideo: "ویدیوی فیسبوک (۱۶:۹)",
+
+    youtubeVideo: "ویدیوی یوتیوب (۱۶:۹)",
+    youtubeShorts: "یوتیوب شورتس (۹:۱۶)",
+    youtubeSquare: "تبلیغ مربعی یوتیوب (۱:۱)",
+
+    snapchatStory: "استوری اسنپ‌چت (۹:۱۶)",
+    snapchatAd: "تبلیغ اسنپ‌چت (۹:۱۶)",
+
+    pinterestPin: "پین پینترست (۲:۳)",
+    pinterestVideo: "ویدیوی پینترست (۹:۱۶)",
+
+    linkedinPost: "پست لینکدین (۱:۱)",
+    linkedinVideo: "ویدیوی لینکدین (۱۶:۹)",
+
+    xPost: "پست ایکس (۱:۱)",
+    xVideo: "ویدیوی ایکس (۱۶:۹)",
+
+    amazonProduct: "ویدیوی محصول آمازون (۱۶:۹)",
+    amazonSquare: "تبلیغ مربعی آمازون (۱:۱)",
+
+    shopifyProduct: "ویدیوی محصول شاپیفای (۱:۱)",
+    websiteBanner: "ویدیوی بنر سایت (۱۶:۹)",
+
+    verticalAd: "تبلیغ عمودی موبایل (۹:۱۶)",
+    squareAd: "تبلیغ مربعی شبکه اجتماعی (۱:۱)",
+    landscapeAd: "تبلیغ افقی (۱۶:۹)",
+  },
+
+  preview: {
+    imageAlt: "تبلیغ طلایی عطر",
+    playLabel: "پخش تبلیغ",
+    startTime: "۰۰:۰۰",
+    endTime: "۰۰:۱۵",
+
+    aiAvatar: "آواتار هوش مصنوعی",
+    brandMusic: "موسیقی برند",
+    logoAnimation: "انیمیشن لوگو",
+    cinematicEffects: "افکت‌های سینمایی",
+    included: "در گلدن پلن موجود است",
+  },
+
+  commercialInfo: {
+    title: "سازنده ویدیوی تبلیغاتی با هوش مصنوعی",
+
+    description:
+      "گلدن پلن سرویس تبلیغاتی حرفه‌ای هوش مصنوعی ما است که تبلیغات سینمایی ۱۵ ثانیه‌ای را همراه با آواتار، موسیقی اختصاصی برند، انیمیشن لوگو و شعار تبلیغاتی شما تولید می‌کند.",
+
+    premiumQuality: "کیفیت ممتاز",
+    cinematicStorytelling: "داستان‌گویی سینمایی",
+    brandFocused: "متمرکز بر برند",
+    highConversions: "افزایش فروش",
+  },
+
+  howItWorks: {
+    title: "چگونه کار می‌کند؟",
+    step1: "تصویر محصول و لوگوی برند را آپلود کنید",
+    step2: "اطلاعات برند و شعار تبلیغاتی را وارد کنید",
+    step3: "زبان، صدای خواننده و سبک موسیقی را انتخاب کنید",
+    step4: "افکت سینمایی و پلتفرم را انتخاب کنید",
+    step5: "تبلیغ سینمایی خود را بسازید",
+  },
+
+  whatYouGet: {
+    title: "چه چیزهایی دریافت می‌کنید؟",
+    item1: "تبلیغ هوش مصنوعی ۱۵ ثانیه‌ای",
+    item2: "نمایش محصول همراه با آواتار هوش مصنوعی",
+    item3: "موسیقی اختصاصی با نام برند شما",
+    item4: "انیمیشن لوگو در ابتدا و انتهای ویدیو",
+    item5: "نمایش شعار تبلیغاتی روی ویدیو",
+    item6: "انتقال‌ها و افکت‌های سینمایی",
+    item7: "آماده انتشار در شبکه‌های اجتماعی",
+  },
+
+  faq: {
+    title: "سؤالات متداول",
+
+    question1: "گلدن پلن چیست؟",
+    answer1:
+      "گلدن پلن یک تبلیغ سینمایی کامل با هوش مصنوعی برای برند شما تولید می‌کند.",
+
+    question2: "آیا موسیقی اختصاصی هم ساخته می‌شود؟",
+    answer2:
+      "بله، موسیقی اختصاصی با نام برند شما ساخته می‌شود.",
+
+    question3: "آیا می‌توانم لوگوی خودم را آپلود کنم؟",
+    answer3:
+      "بله، می‌توانید لوگوی برند خود را آپلود کنید.",
+
+    question4: "چه زبان‌هایی پشتیبانی می‌شوند؟",
+    answer4:
+      "انگلیسی، فارسی، ترکی، کردی، عربی، اسپانیایی، آلمانی، قزاقی، ترکمنی، اردو، ارمنی و تاجیکی پشتیبانی می‌شوند.",
+
+    question5: "چه پلتفرم‌هایی پشتیبانی می‌شوند؟",
+    answer5:
+      "اینستاگرام، تیک‌تاک، فیسبوک، یوتیوب، اسنپ‌چت، پینترست، لینکدین، ایکس، آمازون، شاپیفای و تبلیغات وب‌سایت پشتیبانی می‌شوند.",
+  },
+
+  bottomBanner: {
+    title:
+      "حرفه‌ای‌ترین تجربه ساخت تبلیغات سینمایی با هوش مصنوعی",
+
+    description:
+      "متفاوت دیده شوید، اعتماد بسازید و برند خود را با تبلیغات سینمایی رشد دهید.",
+
+    credits: "اعتبار",
+    getStarted: "همین حالا شروع کنید",
+  },
+
+  footer: {
+    copyright:
+      "© ۲۰۲۶ سلوا. تمام حقوق محفوظ است.",
+
+    terms: "شرایط استفاده",
+    privacy: "حریم خصوصی",
+    refund: "شرایط بازپرداخت",
+    contact: "تماس با ما",
+  },
+
+  mediaAlt: {
+    uploadedProduct: "محصول آپلودشده",
+    uploadedBrandLogo: "لوگوی آپلودشده برند",
+    clapperboard: "کلاکت سینمایی طلایی",
+    avatar: "آواتار تبلیغاتی هوش مصنوعی",
+  },
 },
-
 
   // --- Hashtags & Captions ---
    hashtags: {
@@ -2086,103 +2439,581 @@ goldenPlan: {
 
 
  // --- Advisory & analysis ---
-    advisory: {
-    title: "مشاوره و آنالیز",
+    AdvisoryAnalysis: {
+  sidebar: {
+    dashboard: "داشبورد",
+    aiImage: "تصویر هوش مصنوعی",
+    aiVideo: "ویدیو هوش مصنوعی",
+    aiAvatar: "آواتار هوش مصنوعی",
+    aiMusic: "موسیقی هوش مصنوعی",
+    aiCaption: "کپشن هوش مصنوعی",
+    promoSlides: "اسلاید تبلیغاتی",
+    analytics: "تحلیل",
+    advisoryAnalysis: "مشاوره و تحلیل",
+    academyInsight: "آکادمی سلوا",
+    account: "حساب کاربری",
+    goldenPlan: "پلن طلایی",
+    upgradePlan: "ارتقا",
+    settings: "تنظیمات",
+  },
 
-    // ستون تنظیمات
-    setupTitle: "تنظیمات اولیه",
-    businessFieldLabel: "نام کسب‌وکار / حوزه فعالیت",
-    businessFieldPlaceholder: "مثلاً: بوتیک جواهرات، هدیه‌های دست‌ساز…",
-    pageUrlLabel: "آدرس صفحه / نام کاربری",
-    pageUrlPlaceholder: "مثلاً https://instagram.com/yourpage یا @yourhandle",
-    platformLabel: "پلتفرم",
-    analyzeButton: "آنالیز صفحه",
-    analyzingButton: "در حال آنالیز…",
-    setupHint:
-      "• نتایج فعلی فقط نمونهٔ نمایشی روی فرانت‌اند هستند. بعداً می‌توانید به اسکرِیپر یا API واقعی وصل کنید.",
+  upgrade: {
+    title: "ارتقا",
+    description:
+      "همه قابلیت‌ها و برنامه رشد اختصاصی را فعال کنید.",
+    button: "ارتقا",
+  },
 
-    // ستون نتایج
-    resultsTitle: "نتایج",
-    competitorsCardTitle: "۷ رقیب برتر",
-    competitorsEmpty: "فرم را کامل کنید و روی «آنالیز صفحه» بزنید تا لیست رقبا را ببینید.",
-    activityCardTitle: "فعالیت رقبا و مزیت‌های رقابتی",
-    auditCardTitle: "ارزیابی صفحه شما",
+  user: {
+    name: "شبنم م.",
+    plan: "پلن طلایی",
+  },
 
-    strengthsTitle: "نقاط قوت",
-    weaknessesTitle: "نقاط ضعف",
-    recommendationsTitle: "پیشنهادها",
+  header: {
+    searchPlaceholder: "جست‌وجو در همه‌چیز...",
+    credits: "۲,۴۵۰ کردیت",
+    goldenPlan: "پلن طلایی",
+  },
 
-    emptyPlaceholder: "—",
+  hero: {
+    titleFirst: "تحلیل اینستاگرام و",
+    titleHighlight: "مشاوره",
+    description:
+      "نام کاربری و حوزه پیج اینستاگرام خود را وارد کنید. سلوا پیج شما را تحلیل می‌کند، رقبای برتر را پیدا می‌کند و یک برنامه رشد کامل به شما می‌دهد.",
+    usernameLabel: "نام کاربری اینستاگرام",
+    usernamePlaceholder: "@yourpage",
+    categoryLabel: "دسته‌بندی یا حوزه کاری",
+    analyzeButton: "تحلیل پیج من",
+    analyzingButton: "در حال تحلیل...",
+    analysisTime: "تحلیل معمولاً ۳۰ تا ۶۰ ثانیه زمان می‌برد.",
+  },
 
-    // هدر جدول
-    tableNameHandle: "نام / آیدی",
-    tableFollowers: "فالوئر",
-    tablePostsPerWeek: "پست در هفته",
-    tableStoriesPerDay: "استوری در روز",
-    tableAvgEng: "میانگین تعامل",
-    tableTopTags: "هشتگ‌های اصلی",
+  businessCategories: [
+    { key: "women-fashion", label: "پوشاک زنانه" },
+    { key: "beauty", label: "زیبایی و آرایشی" },
+    { key: "jewelry", label: "زیورآلات و اکسسوری" },
+    { key: "home", label: "خانه و دکوراسیون" },
+    { key: "food", label: "غذا و نوشیدنی" },
+    { key: "kids", label: "محصولات کودک" },
+    { key: "fitness", label: "ورزش و سلامت" },
+    { key: "technology", label: "فناوری" },
+  ],
 
-    // بولت‌پوینت‌ها
-    compSummary: [
-      "میانگین انتشار رقبا حدود ۳ تا ۵ پست در هفته و ۲ تا ۴ استوری در روز است.",
-      "بهترین عملکرد مربوط به عکس‌های واضح از محصول با یک مزیت اصلی و یک CTA واضح است.",
-      "ترکیب هشتگ‌ها: ۲–۳ هشتگ ترند + ۵–۷ هشتگ تخصصی + ۱ هشتگ برند.",
-      "بیشترین تعامل معمولاً بین ساعت ۷ تا ۱۰ شب (دوشنبه، چهارشنبه، شنبه) اتفاق می‌افتد.",
+  tabs: [
+    { key: "overview", label: "نمای کلی" },
+    { key: "competitors", label: "رقبا" },
+    { key: "best-times", label: "بهترین زمان‌ها" },
+    { key: "recommendations", label: "پیشنهادها" },
+    { key: "content-ideas", label: "ایده‌های محتوا" },
+  ],
+
+  pageAnalysis: {
+    title: "تحلیل پیج شما",
+    subtitle: "یک نمای سریع از عملکرد پیج شما.",
+    period: "۳۰ روز گذشته",
+    comparison: "نسبت به ۳۰ روز گذشته",
+  },
+
+  metrics: [
+    {
+      key: "followers",
+      label: "دنبال‌کننده‌ها",
+      value: "۲۴.۸K",
+      change: "↑ ۱۲.۵٪",
+    },
+    {
+      key: "engagementRate",
+      label: "نرخ تعامل",
+      value: "۲.۳۴٪",
+      change: "↓ ۸.۷٪",
+    },
+    {
+      key: "averageLikes",
+      label: "میانگین لایک",
+      value: "۵۷۸",
+      change: "↑ ۵.۳٪",
+    },
+    {
+      key: "averageComments",
+      label: "میانگین کامنت",
+      value: "۴۶",
+      change: "↓ ۳.۲٪",
+    },
+    {
+      key: "postsPerMonth",
+      label: "پست در ماه",
+      value: "۱۸",
+      change: "↑ ۲",
+    },
+  ],
+
+  insightCards: {
+    strengths: {
+      title: "نقاط قوت",
+      items: [
+        "هویت بصری و ظاهر جذاب",
+        "استفاده خوب از ریلز و صداهای ترند",
+        "عکس‌های باکیفیت از محصولات",
+        "برنامه منظم برای انتشار محتوا",
+        "تعامل خوب با مخاطبان",
+      ],
+    },
+
+    improve: {
+      title: "موارد قابل بهبود",
+      items: [
+        "نرخ ذخیره‌کردن پست‌ها پایین است",
+        "کپشن‌ها می‌توانند جذاب‌تر باشند",
+        "تعامل در استوری‌ها کم است",
+        "استفاده محدود از دعوت به اقدام",
+        "زمان انتشار پست‌ها بهینه نیست",
+      ],
+    },
+
+    opportunities: {
+      title: "فرصت‌ها",
+      items: [
+        "استفاده بیشتر از محتوای تولیدشده توسط کاربران",
+        "همکاری با میکرواینفلوئنسرها",
+        "ساخت محتوای آموزشی و استایلینگ بیشتر",
+        "استفاده هدفمند از هایلایت استوری‌ها",
+        "برگزاری مسابقه برای افزایش دسترسی",
+      ],
+    },
+  },
+
+  bestTimes: {
+    title: "بهترین زمان انتشار",
+    subtitle: "بر اساس فعالیت مخاطبان شما",
+    bestDays: "بهترین روزها",
+    bestTimeSlots: "بهترین بازه‌های زمانی",
+    days: ["دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه", "شنبه", "یکشنبه"],
+    times: [
+      "۱۲ شب",
+      "۳ صبح",
+      "۶ صبح",
+      "۹ صبح",
+      "۱۲ ظهر",
+      "۳ عصر",
+      "۶ عصر",
+      "۹ شب",
     ],
-    auditStrengths: ["پتانسیل خوب برای هدف‌گیری یک نیچ مشخص."],
-    auditWeaknesses: ["نظم و برنامهٔ انتشار محتوا واضح یا ثابت نیست."],
-    auditActions: [
-      "یک برنامهٔ ثابت بگذارید: ۴ پست در هفته + استوری روزانه (دوشنبه تا پنج‌شنبه + شنبه).",
-      "یک مدل ثابت برای عکاسی (پس‌زمینه و نور) تعریف کنید تا فید یک‌دست شود.",
-      "در کپشن از فرمول «هوک → مزیت → دعوت به اقدام» استفاده کنید.",
-      "یک بانک هشتگ ۲۰ تا ۳۰تایی بسازید و آن‌ها را به‌صورت چرخشی استفاده کنید.",
+    selectedDays: ["سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "یکشنبه"],
+    slots: [
+      "۷ شب تا ۹ شب",
+      "۱۲ ظهر تا ۲ عصر",
+      "۶ صبح تا ۸ صبح",
+    ],
+    tip: "نکته: برای بیشترین دسترسی، ۱۵ تا ۳۰ دقیقه قبل از زمان اوج پست بگذارید.",
+  },
+
+  recommendations: {
+    title: "پیشنهادها",
+    items: [
+      {
+        key: "reels",
+        title: "هفته‌ای ۳ تا ۵ ریلز بسازید",
+        text: "ریلز نسبت به پست ثابت ۲.۳ برابر بازدید بیشتری می‌گیرد.",
+      },
+      {
+        key: "captions",
+        title: "کپشن‌های جذاب بنویسید",
+        text: "سؤال بپرسید و مخاطب را به کامنت گذاشتن دعوت کنید.",
+      },
+      {
+        key: "cta",
+        title: "دعوت به اقدام واضح استفاده کنید",
+        text: "برای افزایش ذخیره و اشتراک‌گذاری، CTA مشخص بگذارید.",
+      },
+      {
+        key: "consistency",
+        title: "منظم پست بگذارید",
+        text: "هدف: ۴ تا ۶ پست و استوری روزانه.",
+      },
+      {
+        key: "weeklyAnalysis",
+        title: "هفتگی بررسی و تحلیل کنید",
+        text: "آمار را مرور و استراتژی را بهتر کنید.",
+      },
     ],
   },
+
+  competitors: {
+    title: "رقبای برتر",
+    subtitle: "بر اساس حوزه کاری شما",
+    viewAll: "مشاهده همه",
+    benchmarkButton: "مشاهده مقایسه با رقبا",
+    list: [
+      {
+        key: "chicstyle",
+        name: "@chicstyle.official",
+        followers: "۸۲.۴K",
+        rate: "۳.۲۱٪",
+      },
+      {
+        key: "stylebyluna",
+        name: "@stylebyluna",
+        followers: "۶۷.۸K",
+        rate: "۲.۹۱٪",
+      },
+      {
+        key: "fashionEdit",
+        name: "@the.fashion.edit",
+        followers: "۵۱.۶K",
+        rate: "۲.۷۱٪",
+      },
+      {
+        key: "ootdBoutique",
+        name: "@ootd.boutique",
+        followers: "۴۴.۲K",
+        rate: "۲.۴۵٪",
+      },
+      {
+        key: "fashionInspo",
+        name: "@fashion.inspo.daily",
+        followers: "۳۸.۷K",
+        rate: "۲.۳۱٪",
+      },
+      {
+        key: "trendyWomenwear",
+        name: "@trendy.womenwear",
+        followers: "۳۳.۵K",
+        rate: "۲.۱۲٪",
+      },
+    ],
+  },
+
+  contentIdeas: {
+    title: "ایده‌های محتوا برای شما",
+    calendarButton: "مشاهده تقویم محتوا",
+    items: [
+      {
+        key: "styleDress",
+        title: "۵ روش برای ست‌کردن این لباس",
+        type: "ریلز",
+      },
+      {
+        key: "behindScenes",
+        title: "پشت‌صحنه کالکشن جدید",
+        type: "استوری",
+      },
+      {
+        key: "reviews",
+        title: "نظرها و بازخورد مشتریان",
+        type: "پست",
+      },
+      {
+        key: "springOutfit",
+        title: "ایده استایل برای بهار",
+        type: "ریلز",
+      },
+      {
+        key: "giveaway",
+        title: "مسابقه: یک لباس رایگان برنده شوید",
+        type: "پست",
+      },
+    ],
+  },
+
+  footer: {
+    copyright: "© ۲۰۲۶ سلوا",
+    privacy: "حریم خصوصی",
+    terms: "قوانین استفاده",
+    support: "پشتیبانی",
+  },
+
+  accessibility: {
+    sellovaLogo: "سلوا",
+    heroImage: "داشبورد تحلیل اینستاگرام",
+    notifications: "اعلان‌ها",
+    theme: "حالت نمایش",
+    openRecommendation: "باز کردن پیشنهاد",
+  },
+},
  
   // --- Brand overlay ---
-  brandOverlay: {
-    title: "افزودن لوگوی برند",
-    productUploadLabel: "آپلود تصویر محصول",
-    logoUploadLabel: "آپلود لوگوی برند",
-    positionLabel: "موقعیت لوگو",
-    sizeLabel: "اندازه (%)",
-    opacityLabel: "شفافیت (%)",
-    paddingLabel: "فاصله از لبه (پیکسل)",
-    downloadButton: "دانلود خروجی",
+ 
+   BrandOverlay: {
+  sidebar: {
+    dashboard: "داشبورد",
+    generateImage: "ساخت تصویر",
+    generateVideo: "ساخت ویدیو",
+    createAvatar: "ساخت آواتار",
+    avatarVideo: "ویدیوی آواتار",
+    captionsHashtags: "کپشن و هشتگ",
+    brandOverlay: "افزودن برند",
+    promoSlides: "اسلایدهای تبلیغاتی",
 
-    positionTopLeft: "بالا چپ",
-    positionTopRight: "بالا راست",
-    positionBottomLeft: "پایین چپ",
-    positionBottomRight: "پایین راست",
-    positionCenter: "وسط",
+    analytics: "تحلیل‌ها",
+    advisoryAnalysis: "مشاوره و تحلیل",
+    academyInsight: "آکادمی سلوا",
 
-    productAlt: "تصویر محصول",
-    logoAlt: "لوگوی برند",
+    account: "حساب کاربری",
+    creditsPlan: "اعتبار و پلن",
+    transactions: "تراکنش‌ها",
+    settings: "تنظیمات",
   },
 
+  upgrade: {
+    title: "پلن خود را ارتقا دهید",
+    description:
+      "به اعتبار بیشتر و امکانات حرفه‌ای هوش مصنوعی دسترسی پیدا کنید.",
+    button: "ارتقای پلن",
+    userName: "شبنم مقدم",
+    userPlan: "گلدن پلن",
+  },
+
+  header: {
+    title: "استودیوی افزودن برند",
+    subtitle:
+      "لوگوی خود را در چند ثانیه به هر طرحی اضافه کنید.",
+    credits: "۲٬۵۴۰ اعتبار",
+    addCredits: "افزودن اعتبار",
+  },
+
+  uploadDesign: {
+    title: "آپلود تصویر طراحی‌شده",
+    button: "آپلود تصویر",
+    formats:
+      "فرمت JPG، PNG یا WEBP تا حجم ۱۰ مگابایت",
+  },
+
+  uploadLogo: {
+    title: "آپلود لوگوی برند",
+    button: "آپلود لوگو",
+    formats:
+      "فرمت PNG یا SVG تا حجم ۵ مگابایت",
+  },
+
+  position: {
+    title: "جای لوگو",
+
+    topLeft: "بالا سمت چپ",
+    topCenter: "بالا وسط",
+    topRight: "بالا سمت راست",
+
+    centerLeft: "وسط سمت چپ",
+    center: "وسط",
+    centerRight: "وسط سمت راست",
+
+    bottomLeft: "پایین سمت چپ",
+    bottomCenter: "پایین وسط",
+    bottomRight: "پایین سمت راست",
+  },
+
+  size: {
+    title: "اندازه لوگو",
+    small: "کوچک",
+    medium: "متوسط",
+    large: "بزرگ",
+  },
+
+  controls: {
+    opacity: "شفافیت لوگو",
+    safeMargin: "فاصله امن از لبه‌ها",
+
+    applyButton: "افزودن لوگوی برند",
+    creditNotice: "۵ اعتبار استفاده خواهد شد",
+  },
+
+  preview: {
+    title: "پیش‌نمایش زنده",
+
+    reset: "بازنشانی",
+    compare: "مقایسه",
+    download: "دانلود PNG",
+
+    originalDesign: "طرح اصلی",
+
+    position: "جای لوگو",
+    size: "اندازه",
+    opacity: "شفافیت",
+    output: "خروجی",
+    resolution: "۱۹۲۰ × ۱۰۸۰",
+  },
+
+  information: {
+    whyTitle: "چرا از افزودن برند استفاده کنیم؟",
+
+    whyDescription:
+      "هویت برند خود را در تمام کمپین‌ها یکسان نگه دارید. لوگوی خود را با اندازه، شفافیت و جای مناسب در چند ثانیه به هر طرحی اضافه کنید.",
+
+    formatsTitle: "فرمت‌های پشتیبانی‌شده",
+
+    designFormat:
+      "تصویر طراحی‌شده: فرمت JPG، PNG یا WEBP تا حجم ۱۰ مگابایت",
+
+    logoFormat:
+      "لوگوی برند: فرمت PNG یا SVG تا حجم ۵ مگابایت",
+
+    outputFormat:
+      "خروجی: PNG با اندازه ۱۹۲۰ × ۱۰۸۰",
+
+    transparentLogo:
+      "لوگوهای شفاف و باکیفیت پشتیبانی می‌شوند.",
+
+    protectionTitle: "محافظت از برند",
+
+    protectionDescription:
+      "لوگوها و طرح‌های شما به‌صورت دائمی ذخیره نمی‌شوند. تمام فایل‌ها رمزگذاری شده و بعد از پردازش به‌طور خودکار حذف می‌شوند تا اطلاعات برند شما ایمن بماند.",
+  },
+
+  mediaAlt: {
+    sellovaLogo: "سلوا",
+
+    uploadedDesign:
+      "تصویر تبلیغاتی آپلودشده",
+
+    uploadedBrandLogo:
+      "لوگوی آپلودشده برند",
+
+    livePreview:
+      "پیش‌نمایش زنده لوگوی برند",
+
+    overlayLogo:
+      "لوگوی قرارگرفته روی تصویر",
+  },
+},
+
 // --- Promo slides ---
-promo: {
-  title: "اسلایدهای تبلیغاتی با هویت برند",
-  projectInputs: "اطلاعات پروژه",
-  uploadProduct: "آپلود عکس محصول",
-  uploadLogo: "آپلود لوگوی برند (اختیاری)",
-  productTypeLabel: "نوع محصول",
-  productTypePlaceholder: "عطر، مبل، تیشرت و …",
-  priceLabel: "قیمت",
-  pricePlaceholder: "$۱۹۹ / ۸,۹۰۰,۰۰۰ تومان",
-  specsLabel: "ویژگی‌های کلیدی (با کاما جدا کنید)",
-  specsPlaceholder: "ماندگاری بالا، طراحی شیک، مناسب هدیه",
-  platformLabel: "پلتفرم",
-  notesLabel: "یادداشت‌ها (درخواست خاص؟)",
-  notesPlaceholder: "هر درخواست ویژه‌ای که می‌خواهید بعداً با هوش مصنوعی اعمال شود…",
-  creditsLabel: "اعتبارها",
-  creditsText: "(آمازون حذف شده است). در حال حاضر فقط رابط کاربری است — اتصال کامل هوش مصنوعی بعداً انجام می‌شود.",
-  generateButton: "ایجاد اسلاید",
-  downloadButton: "دانلود PNG",
-  prevButton: "◀ قبلی",
-  nextButton: "بعدی ▶",
-  slideLabel: "اسلاید",
-  otherOption: "سایر",
+PromoSlides: {
+  sidebar: {
+    dashboard: "داشبورد",
+    generateImage: "ساخت تصویر",
+    generateVideo: "ساخت ویدیو",
+    createAvatar: "ساخت آواتار",
+    captionsHashtags: "کپشن و هشتگ",
+    brandOverlay: "افزودن برند",
+    promoSlides: "اسلایدهای تبلیغاتی",
+    analytics: "تحلیل‌ها",
+    advisoryAnalysis: "مشاوره و تحلیل",
+    academyInsight: "آکادمی سلوا",
+    goldenPlan: "پلن طلایی",
+    upgradePlan: "ارتقای پلن",
+    settings: "تنظیمات",
+  },
+
+  header: {
+    title: "اسلایدهای تبلیغاتی هوشمند",
+    subtitle: "یک محصول را به سه اسلاید تبلیغاتی قدرتمند تبدیل کنید.",
+    credits: "۲٬۵۴۰ اعتبار",
+    addCredits: "افزودن اعتبار",
+  },
+
+  upload: {
+    title: "آپلود تصویر محصول",
+    imageAlt: "تصویر محصول آپلودشده",
+    dragDrop: "تصویر را اینجا بکشید و رها کنید",
+    browse: "یا برای انتخاب فایل کلیک کنید",
+    formats: "فرمت JPG یا PNG تا حجم ۱۰ مگابایت",
+  },
+
+  brand: {
+    title: "اطلاعات برند",
+    brandName: "نام برند",
+    brandSlogan: "شعار برند",
+    productName: "نام محصول",
+
+    defaultBrandName: "نستورا",
+    defaultBrandSlogan: "طراحی‌شده برای یک زندگی واقعی",
+    defaultProductName: "مبل منحنی لونا",
+  },
+
+  product: {
+    title: "جزئیات محصول",
+    price: "قیمت",
+    description: "توضیحات",
+    keyFeatures: "ویژگی‌های مهم",
+
+    defaultPrice: "۱٬۴۹۰ دلار",
+    defaultDescription: "راحتی نرم با طراحی ظریف و منحنی",
+    defaultFeatures: "پارچه بوکله ممتاز • راحتی عمیق • ساخت دست",
+  },
+
+  platform: {
+    title: "پلتفرم",
+    instagramStory: "استوری اینستاگرام (۹:۱۶)",
+    instagramPost: "پست اینستاگرام (۱:۱)",
+    facebookStory: "استوری فیسبوک (۹:۱۶)",
+    tiktok: "تیک‌تاک (۹:۱۶)",
+  },
+
+  style: {
+    title: "سبک",
+    creativeMix: "ترکیب خلاقانه",
+    luxury: "لوکس",
+    darkLuxury: "لوکس تیره",
+    minimal: "مینیمال",
+    modern: "مدرن",
+    elegant: "ظریف",
+    cinematic: "سینمایی",
+    editorial: "مجله‌ای",
+    boldAdvertising: "تبلیغات برجسته",
+    cleanProduct: "نمای تمیز محصول",
+    warmLifestyle: "سبک زندگی گرم",
+    fashion: "مد و پوشاک",
+    beauty: "زیبایی",
+    colorful: "رنگارنگ",
+    seasonalCampaign: "کمپین فصلی",
+  },
+
+  generate: {
+    button: "ساخت ۳ اسلاید تبلیغاتی",
+    credits: "۲۴ اعتبار",
+    result: "۳ اسلاید باکیفیت",
+  },
+
+  preview: {
+    title: "اسلایدهای تبلیغاتی ساخته‌شده",
+    downloadAll: "دانلود همه",
+    edit: "ویرایش",
+    download: "دانلود",
+    selectSlide: "انتخاب اسلاید",
+
+    brandStory: "داستان برند",
+    productDetails: "جزئیات محصول",
+    promoSlogan: "شعار تبلیغاتی",
+
+    instagramStory: "استوری اینستاگرام",
+    resolution: "۱۰۸۰ × ۱۹۲۰",
+    slidesCount: "۳ اسلاید",
+    creativeMix: "ترکیب خلاقانه",
+    credits: "۱۵ اعتبار",
+  },
+
+  whyPromo: {
+    title: "چرا اسلاید تبلیغاتی؟",
+    item1: "یک محصول را به سه استوری تبلیغاتی جذاب تبدیل کنید",
+    item2: "با طراحی هوشمند در زمان صرفه‌جویی کنید",
+    item3: "تعامل و فروش خود را افزایش دهید",
+    item4: "مناسب برای بازاریابی در شبکه‌های اجتماعی",
+  },
+
+  perfectFor: {
+    title: "مناسب برای",
+    item1: "برندهای فروشگاه اینترنتی",
+    item2: "اینفلوئنسرها و تولیدکنندگان محتوا",
+    item3: "کسب‌وکارهای فروش مستقیم",
+    item4: "کمپین‌های معرفی محصول",
+  },
+
+  howItWorks: {
+    title: "چگونه کار می‌کند؟",
+    item1: "تصویر محصول خود را آپلود کنید",
+    item2: "اطلاعات برند و محصول را وارد کنید",
+    item3: "روی دکمه ساخت کلیک کنید",
+    item4: "اسلایدها را دانلود و منتشر کنید",
+  },
+
+  faq: {
+    title: "سؤالات متداول",
+    question1: "آیا می‌توانم اسلایدها را ویرایش کنم؟",
+    answer1: "بله، روی گزینه ویرایش زیر هر اسلاید کلیک کنید.",
+    question2: "آیا می‌توانم سبک اسلایدها را تغییر دهم؟",
+    answer2: "بله، قبل از ساخت اسلایدها سبک موردنظر خود را انتخاب کنید.",
+    questionLabel: "سؤال:",
+    answerLabel: "پاسخ:",
+  },
 },
 
 // --- Sellova guide ---
@@ -2251,14 +3082,558 @@ sellovaGuide: {
   ],
 },
 
-// --- Academy Insight ---
- academyInsight: {
- 
-    title: "آکادمی سلوا — اینسایت",
-    quickTipsTitle: "نکات سریع",
-    meta: "این صفحه آموزشی است و از هیچ کریـدیتی استفاده نمی‌کند.",
-    locale: "fa",
+
+//--- AccountSettings ---
+AccountSettings: {
+  
+  header: {
+    backToWorkspace: "بازگشت به فضای کار",
+    title: "تنظیمات",
   },
+
+  account: {
+    title: "حساب کاربری شما",
+    subtitle: "اطلاعات خود را به‌روز نگه دارید.",
+
+    fullName: "نام کامل",
+    emailAddress: "آدرس ایمیل",
+    brandName: "نام برند",
+    brandSlogan: "شعار برند",
+    language: "زبان",
+    theme: "تم",
+
+    english: "انگلیسی",
+    persian: "فارسی",
+    turkish: "ترکی",
+    french: "فرانسوی",
+
+    darkMode: "حالت تاریک",
+    lightMode: "حالت روشن",
+  },
+
+  plan: {
+    currentPlan: "پلن فعلی",
+    freePlan: "پلن رایگان",
+    creditsAvailable: "۳۰ کردیت موجود",
+    upgradePlan: "ارتقای پلن",
+  },
+
+  security: {
+    title: "رمز عبور و امنیت",
+    changePassword: "تغییر رمز عبور",
+  },
+
+  actions: {
+    saveChanges: "ذخیره تغییرات",
+  },
+
+  support: {
+    title: "کمک نیاز دارید؟",
+    text: "اگر درباره حساب یا سلوا سؤال دارید، برای ما ایمیل بفرستید.",
+    contactSupport: "تماس با پشتیبانی",
+  },
+
+  footer: {
+    rights: "© ۲۰۲۶ سلوا. همه حقوق محفوظ است.",
+    privacyPolicy: "حریم خصوصی",
+    termsOfService: "قوانین استفاده",
+  },
+},
+
+// --- Academy Insight ---
+ AcademyInsight: {
+  sidebar: {
+    dashboard: "داشبورد",
+    generateImage: "ساخت تصویر",
+    generateVideo: "ساخت ویدیو",
+    avatars: "آواتارها",
+    promoSlides: "اسلایدهای تبلیغاتی",
+    academy: "آکادمی",
+    brandOverlay: "افزودن برند",
+    settings: "تنظیمات",
+  },
+
+  upgrade: {
+    title: "ارتقا به",
+    plan: "پلن حرفه‌ای",
+    moreCredits: "اعتبار بیشتر",
+    priorityGeneration: "ساخت با اولویت",
+    premiumSupport: "پشتیبانی حرفه‌ای",
+    advancedTools: "ابزارهای پیشرفته",
+    button: "همین حالا ارتقا دهید",
+  },
+
+  user: {
+    name: "شبنم مقدم",
+    plan: "پلن حرفه‌ای",
+  },
+
+  header: {
+    credits: "۲٬۴۵۰ اعتبار",
+  },
+
+  hero: {
+    badge: "بینش‌های فروشندگی",
+    titleFirst: "چرا بعضی محصولات فروش می‌روند",
+    titleSecond: "و بعضی دیگر",
+    titleHighlight: "نه",
+    description:
+      "با راهکارهای اثبات‌شده، رازهای بازاریابی تصویری و نکات روان‌شناسی آشنا شوید که فروشندگان موفق برای جلب توجه، افزایش کلیک و فروش بیشتر استفاده می‌کنند.",
+    startLearning: "شروع یادگیری",
+    watchIntro: "تماشای معرفی",
+  },
+
+  categories: [
+    {
+      key: "buyerPsychology",
+      title: "روان‌شناسی خریدار",
+      description:
+        "خریداران خود را بهتر بشناسید و بر تصمیم‌های آن‌ها تأثیر بگذارید.",
+    },
+    {
+      key: "visualMarketing",
+      title: "بازاریابی تصویری",
+      description:
+        "تصاویری بسازید که توجه مشتری را جلب کرده و در او اشتیاق ایجاد کند.",
+    },
+    {
+      key: "socialMediaStrategy",
+      title: "استراتژی شبکه‌های اجتماعی",
+      description:
+        "برند خود را رشد دهید و به مخاطبان مناسب دسترسی پیدا کنید.",
+    },
+    {
+      key: "salesGrowth",
+      title: "رشد فروش",
+      description:
+        "نرخ تبدیل و میانگین ارزش هر سفارش را افزایش دهید.",
+    },
+  ],
+
+  popularSection: {
+    title: "مطالب پرطرفدار",
+    subtitle:
+      "یاد بگیرید چه عواملی واقعاً باعث افزایش فروش و تعامل می‌شوند.",
+    viewAll: "مشاهده همه مقاله‌ها",
+    readArticle: "مطالعه مقاله",
+    saveArticle: "ذخیره مقاله",
+  },
+
+  popularInsights: [
+    {
+      key: "luxuryDarkColors",
+      category: "روان‌شناسی",
+      title: "چرا برندهای لوکس از رنگ‌های تیره استفاده می‌کنند؟",
+      description:
+        "روان‌شناسی پنهان رنگ‌های تیره در بازاریابی را بشناسید.",
+      time: "۶ دقیقه مطالعه",
+    },
+    {
+      key: "pricingTricks",
+      category: "قیمت‌گذاری",
+      title: "۷ ترفند قیمت‌گذاری برای افزایش فروش",
+      description:
+        "روش‌های هوشمند قیمت‌گذاری که به افزایش درآمد کمک می‌کنند.",
+      time: "۷ دقیقه مطالعه",
+    },
+    {
+      key: "premiumProducts",
+      category: "تصاویر",
+      title: "چگونه محصولات را لوکس‌تر نشان دهیم؟",
+      description:
+        "تکنیک‌های ساده تصویری برای ایجاد ظاهری حرفه‌ای و لوکس.",
+      time: "۸ دقیقه مطالعه",
+    },
+    {
+      key: "scarcityPsychology",
+      category: "روان‌شناسی",
+      title: "روان‌شناسی کمیابی",
+      description:
+        "چرا محدودبودن موجودی می‌تواند تقاضای محصول را افزایش دهد؟",
+      time: "۶ دقیقه مطالعه",
+    },
+    {
+      key: "ignoredAds",
+      category: "بازاریابی",
+      title: "چرا مشتریان بیشتر تبلیغات را نادیده می‌گیرند؟",
+      description:
+        "دلایل شکست بسیاری از تبلیغات در همان ثانیه‌های اول.",
+      time: "۶ دقیقه مطالعه",
+    },
+  ],
+
+  keyInsightsSection: {
+    title: "نکات کلیدی",
+    subtitle:
+      "واقعیت‌های مبتنی بر داده که بهتر است بدانید.",
+  },
+
+  keyInsights: [
+    {
+      key: "fastDecisions",
+      value: "۷۳٪",
+      description:
+        "از خریداران در کمتر از ۳ ثانیه تصمیم اولیه خود را می‌گیرند.",
+    },
+    {
+      key: "visualAttention",
+      value: "۸۹٪",
+      description:
+        "از کاربران به‌دلیل تصاویر جذاب از اسکرول‌کردن دست می‌کشند.",
+    },
+    {
+      key: "emotionalMarketing",
+      value: "۳ برابر",
+      description:
+        "نرخ تبدیل بیشتر با استفاده از تبلیغات احساسی.",
+    },
+    {
+      key: "valueProposition",
+      value: "۴۷٪",
+      description:
+        "افزایش فروش با ارائه واضح ارزش و مزیت محصول.",
+    },
+  ],
+
+  successSection: {
+    title: "داستان‌های موفقیت واقعی فروشندگان",
+    subtitle:
+      "ببینید برندهای دیگر چگونه نتایج خود را بهبود داده‌اند.",
+    viewAll: "مشاهده همه داستان‌های موفقیت",
+    readCaseStudy: "مطالعه داستان موفقیت",
+  },
+
+  successStories: [
+    {
+      key: "perfumeBrand",
+      brand: "برند عطر",
+      result: "۴۲٪+",
+      resultLabel: "افزایش فروش",
+      description:
+        "با بهبود تصاویر محصول و استفاده از داستان‌سرایی احساسی.",
+    },
+    {
+      key: "jewelryStore",
+      brand: "فروشگاه جواهرات",
+      result: "۲۸٪+",
+      resultLabel: "افزایش تعامل",
+      description:
+        "با استفاده از نورپردازی بهتر و استراتژی مناسب پس‌زمینه.",
+    },
+    {
+      key: "fashionStore",
+      brand: "فروشگاه پوشاک",
+      result: "۶۳٪+",
+      resultLabel: "افزایش نرخ کلیک",
+      description:
+        "با تبلیغات تصویری بهتر و هدف‌گیری دقیق‌تر مخاطبان.",
+    },
+  ],
+
+  newsletter: {
+    title: "یاد بگیرید و رشد کنید.",
+    descriptionFirst:
+      "هر هفته مطالب و استراتژی‌های جدید اضافه می‌شود.",
+    descriptionSecond:
+      "همیشه یک قدم جلوتر از رقبا بمانید.",
+    placeholder: "ایمیل خود را وارد کنید",
+    emailLabel: "نشانی ایمیل",
+    button: "به من اطلاع بده",
+  },
+
+  modal: {
+    close: "بستن",
+    keyPoints: "نکات کلیدی",
+    tryThisNow: "همین حالا امتحان کنید",
+    backToAcademy: "بازگشت به آکادمی",
+  },
+
+  details: {
+    buyerPsychology: {
+      badge: "روان‌شناسی خریدار",
+      title: "مشتریان چگونه تصمیم به خرید می‌گیرند؟",
+      intro:
+        "مشتریان معمولاً زمانی خرید می‌کنند که ارزش محصول را سریع درک کنند، به فروشنده اعتماد داشته باشند و احساس کنند محصول یک مشکل واقعی را حل می‌کند.",
+      points: [
+        "قبل از معرفی محصول، مشکل مشتری را نشان دهید.",
+        "به‌جای فهرست‌کردن ویژگی‌های فنی، مزیت محصول را توضیح دهید.",
+        "برای کاهش ترس و تردید، از نظرهای واقعی مشتریان استفاده کنید.",
+        "پیشنهاد خود را ساده نگه دارید تا تصمیم‌گیری برای مشتری آسان‌تر شود.",
+        "از فوریت واقعی مانند مهلت مشخص یا موجودی محدود استفاده کنید.",
+      ],
+      action:
+        "یک محصول را انتخاب کنید و سه دلیل واقعی بنویسید که چرا مشتری به آن نیاز دارد.",
+    },
+
+    visualMarketing: {
+      badge: "بازاریابی تصویری",
+      title: "تصاویری بسازید که جلوی اسکرول مشتری را بگیرند",
+      intro:
+        "یک تصویر قوی باید خیلی سریع نشان دهد محصول چیست، برای چه کسی ساخته شده و چرا ارزشمند است.",
+      points: [
+        "محصول را به موضوع اصلی تصویر تبدیل کنید.",
+        "از نورپردازی تمیز و تضاد رنگی مناسب استفاده کنید.",
+        "از قراردادن نوشته‌های زیاد روی یک تصویر خودداری کنید.",
+        "محصول را از زاویه‌های مختلف و هنگام استفاده واقعی نشان دهید.",
+        "برای پست، استوری و ریلز اندازه‌های جداگانه آماده کنید.",
+      ],
+      action:
+        "یک عکس ساده از محصول و یک عکس سبک زندگی بسازید و میزان تعامل آن‌ها را مقایسه کنید.",
+    },
+
+    socialMediaStrategy: {
+      badge: "شبکه‌های اجتماعی",
+      title: "یک استراتژی کاربردی برای شبکه‌های اجتماعی بسازید",
+      intro:
+        "یک استراتژی خوب، محتوای مفید، معرفی محصول، اعتماد مشتری و پیشنهادهای فروش واضح را با هم ترکیب می‌کند.",
+      points: [
+        "برای آگاهی، اعتمادسازی و فروش محتوای جداگانه بسازید.",
+        "از ترکیب ویدیوهای کوتاه، تصاویر و پست‌های چنداسلایدی استفاده کنید.",
+        "ایده‌های موفق را با تصاویر جدید تکرار کنید و هر بار از صفر شروع نکنید.",
+        "به پرسش‌های مشتریان با پست و ویدیوهای کوتاه پاسخ دهید.",
+        "علاوه بر لایک، میزان دسترسی، ذخیره، کلیک و فروش را بررسی کنید.",
+      ],
+      action:
+        "چهار پست برنامه‌ریزی کنید: یک پست آموزشی، معرفی محصول، داستان مشتری و پیشنهاد فروش.",
+    },
+
+    salesGrowth: {
+      badge: "رشد فروش",
+      title: "بدون تخفیف‌های دائمی فروش خود را افزایش دهید",
+      intro:
+        "رشد فروش فقط با کاهش قیمت اتفاق نمی‌افتد؛ باید پیشنهاد، صفحه محصول، اعتماد و تجربه خرید را بهتر کنید.",
+      points: [
+        "برای هر محصول یک پیشنهاد ارزش واضح بنویسید.",
+        "اطلاعات قیمت، ارسال و بازگشت کالا را در دسترس قرار دهید.",
+        "برای افزایش ارزش هر سفارش، بسته‌های ترکیبی ارائه دهید.",
+        "پس از انتخاب یک کالا، محصولات مکمل را به مشتری نشان دهید.",
+        "هر بار فقط یک تغییر ایجاد کرده و نتیجه آن را اندازه‌گیری کنید.",
+      ],
+      action:
+        "پرفروش‌ترین محصول خود را بررسی کنید و یک عامل سردرگم‌کننده را از صفحه فروش آن حذف کنید.",
+    },
+
+    luxuryDarkColors: {
+      badge: "روان‌شناسی",
+      title: "چرا برندهای لوکس اغلب از رنگ‌های تیره استفاده می‌کنند؟",
+      intro:
+        "رنگ‌های مشکی و تیره می‌توانند حس لوکس و نمایشی ایجاد کنند، اما رنگ به‌تنهایی یک برند را لوکس نمی‌کند.",
+      points: [
+        "پس‌زمینه تیره با رنگ‌های طلایی، نقره‌ای و محصولات روشن تضاد زیبایی ایجاد می‌کند.",
+        "فضای خالی بیشتر می‌تواند طرح را خاص‌تر و لوکس‌تر نشان دهد.",
+        "از عناصر کمتر استفاده کنید و تبلیغات لوکس را شلوغ نکنید.",
+        "از نورپردازی مناسب استفاده کنید تا محصول تیره در پس‌زمینه ناپدید نشود.",
+        "فونت‌ها را ظریف، خوانا و هماهنگ انتخاب کنید.",
+      ],
+      action:
+        "از یک تبلیغ دو نسخه روشن و تیره بسازید و بررسی کنید کدام‌یک نتیجه بهتری می‌گیرد.",
+    },
+
+    pricingTricks: {
+      badge: "قیمت‌گذاری",
+      title: "روش‌های هوشمند و اخلاقی قیمت‌گذاری",
+      intro:
+        "نحوه نمایش قیمت می‌تواند بر درک مشتری از ارزش محصول تأثیر بگذارد. قیمت‌گذاری همیشه باید واضح و صادقانه باشد.",
+      points: [
+        "سه انتخاب پایه، پیشنهادی و حرفه‌ای ارائه دهید.",
+        "ارزش و امکانات هر انتخاب را واضح نشان دهید.",
+        "فقط زمانی بسته ترکیبی ارائه کنید که واقعاً برای مشتری به‌صرفه‌تر باشد.",
+        "وقتی مقدار یا اندازه بسته‌ها متفاوت است، قیمت هر واحد را نمایش دهید.",
+        "فقط از تخفیف واقعی استفاده کنید و قیمت اولیه جعلی نسازید.",
+        "برای محصولات لوکس قیمت‌های رُند و برای محصولات اقتصادی قیمت‌های غیررُند را آزمایش کنید.",
+        "هزینه‌های اضافی را قبل از پرداخت به مشتری نشان دهید.",
+      ],
+      action:
+        "سه انتخاب قیمت‌گذاری صادقانه بسازید و فقط یکی را به‌عنوان گزینه پیشنهادی مشخص کنید.",
+    },
+
+    premiumProducts: {
+      badge: "تصاویر",
+      title: "تصاویر محصول را حرفه‌ای‌تر و لوکس‌تر کنید",
+      intro:
+        "تصاویر لوکس بیشتر از تجهیزات گران‌قیمت به نورپردازی، ترکیب‌بندی، بافت و هماهنگی وابسته‌اند.",
+      points: [
+        "از یک نور اصلی استفاده کرده و سایه‌های شدید را کنترل کنید.",
+        "پیش از عکاسی، محصول را کاملاً تمیز کنید.",
+        "پس‌زمینه‌ای هماهنگ با هویت برند انتخاب کنید.",
+        "بافت‌ها و جزئیات مهم محصول را واضح نشان دهید.",
+        "رنگ تصاویر تمام محصولات را هماهنگ نگه دارید.",
+        "از فیلترهای شدیدی که ظاهر واقعی محصول را تغییر می‌دهند استفاده نکنید.",
+      ],
+      action:
+        "از یک محصول کنار پنجره و مقابل پس‌زمینه تمیز عکس بگیرید و آن را با تصویر قبلی مقایسه کنید.",
+    },
+
+    scarcityPsychology: {
+      badge: "روان‌شناسی",
+      title: "بدون آسیب‌زدن به اعتماد مشتری از کمیابی استفاده کنید",
+      intro:
+        "وقتی موجودی واقعاً محدود است، کمیابی می‌تواند به تصمیم‌گیری مشتری کمک کند. کمیابی جعلی اعتماد بلندمدت را از بین می‌برد.",
+      points: [
+        "فقط زمانی موجودی محدود را نمایش دهید که واقعاً محدود باشد.",
+        "فقط برای کمپین‌های واقعی از مهلت زمانی استفاده کنید.",
+        "دلیل محدودبودن موجودی را توضیح دهید.",
+        "تایمر شمارش معکوس را پس از پایان دوباره از اول شروع نکنید.",
+        "فوریت را همراه با اطلاعات مفید محصول نمایش دهید.",
+      ],
+      action:
+        "اگر پیشنهاد شما مهلت واقعی دارد، تاریخ، ساعت و دلیل آن را واضح توضیح دهید.",
+      warning:
+        "تایمر و موجودی جعلی ممکن است کلیک کوتاه‌مدت را افزایش دهد، اما اعتماد مشتری را کاهش می‌دهد.",
+    },
+
+    ignoredAds: {
+      badge: "بازاریابی",
+      title: "چرا مشتریان سریع از تبلیغات عبور می‌کنند؟",
+      intro:
+        "مشتریان تبلیغاتی را نادیده می‌گیرند که نامرتبط، گیج‌کننده، تکراری یا در بیان ارزش محصول بسیار کند باشند.",
+      points: [
+        "مهم‌ترین مزیت محصول را در ثانیه‌های اول نشان دهید.",
+        "به‌جای چند پیام مختلف، فقط یک پیام واضح داشته باشید.",
+        "تبلیغ را متناسب با پلتفرم و اندازه صفحه طراحی کنید.",
+        "قبل از خسته‌شدن مخاطب، تصاویر تبلیغاتی تکراری را تغییر دهید.",
+        "پیام تبلیغ را با نیاز واقعی مشتری هماهنگ کنید.",
+        "از دعوت به اقدام واضح مانند خرید، اطلاعات بیشتر یا مشاهده محصول استفاده کنید.",
+      ],
+      action:
+        "سه ثانیه به تبلیغ خود نگاه کنید؛ اگر پیام اصلی آن مشخص نیست، طرح را ساده‌تر کنید.",
+    },
+
+    fastDecisions: {
+      badge: "تصمیم‌گیری سریع",
+      title: "ثانیه‌های اول اهمیت دارند",
+      intro:
+        "مشتریان خیلی سریع برداشت اولیه خود را شکل می‌دهند؛ بنابراین تصویر و پیام ابتدایی باید بلافاصله قابل‌فهم باشد.",
+      points: [
+        "محصول را در واضح‌ترین قسمت تصویر قرار دهید.",
+        "از یک عنوان کوتاه و مشخص استفاده کنید.",
+        "عناصر تزئینی‌ای را که پیشنهاد اصلی را پنهان می‌کنند حذف کنید.",
+        "دکمه دعوت به اقدام را به‌راحتی قابل‌تشخیص کنید.",
+        "طرح را روی صفحه کوچک موبایل هم آزمایش کنید.",
+      ],
+      action:
+        "تبلیغ را برای سه ثانیه به شخص دیگری نشان دهید و بپرسید چه چیزی از آن فهمیده است.",
+      warning:
+        "درصدها در صنایع و گروه‌های مختلف متفاوت هستند؛ رفتار مشتریان خودتان را اندازه‌گیری کنید.",
+    },
+
+    visualAttention: {
+      badge: "توجه تصویری",
+      title: "تصاویر می‌توانند مشتری را متوقف یا فراری دهند",
+      intro:
+        "تصاویر قوی توجه مشتری را جلب می‌کنند؛ اما مرتبط‌بودن و وضوح از تزئینات مهم‌تر است.",
+      points: [
+        "یک ترتیب بصری واضح ایجاد کنید.",
+        "محصول را از پس‌زمینه جدا و قابل‌تشخیص نگه دارید.",
+        "از نوشته‌های خوانا و تضاد رنگی کافی استفاده کنید.",
+        "از تصاویر بی‌کیفیت یا کشیده‌شده استفاده نکنید.",
+        "سبک تصویر را با مخاطب هدف هماهنگ کنید.",
+      ],
+      action:
+        "بررسی کنید که محصول و عنوان در اندازه کوچک تصویر هم واضح باقی بمانند.",
+      warning:
+        "درصدهای نمایش‌داده‌شده را تا زمانی که به پژوهش معتبری متصل نشده‌اند، نمونه آموزشی در نظر بگیرید.",
+    },
+
+    emotionalMarketing: {
+      badge: "بازاریابی احساسی",
+      title: "احساسات به ماندگاری پیام در ذهن کمک می‌کنند",
+      intro:
+        "احساس می‌تواند یک تبلیغ را ماندگارتر کند؛ به شرطی که با ارزش واقعی محصول ارتباط داشته باشد.",
+      points: [
+        "یک احساس مانند اعتماد، آرامش، شادی، کنجکاوی یا آرزو را انتخاب کنید.",
+        "از افراد و موقعیت‌های هماهنگ با مخاطب هدف استفاده کنید.",
+        "احساس را مستقیماً به مزیت محصول ارتباط دهید.",
+        "از داستان‌های اغراق‌آمیز و نامرتبط با محصول خودداری کنید.",
+        "تبلیغ را با یک اقدام واضح و کاربردی تمام کنید.",
+      ],
+      action:
+        "در یک جمله بنویسید مشتری پس از استفاده از محصول شما باید چه احساسی داشته باشد.",
+      warning:
+        "افزایش نرخ تبدیل میان محصولات، پلتفرم‌ها و مخاطبان متفاوت است؛ قبل از ادعا آن را آزمایش کنید.",
+    },
+
+    valueProposition: {
+      badge: "پیشنهاد ارزش",
+      title: "ارزش محصول را واضح بیان کنید",
+      intro:
+        "پیشنهاد ارزش توضیح می‌دهد چرا مشتری باید محصول شما را به گزینه‌های دیگر ترجیح دهد.",
+      points: [
+        "مشخص کنید محصول برای چه کسی طراحی شده است.",
+        "مهم‌ترین مشکلی را که حل می‌کند توضیح دهید.",
+        "تفاوت اصلی آن با محصولات رقیب را نشان دهید.",
+        "وعده خود را با مدرک یا نظر واقعی مشتریان پشتیبانی کنید.",
+        "پیام را مشخص، کوتاه و قابل‌فهم نگه دارید.",
+      ],
+      action:
+        "این جمله را کامل کنید: این محصول به ___ کمک می‌کند تا بدون ___ به ___ برسد.",
+      warning:
+        "قبل از انتشار درصد مشخص افزایش فروش، از آمار واقعی فروشگاه خود استفاده کنید.",
+    },
+
+    perfumeBrand: {
+      badge: "مطالعه موردی",
+      title: "بهبود تصاویر یک برند عطر",
+      intro:
+        "این یک نمونه آموزشی است که نشان می‌دهد فروشنده عطر چگونه می‌تواند با نمایش بهتر محصول، تبلیغات خود را بهبود دهد.",
+      points: [
+        "برای نمایش کیفیت شیشه و بسته‌بندی از تصاویر نزدیک استفاده کنید.",
+        "نورپردازی را متناسب با شخصیت و حس عطر انتخاب کنید.",
+        "برای گروه‌های مختلف مشتری تصاویر سبک زندگی بسازید.",
+        "به‌جای نوشته زیاد از یک شعار احساسی کوتاه استفاده کنید.",
+        "عملکرد عکس ساده محصول و تبلیغ دارای مدل را مقایسه کنید.",
+      ],
+      action:
+        "تعداد کلیک و فروش را قبل و بعد از تغییر تصویر اصلی محصول اندازه‌گیری کنید.",
+      warning:
+        "نتیجه ۴۲٪+ نمونه آموزشی است، مگر اینکه از اطلاعات واقعی و تأییدشده یکی از مشتریان سلوا به دست آمده باشد.",
+    },
+
+    jewelryStore: {
+      badge: "مطالعه موردی",
+      title: "استراتژی افزایش تعامل فروشگاه جواهرات",
+      intro:
+        "این نمونه نشان می‌دهد فروشنده جواهرات چگونه می‌تواند با نورپردازی، تصاویر نزدیک و برندینگ هماهنگ، تعامل را افزایش دهد.",
+      points: [
+        "برای نمایش سنگ‌ها و بافت فلز از تصاویر ماکرو استفاده کنید.",
+        "یک تصویر برای نشان‌دادن اندازه واقعی جواهر قرار دهید.",
+        "نورپردازی تمام محصولات مجموعه را هماهنگ نگه دارید.",
+        "در صورت امکان جواهرات را هنگام استفاده نشان دهید.",
+        "به پرسش‌های رایج درباره جنس و نگهداری پاسخ دهید.",
+      ],
+      action:
+        "یک عکس نزدیک، یک عکس سبک زندگی و یک ویدیوی کوتاه محصول را آزمایش کنید.",
+      warning:
+        "نتیجه ۲۸٪+ تا زمان تأیید با آمار واقعی باید به‌عنوان نمونه آموزشی نمایش داده شود.",
+    },
+
+    fashionStore: {
+      badge: "مطالعه موردی",
+      title: "استراتژی افزایش کلیک فروشگاه پوشاک",
+      intro:
+        "این نمونه نشان می‌دهد فروشگاه پوشاک چگونه می‌تواند با استایل بهتر و اطلاعات واضح‌تر محصول، توجه مشتریان را افزایش دهد.",
+      points: [
+        "نمای جلو، پشت و جزئیات لباس را نشان دهید.",
+        "در صورت امکان لباس را بر تن یک فرد نمایش دهید.",
+        "اطلاعات اندازه و فرم لباس را واضح ارائه کنید.",
+        "برای پلتفرم‌های مختلف تصاویر جداگانه بسازید.",
+        "با ارائه پیشنهاد استایل به مشتری کمک کنید پوشیدن محصول را تصور کند.",
+      ],
+      action:
+        "یک تصویر از استایل کامل لباس کنار تصاویر معمول محصول اضافه کرده و میزان کلیک‌ها را مقایسه کنید.",
+      warning:
+        "نتیجه ۶۳٪+ نمونه آموزشی است و تا زمان تأیید با اطلاعات واقعی نباید به‌عنوان نتیجه قطعی نمایش داده شود.",
+    },
+  },
+
+  accessibility: {
+    sellovaLogo: "سلوا",
+    academyHero: "تصویر اصلی آکادمی سلوا",
+    openCategory: "بازکردن دسته‌بندی",
+    saveArticle: "ذخیره مقاله",
+    closeModal: "بستن پنجره",
+  },
+},
   
     // --- Music ---
 music: {

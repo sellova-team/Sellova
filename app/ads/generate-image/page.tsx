@@ -216,10 +216,14 @@ export default function GenerateImagePage() {
 
           <div className={styles.creditSection}>
 
-            <button className={styles.addBtn}>
-              <FiPlus />
-              <span>{t.header.addCredits}</span>
-            </button>
+           <Link
+  href="/ads/upgrade-plan"
+  className={styles.addBtn}
+>
+  <FiPlus />
+
+  <span>{t.header.addCredits}</span>
+</Link>
 
             <button className={styles.creditBtn}>
               <div className={styles.creditDot}></div>
@@ -344,7 +348,7 @@ export default function GenerateImagePage() {
             {t.sidebar.settings}
           </Link>
 
-          <Link href="/pricing" className={styles.textItem}>
+          <Link href="/ads/upgrade-plan" className={styles.textItem}>
             {t.sidebar.goldenPlan}
           </Link>
 

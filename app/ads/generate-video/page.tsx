@@ -276,7 +276,7 @@ export default function GenerateVideoPage() {
 
 
           <Link
-            href="/upgrade-plan"
+            href="/ads/upgrade-plan"
             className={styles.goldenItem}
           >
             <span className={styles.menuIcon}>♛</span>
@@ -285,7 +285,7 @@ export default function GenerateVideoPage() {
 
 
           <Link
-            href="/upgrade-plan"
+           href="/ads/upgrade-plan"
             className={styles.menuItem}
           >
             <span className={styles.menuIcon}>◇</span>
@@ -346,7 +346,7 @@ export default function GenerateVideoPage() {
 
 
             <Link
-              href="/upgrade-plan"
+             href="/ads/upgrade-plan"
               className={styles.addCreditsButton}
             >
               ＋ {t.header.addCredits}

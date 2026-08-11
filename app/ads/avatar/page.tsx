@@ -105,7 +105,7 @@ export default function AvatarPage() {
           </p>
 
           <Link
-            href="/upgrade-plan"
+           href="/ads/upgrade-plan"
             className={styles.menuItem}
           >
             <span>☷</span>
@@ -140,7 +140,7 @@ export default function AvatarPage() {
             {t.plan.descriptionLine2}
           </p>
 
-          <Link href="/upgrade-plan">
+          <Link href="/ads/upgrade-plan">
             {t.plan.upgrade} →
           </Link>
         </div>
@@ -182,7 +182,7 @@ export default function AvatarPage() {
             </div>
 
             <Link
-              href="/upgrade-plan"
+              href="/ads/upgrade-plan"
               className={styles.addCredits}
             >
               <span>＋</span>

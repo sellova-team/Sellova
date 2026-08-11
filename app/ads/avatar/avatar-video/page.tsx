@@ -138,7 +138,7 @@ export default function AvatarVideoPage() {
 
   {/* CREDITS */}
   <Link
-    href="/upgrade-plan"
+    href="/ads/upgrade-plan"
     className={styles.menuItem}
   >
     <span>☷</span>
@@ -169,7 +169,7 @@ export default function AvatarVideoPage() {
           <h3>♕ {t.plan.title}</h3>
           <p>{t.plan.description}</p>
 
-          <Link href="/upgrade-plan">
+          <Link href="/ads/upgrade-plan">
             {t.plan.upgrade} →
           </Link>
         </div>
@@ -206,7 +206,7 @@ export default function AvatarVideoPage() {
               {t.header.credits}
             </div>
 
-            <Link href="/upgrade-plan" className={styles.addCredits}>
+            <Link href="/ads/upgrade-plan" className={styles.addCredits}>
               ＋ {t.header.addCredits}
             </Link>
 

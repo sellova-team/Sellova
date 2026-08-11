@@ -37,7 +37,7 @@ export default function DashboardPage() {
 
         {/* DASHBOARD */}
         <Link
-          href="/ads/dashboard"
+          href="/workspace"
           className={styles.menuItem}
         >
           🏠
@@ -183,7 +183,7 @@ export default function DashboardPage() {
 
       </div>
 
-<Link href="/upgrade-plan" className={styles.addCreditsBtn}>
+<Link href="/ads/upgrade-plan" className={styles.addCreditsBtn}>
   {t.credits.add}
 </Link>
 
@@ -387,11 +387,12 @@ export default function DashboardPage() {
 
   </div>
 
-
-  <button className={styles.upgradeBtn}>
-    {t.golden.button}
-  </button>
-
+<Link
+  href="/ads/golden-plan"
+  className={styles.upgradeBtn}
+>
+  {t.golden.button}
+</Link>
 
 </section>
 

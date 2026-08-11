@@ -1,0 +1,676 @@
+
+.page {
+  min-height: 100vh;
+  padding: 34px 4.3% 26px;
+
+  color: #f7f4ff;
+  background:
+    radial-gradient(circle at 58% 14%, rgba(101, 28, 178, 0.13), transparent 28%),
+    radial-gradient(circle at 92% 52%, rgba(41, 14, 99, 0.11), transparent 25%),
+    #04030c;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page * {
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header,
+.footer {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 76px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.backLink {
+  min-width: 188px;
+  height: 51px;
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  color: #f5effc;
+  background: transparent;
+  border: 1px solid rgba(191, 77, 255, 0.72);
+  border-radius: 13px;
+
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.backLink span {
+  color: #d35fff;
+
+  font-size: 24px;
+  line-height: 0;
+}
+
+.backLink:hover {
+  background: rgba(135, 39, 215, 0.12);
+}
+
+
+/* =========================
+   CONTENT + HERO
+========================= */
+
+.content {
+  width: min(100%, 1120px);
+  margin: 10px auto 0;
+}
+
+.hero {
+  position: relative;
+
+  min-height: 245px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.heroText {
+  position: absolute;
+  z-index: 2;
+
+  left: 26px;
+  bottom: 20px;
+}
+
+.heroText > span {
+  color: #d462ff;
+  margin-bottom: 50px;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+}
+
+.heroText h1 {
+  margin: 15px 0 11px;
+
+  color: #f7f4ff;
+  font-size: clamp(36px, 3vw, 49px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.heroText p {
+  margin: 0;
+
+  color: #bbb4c6;
+  margin-top: -60px;
+  font-size: 36px;
+}
+
+.gearArt {
+  position: absolute;
+  top: -37px;
+  right: 24px;
+
+  width: 570px;
+  height: 305px;
+
+  opacity: 0.98;
+}
+
+.gearArt img {
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+
+/* =========================
+   ACCOUNT CARD
+========================= */
+
+.accountCard {
+  padding: 36px 39px 25px;
+
+  background:
+    radial-gradient(circle at 85% 0%, rgba(125, 36, 211, 0.1), transparent 34%),
+    rgba(10, 7, 25, 0.95);
+  border: 1px solid rgba(165, 65, 245, 0.7);
+  border-radius: 18px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25),
+    inset 0 1px rgba(245, 221, 255, 0.03);
+}
+
+.cardTitle {
+  margin-bottom: 31px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.cardTitle > span {
+  width: 65px;
+  height: 65px;
+
+  display: grid;
+  place-items: center;
+
+  color: #fae9ff;
+  background: linear-gradient(145deg, #5511ac, #a41cf0);
+  border: 1px solid rgba(222, 137, 255, 0.7);
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(164, 47, 236, 0.4);
+
+  font-size: 34px;
+}
+
+.cardTitle h2 {
+  margin: 0 0 7px;
+
+  color: #f7f4ff;
+  font-size: 25px;
+}
+
+.cardTitle p {
+  margin: 0;
+
+  color: #b1a9b9;
+  font-size: 15px;
+}
+
+
+/* =========================
+   FORM FIELDS
+========================= */
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 27px 38px;
+}
+
+.fields label,
+.planField {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.fields label > span,
+.planField > span {
+  color: #eee8f4;
+
+  font-size: 14px;
+}
+
+.fields input,
+.fields select {
+  width: 100%;
+  height: 58px;
+  padding: 0 19px;
+
+  color: #faf7ff;
+  background: rgba(15, 10, 35, 0.9);
+  border: 1px solid rgba(163, 67, 237, 0.67);
+  border-radius: 11px;
+
+  font-family: inherit;
+  font-size: 16px;
+  outline: 0;
+}
+
+.fields input:focus,
+.fields select:focus {
+  border-color: #df6dff;
+  box-shadow: 0 0 0 3px rgba(193, 75, 255, 0.14);
+}
+
+.fields option {
+  color: #ffffff;
+  background: #100a25;
+}
+
+
+/* =========================
+   CURRENT PLAN
+========================= */
+
+.planField {
+  grid-column: 1 / -1;
+}
+
+.planField > div {
+  min-height: 62px;
+  padding: 0 19px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: linear-gradient(90deg, rgba(95, 25, 169, 0.22), rgba(15, 10, 35, 0.9));
+  border: 1px solid rgba(163, 67, 237, 0.67);
+  border-radius: 11px;
+}
+
+.planField strong {
+  color: #f3d8ff;
+  font-size: 16px;
+}
+
+.planField small {
+  color: #aaa0b7;
+  font-size: 12px;
+}
+
+.planField a {
+  margin-left: auto;
+
+  color: #e28aff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+/* =========================
+   SAVE + PASSWORD
+========================= */
+
+.cardFooter {
+  min-height: 86px;
+  padding-top: 22px;
+  margin-top: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(142, 80, 202, 0.23);
+}
+
+.passwordButton {
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #cfc5d8;
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+  text-align: left;
+}
+
+.passwordButton > span {
+  width: 31px;
+  height: 31px;
+
+  display: grid;
+  place-items: center;
+
+  color: #d978ff;
+  border: 1px solid rgba(202, 90, 255, 0.7);
+  border-radius: 50%;
+
+  font-size: 19px;
+}
+
+.passwordButton div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.passwordButton strong {
+  color: #eee8f5;
+  font-size: 15px;
+}
+
+.passwordButton small {
+  color: #b87de3;
+  font-size: 14px;
+}
+
+.passwordButton b {
+  margin-left: 2px;
+
+  color: #d978ff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.saveButton {
+  min-width: 212px;
+  height: 55px;
+
+  color: #ffffff;
+  background: linear-gradient(105deg, #6313d7, #b536df);
+  border: 1px solid rgba(235, 150, 255, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(159, 39, 231, 0.25);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* =========================
+   HELP & SUPPORT
+========================= */
+
+.helpCard {
+  min-height: 91px;
+  padding: 19px 25px;
+  margin-top: 22px;
+
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 16px;
+
+  background: rgba(11, 7, 25, 0.75);
+  border: 1px solid rgba(140, 72, 204, 0.34);
+  border-radius: 14px;
+}
+
+.helpIcon {
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  color: #e98bff;
+  background: rgba(128, 31, 193, 0.18);
+  border: 1px solid rgba(210, 95, 255, 0.65);
+  border-radius: 50%;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.helpCard strong {
+  color: #f4eff8;
+  font-size: 14px;
+}
+
+.helpCard p {
+  margin: 5px 0 0;
+
+  color: #9d95a8;
+  font-size: 14px;
+}
+
+.helpCard a {
+  color: #e489ff;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.helpCard a span {
+  margin-left: 7px;
+
+  font-size: 17px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding-top: 24px;
+  margin-top: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #a8a1b0;
+  border-top: 1px solid rgba(143, 82, 199, 0.22);
+
+  font-size: 13px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 34px;
+}
+
+.footer a {
+  color: #b7b0bd;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #edc4ff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+  .page {
+    padding: 24px 20px;
+  }
+
+  .gearArt {
+    right: -125px;
+
+    opacity: 0.35;
+  }
+
+  .fields {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 620px) {
+  .header {
+    height: 62px;
+  }
+
+  .logo {
+    width: 125px;
+  }
+
+  .backLink {
+    min-width: auto;
+    height: 40px;
+    padding: 0 12px;
+
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 190px;
+  }
+
+  .heroText {
+    padding-left: 4px;
+  }
+
+  .heroText h1 {
+    font-size: 35px;
+  }
+
+  .heroText p {
+    font-size: 13px;
+  }
+
+  .gearArt {
+    top: -42px;
+    right: -115px;
+
+    width: 390px;
+    height: 260px;
+
+    opacity: 0.38;
+  }
+
+  .accountCard {
+    padding: 22px 18px;
+  }
+
+  .cardTitle {
+    margin-bottom: 24px;
+  }
+
+  .cardTitle > span {
+    width: 51px;
+    height: 51px;
+
+    font-size: 27px;
+  }
+
+  .cardTitle h2 {
+    font-size: 20px;
+  }
+
+  .fields {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .planField {
+    grid-column: auto;
+  }
+
+  .planField > div {
+    padding: 13px 16px;
+
+    flex-wrap: wrap;
+  }
+
+  .planField a {
+    margin-left: 0;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .saveButton {
+    width: 100%;
+  }
+
+  .helpCard {
+    grid-template-columns: 35px 1fr;
+  }
+
+  .helpCard a {
+    grid-column: 1 / -1;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer nav {
+    flex-wrap: wrap;
+    gap: 17px;
+  }
+}
+
+/* =========================
+   CHANGE PASSWORD FORM
+========================= */
+
+.passwordForm {
+  padding: 22px;
+  margin-top: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  background: rgba(91, 22, 151, 0.12);
+  border: 1px solid rgba(174, 71, 244, 0.45);
+  border-radius: 12px;
+}
+
+.passwordForm h3 {
+  grid-column: 1 / -1;
+
+  margin: 0 0 4px;
+
+  color: #f5eaff;
+  font-size: 15px;
+}
+
+.passwordForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.passwordForm label span {
+  color: #e8e0f0;
+  font-size: 12px;
+}
+
+.passwordForm input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+
+  color: #ffffff;
+  background: #100a25;
+  border: 1px solid rgba(163, 67, 237, 0.67);
+  border-radius: 8px;
+
+  font-family: inherit;
+  outline: none;
+}
+
+.passwordForm button {
+  grid-column: 1 / -1;
+
+  width: 190px;
+  height: 42px;
+  margin-top: 4px;
+
+  color: #ffffff;
+  background: linear-gradient(105deg, #6313d7, #b536df);
+  border: 0;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}

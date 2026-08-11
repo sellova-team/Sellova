@@ -113,7 +113,7 @@ export default function AvatarPhotoPage() {
           <p className={styles.menuTitle}>{t.sidebar.account}</p>
 
           <Link
-            href="/upgrade-plan"
+          href="/ads/upgrade-plan"
             className={styles.menuItem}
           >
             <span>♕</span>
@@ -121,7 +121,7 @@ export default function AvatarPhotoPage() {
           </Link>
 
           <Link
-            href="/upgrade-plan"
+            href="/ads/upgrade-plan"
             className={styles.menuItem}
           >
             <span>＋</span>
@@ -145,7 +145,7 @@ export default function AvatarPhotoPage() {
 
           <p>{t.plan.description}</p>
 
-          <Link href="/upgrade-plan">
+          <Link href="/ads/upgrade-plan">
             {t.plan.upgrade} →
           </Link>
         </div>
@@ -183,7 +183,7 @@ export default function AvatarPhotoPage() {
             </div>
 
             <Link
-              href="/upgrade-plan"
+              href="/ads/upgrade-plan"
               className={styles.addCredits}
             >
               ＋ {t.header.addCredits}

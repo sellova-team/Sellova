@@ -475,7 +475,7 @@ pricing: {
     title: "Golden Plan",
     badge: "PREMIUM",
     desc: "Unlock premium AI tools and features to create professional ads with ease.",
-    button: "👑 Upgrade to Golden Plan →",
+    button: "👑  Golden Plan →",
   },
 
   bottom: {
@@ -1939,33 +1939,385 @@ MusicAds: {
 },
 
 // ---GoldenPlan ---
-goldenPlan: {
-  title: "Golden Plan",
-  subtitle: "Cinematic AI Commercial + Brand Music Video",
+GoldenPlan: {
+  sidebar: {
+    dashboard: "Dashboard",
+    generateImage: "Generate Image",
+    generateVideo: "Generate Video",
+    createAvatar: "Create Avatar",
+    avatarVideo: "Avatar Video",
+    goldenPlan: "Golden Plan",
+    newBadge: "NEW",
+    captionsHashtags: "Captions & Hashtags",
+    brandOverlay: "Brand Overlay",
+    promoSlides: "Promo Slides",
+    analytics: "ANALYTICS",
+    advisoryAnalysis: "Advisory & Analysis",
+    academyInsight: "Academy Insight",
+    account: "ACCOUNT",
+    creditsPlan: "Credits & Plan",
+    transactions: "Transactions",
+    settings: "Settings",
+  },
 
-  uploadProduct: "Upload Product Image",
-  productName: "Product Name",
+  sidebarPlan: {
+    title: "Unlock The Power",
+    subtitle: "Of Golden Plan",
+    description:
+      "Create premium ads that convert and build your brand.",
+    button: "Upgrade Plan",
+    userName: "Shabnam Moghaddam",
+    userPlan: "Golden Plan",
+  },
 
-  uploadLogo: "Upload Logo",
-  brandName: "Brand Name",
+  header: {
+    label: "GOLDEN PLAN",
+    title: "Cinematic AI Commercial Generator",
+    subtitle:
+      "The ultimate AI advertising experience for premium brands.",
+    credits: "2,540 Credits",
+    addCredits: "Add Credits",
+  },
 
-  musicLanguage: "Music Language",
-  musicPackage: "Music Package",
+  defaults: {
+    brandName: "Sellova",
+    productName: "Luxury Perfume",
+    slogan: "Elegance Beyond Time",
+  },
 
-  outputSize: "Output Size",
+  form: {
+    productImage: "Product Image",
+    uploadProduct: "Upload Product Image",
+    productFormats: "JPG, PNG, WEBP up to 10MB",
 
-  specialInstructions: "Special Instructions",
+    brandLogo: "Brand Logo",
+    uploadLogo: "Upload Brand Logo",
+    logoFormats: "PNG, SVG up to 5MB",
 
-  generatedVideo: "Generated Video",
+    brandName: "Brand Name",
+    productName: "Product Name",
+    advertisingSlogan: "Advertising Slogan",
+    musicLanguage: "Music Language",
+    singerVoice: "Singer Voice",
+    musicStyle: "Music Style",
+    cinematicEffect: "Cinematic Effect",
+    platform: "Platform",
 
-  preview: "Video Preview",
+    female: "Female",
+    male: "Male",
 
-  generateButton: "Generate Golden Video",
+    generateButton: "Generate Golden Ad",
+  },
 
-  package1: "1 Music Video - 300 Credits",
-  package2: "2 Music Videos - 600 Credits",
+  languages: {
+    english: "English",
+    persian: "Persian",
+    turkish: "Turkish",
+    kurdish: "Kurdish",
+    arabic: "Arabic",
+    spanish: "Spanish",
+    german: "German",
+    kazakh: "Kazakh",
+    turkmen: "Turkmen",
+    urdu: "Urdu",
+    armenian: "Armenian",
+    tajik: "Tajik",
+  },
+
+  musicStyles: {
+    luxury: "Luxury",
+    cinematic: "Cinematic",
+    elegant: "Elegant",
+    modern: "Modern",
+    dramatic: "Dramatic",
+    electronic: "Electronic",
+
+    indiePop: "Indie Pop",
+    dancePop: "Dance Pop",
+    synthPop: "Synth Pop",
+    electroPop: "Electro Pop",
+
+    indieRock: "Indie Rock",
+    softRock: "Soft Rock",
+    alternativeRock: "Alternative Rock",
+    popRock: "Pop Rock",
+
+    trap: "Trap",
+    cinematicTrap: "Cinematic Trap",
+    afrobeat: "Afrobeat",
+    reggae: "Reggae",
+    latin: "Latin",
+    flamenco: "Flamenco",
+    salsa: "Salsa",
+    disco: "Disco",
+    funk: "Funk",
+    soul: "Soul",
+    blues: "Blues",
+    gospel: "Gospel",
+
+    house: "House",
+    deepHouse: "Deep House",
+    progressiveHouse: "Progressive House",
+    techno: "Techno",
+    edm: "EDM",
+    dubstep: "Dubstep",
+    drumAndBass: "Drum & Bass",
+
+    chillout: "Chillout",
+    dreamy: "Dreamy",
+    meditation: "Meditation",
+    natureInspired: "Nature Inspired",
+
+    piano: "Piano",
+    violin: "Violin",
+    guitar: "Guitar",
+    cinematicPiano: "Cinematic Piano",
+    cinematicOrchestra: "Cinematic Orchestra",
+
+    epicTrailer: "Epic Trailer",
+    suspense: "Suspense",
+    mystery: "Mystery",
+    action: "Action",
+    adventure: "Adventure",
+    happy: "Happy",
+    energetic: "Energetic",
+    motivational: "Motivational",
+    powerful: "Powerful",
+    softEmotional: "Soft Emotional",
+    wedding: "Wedding",
+
+    beautyCommercial: "Beauty Commercial",
+    fashionRunway: "Fashion Runway",
+    technology: "Technology",
+    automotive: "Automotive",
+    foodCommercial: "Food Commercial",
+    kidsFamily: "Kids & Family",
+
+    persianPop: "Persian Pop",
+    persianTraditional: "Persian Traditional",
+    turkishPop: "Turkish Pop",
+    turkishTraditional: "Turkish Traditional",
+    arabicPop: "Arabic Pop",
+    arabicTraditional: "Arabic Traditional",
+    kurdishMusic: "Kurdish Music",
+    armenianMusic: "Armenian Music",
+    kazakhMusic: "Kazakh Music",
+    turkmenMusic: "Turkmen Music",
+    tajikMusic: "Tajik Music",
+    urduPop: "Urdu Pop",
+  },
+
+  cinematicEffects: {
+    iceReveal: "❄ Ice Reveal",
+    rainLightning: "⚡ Rain & Lightning",
+    fireExplosion: "🔥 Fire Explosion",
+    sandstorm: "◌ Sandstorm",
+    underwater: "≋ Underwater",
+    luxuryStudio: "✦ Luxury Studio",
+
+    heavySnowfall: "❄ Heavy Snowfall",
+    frozenGlass: "◈ Frozen Glass",
+    iceExplosion: "❄ Ice Explosion",
+
+    waterSplash: "💧 Water Splash",
+    oceanWaves: "≋ Ocean Waves",
+    waterfallReveal: "💧 Waterfall Reveal",
+
+    smokeReveal: "◌ Smoke Reveal",
+    coloredSmoke: "◉ Colored Smoke",
+    fogMist: "≋ Fog & Mist",
+
+    fireReveal: "🔥 Fire Reveal",
+    burningBackground: "🔥 Burning Background",
+    lavaFlow: "◉ Lava Flow",
+
+    electricEnergy: "⚡ Electric Energy",
+    neonLightning: "⚡ Neon Lightning",
+    energyExplosion: "✦ Energy Explosion",
+
+    goldenParticles: "✦ Golden Particles",
+    diamondSparkle: "◇ Diamond Sparkle",
+    glitterReveal: "✧ Glitter Reveal",
+    goldDust: "✦ Gold Dust",
+    luxuryGold: "♕ Luxury Gold",
+
+    blackGoldStudio: "♕ Black & Gold Studio",
+    luxuryMarbleStudio: "◇ Luxury Marble Studio",
+    mirrorStudio: "◫ Mirror Studio",
+    spotlightReveal: "◉ Spotlight Reveal",
+    runwayLights: "✦ Runway Lights",
+    cameraFlash: "✧ Camera Flash",
+
+    laserShow: "⚡ Laser Show",
+    neonCity: "◈ Neon City",
+    cyberpunk: "◉ Cyberpunk",
+    hologramReveal: "◇ Hologram Reveal",
+
+    spaceGalaxy: "✦ Space Galaxy",
+    starfield: "✧ Starfield",
+    cosmicExplosion: "✦ Cosmic Explosion",
+
+    flowerBloom: "✿ Flower Bloom",
+    fallingRosePetals: "✿ Falling Rose Petals",
+    autumnLeaves: "🍂 Autumn Leaves",
+    magicalForest: "✦ Magical Forest",
+
+    desertReveal: "◌ Desert Reveal",
+    sandExplosion: "◌ Sand Explosion",
+
+    productRotation: "↻ Product Rotation",
+    cinematicSlowMotion: "◷ Cinematic Slow Motion",
+    cinematicZoom: "◎ Cinematic Zoom",
+    glassBreak: "◇ Glass Break",
+
+    silkFabricReveal: "≋ Silk Fabric Reveal",
+    luxuryCurtainReveal: "◫ Luxury Curtain Reveal",
+    inkTransition: "◉ Ink Transition",
+    paintSplash: "◉ Paint Splash",
+
+    minimalShadowStudio: "◐ Minimal Shadow Studio",
+    cleanWhiteStudio: "◯ Clean White Studio",
+    darkCinematicStudio: "● Dark Cinematic Studio",
+  },
+
+  platforms: {
+    instagramPost: "Instagram Post (1:1)",
+    instagramReels: "Instagram Reels (9:16)",
+    instagramStory: "Instagram Story (9:16)",
+    instagramLandscape: "Instagram Landscape (16:9)",
+
+    tiktokVideo: "TikTok Video (9:16)",
+
+    facebookPost: "Facebook Post (1:1)",
+    facebookReels: "Facebook Reels (9:16)",
+    facebookStory: "Facebook Story (9:16)",
+    facebookVideo: "Facebook Video (16:9)",
+
+    youtubeVideo: "YouTube Video (16:9)",
+    youtubeShorts: "YouTube Shorts (9:16)",
+    youtubeSquare: "YouTube Square Ad (1:1)",
+
+    snapchatStory: "Snapchat Story (9:16)",
+    snapchatAd: "Snapchat Ad (9:16)",
+
+    pinterestPin: "Pinterest Pin (2:3)",
+    pinterestVideo: "Pinterest Video (9:16)",
+
+    linkedinPost: "LinkedIn Post (1:1)",
+    linkedinVideo: "LinkedIn Video (16:9)",
+
+    xPost: "X Post (1:1)",
+    xVideo: "X Video (16:9)",
+
+    amazonProduct: "Amazon Product Video (16:9)",
+    amazonSquare: "Amazon Square Ad (1:1)",
+
+    shopifyProduct: "Shopify Product Video (1:1)",
+    websiteBanner: "Website Banner Video (16:9)",
+
+    verticalAd: "Vertical Mobile Ad (9:16)",
+    squareAd: "Square Social Ad (1:1)",
+    landscapeAd: "Landscape Commercial (16:9)",
+  },
+
+  preview: {
+    imageAlt: "Golden perfume commercial",
+    playLabel: "Play commercial",
+    startTime: "00:00",
+    endTime: "00:15",
+
+    aiAvatar: "AI Avatar",
+    brandMusic: "Brand Music",
+    logoAnimation: "Logo Animation",
+    cinematicEffects: "Cinematic Effects",
+    included: "Included",
+  },
+
+  commercialInfo: {
+    title: "AI Commercial Video Generator",
+
+    description:
+      "Golden Plan is our premium AI advertising service that produces cinematic 15-second commercials with AI avatars, custom brand music, logo animation and your brand slogan.",
+
+    premiumQuality: "Premium Quality",
+    cinematicStorytelling: "Cinematic Storytelling",
+    brandFocused: "Brand Focused",
+    highConversions: "High Conversions",
+  },
+
+  howItWorks: {
+    title: "How It Works",
+    step1: "Upload product image and brand logo",
+    step2: "Enter brand details and slogan",
+    step3: "Choose music language and style",
+    step4: "Select cinematic effect and platform",
+    step5: "Generate your cinematic commercial",
+  },
+
+  whatYouGet: {
+    title: "What You Get",
+    item1: "15 Second AI Commercial",
+    item2: "AI Avatar & Product Showcase",
+    item3: "Brand Music (By Your Brand Name)",
+    item4: "Logo Animation (Intro & Outro)",
+    item5: "Your Slogan On The Video",
+    item6: "Cinematic Transitions & Effects",
+    item7: "Ready For Social Media",
+  },
+
+  faq: {
+    title: "Frequently Asked Questions",
+
+    question1: "What is Golden Plan?",
+    answer1:
+      "Golden Plan creates complete cinematic AI commercials for your brand.",
+
+    question2: "Is custom music included?",
+    answer2:
+      "Yes, custom brand music is included.",
+
+    question3: "Can I upload my own logo?",
+    answer3:
+      "Yes, you can upload your own brand logo.",
+
+    question4: "Which languages are supported?",
+    answer4:
+      "English, Persian, Turkish, Kurdish, Arabic, Spanish, German, Kazakh, Turkmen, Urdu, Armenian and Tajik are supported.",
+
+    question5: "What platforms are supported?",
+    answer5:
+      "Instagram, TikTok, Facebook, YouTube, Snapchat, Pinterest, LinkedIn, X, Amazon, Shopify and website advertisements are supported.",
+  },
+
+  bottomBanner: {
+    title:
+      "The Most Premium AI Commercial Experience",
+
+    description:
+      "Stand out. Inspire trust. Grow your brand with cinematic perfection.",
+
+    credits: "Credits",
+    getStarted: "Get Started Now",
+  },
+
+  footer: {
+    copyright:
+      "© 2026 Sellova. All rights reserved.",
+
+    terms: "Terms of Service",
+    privacy: "Privacy Policy",
+    refund: "Refund Policy",
+    contact: "Contact Us",
+  },
+
+  mediaAlt: {
+    uploadedProduct: "Uploaded product",
+    uploadedBrandLogo: "Uploaded brand logo",
+    clapperboard:
+      "Golden cinematic clapperboard",
+    avatar: "AI commercial avatar",
+  },
 },
-
 
   // --- Hashtags & Captions ---
   hashtags: {
@@ -1992,104 +2344,576 @@ goldenPlan: {
   },
 
   // --- Advisory & Analysis ---
-  advisory: {
-    title: "Advisory & analysis",
+  AdvisoryAnalysis: {
+  sidebar: {
+    dashboard: "Dashboard",
+    aiImage: "AI Image",
+    aiVideo: "AI Video",
+    aiAvatar: "AI Avatar",
+    aiMusic: "AI Music",
+    aiCaption: "AI Caption",
+    promoSlides: "Promo Slides",
+    analytics: "ANALYTICS",
+    advisoryAnalysis: "Advisory & Analysis",
+    academyInsight: "Academy Insight",
+    account: "ACCOUNT",
+    goldenPlan: "Golden Plan",
+    upgradePlan: "Upgrade Plan",
+    settings: "Settings",
+  },
 
-    setupTitle: "Setup",
-    businessFieldLabel: "Business name / field",
-    businessFieldPlaceholder: "e.g., Jewelry boutique, Handmade gifts…",
-    pageUrlLabel: "Page URL / Username",
-    pageUrlPlaceholder: "https://instagram.com/yourpage — or @yourhandle",
-    platformLabel: "Platform",
-    analyzeButton: "Analyze Page",
-    analyzingButton: "Analyzing…",
+  upgrade: {
+    title: "Upgrade",
+    description:
+      "Unlock all features and get personalized growth plans.",
+    button: "Upgrade",
+  },
 
-    setupHint:
-      "• Results here are simple demo logic on the client. Later you can plug a real backend (Scraper/API) for live data.",
+  user: {
+    name: "Shabnam M.",
+    plan: "Golden Plan",
+  },
 
-    resultsTitle: "Results",
-    competitorsCardTitle: "Top 7 competitors",
-    competitorsEmpty:
-      "Fill the form and click “Analyze Page” to see competitors.",
-    activityCardTitle: "Competitor activity & differentiators",
-    auditCardTitle: "Your page audit",
+  header: {
+    searchPlaceholder: "Search anything...",
+    credits: "2,450 Credits",
+    goldenPlan: "Golden Plan",
+  },
 
-    strengthsTitle: "Strengths",
-    weaknessesTitle: "Weaknesses",
-    recommendationsTitle: "Recommendations",
+  hero: {
+    titleFirst: "Instagram Analysis &",
+    titleHighlight: "Advisory",
+    description:
+      "Enter your Instagram page and niche. Sellova will analyze it, find top competitors and give you a complete growth plan.",
+    usernameLabel: "Instagram Username",
+    usernamePlaceholder: "@yourpage",
+    categoryLabel: "Business Category / Niche",
+    analyzeButton: "Analyze My Page",
+    analyzingButton: "Analyzing...",
+    analysisTime: "Analysis usually takes 30–60 seconds.",
+  },
 
-    emptyPlaceholder: "—",
+  businessCategories: [
+    { key: "women-fashion", label: "Women's Fashion" },
+    { key: "beauty", label: "Beauty & Cosmetics" },
+    { key: "jewelry", label: "Jewelry & Accessories" },
+    { key: "home", label: "Home & Living" },
+    { key: "food", label: "Food & Beverage" },
+    { key: "kids", label: "Kids Products" },
+    { key: "fitness", label: "Fitness & Wellness" },
+    { key: "technology", label: "Technology" },
+  ],
 
-    tableNameHandle: "Name / Handle",
-    tableFollowers: "Followers",
-    tablePostsPerWeek: "Posts/W",
-    tableStoriesPerDay: "Stories/D",
-    tableAvgEng: "Avg Eng.",
-    tableTopTags: "Top Tags",
+  tabs: [
+    { key: "overview", label: "Overview" },
+    { key: "competitors", label: "Competitors" },
+    { key: "best-times", label: "Best Times" },
+    { key: "recommendations", label: "Recommendations" },
+    { key: "content-ideas", label: "Content Ideas" },
+  ],
 
-    compSummary: [
-      "Common post frequency is 3–5 posts/week; stories 2–4/day for top pages.",
-      "Best-performing content: clean product closeups + 1 benefit caption + CTA.",
-      "Top tags mix: 2–3 trending + 5–7 niche + 1 brand hashtag.",
-      "Most engagement around 7–10 PM local time (Mon, Wed, Sat).",
+  pageAnalysis: {
+    title: "Your Page Analysis",
+    subtitle: "A quick overview of your page performance.",
+    period: "Last 30 Days",
+    comparison: "vs last 30 days",
+  },
+
+  metrics: [
+    {
+      key: "followers",
+      label: "Followers",
+      value: "24.8K",
+      change: "↑ 12.5%",
+    },
+    {
+      key: "engagementRate",
+      label: "Engagement Rate",
+      value: "2.34%",
+      change: "↓ 8.7%",
+    },
+    {
+      key: "averageLikes",
+      label: "Avg. Likes",
+      value: "578",
+      change: "↑ 5.3%",
+    },
+    {
+      key: "averageComments",
+      label: "Avg. Comments",
+      value: "46",
+      change: "↓ 3.2%",
+    },
+    {
+      key: "postsPerMonth",
+      label: "Posts / Month",
+      value: "18",
+      change: "↑ 2",
+    },
+  ],
+
+  insightCards: {
+    strengths: {
+      title: "Strengths",
+      items: [
+        "Strong visual identity and aesthetics",
+        "Good use of Reels and trending audio",
+        "High quality product photos",
+        "Consistent posting frequency",
+        "Good engagement with audience",
+      ],
+    },
+
+    improve: {
+      title: "Areas to Improve",
+      items: [
+        "Low save rate on posts",
+        "Captions could be more engaging",
+        "Not enough Story interactions",
+        "Limited use of CTA (Call to Action)",
+        "Posting time is not optimized",
+      ],
+    },
+
+    opportunities: {
+      title: "Opportunities",
+      items: [
+        "Add more UGC (user generated content)",
+        "Collaborate with micro-influencers",
+        "Create more how-to & styling content",
+        "Use Stories Highlights strategically",
+        "Launch giveaways to boost reach",
+      ],
+    },
+  },
+
+  bestTimes: {
+    title: "Best Times to Post",
+    subtitle: "Based on your audience activity",
+    bestDays: "Best Days",
+    bestTimeSlots: "Best Time Slots",
+    days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    times: [
+      "12 AM",
+      "3 AM",
+      "6 AM",
+      "9 AM",
+      "12 PM",
+      "3 PM",
+      "6 PM",
+      "9 PM",
     ],
-    auditStrengths: ["Clear niche targeting potential."],
-    auditWeaknesses: ["Posting cadence unclear or inconsistent."],
-    auditActions: [
-      "Set a fixed schedule: 4 posts/week + daily stories (Mon–Thu + Sat).",
-      "Adopt a repeatable shoot preset for consistent look (background/light).",
-      "Caption recipe: Hook → benefit → CTA.",
-      "Keep a hashtag bank (20–30) and rotate.",
+    selectedDays: ["Tue", "Wed", "Thu", "Sun"],
+    slots: [
+      "7:00 PM – 9:00 PM",
+      "12:00 PM – 2:00 PM",
+      "6:00 AM – 8:00 AM",
+    ],
+    tip: "Tip: Post 15–30 minutes before the peak time for maximum reach.",
+  },
+
+  recommendations: {
+    title: "Recommendations",
+    items: [
+      {
+        key: "reels",
+        title: "Create 3–5 Reels per week",
+        text: "Reels get 2.3x more reach than static posts.",
+      },
+      {
+        key: "captions",
+        title: "Write engaging captions",
+        text: "Ask questions and encourage comments.",
+      },
+      {
+        key: "cta",
+        title: "Use strong CTAs",
+        text: "Add clear CTA to drive saves and shares.",
+      },
+      {
+        key: "consistency",
+        title: "Post consistently",
+        text: "Aim for 4–6 posts and daily Stories.",
+      },
+      {
+        key: "weeklyAnalysis",
+        title: "Track & analyze weekly",
+        text: "Review insights and optimize your strategy.",
+      },
     ],
   },
 
-  // --- Brand overlay ---
-  brandOverlay: {
-    title: "Add Brand Overlay",
-    productUploadLabel: "Upload Product Image",
-    logoUploadLabel: "Upload Your Brand Logo",
-    positionLabel: "Position",
-    sizeLabel: "Size (%)",
-    opacityLabel: "Opacity (%)",
-    paddingLabel: "Padding (px)",
-    downloadButton: "Download Result",
-
-    positionTopLeft: "Top Left",
-    positionTopRight: "Top Right",
-    positionBottomLeft: "Bottom Left",
-    positionBottomRight: "Bottom Right",
-    positionCenter: "Center",
-
-    productAlt: "Product",
-    logoAlt: "Logo",
+  competitors: {
+    title: "Top Competitors",
+    subtitle: "Based on your niche",
+    viewAll: "View All",
+    benchmarkButton: "View Competitor Benchmark",
+    list: [
+      {
+        key: "chicstyle",
+        name: "@chicstyle.official",
+        followers: "82.4K",
+        rate: "3.21%",
+      },
+      {
+        key: "stylebyluna",
+        name: "@stylebyluna",
+        followers: "67.8K",
+        rate: "2.91%",
+      },
+      {
+        key: "fashionEdit",
+        name: "@the.fashion.edit",
+        followers: "51.6K",
+        rate: "2.71%",
+      },
+      {
+        key: "ootdBoutique",
+        name: "@ootd.boutique",
+        followers: "44.2K",
+        rate: "2.45%",
+      },
+      {
+        key: "fashionInspo",
+        name: "@fashion.inspo.daily",
+        followers: "38.7K",
+        rate: "2.31%",
+      },
+      {
+        key: "trendyWomenwear",
+        name: "@trendy.womenwear",
+        followers: "33.5K",
+        rate: "2.12%",
+      },
+    ],
   },
 
+  contentIdeas: {
+    title: "Content Ideas for You",
+    calendarButton: "View Content Calendar",
+    items: [
+      { key: "styleDress", title: "5 Ways to Style This Dress", type: "Reel" },
+      {
+        key: "behindScenes",
+        title: "New Collection Behind the Scenes",
+        type: "Story",
+      },
+      {
+        key: "reviews",
+        title: "Customer Reviews & Feedback",
+        type: "Post",
+      },
+      {
+        key: "springOutfit",
+        title: "Outfit Inspiration for Spring",
+        type: "Reel",
+      },
+      {
+        key: "giveaway",
+        title: "Giveaway: Win a Free Outfit",
+        type: "Post",
+      },
+    ],
+  },
 
-// --- Promo slides ---
-promo: {
-  title: "Promo slides — brand-aware & multi-product",
-  projectInputs: "Project inputs",
-  uploadProduct: "Upload product image",
-  uploadLogo: "Upload brand logo (optional)",
-  productTypeLabel: "Product type",
-  productTypePlaceholder: "Perfume, Sofa, T-shirt…",
-  priceLabel: "Price",
-  pricePlaceholder: "$199 / 8,900,000 T",
-  specsLabel: "Key specs (comma separated)",
-  specsPlaceholder: "Long-lasting, Elegant design, Gift-ready",
-  platformLabel: "Platform",
-  notesLabel: "Notes (anything special?)",
-  notesPlaceholder: "Any special request to apply later by AI…",
-  creditsLabel: "Credits",
-  creditsText: "(Amazon removed). UI only — AI pipeline will be wired later.",
-  generateButton: "Generate",
-  downloadButton: "Download PNG",
-  prevButton: "◀ Prev",
-  nextButton: "Next ▶",
-  slideLabel: "Slide",
-  otherOption: "Other",
+  footer: {
+    copyright: "© 2026 Sellova",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
+    support: "Contact Support",
+  },
+
+  accessibility: {
+    sellovaLogo: "Sellova",
+    heroImage: "Instagram analysis dashboard",
+    notifications: "Notifications",
+    theme: "Theme",
+    openRecommendation: "Open recommendation",
+  },
 },
 
+  // --- Brand overlay ---
+  BrandOverlay: {
+  sidebar: {
+    dashboard: "Dashboard",
+    generateImage: "Generate Image",
+    generateVideo: "Generate Video",
+    createAvatar: "Create Avatar",
+    avatarVideo: "Avatar Video",
+    captionsHashtags: "Captions & Hashtags",
+    brandOverlay: "Brand Overlay",
+    promoSlides: "Promo Slides",
+
+    analytics: "ANALYTICS",
+    advisoryAnalysis: "Advisory & Analysis",
+    academyInsight: "Academy Insight",
+
+    account: "ACCOUNT",
+    creditsPlan: "Credits & Plan",
+    transactions: "Transactions",
+    settings: "Settings",
+  },
+
+  upgrade: {
+    title: "Upgrade Your Plan",
+    description:
+      "Unlock more credits and premium AI features.",
+    button: "Upgrade Plan",
+    userName: "Shabnam Moghaddam",
+    userPlan: "Golden Plan",
+  },
+
+  header: {
+    title: "Brand Overlay Studio",
+    subtitle:
+      "Add your logo to any design in seconds.",
+    credits: "2,540 Credits",
+    addCredits: "Add Credits",
+  },
+
+  uploadDesign: {
+    title: "Upload Designed Image",
+    button: "Upload Image",
+    formats: "JPG, PNG, WEBP up to 10MB",
+  },
+
+  uploadLogo: {
+    title: "Upload Brand Logo",
+    button: "Upload Logo",
+    formats: "PNG, SVG up to 5MB",
+  },
+
+  position: {
+    title: "Logo Position",
+
+    topLeft: "Top Left",
+    topCenter: "Top Center",
+    topRight: "Top Right",
+
+    centerLeft: "Center Left",
+    center: "Center",
+    centerRight: "Center Right",
+
+    bottomLeft: "Bottom Left",
+    bottomCenter: "Bottom Center",
+    bottomRight: "Bottom Right",
+  },
+
+  size: {
+    title: "Logo Size",
+    small: "Small",
+    medium: "Medium",
+    large: "Large",
+  },
+
+  controls: {
+    opacity: "Opacity",
+    safeMargin: "Safe Margin",
+
+    applyButton: "Apply Brand Overlay",
+    creditNotice: "5 Credits will be used",
+  },
+
+  preview: {
+    title: "Live Preview",
+
+    reset: "Reset",
+    compare: "Compare",
+    download: "Download PNG",
+
+    originalDesign: "Original Design",
+
+    position: "Position",
+    size: "Size",
+    opacity: "Opacity",
+    output: "Output",
+    resolution: "1920 × 1080",
+  },
+
+  information: {
+    whyTitle: "Why Use Brand Overlay",
+
+    whyDescription:
+      "Keep your brand consistent across every campaign. Add your logo anywhere on your designs with the perfect size, opacity and placement in seconds.",
+
+    formatsTitle: "Supported Formats",
+
+    designFormat:
+      "Designed Image: JPG, PNG, WEBP up to 10MB",
+
+    logoFormat:
+      "Brand Logo: PNG, SVG up to 5MB",
+
+    outputFormat:
+      "Output: PNG (1920 × 1080)",
+
+    transparentLogo:
+      "High-quality transparent logos supported.",
+
+    protectionTitle: "Brand Protection",
+
+    protectionDescription:
+      "Your logos and designs are never stored permanently. All uploads are encrypted and automatically deleted after processing to keep your brand secure.",
+  },
+
+  mediaAlt: {
+    sellovaLogo: "Sellova",
+
+    uploadedDesign:
+      "Uploaded designed advertisement",
+
+    uploadedBrandLogo:
+      "Uploaded brand logo",
+
+    livePreview:
+      "Brand overlay live preview",
+
+    overlayLogo:
+      "Brand logo overlay",
+  },
+},
+
+// --- Promo slides ---
+  PromoSlides: {
+  sidebar: {
+    dashboard: "Dashboard",
+    generateImage: "Generate Image",
+    generateVideo: "Generate Video",
+    createAvatar: "Create Avatar",
+    captionsHashtags: "Captions & Hashtags",
+    brandOverlay: "Brand Overlay",
+    promoSlides: "Promo Slides",
+    analytics: "ANALYTICS",
+    advisoryAnalysis: "Advisory & Analysis",
+    academyInsight: "Academy Insight",
+    goldenPlan: "Golden Plan",
+    upgradePlan: "Upgrade Plan",
+    settings: "Settings",
+  },
+
+  header: {
+    title: "AI Promo Slides",
+    subtitle: "Turn one product into three powerful story ads.",
+    credits: "2,540 Credits",
+    addCredits: "Add Credits",
+  },
+
+  upload: {
+    title: "Upload Product Image",
+    imageAlt: "Uploaded product",
+    dragDrop: "Drag & drop image here",
+    browse: "or click to browse",
+    formats: "JPG, PNG up to 10MB",
+  },
+
+  brand: {
+    title: "Brand Information",
+    brandName: "Brand Name",
+    brandSlogan: "Brand Slogan",
+    productName: "Product Name",
+
+    defaultBrandName: "NESTORA",
+    defaultBrandSlogan: "Designed for Real Living",
+    defaultProductName: "Luna Curve Sofa",
+  },
+
+  product: {
+    title: "Product Details",
+    price: "Price",
+    description: "Description",
+    keyFeatures: "Key Features",
+
+    defaultPrice: "$1,490",
+    defaultDescription: "Soft comfort, sculpted form",
+    defaultFeatures: "Premium Bouclé • Deep Comfort • Handcrafted",
+  },
+
+  platform: {
+    title: "Platform",
+    instagramStory: "Instagram Story (9:16)",
+    instagramPost: "Instagram Post (1:1)",
+    facebookStory: "Facebook Story (9:16)",
+    tiktok: "TikTok (9:16)",
+  },
+
+  style: {
+    title: "Style",
+    creativeMix: "Creative Mix",
+    luxury: "Luxury",
+    darkLuxury: "Dark Luxury",
+    minimal: "Minimal",
+    modern: "Modern",
+    elegant: "Elegant",
+    cinematic: "Cinematic",
+    editorial: "Editorial",
+    boldAdvertising: "Bold Advertising",
+    cleanProduct: "Clean Product",
+    warmLifestyle: "Warm Lifestyle",
+    fashion: "Fashion",
+    beauty: "Beauty",
+    colorful: "Colorful",
+    seasonalCampaign: "Seasonal Campaign",
+  },
+
+  generate: {
+    button: "Generate 3 Promo Slides",
+    credits: "24 Credits",
+    result: "3 High-quality slides",
+  },
+
+  preview: {
+    title: "Generated Promo Slides",
+    downloadAll: "Download All",
+    edit: "Edit",
+    download: "Download",
+    selectSlide: "Select slide",
+
+    brandStory: "Brand Story",
+    productDetails: "Product Details",
+    promoSlogan: "Promo Slogan",
+
+    instagramStory: "Instagram Story",
+    resolution: "1080 × 1920",
+    slidesCount: "3 Slides",
+    creativeMix: "Creative Mix",
+    credits: "15 Credits",
+  },
+
+  whyPromo: {
+    title: "Why Promo Slides?",
+    item1: "Turn one product into three engaging story ads",
+    item2: "Save time with AI-powered design",
+    item3: "Boost engagement and conversions",
+    item4: "Perfect for social media marketing",
+  },
+
+  perfectFor: {
+    title: "Perfect For",
+    item1: "E-commerce Brands",
+    item2: "Influencers & Creators",
+    item3: "D2C Businesses",
+    item4: "Product Launch Campaigns",
+  },
+
+  howItWorks: {
+    title: "How It Works",
+    item1: "Upload your product image",
+    item2: "Add brand & product information",
+    item3: "Click generate",
+    item4: "Download & post your slides",
+  },
+
+  faq: {
+    title: "Frequently Asked Questions",
+    question1: "Can I edit the slides?",
+    answer1: "Yes, click Edit under any slide.",
+    question2: "Can I change the style?",
+    answer2: "Yes, choose a style before generating.",
+    questionLabel: "Q:",
+    answerLabel: "A:",
+  },
+},
+  
 // --- Sellova guide ---
 sellovaGuide: {
   slides: [
@@ -2156,13 +2980,555 @@ sellovaGuide: {
   ],
 },
 
-//--- Academy insight ---
-  academyInsight: {
-    title: "Sellova Academy — Insight",
-    quickTipsTitle: "Quick Tips",
-    meta: "This page is educational and uses no credits.",
-    locale: "en",
+//--- AccountSettings ---
+AccountSettings: {
+  header: {
+    backToWorkspace: "Back to workspace",
+    title: "SETTINGS",
   },
+
+  account: {
+    title: "Your account",
+    subtitle: "Keep your details up to date.",
+
+    fullName: "Full name",
+    emailAddress: "Email address",
+    brandName: "Brand name",
+    brandSlogan: "Brand slogan",
+    language: "Language",
+    theme: "Theme",
+
+    english: "English",
+    persian: "Persian",
+    turkish: "Turkish",
+    french: "French",
+
+    darkMode: "Dark mode",
+    lightMode: "Light mode",
+  },
+
+  plan: {
+    currentPlan: "Current plan",
+    freePlan: "Free Plan",
+    creditsAvailable: "30 credits available",
+    upgradePlan: "Upgrade plan",
+  },
+
+  security: {
+    title: "Password & security",
+    changePassword: "Change password",
+  },
+
+  actions: {
+    saveChanges: "Save changes",
+  },
+
+  support: {
+    title: "Need help?",
+    text: "Questions about your account or Sellova? Send us an email.",
+    contactSupport: "Contact Support",
+  },
+
+  footer: {
+    rights: "© 2026 Sellova. All rights reserved.",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+  },
+},
+
+//--- Academy insight ---
+ AcademyInsight: {
+  sidebar: {
+    dashboard: "Dashboard",
+    generateImage: "Generate Image",
+    generateVideo: "Generate Video",
+    avatars: "Avatars",
+    promoSlides: "Promo Slides",
+    academy: "Academy",
+    brandOverlay: "Brand Overlay",
+    settings: "Settings",
+  },
+
+  upgrade: {
+    title: "Upgrade to",
+    plan: "Pro Plan",
+    moreCredits: "More credits",
+    priorityGeneration: "Priority generation",
+    premiumSupport: "Premium support",
+    advancedTools: "Advanced tools",
+    button: "Upgrade Now",
+  },
+
+  user: {
+    name: "Shabnam Moghaddam",
+    plan: "Pro Plan",
+  },
+
+  header: {
+    credits: "2,450 Credits",
+  },
+
+  hero: {
+    badge: "SELLER INSIGHTS",
+    titleFirst: "Why Some Products Sell",
+    titleSecond: "And Others",
+    titleHighlight: "Don't",
+    description:
+      "Learn proven strategies, visual marketing secrets and psychology tricks that top sellers use to get more attention, clicks and sales.",
+    startLearning: "Start Learning",
+    watchIntro: "Watch Intro",
+  },
+
+  categories: [
+    {
+      key: "buyerPsychology",
+      title: "Buyer Psychology",
+      description:
+        "Understand your buyers and influence their decisions.",
+    },
+    {
+      key: "visualMarketing",
+      title: "Visual Marketing",
+      description:
+        "Create visuals that grab attention and build desire.",
+    },
+    {
+      key: "socialMediaStrategy",
+      title: "Social Media Strategy",
+      description:
+        "Grow your brand and reach the right audience.",
+    },
+    {
+      key: "salesGrowth",
+      title: "Sales Growth",
+      description:
+        "Boost conversions and increase average order value.",
+    },
+  ],
+
+  popularSection: {
+    title: "Popular Insights",
+    subtitle:
+      "Learn what really drives sales and engagement.",
+    viewAll: "View all articles",
+    readArticle: "Read Article",
+    saveArticle: "Save article",
+  },
+
+  popularInsights: [
+    {
+      key: "luxuryDarkColors",
+      category: "Psychology",
+      title: "Why Luxury Brands Use Dark Colors",
+      description:
+        "The hidden psychology behind dark colors in marketing.",
+      time: "6 min read",
+    },
+    {
+      key: "pricingTricks",
+      category: "Pricing",
+      title: "7 Pricing Tricks That Increase Sales",
+      description:
+        "Smart pricing strategies proven to boost your revenue.",
+      time: "7 min read",
+    },
+    {
+      key: "premiumProducts",
+      category: "Visuals",
+      title: "How To Make Products Look Premium",
+      description:
+        "Simple visual techniques that create a premium feel.",
+      time: "8 min read",
+    },
+    {
+      key: "scarcityPsychology",
+      category: "Psychology",
+      title: "The Psychology Of Scarcity",
+      description:
+        "Why limited availability increases product demand.",
+      time: "6 min read",
+    },
+    {
+      key: "ignoredAds",
+      category: "Marketing",
+      title: "Why Customers Ignore Most Ads",
+      description:
+        "The reasons most advertisements fail in the first seconds.",
+      time: "6 min read",
+    },
+  ],
+
+  keyInsightsSection: {
+    title: "Key Insights",
+    subtitle: "Data-backed facts you should know.",
+  },
+
+  keyInsights: [
+    {
+      key: "fastDecisions",
+      value: "73%",
+      description:
+        "of buyers decide in less than 3 seconds.",
+    },
+    {
+      key: "visualAttention",
+      value: "89%",
+      description:
+        "of users stop scrolling because of visuals.",
+    },
+    {
+      key: "emotionalMarketing",
+      value: "3x",
+      description:
+        "higher conversion with emotional ads.",
+    },
+    {
+      key: "valueProposition",
+      value: "47%",
+      description:
+        "increase in sales with clear value proposition.",
+    },
+  ],
+
+  successSection: {
+    title: "Real Seller Success Stories",
+    subtitle:
+      "See how other brands increased their results.",
+    viewAll: "View all case studies",
+    readCaseStudy: "Read Case Study",
+  },
+
+  successStories: [
+    {
+      key: "perfumeBrand",
+      brand: "Perfume Brand",
+      result: "+42%",
+      resultLabel: "Sales Increase",
+      description:
+        "By improving product visuals and emotional storytelling.",
+    },
+    {
+      key: "jewelryStore",
+      brand: "Jewelry Store",
+      result: "+28%",
+      resultLabel: "Engagement",
+      description:
+        "Using new lighting techniques and background strategy.",
+    },
+    {
+      key: "fashionStore",
+      brand: "Fashion Store",
+      result: "+63%",
+      resultLabel: "Click Through Rate",
+      description:
+        "With better ad creatives and audience targeting.",
+    },
+  ],
+
+  newsletter: {
+    title: "Keep Learning. Keep Growing.",
+    descriptionFirst:
+      "New insights and strategies added weekly.",
+    descriptionSecond:
+      "Stay ahead of the competition.",
+    placeholder: "Enter your email",
+    emailLabel: "Email address",
+    button: "Notify Me",
+  },
+
+  modal: {
+    close: "Close",
+    keyPoints: "Key Points",
+    tryThisNow: "Try This Now",
+    backToAcademy: "Back to Academy",
+  },
+
+  details: {
+    buyerPsychology: {
+      badge: "BUYER PSYCHOLOGY",
+      title: "How Customers Make Buying Decisions",
+      intro:
+        "Customers usually buy when they quickly understand the value of a product, trust the seller, and feel that the product solves a real problem.",
+      points: [
+        "Show the customer's problem before introducing the product.",
+        "Explain the benefit instead of listing only technical features.",
+        "Use real customer reviews to reduce fear and uncertainty.",
+        "Keep the offer simple so the customer can decide more easily.",
+        "Use honest urgency, such as a real deadline or limited stock.",
+      ],
+      action:
+        "Choose one product and write three reasons why a customer truly needs it.",
+    },
+
+    visualMarketing: {
+      badge: "VISUAL MARKETING",
+      title: "Create Product Images That Stop Scrolling",
+      intro:
+        "A strong product image should quickly show what the product is, who it is for, and why it is valuable.",
+      points: [
+        "Make the product the main subject of the image.",
+        "Use clean lighting and strong contrast.",
+        "Avoid adding too much text to one image.",
+        "Show the product from different angles and in real use.",
+        "Prepare different image sizes for Feed, Story and Reels.",
+      ],
+      action:
+        "Create one clean product photo and one lifestyle photo, then compare their engagement.",
+    },
+
+    socialMediaStrategy: {
+      badge: "SOCIAL MEDIA",
+      title: "Build a Practical Social Media Strategy",
+      intro:
+        "A good social strategy combines useful content, product demonstrations, customer trust and clear sales offers.",
+      points: [
+        "Create separate content for awareness, trust and sales.",
+        "Use a mixture of short videos, images and carousels.",
+        "Repeat successful ideas with new visuals instead of always starting over.",
+        "Answer customer questions through posts and short videos.",
+        "Review reach, saves, clicks and sales—not only likes.",
+      ],
+      action:
+        "Plan four posts: one educational, one product demo, one customer story and one sales offer.",
+    },
+
+    salesGrowth: {
+      badge: "SALES GROWTH",
+      title: "Increase Sales Without Constant Discounts",
+      intro:
+        "Sales growth comes from improving the offer, product page, trust and buying experience—not only reducing the price.",
+      points: [
+        "Write one clear value proposition for every product.",
+        "Make price, delivery and return information easy to find.",
+        "Use bundles to increase average order value.",
+        "Show complementary products after the customer selects an item.",
+        "Test one change at a time and measure the result.",
+      ],
+      action:
+        "Review your best-selling product and remove one point of confusion from its sales page.",
+    },
+
+    luxuryDarkColors: {
+      badge: "PSYCHOLOGY",
+      title: "Why Luxury Brands Often Use Dark Colors",
+      intro:
+        "Black and deep colors can create a premium and dramatic feeling, but color alone does not make a brand luxurious.",
+      points: [
+        "Dark backgrounds can create strong contrast with gold, silver and bright products.",
+        "Large empty spaces can make a design feel more exclusive.",
+        "Use fewer elements and avoid crowded luxury advertisements.",
+        "Choose high-quality lighting so dark products do not disappear.",
+        "Keep typography elegant, readable and consistent.",
+      ],
+      action:
+        "Create two versions of the same advertisement: one light and one dark, then test which performs better.",
+    },
+
+    pricingTricks: {
+      badge: "PRICING",
+      title: "Smart and Ethical Pricing Techniques",
+      intro:
+        "The way a price is presented can affect how customers understand value. Pricing must always remain clear and honest.",
+      points: [
+        "Use three options: basic, recommended and premium.",
+        "Show the value included in each option.",
+        "Use bundles when the combined offer is genuinely better.",
+        "Display unit price when quantity or package sizes are different.",
+        "Use real discounts only—never create a fake original price.",
+        "Test rounded prices for premium products and ending prices for value products.",
+        "Make extra fees visible before checkout.",
+      ],
+      action:
+        "Create three honest price choices and mark only one as the recommended option.",
+    },
+
+    premiumProducts: {
+      badge: "VISUALS",
+      title: "Make Product Images Look More Premium",
+      intro:
+        "Premium visuals depend on lighting, composition, texture and consistency more than expensive equipment.",
+      points: [
+        "Use one main light and control harsh shadows.",
+        "Clean the product before photography.",
+        "Use a background that matches the brand identity.",
+        "Show important textures and small details clearly.",
+        "Keep colors consistent across all product images.",
+        "Do not use excessive filters that change the real product.",
+      ],
+      action:
+        "Photograph one product near a window with a clean background and compare it with the old image.",
+    },
+
+    scarcityPsychology: {
+      badge: "PSYCHOLOGY",
+      title: "Use Scarcity Without Damaging Trust",
+      intro:
+        "Scarcity can help customers decide when availability is genuinely limited. Fake scarcity can damage long-term trust.",
+      points: [
+        "Show limited stock only when stock is actually limited.",
+        "Use deadlines only for real campaigns.",
+        "Explain why availability is limited.",
+        "Avoid resetting countdown timers after they finish.",
+        "Combine urgency with useful product information.",
+      ],
+      action:
+        "If an offer has a real deadline, clearly explain the date, time and reason.",
+      warning:
+        "Fake countdowns and fake stock messages may increase short-term clicks but reduce customer trust.",
+    },
+
+    ignoredAds: {
+      badge: "MARKETING",
+      title: "Why Customers Scroll Past Advertisements",
+      intro:
+        "Customers ignore ads that feel irrelevant, confusing, repetitive or too slow to explain their value.",
+      points: [
+        "Show the main benefit in the first seconds.",
+        "Use one clear message instead of several competing messages.",
+        "Design the advertisement for the correct platform and screen size.",
+        "Refresh overused creatives before the audience becomes tired of them.",
+        "Match the message to the customer's actual need.",
+        "Use a clear action such as Buy, Learn More or View Product.",
+      ],
+      action:
+        "Look at your advertisement for three seconds. If its main message is unclear, simplify it.",
+    },
+
+    fastDecisions: {
+      badge: "FAST DECISIONS",
+      title: "The First Seconds Matter",
+      intro:
+        "Customers form an initial impression very quickly, so the opening image and message must be understandable immediately.",
+      points: [
+        "Place the product in the most visible area.",
+        "Use a short and specific headline.",
+        "Remove decorative elements that hide the offer.",
+        "Make the call-to-action easy to recognize.",
+        "Test your design on a small mobile screen.",
+      ],
+      action:
+        "Show your advertisement to someone for three seconds and ask what they understood.",
+      warning:
+        "Percentages can vary by industry and audience. Measure the behavior of your own customers.",
+    },
+
+    visualAttention: {
+      badge: "VISUAL ATTENTION",
+      title: "Visuals Can Stop or Lose the Customer",
+      intro:
+        "Strong visuals help customers notice an offer, but relevance and clarity are more important than decoration.",
+      points: [
+        "Use a clear visual hierarchy.",
+        "Keep the product separate from the background.",
+        "Use readable text and sufficient contrast.",
+        "Avoid low-resolution and stretched images.",
+        "Match the visual style to the target customer.",
+      ],
+      action:
+        "Check whether the product and headline remain clear when the image is viewed as a small thumbnail.",
+      warning:
+        "Treat displayed percentages as educational examples unless they are connected to a named study.",
+    },
+
+    emotionalMarketing: {
+      badge: "EMOTIONAL MARKETING",
+      title: "Emotion Helps People Remember",
+      intro:
+        "Emotion can make an advertisement more memorable when it supports the product's real value.",
+      points: [
+        "Choose one emotion: confidence, comfort, joy, curiosity or aspiration.",
+        "Use people and situations that match the target audience.",
+        "Connect the emotion directly to the product benefit.",
+        "Avoid exaggerated stories that feel unrelated to the product.",
+        "Finish with a clear and practical action.",
+      ],
+      action:
+        "Write one sentence explaining how the customer should feel after using your product.",
+      warning:
+        "Conversion improvements differ between products, platforms and audiences. Test before making a claim.",
+    },
+
+    valueProposition: {
+      badge: "VALUE PROPOSITION",
+      title: "Make the Product Value Clear",
+      intro:
+        "A value proposition explains why a customer should choose your product instead of another option.",
+      points: [
+        "Say who the product is designed for.",
+        "Describe the main problem it solves.",
+        "Show the most important difference from competitors.",
+        "Support the promise with evidence or customer reviews.",
+        "Keep the message specific and easy to understand.",
+      ],
+      action:
+        "Complete this sentence: This product helps ___ achieve ___ without ___.",
+      warning:
+        "Use your own store analytics before publishing a specific sales-increase percentage.",
+    },
+
+    perfumeBrand: {
+      badge: "CASE STUDY",
+      title: "Perfume Brand Visual Improvement",
+      intro:
+        "This is an example scenario showing how a perfume seller could improve advertising through better product presentation.",
+      points: [
+        "Use close-up images to show the bottle and packaging quality.",
+        "Choose lighting that reflects the perfume's personality.",
+        "Create lifestyle images for different customer groups.",
+        "Add a short emotional slogan instead of too much text.",
+        "Compare product-only photos with model-based advertisements.",
+      ],
+      action:
+        "Measure clicks and sales before and after replacing the main product image.",
+      warning:
+        "The displayed +42% result is sample content unless it comes from a verified real Sellova customer.",
+    },
+
+    jewelryStore: {
+      badge: "CASE STUDY",
+      title: "Jewelry Store Engagement Strategy",
+      intro:
+        "This example shows how a jewelry seller could improve engagement with lighting, close-ups and consistent branding.",
+      points: [
+        "Use macro images to show stones and metal texture.",
+        "Include one image showing the real size of the jewelry.",
+        "Use consistent lighting across the collection.",
+        "Show jewelry being worn when possible.",
+        "Answer common questions about material and care.",
+      ],
+      action:
+        "Test one close-up photo, one lifestyle photo and one short product video.",
+      warning:
+        "The displayed +28% result should be labeled as an example until verified by real analytics.",
+    },
+
+    fashionStore: {
+      badge: "CASE STUDY",
+      title: "Fashion Store Click Strategy",
+      intro:
+        "This example shows how a fashion seller could increase interest with better styling and clearer product information.",
+      points: [
+        "Show front, back and detail views.",
+        "Show the item on a person when possible.",
+        "Include clear sizing and fit information.",
+        "Create separate visuals for different platforms.",
+        "Use styling ideas to help customers imagine wearing the product.",
+      ],
+      action:
+        "Add one complete outfit image beside the standard product images and compare clicks.",
+      warning:
+        "The displayed +63% result is sample content and should not be presented as a verified result yet.",
+    },
+  },
+
+  accessibility: {
+    sellovaLogo: "Sellova",
+    academyHero: "Sellova Academy insights",
+    openCategory: "Open category",
+    saveArticle: "Save article",
+    closeModal: "Close",
+  },
+},
 
 
  // --- Music ---

@@ -1,0 +1,420 @@
+.page {
+  min-height: 100vh;
+  padding: 22px 38px 54px;
+  overflow: hidden;
+  color: #f9f7ff;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #030614 url("/assets/icons/ADS/upgrade/back.png")
+    center top / cover fixed;
+}
+
+.page * {
+  box-sizing: border-box;
+}
+
+/* لوگو وسط بالا */
+
+.header {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoLink {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.logo {
+  width: 250px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 9px 15px rgba(119, 45, 233, 0.34));
+}
+
+/* فقط یک تایتل */
+
+.hero {
+  padding: 20px 0 31px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 1;
+  letter-spacing: -3px;
+  text-shadow: 0 6px 26px rgba(0, 0, 0, 0.42);
+}
+
+.hero h1 span {
+  color: #b775ff;
+  text-shadow: 0 0 31px rgba(182, 102, 255, 0.48);
+}
+
+/* فقط هشت کارت، بدون کادر دورشان */
+
+.plansGrid {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.planCard {
+  position: relative;
+  min-height: 365px;
+  padding: 29px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(183, 128, 243, 0.48);
+  border-radius: 19px;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 23, 47, 0.69),
+    rgba(5, 9, 25, 0.88)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -24px 36px rgba(0, 0, 0, 0.18),
+    0 15px 35px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+  transition: 0.22s ease;
+}
+
+.planCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.08),
+    transparent 25%,
+    transparent 77%,
+    rgba(169, 73, 255, 0.06)
+  );
+}
+
+.planCard:hover {
+  z-index: 2;
+  transform: translateY(-7px);
+  border-color: rgba(218, 137, 255, 0.94);
+  box-shadow:
+    0 22px 44px rgba(0, 0, 0, 0.36),
+    0 0 30px rgba(151, 62, 255, 0.2);
+}
+
+.selectedPlan {
+  border-color: #f079d2;
+  box-shadow:
+    0 0 0 1px rgba(241, 100, 202, 0.38),
+    0 20px 44px rgba(158, 38, 203, 0.27);
+}
+
+.planBadge {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  min-width: 138px;
+  padding: 5px 11px;
+  color: #fff;
+  border: 1px solid rgba(255, 189, 240, 0.7);
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(90deg, #9f45cb, #e544a7);
+  box-shadow: 0 6px 14px rgba(229, 63, 166, 0.23);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.cardTop {
+  position: relative;
+  z-index: 1;
+  min-height: 143px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.planIcon {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 11px;
+  display: grid;
+  place-items: center;
+  color: #cb75ff;
+  border: 1px solid rgba(184, 103, 255, 0.33);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(136, 52, 210, 0.32),
+    rgba(7, 11, 29, 0.3) 65%
+  );
+  box-shadow:
+    0 0 27px rgba(145, 55, 234, 0.25),
+    inset 0 0 17px rgba(191, 96, 255, 0.12);
+  font-size: 38px;
+  line-height: 1;
+  text-shadow: 0 0 18px currentColor;
+}
+
+.cardTop h2 {
+  margin: 0;
+  color: #d080ff;
+  font-size: 19px;
+  letter-spacing: 0.55px;
+}
+
+.cardTop strong {
+  display: block;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 38px;
+  line-height: 0.96;
+  letter-spacing: -1.5px;
+}
+
+.cardTop b {
+  display: block;
+  margin-top: 7px;
+  color: #ca75ff;
+  font-size: 13px;
+  letter-spacing: 0.7px;
+}
+
+.cardBody {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 132px;
+  padding: 13px 0 10px;
+  border-top: 1px solid rgba(234, 225, 247, 0.2);
+}
+
+.cardBody > p {
+  min-height: 30px;
+  margin: 0 0 10px;
+  color: #e6e1ec;
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.cardBody ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cardBody li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: #f0edf4;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.cardBody li > span {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  flex: 0 0 16px;
+  place-items: center;
+  color: #fff;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bd58ff, #7435c8);
+  box-shadow: 0 0 10px rgba(180, 73, 255, 0.42);
+  font-size: 10px;
+}
+
+.planCard button {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 43px;
+  margin-top: auto;
+  color: #ebb4ff;
+  border: 1px solid #d178ff;
+  border-radius: 9px;
+  background: rgba(10, 13, 31, 0.64);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.planCard button:hover {
+  filter: brightness(1.2);
+}
+
+/* رنگ‌های متفاوت هشت کارت */
+
+.free .cardTop strong {
+  font-size: 40px;
+}
+
+.economic .planIcon {
+  font-size: 51px;
+}
+
+.basic {
+  border-color: #ef64b8;
+  background: linear-gradient(
+    145deg,
+    rgba(58, 16, 61, 0.83),
+    rgba(12, 8, 30, 0.93)
+  );
+}
+
+.basic .planIcon,
+.basic .cardTop h2,
+.basic .cardTop b {
+  color: #ff6fbd;
+}
+
+.basic button {
+  color: #fff;
+  border-color: #ff8dce;
+  background: linear-gradient(90deg, #dc2e9e, #fd5a9c);
+}
+
+.annual .planBadge {
+  border-color: #8bb8ff;
+  background: linear-gradient(90deg, #2458b2, #5075ee);
+}
+
+.annual .planIcon,
+.annual .cardTop h2,
+.annual .cardTop b {
+  color: #a18dff;
+}
+
+.music {
+  border-color: rgba(68, 205, 255, 0.78);
+  background: linear-gradient(
+    145deg,
+    rgba(7, 39, 63, 0.8),
+    rgba(4, 9, 25, 0.93)
+  );
+}
+
+.music .planIcon,
+.music .cardTop h2,
+.music .cardTop b,
+.music button {
+  color: #4bd1ff;
+}
+
+.music button {
+  border-color: #4dd4ff;
+}
+
+.golden {
+  border-color: rgba(248, 199, 61, 0.87);
+  background: linear-gradient(
+    145deg,
+    rgba(65, 42, 8, 0.83),
+    rgba(13, 11, 20, 0.94)
+  );
+}
+
+.golden .planBadge {
+  color: #fff5ba;
+  border-color: #ffd44c;
+  background: linear-gradient(90deg, #76501b, #ba8717);
+}
+
+.golden .planIcon,
+.golden .cardTop h2,
+.golden .cardTop b {
+  color: #ffd058;
+}
+
+.golden button {
+  color: #fff5d6;
+  border-color: #f9c846;
+  background: linear-gradient(90deg, #985f11, #dfad2f);
+}
+
+.mini {
+  border-color: rgba(83, 154, 255, 0.82);
+  background: linear-gradient(
+    145deg,
+    rgba(7, 30, 67, 0.83),
+    rgba(4, 9, 25, 0.94)
+  );
+}
+
+.mini .planIcon,
+.mini .cardTop h2,
+.mini .cardTop b,
+.mini button {
+  color: #69a9ff;
+}
+
+.mini button {
+  border-color: #68a8ff;
+}
+
+.pro .planIcon,
+.pro .cardTop h2,
+.pro .cardTop b,
+.pro button {
+  color: #dc7aff;
+}
+
+.pro .planBadge {
+  color: #f6d4ff;
+  border-color: #df88f5;
+  background: linear-gradient(90deg, #6a2c99, #ab4fc1);
+}
+
+@media (max-width: 1100px) {
+  .page {
+    padding-inline: 24px;
+  }
+
+  .plansGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding: 10px 15px 34px;
+  }
+
+  .header {
+    height: 72px;
+  }
+
+  .logo {
+    width: 160px;
+    height: 72px;
+  }
+
+  .hero {
+    padding: 20px 0 26px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+
+  .plansGrid {
+    grid-template-columns: 1fr;
+  }
+}

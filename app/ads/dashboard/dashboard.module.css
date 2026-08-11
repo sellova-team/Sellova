@@ -302,12 +302,12 @@
 /* TOP CARDS */
 /* ========================= */
 
-.cards{
-    margin-top:20px;
+.cards {
+  margin-top: 20px;
 
-    display:flex;
-    align-items:flex-start;
-    gap:14px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .card{
@@ -315,7 +315,8 @@
     position:relative;
 
     height:310px;
-    width:200px;
+    width: 100%;
+min-width: 0;
     flex: none;
 
     overflow:hidden;
@@ -528,7 +529,7 @@ grid-template-columns:1fr;
 
     width:220px;
 
-    height:1460px;
+    height:146px;
 
     object-fit:contain;
 
@@ -1004,4 +1005,16 @@ grid-template-columns:1fr;
 
 .profile {
   margin-left: 0;
+}
+
+.upgradeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
 }

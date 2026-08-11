@@ -579,7 +579,7 @@ pricing: {
     title: "Altın Plan",
     badge: "PREMIUM",
     desc: "Profesyonel reklamlar oluşturmak için gelişmiş yapay zekâ araçlarının ve premium özelliklerin kilidini açın.",
-    button: "👑 Altın Plana Yükselt →",
+    button: "👑 Golden Plan →",
   },
 
   bottom: {
@@ -2044,23 +2044,386 @@ creditNotice: "26 kredi kullanılacak",
 },
 
   // --- Golden Plan ---
-  goldenPlan: {
-    title: "Altın Plan",
-    subtitle: "Sinematik AI reklam + marka müzik videosu",
-    uploadProduct: "Ürün görseli yükle",
-    productName: "Ürün adı",
-    uploadLogo: "Logo yükle",
-    brandName: "Marka adı",
-    musicLanguage: "Müzik dili",
-    musicPackage: "Müzik paketi",
-    outputSize: "Çıktı boyutu",
-    specialInstructions: "Özel notlar",
-    generatedVideo: "Oluşturulan video",
-    preview: "Önizleme",
-    generateButton: "Altın video oluştur",
-    package1: "1 müzik video - 300 kredi",
-    package2: "2 müzik video - 600 kredi",
+  GoldenPlan: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    avatarVideo: "Avatar Videosu",
+    goldenPlan: "Golden Plan",
+    newBadge: "YENİ",
+    captionsHashtags: "Açıklamalar ve Etiketler",
+    brandOverlay: "Marka Kaplaması",
+    promoSlides: "Tanıtım Slaytları",
+    analytics: "ANALİZLER",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Sellova Akademi",
+    account: "HESAP",
+    creditsPlan: "Kredi ve Plan",
+    transactions: "İşlemler",
+    settings: "Ayarlar",
   },
+
+  sidebarPlan: {
+    title: "Golden Plan'ın",
+    subtitle: "Gücünü Keşfedin",
+    description:
+      "Müşteri kazandıran profesyonel reklamlar oluşturun ve markanızı büyütün.",
+    button: "Planı Yükselt",
+    userName: "Shabnam Moghaddam",
+    userPlan: "Golden Plan",
+  },
+
+  header: {
+    label: "GOLDEN PLAN",
+    title: "Sinematik Yapay Zekâ Reklam Oluşturucu",
+    subtitle:
+      "Premium markalar için en gelişmiş yapay zekâ reklam deneyimi.",
+    credits: "2.540 Kredi",
+    addCredits: "Kredi Ekle",
+  },
+
+  defaults: {
+    brandName: "Sellova",
+    productName: "Lüks Parfüm",
+    slogan: "Zamanın Ötesinde Zarafet",
+  },
+
+  form: {
+    productImage: "Ürün Görseli",
+    uploadProduct: "Ürün Görseli Yükle",
+    productFormats:
+      "En fazla 10 MB JPG, PNG veya WEBP",
+
+    brandLogo: "Marka Logosu",
+    uploadLogo: "Marka Logosu Yükle",
+    logoFormats:
+      "En fazla 5 MB PNG veya SVG",
+
+    brandName: "Marka Adı",
+    productName: "Ürün Adı",
+    advertisingSlogan: "Reklam Sloganı",
+    musicLanguage: "Müzik Dili",
+    singerVoice: "Şarkıcı Sesi",
+    musicStyle: "Müzik Tarzı",
+    cinematicEffect: "Sinematik Efekt",
+    platform: "Platform",
+
+    female: "Kadın",
+    male: "Erkek",
+
+    generateButton: "Golden Reklam Oluştur",
+  },
+
+  languages: {
+    english: "İngilizce",
+    persian: "Farsça",
+    turkish: "Türkçe",
+    kurdish: "Kürtçe",
+    arabic: "Arapça",
+    spanish: "İspanyolca",
+    german: "Almanca",
+    kazakh: "Kazakça",
+    turkmen: "Türkmence",
+    urdu: "Urduca",
+    armenian: "Ermenice",
+    tajik: "Tacikçe",
+  },
+
+  musicStyles: {
+    luxury: "Lüks",
+    cinematic: "Sinematik",
+    elegant: "Zarif",
+    modern: "Modern",
+    dramatic: "Dramatik",
+    electronic: "Elektronik",
+
+    indiePop: "Indie Pop",
+    dancePop: "Dans Pop",
+    synthPop: "Synth Pop",
+    electroPop: "Elektro Pop",
+
+    indieRock: "Indie Rock",
+    softRock: "Soft Rock",
+    alternativeRock: "Alternatif Rock",
+    popRock: "Pop Rock",
+
+    trap: "Trap",
+    cinematicTrap: "Sinematik Trap",
+    afrobeat: "Afrobeat",
+    reggae: "Reggae",
+    latin: "Latin",
+    flamenco: "Flamenko",
+    salsa: "Salsa",
+    disco: "Disko",
+    funk: "Funk",
+    soul: "Soul",
+    blues: "Blues",
+    gospel: "Gospel",
+
+    house: "House",
+    deepHouse: "Deep House",
+    progressiveHouse: "Progressive House",
+    techno: "Tekno",
+    edm: "Elektronik Dans Müziği",
+    dubstep: "Dubstep",
+    drumAndBass: "Drum & Bass",
+
+    chillout: "Chillout",
+    dreamy: "Rüya Gibi",
+    meditation: "Meditasyon",
+    natureInspired: "Doğadan İlham Alan",
+
+    piano: "Piyano",
+    violin: "Keman",
+    guitar: "Gitar",
+    cinematicPiano: "Sinematik Piyano",
+    cinematicOrchestra: "Sinematik Orkestra",
+
+    epicTrailer: "Destansı Fragman",
+    suspense: "Gerilim",
+    mystery: "Gizem",
+    action: "Aksiyon",
+    adventure: "Macera",
+    happy: "Mutlu",
+    energetic: "Enerjik",
+    motivational: "Motivasyon",
+    powerful: "Güçlü",
+    softEmotional: "Yumuşak ve Duygusal",
+    wedding: "Düğün",
+
+    beautyCommercial: "Güzellik Reklamı",
+    fashionRunway: "Moda Podyumu",
+    technology: "Teknoloji",
+    automotive: "Otomotiv",
+    foodCommercial: "Yiyecek Reklamı",
+    kidsFamily: "Çocuk ve Aile",
+
+    persianPop: "Farsça Pop",
+    persianTraditional: "Geleneksel İran Müziği",
+    turkishPop: "Türkçe Pop",
+    turkishTraditional: "Geleneksel Türk Müziği",
+    arabicPop: "Arapça Pop",
+    arabicTraditional: "Geleneksel Arap Müziği",
+    kurdishMusic: "Kürt Müziği",
+    armenianMusic: "Ermeni Müziği",
+    kazakhMusic: "Kazak Müziği",
+    turkmenMusic: "Türkmen Müziği",
+    tajikMusic: "Tacik Müziği",
+    urduPop: "Urdu Pop",
+  },
+
+  cinematicEffects: {
+    iceReveal: "❄ Buzla Ortaya Çıkış",
+    rainLightning: "⚡ Yağmur ve Şimşek",
+    fireExplosion: "🔥 Ateş Patlaması",
+    sandstorm: "◌ Kum Fırtınası",
+    underwater: "≋ Su Altı",
+    luxuryStudio: "✦ Lüks Stüdyo",
+
+    heavySnowfall: "❄ Yoğun Kar Yağışı",
+    frozenGlass: "◈ Donmuş Cam",
+    iceExplosion: "❄ Buz Patlaması",
+
+    waterSplash: "💧 Su Sıçraması",
+    oceanWaves: "≋ Okyanus Dalgaları",
+    waterfallReveal: "💧 Şelaleyle Ortaya Çıkış",
+
+    smokeReveal: "◌ Dumanla Ortaya Çıkış",
+    coloredSmoke: "◉ Renkli Duman",
+    fogMist: "≋ Sis ve Pus",
+
+    fireReveal: "🔥 Ateşle Ortaya Çıkış",
+    burningBackground: "🔥 Yanan Arka Plan",
+    lavaFlow: "◉ Lav Akışı",
+
+    electricEnergy: "⚡ Elektrik Enerjisi",
+    neonLightning: "⚡ Neon Şimşek",
+    energyExplosion: "✦ Enerji Patlaması",
+
+    goldenParticles: "✦ Altın Parçacıklar",
+    diamondSparkle: "◇ Elmas Parıltısı",
+    glitterReveal: "✧ Simli Ortaya Çıkış",
+    goldDust: "✦ Altın Tozu",
+    luxuryGold: "♕ Lüks Altın",
+
+    blackGoldStudio: "♕ Siyah ve Altın Stüdyo",
+    luxuryMarbleStudio: "◇ Lüks Mermer Stüdyo",
+    mirrorStudio: "◫ Aynalı Stüdyo",
+    spotlightReveal: "◉ Spot Işığıyla Ortaya Çıkış",
+    runwayLights: "✦ Podyum Işıkları",
+    cameraFlash: "✧ Kamera Flaşı",
+
+    laserShow: "⚡ Lazer Gösterisi",
+    neonCity: "◈ Neon Şehir",
+    cyberpunk: "◉ Siberpunk",
+    hologramReveal: "◇ Hologramla Ortaya Çıkış",
+
+    spaceGalaxy: "✦ Uzay Galaksisi",
+    starfield: "✧ Yıldız Alanı",
+    cosmicExplosion: "✦ Kozmik Patlama",
+
+    flowerBloom: "✿ Çiçek Açması",
+    fallingRosePetals: "✿ Düşen Gül Yaprakları",
+    autumnLeaves: "🍂 Sonbahar Yaprakları",
+    magicalForest: "✦ Büyülü Orman",
+
+    desertReveal: "◌ Çölde Ortaya Çıkış",
+    sandExplosion: "◌ Kum Patlaması",
+
+    productRotation: "↻ Ürün Döndürme",
+    cinematicSlowMotion: "◷ Sinematik Ağır Çekim",
+    cinematicZoom: "◎ Sinematik Yakınlaştırma",
+    glassBreak: "◇ Cam Kırılması",
+
+    silkFabricReveal: "≋ İpek Kumaşla Ortaya Çıkış",
+    luxuryCurtainReveal: "◫ Lüks Perde Açılışı",
+    inkTransition: "◉ Mürekkep Geçişi",
+    paintSplash: "◉ Boya Sıçraması",
+
+    minimalShadowStudio: "◐ Minimal Gölgeli Stüdyo",
+    cleanWhiteStudio: "◯ Temiz Beyaz Stüdyo",
+    darkCinematicStudio: "● Karanlık Sinematik Stüdyo",
+  },
+
+  platforms: {
+    instagramPost: "Instagram Gönderisi (1:1)",
+    instagramReels: "Instagram Reels (9:16)",
+    instagramStory: "Instagram Hikâyesi (9:16)",
+    instagramLandscape: "Instagram Yatay Video (16:9)",
+
+    tiktokVideo: "TikTok Videosu (9:16)",
+
+    facebookPost: "Facebook Gönderisi (1:1)",
+    facebookReels: "Facebook Reels (9:16)",
+    facebookStory: "Facebook Hikâyesi (9:16)",
+    facebookVideo: "Facebook Videosu (16:9)",
+
+    youtubeVideo: "YouTube Videosu (16:9)",
+    youtubeShorts: "YouTube Shorts (9:16)",
+    youtubeSquare: "YouTube Kare Reklamı (1:1)",
+
+    snapchatStory: "Snapchat Hikâyesi (9:16)",
+    snapchatAd: "Snapchat Reklamı (9:16)",
+
+    pinterestPin: "Pinterest Pini (2:3)",
+    pinterestVideo: "Pinterest Videosu (9:16)",
+
+    linkedinPost: "LinkedIn Gönderisi (1:1)",
+    linkedinVideo: "LinkedIn Videosu (16:9)",
+
+    xPost: "X Gönderisi (1:1)",
+    xVideo: "X Videosu (16:9)",
+
+    amazonProduct: "Amazon Ürün Videosu (16:9)",
+    amazonSquare: "Amazon Kare Reklamı (1:1)",
+
+    shopifyProduct: "Shopify Ürün Videosu (1:1)",
+    websiteBanner: "Web Sitesi Banner Videosu (16:9)",
+
+    verticalAd: "Dikey Mobil Reklam (9:16)",
+    squareAd: "Kare Sosyal Medya Reklamı (1:1)",
+    landscapeAd: "Yatay Reklam Filmi (16:9)",
+  },
+
+  preview: {
+    imageAlt: "Altın parfüm reklamı",
+    playLabel: "Reklamı oynat",
+    startTime: "00:00",
+    endTime: "00:15",
+
+    aiAvatar: "Yapay Zekâ Avatarı",
+    brandMusic: "Marka Müziği",
+    logoAnimation: "Logo Animasyonu",
+    cinematicEffects: "Sinematik Efektler",
+    included: "Dâhil",
+  },
+
+  commercialInfo: {
+    title: "Yapay Zekâ Reklam Videosu Oluşturucu",
+
+    description:
+      "Golden Plan; yapay zekâ avatarları, özel marka müziği, logo animasyonu ve marka sloganınızla birlikte 15 saniyelik sinematik reklamlar üreten premium yapay zekâ reklam hizmetimizdir.",
+
+    premiumQuality: "Premium Kalite",
+    cinematicStorytelling: "Sinematik Hikâye Anlatımı",
+    brandFocused: "Marka Odaklı",
+    highConversions: "Yüksek Dönüşüm",
+  },
+
+  howItWorks: {
+    title: "Nasıl Çalışır?",
+    step1: "Ürün görselini ve marka logosunu yükleyin",
+    step2: "Marka bilgilerini ve sloganı girin",
+    step3: "Müzik dilini, şarkıcı sesini ve tarzını seçin",
+    step4: "Sinematik efekti ve platformu seçin",
+    step5: "Sinematik reklamınızı oluşturun",
+  },
+
+  whatYouGet: {
+    title: "Neler Elde Edersiniz?",
+    item1: "15 Saniyelik Yapay Zekâ Reklamı",
+    item2: "Yapay Zekâ Avatarı ve Ürün Tanıtımı",
+    item3: "Marka Adınızla Hazırlanan Özel Müzik",
+    item4: "Logo Animasyonu (Giriş ve Çıkış)",
+    item5: "Reklam Sloganınızın Videoda Gösterilmesi",
+    item6: "Sinematik Geçişler ve Efektler",
+    item7: "Sosyal Medyada Paylaşmaya Hazır",
+  },
+
+  faq: {
+    title: "Sıkça Sorulan Sorular",
+
+    question1: "Golden Plan nedir?",
+    answer1:
+      "Golden Plan, markanız için eksiksiz sinematik yapay zekâ reklamları oluşturur.",
+
+    question2: "Özel müzik dâhil mi?",
+    answer2:
+      "Evet, marka adınızla özel marka müziği oluşturulur.",
+
+    question3: "Kendi logomu yükleyebilir miyim?",
+    answer3:
+      "Evet, kendi marka logonuzu yükleyebilirsiniz.",
+
+    question4: "Hangi diller destekleniyor?",
+    answer4:
+      "İngilizce, Farsça, Türkçe, Kürtçe, Arapça, İspanyolca, Almanca, Kazakça, Türkmence, Urduca, Ermenice ve Tacikçe desteklenmektedir.",
+
+    question5: "Hangi platformlar destekleniyor?",
+    answer5:
+      "Instagram, TikTok, Facebook, YouTube, Snapchat, Pinterest, LinkedIn, X, Amazon, Shopify ve web sitesi reklamları desteklenmektedir.",
+  },
+
+  bottomBanner: {
+    title:
+      "En Premium Yapay Zekâ Reklam Deneyimi",
+
+    description:
+      "Öne çıkın, güven oluşturun ve markanızı sinematik mükemmellikle büyütün.",
+
+    credits: "Kredi",
+    getStarted: "Hemen Başlayın",
+  },
+
+  footer: {
+    copyright:
+      "© 2026 Sellova. Tüm hakları saklıdır.",
+
+    terms: "Kullanım Koşulları",
+    privacy: "Gizlilik Politikası",
+    refund: "İade Politikası",
+    contact: "Bize Ulaşın",
+  },
+
+  mediaAlt: {
+    uploadedProduct: "Yüklenen ürün",
+    uploadedBrandLogo: "Yüklenen marka logosu",
+    clapperboard: "Altın sinematik klaket",
+    avatar: "Yapay zekâ reklam avatarı",
+  },
+},
 
   // --- Hashtags ---
   hashtags: {
@@ -2086,96 +2449,562 @@ creditNotice: "26 kredi kullanılacak",
   },
 
   // --- Advisory ---
-  advisory: {
-    title: "Danışmanlık & analiz",
-    setupTitle: "Kurulum",
-    businessFieldLabel: "İşletme adı / alanı",
-    businessFieldPlaceholder: "örn: Takı mağazası, el yapımı hediyeler...",
-    pageUrlLabel: "Sayfa URL / kullanıcı adı",
-    pageUrlPlaceholder: "instagram.com/sayfanız veya @kullanıcı",
-    platformLabel: "Platform",
-    analyzeButton: "Sayfayı analiz et",
+  AdvisoryAnalysis: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    aiImage: "Yapay Zeka Görseli",
+    aiVideo: "Yapay Zeka Videosu",
+    aiAvatar: "Yapay Zeka Avatarı",
+    aiMusic: "Yapay Zeka Müziği",
+    aiCaption: "Yapay Zeka Açıklaması",
+    promoSlides: "Reklam Slaytları",
+    analytics: "ANALİZ",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Sellova Akademi",
+    account: "HESAP",
+    goldenPlan: "Golden Plan",
+    upgradePlan: "Yükselt",
+    settings: "Ayarlar",
+  },
+
+  upgrade: {
+    title: "Yükselt",
+    description:
+      "Tüm özellikleri ve kişiselleştirilmiş büyüme planlarını açın.",
+    button: "Yükselt",
+  },
+
+  user: {
+    name: "Shabnam M.",
+    plan: "Golden Plan",
+  },
+
+  header: {
+    searchPlaceholder: "Herhangi bir şey ara...",
+    credits: "2.450 Kredi",
+    goldenPlan: "Golden Plan",
+  },
+
+  hero: {
+    titleFirst: "Instagram Analizi ve",
+    titleHighlight: "Danışmanlık",
+    description:
+      "Instagram sayfanızı ve alanınızı girin. Sellova sayfanızı analiz eder, en iyi rakipleri bulur ve size eksiksiz bir büyüme planı sunar.",
+    usernameLabel: "Instagram Kullanıcı Adı",
+    usernamePlaceholder: "@sayfaniz",
+    categoryLabel: "İş Kategorisi / Alanı",
+    analyzeButton: "Sayfamı Analiz Et",
     analyzingButton: "Analiz ediliyor...",
-    setupHint:
-      "• Bu sonuçlar demo veridir. Sonradan gerçek API eklenebilir.",
-    resultsTitle: "Sonuçlar",
-    competitorsCardTitle: "En iyi 7 rakip",
-    competitorsEmpty: "Formu doldurup analiz yapın.",
-    activityCardTitle: "Rakip aktivitesi",
-    auditCardTitle: "Sayfa analizi",
-    strengthsTitle: "Güçlü yönler",
-    weaknessesTitle: "Zayıf yönler",
-    recommendationsTitle: "Öneriler",
-    emptyPlaceholder: "—",
+    analysisTime: "Analiz genellikle 30–60 saniye sürer.",
+  },
 
-    tableNameHandle: "İsim / Kullanıcı",
-    tableFollowers: "Takipçi",
-    tablePostsPerWeek: "Haftalık post",
-    tableStoriesPerDay: "Günlük story",
-    tableAvgEng: "Ort. etkileşim",
-    tableTopTags: "Top hashtagler",
+  businessCategories: [
+    { key: "women-fashion", label: "Kadın Modası" },
+    { key: "beauty", label: "Güzellik ve Kozmetik" },
+    { key: "jewelry", label: "Takı ve Aksesuar" },
+    { key: "home", label: "Ev ve Yaşam" },
+    { key: "food", label: "Yiyecek ve İçecek" },
+    { key: "kids", label: "Çocuk Ürünleri" },
+    { key: "fitness", label: "Spor ve Sağlık" },
+    { key: "technology", label: "Teknoloji" },
+  ],
 
-    compSummary: [
-      "Haftada 3–5 post en yaygın.",
-      "En iyi içerik: net ürün görseli + fayda + CTA.",
-      "Hashtag karışımı: trend + niş + marka.",
-      "En iyi saat: 19:00–22:00.",
+  tabs: [
+    { key: "overview", label: "Genel Bakış" },
+    { key: "competitors", label: "Rakipler" },
+    { key: "best-times", label: "En İyi Zamanlar" },
+    { key: "recommendations", label: "Öneriler" },
+    { key: "content-ideas", label: "İçerik Fikirleri" },
+  ],
+
+  pageAnalysis: {
+    title: "Sayfa Analiziniz",
+    subtitle: "Sayfanızın performansına hızlı bir genel bakış.",
+    period: "Son 30 Gün",
+    comparison: "son 30 güne göre",
+  },
+
+  metrics: [
+    {
+      key: "followers",
+      label: "Takipçiler",
+      value: "24.8K",
+      change: "↑ %12,5",
+    },
+    {
+      key: "engagementRate",
+      label: "Etkileşim Oranı",
+      value: "%2,34",
+      change: "↓ %8,7",
+    },
+    {
+      key: "averageLikes",
+      label: "Ort. Beğeni",
+      value: "578",
+      change: "↑ %5,3",
+    },
+    {
+      key: "averageComments",
+      label: "Ort. Yorum",
+      value: "46",
+      change: "↓ %3,2",
+    },
+    {
+      key: "postsPerMonth",
+      label: "Aylık Gönderi",
+      value: "18",
+      change: "↑ 2",
+    },
+  ],
+
+  insightCards: {
+    strengths: {
+      title: "Güçlü Yönler",
+      items: [
+        "Güçlü görsel kimlik ve estetik",
+        "Reels ve trend seslerin iyi kullanımı",
+        "Yüksek kaliteli ürün fotoğrafları",
+        "Tutarlı paylaşım sıklığı",
+        "Hedef kitleyle iyi etkileşim",
+      ],
+    },
+
+    improve: {
+      title: "Geliştirilecek Alanlar",
+      items: [
+        "Gönderilerin kaydetme oranı düşük",
+        "Açıklamalar daha ilgi çekici olabilir",
+        "Story etkileşimleri yeterli değil",
+        "CTA kullanımı sınırlı",
+        "Paylaşım zamanı optimize edilmemiş",
+      ],
+    },
+
+    opportunities: {
+      title: "Fırsatlar",
+      items: [
+        "Daha fazla kullanıcı üretimi içerik ekleyin",
+        "Mikro influencerlarla iş birliği yapın",
+        "Daha fazla stil ve nasıl yapılır içeriği üretin",
+        "Story Highlights alanını stratejik kullanın",
+        "Erişimi artırmak için çekiliş başlatın",
+      ],
+    },
+  },
+
+  bestTimes: {
+    title: "Paylaşım İçin En İyi Zamanlar",
+    subtitle: "Hedef kitlenizin etkinliğine göre",
+    bestDays: "En İyi Günler",
+    bestTimeSlots: "En İyi Zaman Aralıkları",
+    days: [
+      "Pzt",
+      "Sal",
+      "Çar",
+      "Per",
+      "Cum",
+      "Cmt",
+      "Paz",
     ],
+    times: [
+      "00.00",
+      "03.00",
+      "06.00",
+      "09.00",
+      "12.00",
+      "15.00",
+      "18.00",
+      "21.00",
+    ],
+    selectedDays: ["Sal", "Çar", "Per", "Paz"],
+    slots: [
+      "19.00 – 21.00",
+      "12.00 – 14.00",
+      "06.00 – 08.00",
+    ],
+    tip: "İpucu: Maksimum erişim için yoğun saatten 15–30 dakika önce paylaşım yapın.",
+  },
 
-    auditStrengths: ["Net niş hedefleme potansiyeli."],
-    auditWeaknesses: ["Düzenli paylaşım yok."],
-    auditActions: [
-      "Haftada 4 post + günlük story planı oluştur.",
-      "Sabit çekim stili kullan.",
-      "Hook → fayda → CTA formatı.",
-      "20–30 hashtag bankası oluştur.",
+  recommendations: {
+    title: "Öneriler",
+    items: [
+      {
+        key: "reels",
+        title: "Haftada 3–5 Reels oluşturun",
+        text: "Reels, sabit gönderilere göre 2,3 kat daha fazla erişim sağlar.",
+      },
+      {
+        key: "captions",
+        title: "İlgi çekici açıklamalar yazın",
+        text: "Sorular sorun ve yorum yapılmasını teşvik edin.",
+      },
+      {
+        key: "cta",
+        title: "Güçlü CTA'lar kullanın",
+        text: "Kaydetme ve paylaşımı artırmak için net CTA ekleyin.",
+      },
+      {
+        key: "consistency",
+        title: "Düzenli paylaşım yapın",
+        text: "Hedefiniz haftada 4–6 gönderi ve günlük Story olsun.",
+      },
+      {
+        key: "weeklyAnalysis",
+        title: "Haftalık takip ve analiz yapın",
+        text: "İstatistikleri inceleyin ve stratejinizi optimize edin.",
+      },
     ],
   },
+
+  competitors: {
+    title: "En İyi Rakipler",
+    subtitle: "Alanınıza göre",
+    viewAll: "Tümünü Gör",
+    benchmarkButton: "Rakip Karşılaştırmasını Gör",
+    list: [
+      {
+        key: "chicstyle",
+        name: "@chicstyle.official",
+        followers: "82.4K",
+        rate: "%3,21",
+      },
+      {
+        key: "stylebyluna",
+        name: "@stylebyluna",
+        followers: "67.8K",
+        rate: "%2,91",
+      },
+      {
+        key: "fashionEdit",
+        name: "@the.fashion.edit",
+        followers: "51.6K",
+        rate: "%2,71",
+      },
+      {
+        key: "ootdBoutique",
+        name: "@ootd.boutique",
+        followers: "44.2K",
+        rate: "%2,45",
+      },
+      {
+        key: "fashionInspo",
+        name: "@fashion.inspo.daily",
+        followers: "38.7K",
+        rate: "%2,31",
+      },
+      {
+        key: "trendyWomenwear",
+        name: "@trendy.womenwear",
+        followers: "33.5K",
+        rate: "%2,12",
+      },
+    ],
+  },
+
+  contentIdeas: {
+    title: "Sizin İçin İçerik Fikirleri",
+    calendarButton: "İçerik Takvimini Gör",
+    items: [
+      {
+        key: "styleDress",
+        title: "Bu Elbiseyi Kombinlemenin 5 Yolu",
+        type: "Reels",
+      },
+      {
+        key: "behindScenes",
+        title: "Yeni Koleksiyonun Kamera Arkası",
+        type: "Story",
+      },
+      {
+        key: "reviews",
+        title: "Müşteri Yorumları ve Geri Bildirimler",
+        type: "Gönderi",
+      },
+      {
+        key: "springOutfit",
+        title: "İlkbahar İçin Kombin İlhamı",
+        type: "Reels",
+      },
+      {
+        key: "giveaway",
+        title: "Çekiliş: Ücretsiz Bir Kombin Kazanın",
+        type: "Gönderi",
+      },
+    ],
+  },
+
+  footer: {
+    copyright: "© 2026 Sellova",
+    privacy: "Gizlilik Politikası",
+    terms: "Kullanım Koşulları",
+    support: "Destek",
+  },
+
+  accessibility: {
+    sellovaLogo: "Sellova",
+    heroImage: "Instagram analiz paneli",
+    notifications: "Bildirimler",
+    theme: "Görünüm modu",
+    openRecommendation: "Öneriyi aç",
+  },
+},
 
   // --- Brand overlay ---
-  brandOverlay: {
-    title: "Marka logosu ekle",
-    productUploadLabel: "Ürün görseli",
-    logoUploadLabel: "Logo yükle",
-    positionLabel: "Konum",
-    sizeLabel: "Boyut (%)",
-    opacityLabel: "Şeffaflık (%)",
-    paddingLabel: "Boşluk (px)",
-    downloadButton: "İndir",
-    positionTopLeft: "Üst sol",
-    positionTopRight: "Üst sağ",
-    positionBottomLeft: "Alt sol",
-    positionBottomRight: "Alt sağ",
-    positionCenter: "Orta",
-    productAlt: "Ürün",
-    logoAlt: "Logo",
+  BrandOverlay: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    avatarVideo: "Avatar Videosu",
+    captionsHashtags: "Açıklamalar ve Etiketler",
+    brandOverlay: "Marka Kaplaması",
+    promoSlides: "Tanıtım Slaytları",
+    analytics: "ANALİZLER",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Sellova Akademi",
+    account: "HESAP",
+    creditsPlan: "Kredi ve Plan",
+    transactions: "İşlemler",
+    settings: "Ayarlar",
   },
 
-
-  // --- Promo ---
-  promo: {
-    title: "Tanıtım slaytları",
-    projectInputs: "Proje bilgileri",
-    uploadProduct: "Ürün yükle",
-    uploadLogo: "Logo yükle (opsiyonel)",
-    productTypeLabel: "Ürün türü",
-    productTypePlaceholder: "Parfüm, koltuk, tişört...",
-    priceLabel: "Fiyat",
-    pricePlaceholder: "$199 / 8.900.000 TL",
-    specsLabel: "Özellikler",
-    specsPlaceholder: "Dayanıklı, şık, hediye uygun",
-    platformLabel: "Platform",
-    notesLabel: "Notlar",
-    notesPlaceholder: "Özel istek...",
-    creditsLabel: "Kredi",
-    creditsText: "Şu an UI demo",
-    generateButton: "Oluştur",
-    downloadButton: "PNG indir",
-    prevButton: "◀ Önceki",
-    nextButton: "Sonraki ▶",
-    slideLabel: "Slayt",
-    otherOption: "Diğer",
+  upgrade: {
+    title: "Planınızı Yükseltin",
+    description:
+      "Daha fazla krediye ve gelişmiş yapay zekâ özelliklerine erişin.",
+    button: "Planı Yükselt",
+    userName: "Shabnam Moghadam",
+    userPlan: "Golden Plan",
   },
+
+  header: {
+    title: "Marka Kaplama Stüdyosu",
+    subtitle: "Logonuzu saniyeler içinde herhangi bir tasarıma ekleyin.",
+    credits: "2.540 Kredi",
+    addCredits: "Kredi Ekle",
+  },
+
+  uploadDesign: {
+    title: "Tasarlanmış Görseli Yükle",
+    button: "Görsel Yükle",
+    formats: "JPG, PNG veya WEBP, en fazla 10 MB",
+  },
+
+  uploadLogo: {
+    title: "Marka Logosunu Yükle",
+    button: "Logo Yükle",
+    formats: "PNG veya SVG, en fazla 5 MB",
+  },
+
+  position: {
+    title: "Logo Konumu",
+    topLeft: "Sol Üst",
+    topCenter: "Üst Orta",
+    topRight: "Sağ Üst",
+    centerLeft: "Sol Orta",
+    center: "Orta",
+    centerRight: "Sağ Orta",
+    bottomLeft: "Sol Alt",
+    bottomCenter: "Alt Orta",
+    bottomRight: "Sağ Alt",
+  },
+
+  size: {
+    title: "Logo Boyutu",
+    small: "Küçük",
+    medium: "Orta",
+    large: "Büyük",
+  },
+
+  controls: {
+    opacity: "Logo Saydamlığı",
+    safeMargin: "Güvenli Kenar Boşluğu",
+    applyButton: "Marka Logosunu Uygula",
+    creditNotice: "5 Kredi kullanılacak",
+  },
+
+  preview: {
+    title: "Canlı Önizleme",
+    reset: "Sıfırla",
+    compare: "Karşılaştır",
+    download: "PNG İndir",
+    originalDesign: "Orijinal Tasarım",
+    position: "Konum",
+    size: "Boyut",
+    opacity: "Saydamlık",
+    output: "Çıktı",
+    resolution: "1920 × 1080",
+  },
+
+  information: {
+    whyTitle: "Marka Kaplaması Neden Kullanılmalı?",
+    whyDescription:
+      "Tüm kampanyalarınızda marka kimliğinizi tutarlı tutun. Logonuzu doğru boyut, saydamlık ve konumla saniyeler içinde tasarımlarınıza ekleyin.",
+
+    formatsTitle: "Desteklenen Formatlar",
+    designFormat:
+      "Tasarlanmış görsel: JPG, PNG veya WEBP, en fazla 10 MB",
+    logoFormat: "Marka logosu: PNG veya SVG, en fazla 5 MB",
+    outputFormat: "Çıktı: 1920 × 1080 boyutunda PNG",
+    transparentLogo:
+      "Yüksek kaliteli ve şeffaf arka planlı logolar desteklenir.",
+
+    protectionTitle: "Marka Koruması",
+    protectionDescription:
+      "Logolarınız ve tasarımlarınız kalıcı olarak saklanmaz. Marka bilgilerinizi güvende tutmak için tüm dosyalar şifrelenir ve işlem tamamlandıktan sonra otomatik olarak silinir.",
+  },
+
+  mediaAlt: {
+    sellovaLogo: "Sellova",
+    uploadedDesign: "Yüklenen reklam tasarımı",
+    uploadedBrandLogo: "Yüklenen marka logosu",
+    livePreview: "Marka logosunun canlı önizlemesi",
+    overlayLogo: "Görselin üzerine yerleştirilen logo",
+  },
+},
+
+
+  // --- PromoSlides ---
+   PromoSlides: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    createAvatar: "Avatar Oluştur",
+    captionsHashtags: "Açıklamalar ve Etiketler",
+    brandOverlay: "Marka Kaplaması",
+    promoSlides: "Tanıtım Slaytları",
+    analytics: "ANALİZLER",
+    advisoryAnalysis: "Danışmanlık ve Analiz",
+    academyInsight: "Sellova Akademi",
+    goldenPlan: "Altın Plan",
+    upgradePlan: "Planı Yükselt",
+    settings: "Ayarlar",
+  },
+
+  header: {
+    title: "Yapay Zekâ Tanıtım Slaytları",
+    subtitle: "Bir ürünü üç güçlü hikâye reklamına dönüştürün.",
+    credits: "2.540 Kredi",
+    addCredits: "Kredi Ekle",
+  },
+
+  upload: {
+    title: "Ürün Görseli Yükle",
+    imageAlt: "Yüklenen ürün görseli",
+    dragDrop: "Görseli buraya sürükleyip bırakın",
+    browse: "veya dosya seçmek için tıklayın",
+    formats: "En fazla 10 MB JPG veya PNG",
+  },
+
+  brand: {
+    title: "Marka Bilgileri",
+    brandName: "Marka Adı",
+    brandSlogan: "Marka Sloganı",
+    productName: "Ürün Adı",
+
+    defaultBrandName: "NESTORA",
+    defaultBrandSlogan: "Gerçek Yaşam İçin Tasarlandı",
+    defaultProductName: "Luna Kavisli Koltuk",
+  },
+
+  product: {
+    title: "Ürün Detayları",
+    price: "Fiyat",
+    description: "Açıklama",
+    keyFeatures: "Temel Özellikler",
+
+    defaultPrice: "1.490 $",
+    defaultDescription: "Yumuşak konfor ve zarif kavisli tasarım",
+    defaultFeatures: "Premium Bukle • Derin Konfor • El Yapımı",
+  },
+
+  platform: {
+    title: "Platform",
+    instagramStory: "Instagram Hikâyesi (9:16)",
+    instagramPost: "Instagram Gönderisi (1:1)",
+    facebookStory: "Facebook Hikâyesi (9:16)",
+    tiktok: "TikTok (9:16)",
+  },
+
+  style: {
+    title: "Stil",
+    creativeMix: "Yaratıcı Karışım",
+    luxury: "Lüks",
+    darkLuxury: "Koyu Lüks",
+    minimal: "Minimal",
+    modern: "Modern",
+    elegant: "Zarif",
+    cinematic: "Sinematik",
+    editorial: "Editoryal",
+    boldAdvertising: "Cesur Reklam",
+    cleanProduct: "Temiz Ürün",
+    warmLifestyle: "Sıcak Yaşam Tarzı",
+    fashion: "Moda",
+    beauty: "Güzellik",
+    colorful: "Renkli",
+    seasonalCampaign: "Sezonluk Kampanya",
+  },
+
+  generate: {
+    button: "3 Tanıtım Slaytı Oluştur",
+    credits: "24 Kredi",
+    result: "3 yüksek kaliteli slayt",
+  },
+
+  preview: {
+    title: "Oluşturulan Tanıtım Slaytları",
+    downloadAll: "Tümünü İndir",
+    edit: "Düzenle",
+    download: "İndir",
+    selectSlide: "Slayt seç",
+
+    brandStory: "Marka Hikâyesi",
+    productDetails: "Ürün Detayları",
+    promoSlogan: "Tanıtım Sloganı",
+
+    instagramStory: "Instagram Hikâyesi",
+    resolution: "1080 × 1920",
+    slidesCount: "3 Slayt",
+    creativeMix: "Yaratıcı Karışım",
+    credits: "15 Kredi",
+  },
+
+  whyPromo: {
+    title: "Neden Tanıtım Slaytları?",
+    item1: "Bir ürünü üç ilgi çekici hikâye reklamına dönüştürün",
+    item2: "Yapay zekâ destekli tasarımla zamandan tasarruf edin",
+    item3: "Etkileşimi ve dönüşümleri artırın",
+    item4: "Sosyal medya pazarlaması için idealdir",
+  },
+
+  perfectFor: {
+    title: "Kimler İçin Uygun?",
+    item1: "E-ticaret Markaları",
+    item2: "Influencerlar ve İçerik Üreticileri",
+    item3: "Doğrudan Tüketiciye Satış Yapan İşletmeler",
+    item4: "Ürün Lansman Kampanyaları",
+  },
+
+  howItWorks: {
+    title: "Nasıl Çalışır?",
+    item1: "Ürün görselinizi yükleyin",
+    item2: "Marka ve ürün bilgilerini ekleyin",
+    item3: "Oluştur düğmesine tıklayın",
+    item4: "Slaytları indirin ve paylaşın",
+  },
+
+  faq: {
+    title: "Sıkça Sorulan Sorular",
+    question1: "Slaytları düzenleyebilir miyim?",
+    answer1: "Evet, herhangi bir slaydın altındaki Düzenle seçeneğine tıklayın.",
+    question2: "Slayt stilini değiştirebilir miyim?",
+    answer2: "Evet, slaytları oluşturmadan önce istediğiniz stili seçin.",
+    questionLabel: "S:",
+    answerLabel: "C:",
+  },
+},
 
   // --- Sellova guide ---
   sellovaGuide: {
@@ -2243,111 +3072,559 @@ creditNotice: "26 kredi kullanılacak",
     ],
   },
 
-  // --- Academy Insight ---
-  academyInsight: {
-  title: "Sellova Akademi",
-  quickTipsTitle: "Hizli ipuclari",
-  meta: "Bu sayfa ucretsizdir.",
-  locale: "tr",
+  
+//--- AccountSettings ---
+AccountSettings: {
+  header: {
+    backToWorkspace: "Çalışma alanına dön",
+    title: "AYARLAR",
+  },
 
-  slides: [
+  account: {
+    title: "Hesabınız",
+    subtitle: "Bilgilerinizi güncel tutun.",
+
+    fullName: "Ad soyad",
+    emailAddress: "E-posta adresi",
+    brandName: "Marka adı",
+    brandSlogan: "Marka sloganı",
+    language: "Dil",
+    theme: "Tema",
+
+    english: "İngilizce",
+    persian: "Farsça",
+    turkish: "Türkçe",
+    french: "Fransızca",
+
+    darkMode: "Karanlık mod",
+    lightMode: "Aydınlık mod",
+  },
+
+  plan: {
+    currentPlan: "Mevcut plan",
+    freePlan: "Ücretsiz Plan",
+    creditsAvailable: "30 kredi mevcut",
+    upgradePlan: "Planı yükselt",
+  },
+
+  security: {
+    title: "Şifre ve güvenlik",
+    changePassword: "Şifreyi değiştir",
+  },
+
+  actions: {
+    saveChanges: "Değişiklikleri kaydet",
+  },
+
+  support: {
+    title: "Yardıma mı ihtiyacınız var?",
+    text: "Hesabınız veya Sellova hakkında sorularınız varsa bize e-posta gönderin.",
+    contactSupport: "Destek ile iletişime geç",
+  },
+
+  footer: {
+    rights: "© 2026 Sellova. Tüm hakları saklıdır.",
+    privacyPolicy: "Gizlilik Politikası",
+    termsOfService: "Kullanım Koşulları",
+  },
+},
+
+  // --- Academy Insight ---
+   AcademyInsight: {
+  sidebar: {
+    dashboard: "Kontrol Paneli",
+    generateImage: "Görsel Oluştur",
+    generateVideo: "Video Oluştur",
+    avatars: "Avatarlar",
+    promoSlides: "Tanıtım Slaytları",
+    academy: "Akademi",
+    brandOverlay: "Marka Kaplaması",
+    settings: "Ayarlar",
+  },
+
+  upgrade: {
+    title: "Şuna yükselt",
+    plan: "Pro Plan",
+    moreCredits: "Daha fazla kredi",
+    priorityGeneration: "Öncelikli oluşturma",
+    premiumSupport: "Premium destek",
+    advancedTools: "Gelişmiş araçlar",
+    button: "Şimdi Yükselt",
+  },
+
+  user: {
+    name: "Shabnam Moghaddam",
+    plan: "Pro Plan",
+  },
+
+  header: {
+    credits: "2.450 Kredi",
+  },
+
+  hero: {
+    badge: "SATICI İÇGÖRÜLERİ",
+    titleFirst: "Bazı Ürünler Neden Satılır",
+    titleSecond: "Bazıları İse",
+    titleHighlight: "Satılmaz",
+    description:
+      "Başarılı satıcıların daha fazla dikkat, tıklama ve satış elde etmek için kullandığı kanıtlanmış stratejileri, görsel pazarlama sırlarını ve psikoloji tekniklerini öğrenin.",
+    startLearning: "Öğrenmeye Başla",
+    watchIntro: "Tanıtımı İzle",
+  },
+
+  categories: [
     {
-      id: "hook-tr",
-      title: "Bir reklam fotografini satan sey nedir?",
-      body:
-        "Iyi bir reklam basittir: net urun, temiz arka plan, dogal isik ve tek guclu mesaj.",
-      tips: [
-        "Urunu net ve buyuk goster (ozellikle mobil icin).",
-        "Arka plan secimi hikaye anlatmali (studio, tas, ahsap, kumas, doga).",
-        "Golgeleri yumusak ve dogal tut.",
-        "Tek ana mesaj + tek CTA kullan.",
-      ],
+      key: "buyerPsychology",
+      title: "Alıcı Psikolojisi",
+      description:
+        "Alıcılarınızı anlayın ve kararlarını olumlu yönde etkileyin.",
     },
     {
-      id: "composition-tr",
-      title: "Kadraj ve kompozisyon",
-      body:
-        "Urunu ya merkeze koy ya da grid uzerinde dengele. Bos alan birak, onemli kisimlari kesme.",
-      tips: [
-        "Emin degilsen contain kullan.",
-        "Tek odak noktasi olsun.",
-        "Yazi mobilde okunabilir olmalidir.",
-      ],
+      key: "visualMarketing",
+      title: "Görsel Pazarlama",
+      description:
+        "Dikkat çeken ve satın alma isteği oluşturan görseller hazırlayın.",
     },
     {
-      id: "backgrounds-tr",
-      title: "Etkili arka planlar",
-      body:
-        "Arka plan hikaye anlatmali. Hafif doku ve derinlik goruntuyu premium yapar.",
-      tips: [
-        "Studio: temiz ve modern",
-        "Tas/Ahsap: guclu ve luks",
-        "Kumas: yumusak ve premium",
-        "Doga: taze ve dogal his",
-      ],
+      key: "socialMediaStrategy",
+      title: "Sosyal Medya Stratejisi",
+      description:
+        "Markanızı büyütün ve doğru hedef kitleye ulaşın.",
     },
     {
-      id: "light-tr",
-      title: "Isik ve golge",
-      body:
-        "Dogal isik her zaman en iyi satistir. 1 ana isik + 1 yumusak destek isigi kullan.",
-      tips: [
-        "Yumusak golge urunu zemine oturtur.",
-        "Cam ve metal icin yansima kullan.",
-        "Sicak isik = lifestyle, soguk isik = studio",
-      ],
-    },
-    {
-      id: "text-tr",
-      title: "Metin, fiyat ve CTA",
-      body:
-        "Bir baslik, 2-3 madde ve 1 CTA yeterlidir. Metin kisa ve fayda odakli olmalidir.",
-      tips: [
-        "Baslik urunun degerini anlatmali.",
-        "CTA: hemen satin al, siparis ver gibi net olmalidir.",
-        "Fazla metinden kacinin.",
-      ],
-    },
-    {
-      id: "categories-tr",
-      title: "Urun kategorilerine gore stil",
-      body: "Her urun farkli stil ile daha iyi satar.",
-      tips: [
-        "Parfum: yumusak gradient, sicak isik",
-        "Moda: temiz studio, minimal tasarim",
-        "Takı: koyu premium arka plan",
-        "Ev dekor: dogal isik ve ahsap",
-        "Elektronik: soguk tonlar, temiz hatlar",
-        "Ayakkabi: guclu kontrast ve dinamik aci",
-        "Yemek: sicak isik ve taze gorunum",
-      ],
-    },
-    {
-      id: "mistakes-tr",
-      title: "Yaygin hatalar",
-      body: "Bu hatalar satisi dusurur.",
-      tips: [
-        "Fazla metin kullanma",
-        "Karmasik arka plan kullanma",
-        "Urunu kucuk gosterme",
-        "Zayif kontrast kullanma",
-        "Asiri efekt kullanma",
-        "Yanlis oran kullanma (1:1, 9:16, 16:9)",
-      ],
-    },
-    {
-      id: "platforms-tr",
-      title: "Platform kurallari",
-      body:
-        "Sosyal medyada daha yaratici olabilirsin ama Amazon gibi platformlarda sade olmalisin",
-      tips: [
-        "Instagram/TikTok: yaratici ve metinli tasarim",
-        "YouTube: dikkat cekici thumbnail",
-        "Amazon: beyaz arka plan, sadece urun",
-      ],
+      key: "salesGrowth",
+      title: "Satış Büyümesi",
+      description:
+        "Dönüşümleri ve ortalama sipariş değerini artırın.",
     },
   ],
+
+  popularSection: {
+    title: "Popüler İçgörüler",
+    subtitle:
+      "Satışları ve etkileşimi gerçekten artıran unsurları öğrenin.",
+    viewAll: "Tüm makaleleri görüntüle",
+    readArticle: "Makaleyi Oku",
+    saveArticle: "Makaleyi kaydet",
+  },
+
+  popularInsights: [
+    {
+      key: "luxuryDarkColors",
+      category: "Psikoloji",
+      title: "Lüks Markalar Neden Koyu Renkler Kullanır?",
+      description:
+        "Pazarlamada koyu renklerin arkasındaki gizli psikolojiyi keşfedin.",
+      time: "6 dakikalık okuma",
+    },
+    {
+      key: "pricingTricks",
+      category: "Fiyatlandırma",
+      title: "Satışları Artıran 7 Fiyatlandırma Tekniği",
+      description:
+        "Gelirinizi artırmaya yardımcı olan akıllı fiyatlandırma yöntemleri.",
+      time: "7 dakikalık okuma",
+    },
+    {
+      key: "premiumProducts",
+      category: "Görseller",
+      title: "Ürünler Nasıl Daha Premium Gösterilir?",
+      description:
+        "Profesyonel ve premium bir görünüm oluşturan basit görsel teknikler.",
+      time: "8 dakikalık okuma",
+    },
+    {
+      key: "scarcityPsychology",
+      category: "Psikoloji",
+      title: "Kıtlık Psikolojisi",
+      description:
+        "Sınırlı bulunabilirliğin ürün talebini neden artırdığını öğrenin.",
+      time: "6 dakikalık okuma",
+    },
+    {
+      key: "ignoredAds",
+      category: "Pazarlama",
+      title: "Müşteriler Çoğu Reklamı Neden Görmezden Gelir?",
+      description:
+        "Birçok reklamın ilk saniyelerde başarısız olmasının nedenleri.",
+      time: "6 dakikalık okuma",
+    },
+  ],
+
+  keyInsightsSection: {
+    title: "Önemli İçgörüler",
+    subtitle:
+      "Bilmeniz gereken veriye dayalı gerçekler.",
+  },
+
+  keyInsights: [
+    {
+      key: "fastDecisions",
+      value: "%73",
+      description:
+        "alıcıların ilk kararını 3 saniyeden kısa sürede verir.",
+    },
+    {
+      key: "visualAttention",
+      value: "%89",
+      description:
+        "kullanıcıların etkileyici görseller nedeniyle kaydırmayı bırakır.",
+    },
+    {
+      key: "emotionalMarketing",
+      value: "3 kat",
+      description:
+        "duygusal reklamlarla daha yüksek dönüşüm.",
+    },
+    {
+      key: "valueProposition",
+      value: "%47",
+      description:
+        "net bir değer önerisiyle satışlarda artış.",
+    },
+  ],
+
+  successSection: {
+    title: "Gerçek Satıcı Başarı Hikâyeleri",
+    subtitle:
+      "Diğer markaların sonuçlarını nasıl geliştirdiğini görün.",
+    viewAll: "Tüm başarı hikâyelerini görüntüle",
+    readCaseStudy: "Başarı Hikâyesini Oku",
+  },
+
+  successStories: [
+    {
+      key: "perfumeBrand",
+      brand: "Parfüm Markası",
+      result: "+%42",
+      resultLabel: "Satış Artışı",
+      description:
+        "Ürün görsellerini ve duygusal hikâye anlatımını geliştirerek.",
+    },
+    {
+      key: "jewelryStore",
+      brand: "Mücevher Mağazası",
+      result: "+%28",
+      resultLabel: "Etkileşim Artışı",
+      description:
+        "Daha iyi aydınlatma ve arka plan stratejisi kullanarak.",
+    },
+    {
+      key: "fashionStore",
+      brand: "Moda Mağazası",
+      result: "+%63",
+      resultLabel: "Tıklama Oranı Artışı",
+      description:
+        "Daha iyi reklam görselleri ve doğru kitle hedeflemesiyle.",
+    },
+  ],
+
+  newsletter: {
+    title: "Öğrenmeye ve Büyümeye Devam Edin.",
+    descriptionFirst:
+      "Her hafta yeni içgörüler ve stratejiler eklenir.",
+    descriptionSecond:
+      "Rakiplerinizden her zaman bir adım önde olun.",
+    placeholder: "E-posta adresinizi girin",
+    emailLabel: "E-posta adresi",
+    button: "Bana Bildir",
+  },
+
+  modal: {
+    close: "Kapat",
+    keyPoints: "Önemli Noktalar",
+    tryThisNow: "Şimdi Deneyin",
+    backToAcademy: "Akademiye Dön",
+  },
+
+  details: {
+    buyerPsychology: {
+      badge: "ALICI PSİKOLOJİSİ",
+      title: "Müşteriler Satın Alma Kararını Nasıl Verir?",
+      intro:
+        "Müşteriler genellikle bir ürünün değerini hızlıca anladıklarında, satıcıya güvendiklerinde ve ürünün gerçek bir sorunu çözdüğünü hissettiklerinde satın alırlar.",
+      points: [
+        "Ürünü tanıtmadan önce müşterinin yaşadığı sorunu gösterin.",
+        "Yalnızca teknik özellikleri sıralamak yerine ürünün faydasını açıklayın.",
+        "Korku ve belirsizliği azaltmak için gerçek müşteri yorumları kullanın.",
+        "Müşterinin daha kolay karar verebilmesi için teklifinizi basit tutun.",
+        "Gerçek bir son tarih veya sınırlı stok gibi dürüst aciliyet kullanın.",
+      ],
+      action:
+        "Bir ürün seçin ve müşterinin bu ürüne gerçekten ihtiyaç duymasının üç nedenini yazın.",
+    },
+
+    visualMarketing: {
+      badge: "GÖRSEL PAZARLAMA",
+      title: "Kaydırmayı Durduran Ürün Görselleri Oluşturun",
+      intro:
+        "Güçlü bir ürün görseli; ürünün ne olduğunu, kimler için hazırlandığını ve neden değerli olduğunu hızlıca göstermelidir.",
+      points: [
+        "Ürünü görselin ana konusu hâline getirin.",
+        "Temiz aydınlatma ve güçlü renk kontrastı kullanın.",
+        "Tek bir görsele çok fazla yazı eklemekten kaçının.",
+        "Ürünü farklı açılardan ve gerçek kullanım sırasında gösterin.",
+        "Gönderi, Hikâye ve Reels için farklı görsel boyutları hazırlayın.",
+      ],
+      action:
+        "Bir sade ürün fotoğrafı ve bir yaşam tarzı fotoğrafı hazırlayıp etkileşimlerini karşılaştırın.",
+    },
+
+    socialMediaStrategy: {
+      badge: "SOSYAL MEDYA",
+      title: "Uygulanabilir Bir Sosyal Medya Stratejisi Oluşturun",
+      intro:
+        "İyi bir sosyal medya stratejisi; faydalı içeriği, ürün tanıtımlarını, müşteri güvenini ve açık satış tekliflerini bir araya getirir.",
+      points: [
+        "Farkındalık, güven ve satış için ayrı içerikler hazırlayın.",
+        "Kısa videoları, görselleri ve kaydırmalı gönderileri birlikte kullanın.",
+        "Her defasında sıfırdan başlamak yerine başarılı fikirleri yeni görsellerle tekrarlayın.",
+        "Müşteri sorularını gönderiler ve kısa videolarla yanıtlayın.",
+        "Yalnızca beğenileri değil; erişim, kaydetme, tıklama ve satışları da inceleyin.",
+      ],
+      action:
+        "Dört gönderi planlayın: bir eğitim içeriği, bir ürün tanıtımı, bir müşteri hikâyesi ve bir satış teklifi.",
+    },
+
+    salesGrowth: {
+      badge: "SATIŞ BÜYÜMESİ",
+      title: "Sürekli İndirim Yapmadan Satışları Artırın",
+      intro:
+        "Satış büyümesi yalnızca fiyatı düşürmekle gerçekleşmez; teklifin, ürün sayfasının, güvenin ve satın alma deneyiminin geliştirilmesi gerekir.",
+      points: [
+        "Her ürün için açık bir değer önerisi yazın.",
+        "Fiyat, teslimat ve iade bilgilerini kolayca bulunabilir hâle getirin.",
+        "Ortalama sipariş değerini artırmak için ürün paketleri sunun.",
+        "Müşteri bir ürün seçtikten sonra tamamlayıcı ürünleri gösterin.",
+        "Her seferinde yalnızca bir değişiklik yapın ve sonucunu ölçün.",
+      ],
+      action:
+        "En çok satan ürününüzü inceleyin ve satış sayfasındaki bir kafa karışıklığını kaldırın.",
+    },
+
+    luxuryDarkColors: {
+      badge: "PSİKOLOJİ",
+      title: "Lüks Markalar Neden Genellikle Koyu Renkler Kullanır?",
+      intro:
+        "Siyah ve koyu renkler premium ve etkileyici bir his oluşturabilir; ancak yalnızca renk kullanmak bir markayı lüks yapmaz.",
+      points: [
+        "Koyu arka planlar altın, gümüş ve açık renkli ürünlerle güçlü bir kontrast oluşturabilir.",
+        "Daha fazla boş alan tasarımın daha özel görünmesini sağlayabilir.",
+        "Daha az öğe kullanın ve lüks reklamları kalabalıklaştırmayın.",
+        "Koyu ürünlerin arka planda kaybolmaması için kaliteli aydınlatma kullanın.",
+        "Yazı tiplerini zarif, okunabilir ve tutarlı seçin.",
+      ],
+      action:
+        "Aynı reklamın bir açık ve bir koyu sürümünü oluşturup hangisinin daha iyi sonuç verdiğini test edin.",
+    },
+
+    pricingTricks: {
+      badge: "FİYATLANDIRMA",
+      title: "Akıllı ve Etik Fiyatlandırma Teknikleri",
+      intro:
+        "Fiyatın sunuluş biçimi müşterinin ürün değerini algılama şeklini etkileyebilir. Fiyatlandırma her zaman açık ve dürüst olmalıdır.",
+      points: [
+        "Temel, önerilen ve premium olmak üzere üç seçenek sunun.",
+        "Her seçeneğin sunduğu değeri açıkça gösterin.",
+        "Yalnızca gerçekten daha avantajlı olduğunda ürün paketi sunun.",
+        "Miktar veya paket boyutu farklı olduğunda birim fiyatı gösterin.",
+        "Yalnızca gerçek indirimler kullanın ve sahte eski fiyat oluşturmayın.",
+        "Premium ürünlerde yuvarlak, ekonomik ürünlerde ise küsuratlı fiyatları test edin.",
+        "Ek ücretleri ödeme işleminden önce görünür hâle getirin.",
+      ],
+      action:
+        "Üç dürüst fiyat seçeneği hazırlayın ve yalnızca birini önerilen seçenek olarak işaretleyin.",
+    },
+
+    premiumProducts: {
+      badge: "GÖRSELLER",
+      title: "Ürün Görsellerini Daha Premium Gösterin",
+      intro:
+        "Premium görseller pahalı ekipmandan çok aydınlatma, kompozisyon, doku ve tutarlılığa bağlıdır.",
+      points: [
+        "Bir ana ışık kullanın ve sert gölgeleri kontrol edin.",
+        "Fotoğraf çekmeden önce ürünü tamamen temizleyin.",
+        "Marka kimliğine uygun bir arka plan seçin.",
+        "Önemli dokuları ve küçük ayrıntıları net biçimde gösterin.",
+        "Tüm ürün görsellerindeki renkleri tutarlı tutun.",
+        "Ürünün gerçek görünümünü değiştiren aşırı filtreler kullanmayın.",
+      ],
+      action:
+        "Bir ürünü pencere yanında temiz bir arka planla fotoğraflayın ve eski görselle karşılaştırın.",
+    },
+
+    scarcityPsychology: {
+      badge: "PSİKOLOJİ",
+      title: "Müşteri Güvenine Zarar Vermeden Kıtlık Kullanın",
+      intro:
+        "Ürün gerçekten sınırlı olduğunda kıtlık, müşterinin karar vermesine yardımcı olabilir. Sahte kıtlık uzun vadeli güvene zarar verir.",
+      points: [
+        "Sınırlı stok bilgisini yalnızca stok gerçekten sınırlıysa gösterin.",
+        "Zaman sınırlarını yalnızca gerçek kampanyalarda kullanın.",
+        "Ürünün neden sınırlı olduğunu açıklayın.",
+        "Sona eren geri sayım sayaçlarını yeniden başlatmayın.",
+        "Aciliyet mesajını faydalı ürün bilgileriyle birlikte sunun.",
+      ],
+      action:
+        "Teklifinizin gerçek bir son tarihi varsa tarihini, saatini ve nedenini açıkça belirtin.",
+      warning:
+        "Sahte geri sayım ve stok mesajları kısa vadeli tıklamaları artırabilir, ancak müşteri güvenini azaltır.",
+    },
+
+    ignoredAds: {
+      badge: "PAZARLAMA",
+      title: "Müşteriler Reklamları Neden Hızla Geçer?",
+      intro:
+        "Müşteriler ilgisiz, kafa karıştırıcı, tekrarlanan veya değerini açıklamakta çok yavaş kalan reklamları görmezden gelir.",
+      points: [
+        "Ürünün en önemli faydasını ilk saniyelerde gösterin.",
+        "Birden fazla mesaj yerine tek ve açık bir mesaj kullanın.",
+        "Reklamı doğru platform ve ekran boyutu için hazırlayın.",
+        "Hedef kitle yorulmadan önce fazla kullanılan reklam görsellerini yenileyin.",
+        "Mesajı müşterinin gerçek ihtiyacıyla eşleştirin.",
+        "Satın Al, Daha Fazla Bilgi veya Ürünü Gör gibi açık bir eylem çağrısı kullanın.",
+      ],
+      action:
+        "Reklamınıza üç saniye bakın. Ana mesaj anlaşılmıyorsa tasarımı sadeleştirin.",
+    },
+
+    fastDecisions: {
+      badge: "HIZLI KARARLAR",
+      title: "İlk Saniyeler Önemlidir",
+      intro:
+        "Müşteriler ilk izlenimlerini çok hızlı oluşturur. Bu nedenle başlangıç görseli ve mesajı hemen anlaşılmalıdır.",
+      points: [
+        "Ürünü görselin en görünür alanına yerleştirin.",
+        "Kısa ve belirgin bir başlık kullanın.",
+        "Ana teklifi gizleyen dekoratif öğeleri kaldırın.",
+        "Eylem çağrısını kolayca fark edilebilir hâle getirin.",
+        "Tasarımı küçük bir telefon ekranında test edin.",
+      ],
+      action:
+        "Reklamınızı bir kişiye üç saniye gösterin ve ne anladığını sorun.",
+      warning:
+        "Oranlar sektöre ve hedef kitleye göre değişebilir. Kendi müşterilerinizin davranışını ölçün.",
+    },
+
+    visualAttention: {
+      badge: "GÖRSEL DİKKAT",
+      title: "Görseller Müşteriyi Durdurabilir veya Uzaklaştırabilir",
+      intro:
+        "Güçlü görseller müşterinin dikkatini çekebilir; ancak uygunluk ve açıklık, süslemeden daha önemlidir.",
+      points: [
+        "Açık bir görsel hiyerarşi oluşturun.",
+        "Ürünü arka plandan ayrı ve kolayca fark edilir tutun.",
+        "Okunabilir yazılar ve yeterli renk kontrastı kullanın.",
+        "Düşük kaliteli veya uzatılmış görseller kullanmayın.",
+        "Görsel tarzı hedef müşteriyle uyumlu hâle getirin.",
+      ],
+      action:
+        "Görsel küçültüldüğünde ürünün ve başlığın hâlâ net olup olmadığını kontrol edin.",
+      warning:
+        "Gösterilen oranları güvenilir bir araştırmaya bağlanana kadar eğitim amaçlı örnek olarak değerlendirin.",
+    },
+
+    emotionalMarketing: {
+      badge: "DUYGUSAL PAZARLAMA",
+      title: "Duygular Mesajın Hatırlanmasına Yardımcı Olur",
+      intro:
+        "Duygu, ürünün gerçek değeriyle bağlantılı olduğunda reklamı daha unutulmaz hâle getirebilir.",
+      points: [
+        "Güven, rahatlık, mutluluk, merak veya arzu gibi tek bir duygu seçin.",
+        "Hedef kitleye uygun insanları ve durumları kullanın.",
+        "Duyguyu doğrudan ürünün faydasına bağlayın.",
+        "Ürünle ilgisiz ve abartılı hikâyelerden kaçının.",
+        "Reklamı açık ve uygulanabilir bir eylemle bitirin.",
+      ],
+      action:
+        "Müşterinin ürününüzü kullandıktan sonra nasıl hissetmesi gerektiğini tek cümlede yazın.",
+      warning:
+        "Dönüşüm artışı ürüne, platforma ve hedef kitleye göre değişir. Bir iddiada bulunmadan önce test edin.",
+    },
+
+    valueProposition: {
+      badge: "DEĞER ÖNERİSİ",
+      title: "Ürünün Değerini Açıkça Gösterin",
+      intro:
+        "Değer önerisi, müşterinin neden diğer seçenekler yerine sizin ürününüzü tercih etmesi gerektiğini açıklar.",
+      points: [
+        "Ürünün kimler için tasarlandığını belirtin.",
+        "Çözdüğü temel sorunu açıklayın.",
+        "Rakip ürünlerden en önemli farkını gösterin.",
+        "Vaadinizi kanıtlar veya gerçek müşteri yorumlarıyla destekleyin.",
+        "Mesajı belirgin, kısa ve anlaşılır tutun.",
+      ],
+      action:
+        "Şu cümleyi tamamlayın: Bu ürün ___ kişilerine, ___ olmadan ___ elde etmeleri için yardımcı olur.",
+      warning:
+        "Belirli bir satış artışı oranı yayımlamadan önce kendi mağaza analizlerinizi kullanın.",
+    },
+
+    perfumeBrand: {
+      badge: "ÖRNEK İNCELEME",
+      title: "Bir Parfüm Markasının Görsel Gelişimi",
+      intro:
+        "Bu eğitim örneği, bir parfüm satıcısının ürünü daha iyi sunarak reklamlarını nasıl geliştirebileceğini gösterir.",
+      points: [
+        "Şişe ve ambalaj kalitesini göstermek için yakın çekim görseller kullanın.",
+        "Parfümün karakterine ve duygusuna uygun aydınlatma seçin.",
+        "Farklı müşteri grupları için yaşam tarzı görselleri hazırlayın.",
+        "Çok fazla yazı yerine kısa ve duygusal bir slogan kullanın.",
+        "Sade ürün fotoğraflarıyla modelli reklamların performansını karşılaştırın.",
+      ],
+      action:
+        "Ana ürün görselini değiştirmeden önceki ve sonraki tıklama ve satışları ölçün.",
+      warning:
+        "Gösterilen +%42 sonucu, doğrulanmış gerçek bir Sellova müşterisine ait olmadığı sürece örnek içeriktir.",
+    },
+
+    jewelryStore: {
+      badge: "ÖRNEK İNCELEME",
+      title: "Mücevher Mağazası Etkileşim Stratejisi",
+      intro:
+        "Bu örnek, bir mücevher satıcısının aydınlatma, yakın çekimler ve tutarlı marka görünümüyle etkileşimi nasıl artırabileceğini gösterir.",
+      points: [
+        "Taşları ve metal dokusunu göstermek için makro görseller kullanın.",
+        "Mücevherin gerçek boyutunu gösteren bir görsel ekleyin.",
+        "Koleksiyondaki tüm ürünlerde tutarlı aydınlatma kullanın.",
+        "Mümkün olduğunda mücevheri bir kişi üzerinde gösterin.",
+        "Malzeme ve bakım hakkındaki sık soruları yanıtlayın.",
+      ],
+      action:
+        "Bir yakın çekim, bir yaşam tarzı fotoğrafı ve kısa bir ürün videosu test edin.",
+      warning:
+        "Gösterilen +%28 sonucu, gerçek analizlerle doğrulanana kadar örnek olarak belirtilmelidir.",
+    },
+
+    fashionStore: {
+      badge: "ÖRNEK İNCELEME",
+      title: "Moda Mağazası Tıklama Stratejisi",
+      intro:
+        "Bu örnek, bir moda mağazasının daha iyi stil ve daha açık ürün bilgileriyle müşteri ilgisini nasıl artırabileceğini gösterir.",
+      points: [
+        "Ürünün ön, arka ve ayrıntılı görünümlerini gösterin.",
+        "Mümkün olduğunda giysiyi bir kişinin üzerinde gösterin.",
+        "Beden ve kalıp bilgilerini açıkça sunun.",
+        "Farklı platformlar için ayrı görseller hazırlayın.",
+        "Stil önerileriyle müşterinin ürünü üzerinde hayal etmesine yardımcı olun.",
+      ],
+      action:
+        "Standart ürün fotoğraflarının yanına bir tam kombin görseli ekleyip tıklamaları karşılaştırın.",
+      warning:
+        "Gösterilen +%63 sonucu örnek içeriktir ve gerçek verilerle doğrulanmadan kesin sonuç olarak sunulmamalıdır.",
+    },
+  },
+
+  accessibility: {
+    sellovaLogo: "Sellova",
+    academyHero: "Sellova Akademi ana görseli",
+    openCategory: "Kategoriyi aç",
+    saveArticle: "Makaleyi kaydet",
+    closeModal: "Pencereyi kapat",
+  },
 },
+  
+    
 
  // --- Music ---
  music: {

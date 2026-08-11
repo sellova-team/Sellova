@@ -2,278 +2,321 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useLang } from "../../lib/lang";
+import Link from "next/link";
+import { useLang } from "@/lib/lang";
+import styles from "./settings.module.css";
 
 export default function SettingsPage() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [subscription] = useState("Basic");
-  const [language, setLanguage] = useState("English");
-
   const { messages } = useLang();
-  const t = messages.settings;
+  const t = messages.AccountSettings;
 
-  const languages = [
-    "Afrikaans","Albanian","Amharic","Arabic","Armenian","Azerbaijani",
-    "Basque","Belarusian","Bengali","Bosnian","Bulgarian","Catalan",
-    "Cebuano","Chichewa","Chinese (Simplified)","Chinese (Traditional)","Corsican",
-    "Croatian","Czech","Danish","Dutch","English","Esperanto",
-    "Estonian","Filipino","Finnish","French","Frisian","Galician",
-    "Georgian","German","Greek","Gujarati","Haitian Creole","Hausa",
-    "Hawaiian","Hebrew","Hindi","Hmong","Hungarian","Icelandic",
-    "Igbo","Indonesian","Irish","Italian","Japanese","Javanese",
-    "Kannada","Kazakh","Khmer","Korean","Kurdish","Kyrgyz",
-    "Lao","Latin","Latvian","Lithuanian","Luxembourgish","Macedonian",
-    "Malagasy","Malay","Malayalam","Maltese","Maori","Marathi",
-    "Mongolian","Myanmar (Burmese)","Nepali","Norwegian","Pashto","Persian",
-    "Polish","Portuguese","Punjabi","Romanian","Russian","Samoan",
-    "Scots Gaelic","Serbian","Sesotho","Shona","Sindhi","Sinhala",
-    "Slovak","Slovenian","Somali","Spanish","Sundanese","Swahili",
-    "Swedish","Tajik","Tamil","Telugu","Thai","Turkish",
-    "Ukrainian","Urdu","Uzbek","Vietnamese","Welsh","Xhosa",
-    "Yiddish","Yoruba","Zulu"
-  ];
+  const [fullName, setFullName] = useState(
+    "Shabnam Moghaddam"
+  );
 
-  const saveSettings = () => {
-    alert(
-      `${t.saveAlertTitle}\n` +
-      `${t.saveAlertNameLabel}: ${name || "-"}\n` +
-      `${t.saveAlertEmailLabel}: ${email || "-"}\n` +
-      `${t.saveAlertLanguageLabel}: ${language}`
-    );
-  };
+  const [email, setEmail] = useState(
+    "shabnam@example.com"
+  );
 
-  const goSupport = () => {
-    // میره مستقیم به صفحه Support و پایین صفحه روی باکس چت
-    window.location.href = "/support#chat-section";
-  };
+  const [brandName, setBrandName] = useState("Sellova");
+
+  const [brandSlogan, setBrandSlogan] = useState(
+    "AI Advertising Suite"
+  );
+
+  const [language, setLanguage] = useState("english");
+  const [theme, setTheme] = useState("dark");
+
+  const [showPasswordForm, setShowPasswordForm] =
+    useState(false);
+
+  const [currentPassword, setCurrentPassword] =
+    useState("");
+
+  const [newPassword, setNewPassword] =
+    useState("");
+
+  const [confirmPassword, setConfirmPassword] =
+    useState("");
 
   return (
-    <>
-      {/* استایل فقط برای موبایل */}
-      <style jsx global>{`
-        @media (max-width: 768px) {
-          .settings-page-wrapper {
-            margin: 5px auto !important;
-            padding: 15px !important;
-          }
+    <main className={styles.page}>
+      {/* HEADER */}
 
-          .settings-logo-header {
-            margin-top: 0 !important;
-            margin-bottom: 10px !important;
-          }
+      <header className={styles.header}>
+        <Image
+          src="/logo.png"
+          alt="Sellova"
+          width={182}
+          height={68}
+          className={styles.logo}
+          priority
+        />
 
-          .settings-logo-img {
-            width: 120px !important;
-            height: auto !important;
-          }
-        }
-      `}</style>
-
-      <div
-        className="settings-page-wrapper"
-        style={{
-          maxWidth: "900px",
-          margin: "30px auto",
-          padding: "30px",
-          backgroundColor: "#fff",
-          borderRadius: "15px",
-          boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
-        }}
-      >
-        <header
-          className="settings-logo-header"
-          style={{ textAlign: "center", marginBottom: "30px" }}
+        <Link
+          href="/ads/dashboard"
+          className={styles.backLink}
         >
-          <Image
-            src="/logo.png"
-            alt="Sellova Logo"
-            width={250}
-            height={150}
-            className="settings-logo-img"
-          />
-        </header>
+          <span>←</span>
 
-        <h2
-          style={{
-            textAlign: "center",
-            marginBottom: "25px",
-            color: "#4a90e2",
-            fontSize: "28px",
-          }}
-        >
-          {t.title}
-        </h2>
+          {t.header.backToWorkspace}
+        </Link>
+      </header>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
-          <div style={{ flex: 1, minWidth: "250px" }}>
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontWeight: "bold",
-                  marginBottom: "5px",
-                }}
-              >
-                {t.fullNameLabel}
-              </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder={t.fullNamePlaceholder}
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  borderRadius: "8px",
-                  border: "1px solid #ccc",
-                }}
-              />
+      <section className={styles.content}>
+        {/* HERO */}
+
+        <div className={styles.hero}>
+          <div className={styles.heroText}>
+            <span>{t.header.title}</span>
+          </div>
+
+          <div className={styles.gearArt}>
+            <Image
+              src="/assets/icons/ADS/setting/axe.png"
+              alt="Settings gear"
+              fill
+              priority
+            />
+          </div>
+        </div>
+
+        {/* ACCOUNT SETTINGS */}
+
+        <section className={styles.accountCard}>
+          <div className={styles.cardTitle}>
+            <span>♙</span>
+
+            <div>
+              <h2>{t.account.title}</h2>
+
+              <p>{t.account.subtitle}</p>
             </div>
+          </div>
 
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontWeight: "bold",
-                  marginBottom: "5px",
-                }}
-              >
-                {t.emailLabel}
-              </label>
+          <div className={styles.fields}>
+            <label>
+              <span>{t.account.fullName}</span>
+
+              <input
+                value={fullName}
+                onChange={(event) =>
+                  setFullName(event.target.value)
+                }
+              />
+            </label>
+
+            <label>
+              <span>{t.account.emailAddress}</span>
+
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={t.emailPlaceholder}
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  borderRadius: "8px",
-                  border: "1px solid #ccc",
-                }}
+                onChange={(event) =>
+                  setEmail(event.target.value)
+                }
               />
-            </div>
+            </label>
 
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontWeight: "bold",
-                  marginBottom: "5px",
-                }}
-              >
-                {t.passwordLabel}
-              </label>
+            <label>
+              <span>{t.account.brandName}</span>
+
               <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder={t.passwordPlaceholder}
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  borderRadius: "8px",
-                  border: "1px solid #ccc",
-                }}
+                value={brandName}
+                onChange={(event) =>
+                  setBrandName(event.target.value)
+                }
               />
-            </div>
+            </label>
 
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontWeight: "bold",
-                  marginBottom: "5px",
-                }}
-              >
-                {t.subscriptionLabel}
-              </label>
+            <label>
+              <span>{t.account.brandSlogan}</span>
+
               <input
-                type="text"
-                value={subscription}
-                readOnly
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  borderRadius: "8px",
-                  border: "1px solid #ccc",
-                  backgroundColor: "#f0f0f0",
-                }}
+                value={brandSlogan}
+                onChange={(event) =>
+                  setBrandSlogan(event.target.value)
+                }
               />
-            </div>
-          </div>
+            </label>
 
-          <div style={{ flex: 1, minWidth: "250px" }}>
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontWeight: "bold",
-                  marginBottom: "5px",
-                }}
-              >
-                {t.languageLabel}
-              </label>
+            <label>
+              <span>{t.account.language}</span>
+
               <select
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-                style={{
-                  width: "80%",
-                  padding: "10px",
-                  borderRadius: "8px",
-                  border: "1px solid #ccc",
-                }}
+                onChange={(event) =>
+                  setLanguage(event.target.value)
+                }
               >
-                {languages.map((lang, idx) => (
-                  <option key={idx} value={lang}>
-                    {lang}
-                  </option>
-                ))}
+                <option value="english">
+                  {t.account.english}
+                </option>
+
+                <option value="persian">
+                  {t.account.persian}
+                </option>
+
+                <option value="turkish">
+                  {t.account.turkish}
+                </option>
+
+                <option value="french">
+                  {t.account.french}
+                </option>
               </select>
+            </label>
+
+            <label>
+              <span>{t.account.theme}</span>
+
+              <select
+                value={theme}
+                onChange={(event) =>
+                  setTheme(event.target.value)
+                }
+              >
+                <option value="dark">
+                  {t.account.darkMode}
+                </option>
+
+                <option value="light">
+                  {t.account.lightMode}
+                </option>
+              </select>
+            </label>
+
+            <div className={styles.planField}>
+              <span>{t.plan.currentPlan}</span>
+
+              <div>
+                <strong>{t.plan.freePlan}</strong>
+
+                <small>
+                  {t.plan.creditsAvailable}
+                </small>
+
+                <Link href="/ads/upgrade-plan">
+                  {t.plan.upgradePlan} →
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div
-          style={{
-            marginTop: "30px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "15px",
-          }}
-        >
-          <button
-            onClick={saveSettings}
-            style={{
-              padding: "15px",
-              borderRadius: "8px",
-              backgroundColor: "#4a90e2",
-              color: "#fff",
-              border: "none",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
-            {t.saveButton}
-          </button>
-          <button
-            onClick={goSupport}
-            style={{
-              padding: "15px",
-              borderRadius: "8px",
-              backgroundColor: "#f39c12",
-              color: "#fff",
-              border: "none",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
-            {t.supportButton}
-          </button>
-        </div>
-      </div>
-    </>
+          <div className={styles.cardFooter}>
+            <button
+              type="button"
+              className={styles.passwordButton}
+              onClick={() =>
+                setShowPasswordForm(!showPasswordForm)
+              }
+            >
+              <span>⌁</span>
+
+              <div>
+                <strong>{t.security.title}</strong>
+
+                <small>
+                  {t.security.changePassword}
+                </small>
+              </div>
+
+              <b>→</b>
+            </button>
+
+            <button
+              type="button"
+              className={styles.saveButton}
+            >
+              {t.actions.saveChanges}
+            </button>
+          </div>
+
+          {showPasswordForm && (
+            <div className={styles.passwordForm}>
+              <h3>{t.security.changePassword}</h3>
+
+              <label>
+                <span>Current password</span>
+
+                <input
+                  type="password"
+                  value={currentPassword}
+                  onChange={(event) =>
+                    setCurrentPassword(event.target.value)
+                  }
+                />
+              </label>
+
+              <label>
+                <span>New password</span>
+
+                <input
+                  type="password"
+                  value={newPassword}
+                  onChange={(event) =>
+                    setNewPassword(event.target.value)
+                  }
+                />
+              </label>
+
+              <label>
+                <span>Confirm new password</span>
+
+                <input
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(event) =>
+                    setConfirmPassword(event.target.value)
+                  }
+                />
+              </label>
+
+              <button type="button">
+                Save new password
+              </button>
+            </div>
+          )}
+        </section>
+
+        {/* HELP & SUPPORT */}
+
+        <section className={styles.helpCard}>
+          <span className={styles.helpIcon}>?</span>
+
+          <div>
+            <strong>{t.support.title}</strong>
+
+            <p>{t.support.text}</p>
+          </div>
+
+          <Link href="mailto:sellova.sit@gmail.com">
+           sellova.sit@gmail.com
+
+            <span>→</span>
+          </Link>
+        </section>
+      </section>
+
+      {/* FOOTER */}
+
+      <footer className={styles.footer}>
+        <span>{t.footer.rights}</span>
+
+        <nav>
+          <Link href="/privacy">
+            {t.footer.privacyPolicy}
+          </Link>
+
+          <Link href="/terms">
+            {t.footer.termsOfService}
+          </Link>
+
+          <Link href="mailto:sellova.sit@gmail.com">
+            {t.support.contactSupport}
+          </Link>
+        </nav>
+      </footer>
+    </main>
   );
 }
